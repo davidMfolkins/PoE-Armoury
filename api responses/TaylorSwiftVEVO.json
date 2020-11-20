@@ -160,7 +160,7 @@
             "Deals 63.9% of Base Damage",
             "Base duration is 2.00 seconds",
             "60% of Physical Damage Converted to Chaos Damage",
-            "Modifiers to Projectile Damage apply to this Skill's Damage Over Time effect",
+            "Modifiers to Projectile Damage apply to this Skill''s Damage Over Time effect",
             "+6 to radius",
             "10% increased Area of Effect"
           ],
@@ -1162,7 +1162,7 @@
           "sColour": "R"
         }
       ],
-      "name": "Greed's Embrace",
+      "name": "Greed''s Embrace",
       "typeLine": "Golden Plate",
       "identified": true,
       "ilvl": 70,
@@ -1341,7 +1341,7 @@
             "Mine lasts 8 seconds",
             "Base duration is 4.00 seconds",
             "Base secondary duration is 4.00 seconds",
-            "Increases and Reductions to Mine Duration also apply to this Skill's Buff Duration",
+            "Increases and Reductions to Mine Duration also apply to this Skill''s Buff Duration",
             "32% increased Area of Effect",
             "Only one Mine of this type can Detonate in each Detonation Sequence",
             "Mines cannot be Re-armed",
@@ -2015,7 +2015,7 @@
         "28% increased Damage over Time"
       ],
       "cosmeticMods": [
-        "Has Death's Harp Skin. You can reclaim this by shift-clicking this item."
+        "Has Death''s Harp Skin. You can reclaim this by shift-clicking this item."
       ],
       "frameType": 2,
       "x": 0,
@@ -2249,7 +2249,7 @@
               "displayMode": 1
             }
           ],
-          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the level of supported gems. Cannot support skills that don't come from gems.",
+          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the level of supported gems. Cannot support skills that don''t come from gems.",
           "explicitMods": [
             "This Gem gains 115% increased Experience",
             "+2 to Level of Supported Active Skill Gems"
@@ -2529,7 +2529,7 @@
             "Deals 63.9% of Base Damage",
             "Base duration is 2.00 seconds",
             "60% of Physical Damage Converted to Chaos Damage",
-            "Modifiers to Projectile Damage apply to this Skill's Damage Over Time effect",
+            "Modifiers to Projectile Damage apply to this Skill''s Damage Over Time effect",
             "+6 to radius",
             "10% increased Area of Effect"
           ],

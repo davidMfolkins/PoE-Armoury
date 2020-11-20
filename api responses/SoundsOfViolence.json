@@ -99,7 +99,7 @@
       "league": "Heist",
       "id": "635aa1a19e1509811eeaf69c9fc4f06e796564221f38da57e516a3290fe90f35",
       "name": "",
-      "typeLine": "Surgeon's Quicksilver Flask of Staunching",
+      "typeLine": "Surgeon''s Quicksilver Flask of Staunching",
       "identified": true,
       "ilvl": 42,
       "properties": [
@@ -397,7 +397,7 @@
               "type": 20
             }
           ],
-          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the quality of supported gems. Cannot support skills that don't come from gems.",
+          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the quality of supported gems. Cannot support skills that don''t come from gems.",
           "explicitMods": [
             "This Gem gains 100% increased Experience",
             "+8% to Quality of Supported Active Skill Gems"
@@ -503,7 +503,7 @@
           "explicitMods": [
             "Base duration is 3.00 seconds",
             "20% increased Skill Effect Duration",
-            "This Skill's Cooldown does not recover during its effect",
+            "This Skill''s Cooldown does not recover during its effect",
             "75% of Damage from Hits is taken from the Buff before your Life or Energy Shield\nBuff can take Damage equal to 20% of your Armour, up to a maximum of 10000",
             "Reflects 3000% of Damage taken from Buff as Fire Damage when Buff expires or is depleted",
             "Buff grants +858 to Armour"
@@ -523,7 +523,7 @@
       "league": "Heist",
       "id": "2d38873a2a3b01428a95bbc1c86e0b4637b4bacf41946600d64c38e383e259c4",
       "name": "Fate Curio",
-      "typeLine": "Thief's Trinket",
+      "typeLine": "Thief''s Trinket",
       "identified": true,
       "ilvl": 86,
       "corrupted": true,
@@ -544,7 +544,7 @@
         "15% chance in Heists for Orbs of Alteration to drop as Chaos Orbs instead",
         "9% chance in Heists for Orbs of Augmentation to drop as Orbs of Alchemy instead"
       ],
-      "descrText": "You must find the sculpture The Catch in a Smuggler's Den or Underbelly Blueprint to be able to equip this",
+      "descrText": "You must find the sculpture The Catch in a Smuggler''s Den or Underbelly Blueprint to be able to equip this",
       "frameType": 2,
       "x": 0,
       "y": 0,
@@ -668,7 +668,7 @@
         "193% increased Physical Damage",
         "15% increased Attack Speed",
         "80% increased Evasion Rating while moving",
-        "Skills fire 2 additional Projectiles if you've used a Movement Skill Recently",
+        "Skills fire 2 additional Projectiles if you''ve used a Movement Skill Recently",
         "Far Shot"
       ],
       "flavourText": [
@@ -767,7 +767,7 @@
               "type": 20
             }
           ],
-          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the quality of supported gems. Cannot support skills that don't come from gems.",
+          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the quality of supported gems. Cannot support skills that don''t come from gems.",
           "explicitMods": [
             "This Gem gains 100% increased Experience",
             "+8% to Quality of Supported Active Skill Gems"
@@ -849,7 +849,7 @@
               "displayMode": 1
             }
           ],
-          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the level of supported gems. Cannot support skills that don't come from gems.",
+          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the level of supported gems. Cannot support skills that don''t come from gems.",
           "explicitMods": [
             "This Gem gains 100% increased Experience",
             "+2 to Level of Supported Active Skill Gems"
@@ -1192,7 +1192,7 @@
             "Base duration is 1.00 seconds",
             "20% increased Skill Effect Duration",
             "20% increased Buff Duration per Endurance Charge removed",
-            "This Skill's Cooldown does not recover during its effect",
+            "This Skill''s Cooldown does not recover during its effect",
             "34% less Elemental Damage taken",
             "35% less Physical Damage taken",
             "15.0% less Physical Damage taken per Endurance Charge removed"
@@ -1210,7 +1210,7 @@
           "support": false,
           "id": "e63adf7d793a4943bfe943d470025adbef0123ec88ef124fb43e0090c191c006",
           "name": "",
-          "typeLine": "Sniper's Mark",
+          "typeLine": "Sniper''s Mark",
           "identified": true,
           "ilvl": 0,
           "properties": [
@@ -1394,7 +1394,7 @@
       "league": "Heist",
       "id": "15aca2854c0f479b62501c2432e45fcd707c99da3442257ee6571f70aa25017a",
       "name": "",
-      "typeLine": "Experimenter's Diamond Flask of Heat",
+      "typeLine": "Experimenter''s Diamond Flask of Heat",
       "identified": true,
       "ilvl": 66,
       "properties": [
@@ -1788,7 +1788,7 @@
               "type": 20
             }
           ],
-          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the quality of supported gems. Cannot support skills that don't come from gems.",
+          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the quality of supported gems. Cannot support skills that don''t come from gems.",
           "explicitMods": [
             "+8% to Quality of Supported Active Skill Gems"
           ],
@@ -1868,7 +1868,7 @@
               "displayMode": 1
             }
           ],
-          "secDescrText": "Summons an Ancestor Totem which attacks enemies with melee strikes while you're near it. Being near it grants you more attack speed.",
+          "secDescrText": "Summons an Ancestor Totem which attacks enemies with melee strikes while you''re near it. Being near it grants you more attack speed.",
           "explicitMods": [
             "Totem lasts 12 seconds",
             "Deals 144% of Base Damage",
@@ -2225,7 +2225,7 @@
         "+64 to maximum Life"
       ],
       "enchantMods": [
-        "10% reduced Mana Cost of Skills if you've been Hit Recently"
+        "10% reduced Mana Cost of Skills if you''ve been Hit Recently"
       ],
       "frameType": 2,
       "x": 0,
@@ -3208,7 +3208,7 @@
               "displayMode": 1
             }
           ],
-          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will apply a mana multiplier to supported gems. Cannot support skills that don't come from gems.",
+          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will apply a mana multiplier to supported gems. Cannot support skills that don''t come from gems.",
           "explicitMods": [
             "This Gem gains 100% increased Experience"
           ],
@@ -3367,7 +3367,7 @@
         "203% increased Physical Damage",
         "19% increased Attack Speed",
         "80% increased Evasion Rating while moving",
-        "Skills fire 2 additional Projectiles if you've used a Movement Skill Recently",
+        "Skills fire 2 additional Projectiles if you''ve used a Movement Skill Recently",
         "Far Shot"
       ],
       "flavourText": [
@@ -3453,7 +3453,7 @@
               "displayMode": 1
             }
           ],
-          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the quality of supported gems. Cannot support skills that don't come from gems.",
+          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the quality of supported gems. Cannot support skills that don''t come from gems.",
           "explicitMods": [
             "This Gem gains 100% increased Experience",
             "+16% to Quality of Supported Active Skill Gems"
@@ -3710,7 +3710,7 @@
           "sColour": "R"
         }
       ],
-      "name": "Lioneye's Vision",
+      "name": "Lioneye''s Vision",
       "typeLine": "Crusader Plate",
       "identified": true,
       "ilvl": 78,

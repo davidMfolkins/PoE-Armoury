@@ -7,7 +7,7 @@
       "icon": "https://web.poecdn.com/image/Art/2DItems/Rings/DemigodsBand2.png?v=173f6bb13c211fc376a770b5d12c72e4&w=1&h=1&scale=1",
       "league": "Hardcore",
       "id": "4f8c5076263f5cbdc0a1bb087a9b52ef255673bbcbfbb454bd435f79e7b56cec",
-      "name": "Demigod's Eye",
+      "name": "Demigod''s Eye",
       "typeLine": "Golden Hoop",
       "identified": true,
       "ilvl": 100,
@@ -63,7 +63,7 @@
           "sColour": "R"
         }
       ],
-      "name": "Demigod's Beacon",
+      "name": "Demigod''s Beacon",
       "typeLine": "Golden Flame",
       "identified": true,
       "ilvl": 100,
@@ -235,7 +235,7 @@
       "icon": "https://web.poecdn.com/image/Art/2DItems/Rings/MoonstoneRingUnique.png?v=81a85c443c6efb3d4410836327242bb9&w=1&h=1&scale=1",
       "league": "Hardcore",
       "id": "56428f54806cece03bcc8b4e638dbf973676af46d7d4e76a21c345ae66d7e518",
-      "name": "Shavronne's Revelation",
+      "name": "Shavronne''s Revelation",
       "typeLine": "Moonstone Ring",
       "identified": true,
       "ilvl": 80,

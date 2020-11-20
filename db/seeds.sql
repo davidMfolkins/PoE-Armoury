@@ -426,426 +426,6 @@ VALUES('{
 }', CURRENT_TIMESTAMP),
 ('{
   "total": 15000,
-  "cached_since": "2020-11-20T20:13:03+00:00",
-  "entries": [
-    {
-      "rank": 1,
-      "dead": false,
-      "online": false,
-      "character": {
-        "id": "cc248e0d23c849d71b40379d82dfc19b200bdb7b8ac63322f06de6483aaca5ea",
-        "name": "PenDora",
-        "level": 100,
-        "class": "Scion",
-        "score": 63328,
-        "experience": 4250334444
-      },
-      "account": {
-        "name": "Jin_melike",
-        "realm": "pc",
-        "challenges": {
-          "total": 0
-        }
-      }
-    },
-    {
-      "rank": 2,
-      "dead": false,
-      "online": false,
-      "character": {
-        "id": "b23f488245ffebc87616c9acf76fbbb3d534e0490a8b30a9be48f8fcc3941be0",
-        "name": "TaylorSwiftVEVO",
-        "level": 100,
-        "class": "Scion",
-        "score": 65425,
-        "experience": 4250334444
-      },
-      "account": {
-        "name": "PeakingDuck",
-        "realm": "pc",
-        "challenges": {
-          "total": 33
-        },
-        "twitch": {
-          "name": "peakingduck"
-        }
-      }
-    },
-    {
-      "rank": 3,
-      "dead": false,
-      "online": false,
-      "character": {
-        "id": "41240e2f9f7a56ebb409d6060619a14ffba154c61a84ef769bc9758361351ae8",
-        "name": "Dear_Santa_UA",
-        "level": 100,
-        "class": "Occultist",
-        "experience": 4250334444
-      },
-      "account": {
-        "name": "Valerchik",
-        "realm": "pc",
-        "challenges": {
-          "total": 0
-        }
-      }
-    },
-    {
-      "rank": 4,
-      "dead": false,
-      "online": false,
-      "character": {
-        "id": "7580516c6997a4401ea0363a0cca9e83ae50e475fe437fedc51848f322c98b6a",
-        "name": "VaalMulliSpark",
-        "level": 100,
-        "class": "Scion",
-        "score": 65425,
-        "experience": 4250334444
-      },
-      "account": {
-        "name": "spinzter",
-        "realm": "pc",
-        "challenges": {
-          "total": 22
-        },
-        "twitch": {
-          "name": "gourangaa"
-        }
-      }
-    },
-    {
-      "rank": 5,
-      "dead": false,
-      "online": false,
-      "character": {
-        "id": "f73e30b470c74d3a4ebd3e3ee4e4410ac9164f95f7c1876d32e2c74a5f861a6c",
-        "name": "Sliqs",
-        "level": 100,
-        "class": "Ranger",
-        "score": 65425,
-        "experience": 4250334444
-      },
-      "account": {
-        "name": "Redhill",
-        "realm": "pc",
-        "challenges": {
-          "total": 11
-        },
-        "twitch": {
-          "name": "sliqs_"
-        }
-      }
-    },
-    {
-      "rank": 6,
-      "dead": false,
-      "online": false,
-      "character": {
-        "id": "b96614016b65e349212a77a9996edc34faa3c164529141064a2cef24ca132277",
-        "name": "xVisco",
-        "level": 100,
-        "class": "Templar",
-        "score": 65425,
-        "experience": 4250334444
-      },
-      "account": {
-        "name": "xVisco",
-        "realm": "pc",
-        "challenges": {
-          "total": 0
-        }
-      }
-    },
-    {
-      "rank": 7,
-      "dead": false,
-      "online": false,
-      "character": {
-        "id": "3fd75b1d62ed688b6fe6facf824a2bc95cf3546eeeb961ab45e3d32f8cb2bba8",
-        "name": "xdukanx",
-        "level": 100,
-        "class": "Chieftain",
-        "experience": 4250334444
-      },
-      "account": {
-        "name": "danieldukan",
-        "realm": "pc",
-        "challenges": {
-          "total": 0
-        }
-      }
-    },
-    {
-      "rank": 8,
-      "dead": false,
-      "online": false,
-      "character": {
-        "id": "c894d59151e36fdf72651efc5ea306dda3b64dbe4d686b05c73dfce8eeb7f9ba",
-        "name": "Gigaways",
-        "level": 100,
-        "class": "Ranger",
-        "score": 63328,
-        "experience": 4250334444
-      },
-      "account": {
-        "name": "gigawayss",
-        "realm": "pc",
-        "challenges": {
-          "total": 0
-        }
-      }
-    },
-    {
-      "rank": 9,
-      "dead": false,
-      "online": false,
-      "character": {
-        "id": "c93359f2d95bbdbf14ad0adf3f54868fb08a98bba6a40dd0c7bf7c17216cecdb",
-        "name": "SasusiaTesusia",
-        "level": 100,
-        "class": "Pathfinder",
-        "experience": 4250334444
-      },
-      "account": {
-        "name": "zeldzioszka",
-        "realm": "pc",
-        "challenges": {
-          "total": 37
-        },
-        "twitch": {
-          "name": "lanc1980"
-        }
-      }
-    },
-    {
-      "rank": 10,
-      "dead": false,
-      "online": false,
-      "character": {
-        "id": "40cc6c38083852a86f5f9f7cc6c3a52aacb792221e09ea70a6994a55f8e3b342",
-        "name": "Dollarmaker",
-        "level": 100,
-        "class": "Raider",
-        "experience": 4250334444
-      },
-      "account": {
-        "name": "Juhazzz",
-        "realm": "pc",
-        "challenges": {
-          "total": 1
-        }
-      }
-    },
-    {
-      "rank": 11,
-      "dead": false,
-      "online": false,
-      "character": {
-        "id": "0c617da80d97e447c81d828bb326fa421dfce722954431c4fcd0d222bbbb5cc9",
-        "name": "Ghiaurul",
-        "level": 100,
-        "class": "Inquisitor",
-        "score": 63327,
-        "experience": 4250334444
-      },
-      "account": {
-        "name": "Runner84",
-        "realm": "pc",
-        "challenges": {
-          "total": 0
-        }
-      }
-    },
-    {
-      "rank": 12,
-      "dead": false,
-      "online": false,
-      "character": {
-        "id": "2ea3fb2faa289f2d3ce6a9d28f6f1870cc00664ac2a8b3a6ce686a1f2028b2f3",
-        "name": "ShavronnesBastard",
-        "level": 100,
-        "class": "Witch",
-        "score": 65425,
-        "experience": 4250334444
-      },
-      "account": {
-        "name": "Nurgus",
-        "realm": "pc",
-        "challenges": {
-          "total": 0
-        }
-      }
-    },
-    {
-      "rank": 13,
-      "dead": false,
-      "online": false,
-      "character": {
-        "id": "646568362606e049e328d7155fa602525448d82e67ad400a58fc2d3764566db2",
-        "name": "Flammenausbreitung",
-        "level": 100,
-        "class": "Assassin",
-        "score": 63335,
-        "experience": 4250334444
-      },
-      "account": {
-        "name": "bluegray",
-        "realm": "pc",
-        "challenges": {
-          "total": 4
-        },
-        "twitch": {
-          "name": "macjamesb"
-        }
-      }
-    },
-    {
-      "rank": 14,
-      "dead": false,
-      "online": false,
-      "character": {
-        "id": "e4aeeb67a18364b79e91540c6cd51f378ccda3efbf99e700b29a0bc21474bdde",
-        "name": "MiningForAWin",
-        "level": 100,
-        "class": "Necromancer",
-        "score": 63327,
-        "experience": 4250334444
-      },
-      "account": {
-        "name": "Mohun",
-        "realm": "pc",
-        "challenges": {
-          "total": 0
-        },
-        "twitch": {
-          "name": "wolfsgaming"
-        }
-      }
-    },
-    {
-      "rank": 15,
-      "dead": false,
-      "online": false,
-      "character": {
-        "id": "5f24b37af8e2daf00afb6f6fd275b92e958b42e2d5c43585751b51fc5085737e",
-        "name": "___Feanor___",
-        "level": 100,
-        "class": "Trickster",
-        "score": 63335,
-        "experience": 4250334444
-      },
-      "account": {
-        "name": "MagicalPowers",
-        "realm": "pc",
-        "challenges": {
-          "total": 0
-        }
-      }
-    },
-    {
-      "rank": 16,
-      "dead": false,
-      "online": false,
-      "character": {
-        "id": "0791844bae0e89de2bf4af7068d36d5e67c9ae8b1a0d199666ace678aef9652e",
-        "name": "BLASTINE",
-        "level": 100,
-        "class": "Witch",
-        "score": 65425,
-        "experience": 4250334444
-      },
-      "account": {
-        "name": "fireballz",
-        "realm": "pc",
-        "challenges": {
-          "total": 0
-        }
-      }
-    },
-    {
-      "rank": 17,
-      "dead": false,
-      "online": false,
-      "character": {
-        "id": "dc0ee8fe807ec26fcf166803e8af6d524c13b19ce8106f4a5cd3ce48344cb10c",
-        "name": "MrsBBQ",
-        "level": 100,
-        "class": "Scion",
-        "score": 65425,
-        "experience": 4250334444
-      },
-      "account": {
-        "name": "ywsandcj",
-        "realm": "pc",
-        "challenges": {
-          "total": 0
-        }
-      }
-    },
-    {
-      "rank": 18,
-      "dead": false,
-      "online": false,
-      "character": {
-        "id": "8d7a83626224d7039adbd23fe9247e5d170760139e9d58d848a10b2a6d5c8bca",
-        "name": "StickyTick",
-        "level": 100,
-        "class": "Scion",
-        "score": 65425,
-        "experience": 4250334444
-      },
-      "account": {
-        "name": "Japichin",
-        "realm": "pc",
-        "challenges": {
-          "total": 0
-        }
-      }
-    },
-    {
-      "rank": 19,
-      "dead": false,
-      "online": false,
-      "character": {
-        "id": "c25f23a7aeb3a5c752cb71bf545cbc3971925cd8df32637c0fdcf58f6d7f86d9",
-        "name": "Aelurora",
-        "level": 100,
-        "class": "Scion",
-        "score": 65425,
-        "experience": 4250334444
-      },
-      "account": {
-        "name": "thanatanthrope",
-        "realm": "pc",
-        "challenges": {
-          "total": 0
-        }
-      }
-    },
-    {
-      "rank": 20,
-      "dead": false,
-      "online": false,
-      "character": {
-        "id": "11eb46dc8ae775764e86509c76ddb419c53dcd602019d5080a9264915eb1a90e",
-        "name": "Circe_Roc",
-        "level": 100,
-        "class": "Witch",
-        "score": 65425,
-        "experience": 4250334444
-      },
-      "account": {
-        "name": "r5g6h3s7",
-        "realm": "pc",
-        "challenges": {
-          "total": 0
-        }
-      }
-    }
-  ]
-}', CURRENT_TIMESTAMP),
-('{
-  "total": 15000,
   "cached_since": "2020-11-20T20:16:04+00:00",
   "entries": [
     {
@@ -1294,7 +874,7 @@ VALUES('{
       "icon": "https://web.poecdn.com/image/Art/2DItems/Rings/DemigodsBand2.png?v=173f6bb13c211fc376a770b5d12c72e4&w=1&h=1&scale=1",
       "league": "Hardcore",
       "id": "4f8c5076263f5cbdc0a1bb087a9b52ef255673bbcbfbb454bd435f79e7b56cec",
-      "name": "Demigod's Eye",
+      "name": "Demigod''s Eye",
       "typeLine": "Golden Hoop",
       "identified": true,
       "ilvl": 100,
@@ -1350,7 +930,7 @@ VALUES('{
           "sColour": "R"
         }
       ],
-      "name": "Demigod's Beacon",
+      "name": "Demigod''s Beacon",
       "typeLine": "Golden Flame",
       "identified": true,
       "ilvl": 100,
@@ -1522,7 +1102,446 @@ VALUES('{
       "icon": "https://web.poecdn.com/image/Art/2DItems/Rings/MoonstoneRingUnique.png?v=81a85c443c6efb3d4410836327242bb9&w=1&h=1&scale=1",
       "league": "Hardcore",
       "id": "56428f54806cece03bcc8b4e638dbf973676af46d7d4e76a21c345ae66d7e518",
-      "name": "Shavronne's Revelation",
+      "name": "Shavronne''s Revelation",
+      "typeLine": "Moonstone Ring",
+      "identified": true,
+      "ilvl": 80,
+      "requirements": [
+        {
+          "name": "Level",
+          "values": [
+            [
+              "30",
+              0
+            ]
+          ],
+          "displayMode": 0
+        }
+      ],
+      "implicitMods": [
+        "+15 to maximum Energy Shield"
+      ],
+      "explicitMods": [
+        "+60 to Intelligence",
+        "Right ring slot: You cannot Regenerate Mana",
+        "Right ring slot: Regenerate 3% of Energy Shield per second",
+        "Left ring slot: You cannot Recharge or Regenerate Energy Shield",
+        "Left ring slot: 100% increased Mana Regeneration Rate"
+      ],
+      "flavourText": [
+        "\"Shavronne held Sanity in her right\r",
+        "hand and Revelation in her left.\r",
+        "Brutus chose the left hand.\"\r",
+        "- Kadavrus, Surgeon to the Umbra"
+      ],
+      "frameType": 3,
+      "x": 0,
+      "y": 0,
+      "inventoryId": "Ring2"
+    },
+    {
+      "verified": false,
+      "w": 2,
+      "h": 3,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Armours/BodyArmours/TabulaRasa.png?v=c169e1ab88583925693bb3a35cc49b6b&w=2&h=3&scale=1",
+      "league": "Hardcore",
+      "id": "155270e540e4aa9a48ac9f1863c00fa4cc41192fc96a70882defb377a9a15532",
+      "sockets": [
+        {
+          "group": 0,
+          "attr": "G",
+          "sColour": "W"
+        },
+        {
+          "group": 0,
+          "attr": "G",
+          "sColour": "W"
+        },
+        {
+          "group": 0,
+          "attr": "G",
+          "sColour": "W"
+        },
+        {
+          "group": 0,
+          "attr": "G",
+          "sColour": "W"
+        },
+        {
+          "group": 0,
+          "attr": "G",
+          "sColour": "W"
+        },
+        {
+          "group": 0,
+          "attr": "G",
+          "sColour": "W"
+        }
+      ],
+      "name": "Tabula Rasa",
+      "typeLine": "Simple Robe",
+      "identified": true,
+      "ilvl": 70,
+      "frameType": 3,
+      "x": 0,
+      "y": 0,
+      "inventoryId": "BodyArmour",
+      "socketedItems": []
+    },
+    {
+      "verified": false,
+      "w": 2,
+      "h": 2,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Armours/Gloves/GlovesDexIntUnique1.png?v=7f0286e47d36b4c4a50966ae736e58c5&w=2&h=2&scale=1",
+      "league": "Hardcore",
+      "id": "86f17492306b44fe810839c058a6ffc77545e14ba9daebb0f2eee17668cde534",
+      "sockets": [
+        {
+          "group": 0,
+          "attr": "I",
+          "sColour": "B"
+        },
+        {
+          "group": 1,
+          "attr": "S",
+          "sColour": "R"
+        }
+      ],
+      "name": "Facebreaker",
+      "typeLine": "Strapped Mitts",
+      "identified": true,
+      "ilvl": 72,
+      "properties": [
+        {
+          "name": "Evasion Rating",
+          "values": [
+            [
+              "30",
+              0
+            ]
+          ],
+          "displayMode": 0,
+          "type": 17
+        },
+        {
+          "name": "Energy Shield",
+          "values": [
+            [
+              "6",
+              0
+            ]
+          ],
+          "displayMode": 0,
+          "type": 18
+        }
+      ],
+      "requirements": [
+        {
+          "name": "Level",
+          "values": [
+            [
+              "16",
+              0
+            ]
+          ],
+          "displayMode": 0
+        }
+      ],
+      "explicitMods": [
+        "+60% to Global Critical Strike Multiplier",
+        "10% reduced Enemy Stun Threshold",
+        "600% more Physical Damage with Unarmed Attacks",
+        "Extra gore"
+      ],
+      "flavourText": [
+        "Fly like a Storm Crow, crush like a Rhoa"
+      ],
+      "frameType": 3,
+      "x": 0,
+      "y": 0,
+      "inventoryId": "Gloves",
+      "socketedItems": []
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Amulets/Amulet7.png?v=ecac1e6f4574572eeef0379d955811cd&w=1&h=1&scale=1",
+      "league": "Hardcore",
+      "id": "6c82f1e998f9ec1aa4b2988a3236082a0ffc2bd8f9d47bb985fe4b70cbc067c0",
+      "name": "",
+      "typeLine": "Onyx Amulet",
+      "identified": true,
+      "ilvl": 37,
+      "requirements": [
+        {
+          "name": "Level",
+          "values": [
+            [
+              "20",
+              0
+            ]
+          ],
+          "displayMode": 0
+        }
+      ],
+      "implicitMods": [
+        "+10 to all Attributes"
+      ],
+      "frameType": 0,
+      "x": 0,
+      "y": 0,
+      "inventoryId": "Amulet"
+    }
+  ],
+  "character": {
+    "name": "AdrianDualWieldInc",
+    "league": "Hardcore",
+    "classId": 0,
+    "ascendancyClass": 0,
+    "class": "Scion",
+    "level": 100,
+    "experience": 4250334444
+  }
+}', 2, CURRENT_TIMESTAMP),
+('{
+  "items": [
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Rings/DemigodsBand2.png?v=173f6bb13c211fc376a770b5d12c72e4&w=1&h=1&scale=1",
+      "league": "Hardcore",
+      "id": "4f8c5076263f5cbdc0a1bb087a9b52ef255673bbcbfbb454bd435f79e7b56cec",
+      "name": "Demigod''s Eye",
+      "typeLine": "Golden Hoop",
+      "identified": true,
+      "ilvl": 100,
+      "requirements": [
+        {
+          "name": "Level",
+          "values": [
+            [
+              "12",
+              0
+            ]
+          ],
+          "displayMode": 0
+        }
+      ],
+      "implicitMods": [
+        "+8 to all Attributes"
+      ],
+      "explicitMods": [
+        "33% increased Mana Regeneration Rate",
+        "16% increased Rarity of Items found",
+        "3% increased Character Size"
+      ],
+      "flavourText": [
+        "#5 Overall in One Month Hardcore Flashback Event"
+      ],
+      "frameType": 3,
+      "x": 0,
+      "y": 0,
+      "inventoryId": "Ring"
+    },
+    {
+      "verified": false,
+      "w": 2,
+      "h": 3,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Armours/Shields/DemigodsShieldAlt.png?v=26b5d682e63a0eba479baec14ee1f472&w=2&h=3&scale=1",
+      "league": "Hardcore",
+      "id": "3520051a8cb7e49cb1cff1c391d600e32a52bfe0f6830365b63ed9eb0335f050",
+      "sockets": [
+        {
+          "group": 0,
+          "attr": "S",
+          "sColour": "R"
+        },
+        {
+          "group": 0,
+          "attr": "D",
+          "sColour": "G"
+        },
+        {
+          "group": 0,
+          "attr": "S",
+          "sColour": "R"
+        }
+      ],
+      "name": "Demigod''s Beacon",
+      "typeLine": "Golden Flame",
+      "identified": true,
+      "ilvl": 100,
+      "properties": [
+        {
+          "name": "Chance to Block",
+          "values": [
+            [
+              "20%",
+              0
+            ]
+          ],
+          "displayMode": 0,
+          "type": 15
+        }
+      ],
+      "requirements": [
+        {
+          "name": "Level",
+          "values": [
+            [
+              "15",
+              0
+            ]
+          ],
+          "displayMode": 0
+        }
+      ],
+      "implicitMods": [
+        "+16% to Chaos Resistance"
+      ],
+      "explicitMods": [
+        "Adds 10 to 20 Fire Damage to Attacks",
+        "12% increased Rarity of Items found",
+        "20% increased Light Radius"
+      ],
+      "flavourText": [
+        "#4 Overall in the Hardcore Flashback Event"
+      ],
+      "frameType": 3,
+      "x": 0,
+      "y": 0,
+      "inventoryId": "Offhand2",
+      "socketedItems": []
+    },
+    {
+      "verified": false,
+      "w": 2,
+      "h": 2,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Armours/Helmets/HelmetDexUnique2.png?v=3a1d216d1feccd885829f6dd4d0f1d5e&w=2&h=2&scale=1",
+      "league": "Hardcore",
+      "id": "159df31450ee2866d5479bf7c2268844ea7095aaa0b1f3959c16921357bc47f7",
+      "sockets": [
+        {
+          "group": 0,
+          "attr": "D",
+          "sColour": "G"
+        },
+        {
+          "group": 0,
+          "attr": "D",
+          "sColour": "G"
+        },
+        {
+          "group": 1,
+          "attr": "I",
+          "sColour": "B"
+        }
+      ],
+      "name": "Goldrim",
+      "typeLine": "Leather Cap",
+      "identified": true,
+      "ilvl": 82,
+      "properties": [
+        {
+          "name": "Evasion Rating",
+          "values": [
+            [
+              "49",
+              1
+            ]
+          ],
+          "displayMode": 0,
+          "type": 17
+        }
+      ],
+      "explicitMods": [
+        "+30 to Evasion Rating",
+        "10% increased Rarity of Items found",
+        "+36% to all Elemental Resistances",
+        "Reflects 4 Physical Damage to Melee Attackers"
+      ],
+      "flavourText": [
+        "No metal slips as easily through the fingers as gold."
+      ],
+      "frameType": 3,
+      "x": 0,
+      "y": 0,
+      "inventoryId": "Helm",
+      "socketedItems": []
+    },
+    {
+      "verified": false,
+      "w": 2,
+      "h": 2,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Armours/Boots/Wanderlust.png?v=0ff39442b18a833e6f12db84fac2c28c&w=2&h=2&scale=1",
+      "league": "Hardcore",
+      "id": "b80dae2213087894b2131bf1d5c53bab8a8ed33dadd0dacddb31ef0b62d57ed8",
+      "sockets": [
+        {
+          "group": 0,
+          "attr": "G",
+          "sColour": "W"
+        },
+        {
+          "group": 0,
+          "attr": "D",
+          "sColour": "G"
+        },
+        {
+          "group": 0,
+          "attr": "S",
+          "sColour": "R"
+        },
+        {
+          "group": 0,
+          "attr": "I",
+          "sColour": "B"
+        }
+      ],
+      "name": "Wanderlust",
+      "typeLine": "Wool Shoes",
+      "identified": true,
+      "ilvl": 68,
+      "corrupted": true,
+      "properties": [
+        {
+          "name": "Energy Shield",
+          "values": [
+            [
+              "17",
+              1
+            ]
+          ],
+          "displayMode": 0,
+          "type": 18
+        }
+      ],
+      "explicitMods": [
+        "+5 to Dexterity",
+        "+13 to maximum Energy Shield",
+        "21% increased Mana Regeneration Rate",
+        "20% increased Movement Speed",
+        "Cannot be Frozen"
+      ],
+      "flavourText": [
+        "All the world is my home."
+      ],
+      "frameType": 3,
+      "x": 0,
+      "y": 0,
+      "inventoryId": "Boots",
+      "socketedItems": []
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Rings/MoonstoneRingUnique.png?v=81a85c443c6efb3d4410836327242bb9&w=1&h=1&scale=1",
+      "league": "Hardcore",
+      "id": "56428f54806cece03bcc8b4e638dbf973676af46d7d4e76a21c345ae66d7e518",
+      "name": "Shavronne''s Revelation",
       "typeLine": "Moonstone Ring",
       "identified": true,
       "ilvl": 80,
@@ -1825,7 +1844,7 @@ VALUES('{
       "league": "Heist",
       "id": "635aa1a19e1509811eeaf69c9fc4f06e796564221f38da57e516a3290fe90f35",
       "name": "",
-      "typeLine": "Surgeon's Quicksilver Flask of Staunching",
+      "typeLine": "Surgeon''s Quicksilver Flask of Staunching",
       "identified": true,
       "ilvl": 42,
       "properties": [
@@ -2123,7 +2142,7 @@ VALUES('{
               "type": 20
             }
           ],
-          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the quality of supported gems. Cannot support skills that don't come from gems.",
+          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the quality of supported gems. Cannot support skills that don''t come from gems.",
           "explicitMods": [
             "This Gem gains 100% increased Experience",
             "+8% to Quality of Supported Active Skill Gems"
@@ -2229,7 +2248,7 @@ VALUES('{
           "explicitMods": [
             "Base duration is 3.00 seconds",
             "20% increased Skill Effect Duration",
-            "This Skill's Cooldown does not recover during its effect",
+            "This Skill''s Cooldown does not recover during its effect",
             "75% of Damage from Hits is taken from the Buff before your Life or Energy Shield\nBuff can take Damage equal to 20% of your Armour, up to a maximum of 10000",
             "Reflects 3000% of Damage taken from Buff as Fire Damage when Buff expires or is depleted",
             "Buff grants +858 to Armour"
@@ -2249,7 +2268,7 @@ VALUES('{
       "league": "Heist",
       "id": "2d38873a2a3b01428a95bbc1c86e0b4637b4bacf41946600d64c38e383e259c4",
       "name": "Fate Curio",
-      "typeLine": "Thief's Trinket",
+      "typeLine": "Thief''s Trinket",
       "identified": true,
       "ilvl": 86,
       "corrupted": true,
@@ -2270,7 +2289,7 @@ VALUES('{
         "15% chance in Heists for Orbs of Alteration to drop as Chaos Orbs instead",
         "9% chance in Heists for Orbs of Augmentation to drop as Orbs of Alchemy instead"
       ],
-      "descrText": "You must find the sculpture The Catch in a Smuggler's Den or Underbelly Blueprint to be able to equip this",
+      "descrText": "You must find the sculpture The Catch in a Smuggler''s Den or Underbelly Blueprint to be able to equip this",
       "frameType": 2,
       "x": 0,
       "y": 0,
@@ -2394,7 +2413,7 @@ VALUES('{
         "193% increased Physical Damage",
         "15% increased Attack Speed",
         "80% increased Evasion Rating while moving",
-        "Skills fire 2 additional Projectiles if you've used a Movement Skill Recently",
+        "Skills fire 2 additional Projectiles if you''ve used a Movement Skill Recently",
         "Far Shot"
       ],
       "flavourText": [
@@ -2493,7 +2512,7 @@ VALUES('{
               "type": 20
             }
           ],
-          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the quality of supported gems. Cannot support skills that don't come from gems.",
+          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the quality of supported gems. Cannot support skills that don''t come from gems.",
           "explicitMods": [
             "This Gem gains 100% increased Experience",
             "+8% to Quality of Supported Active Skill Gems"
@@ -2575,7 +2594,7 @@ VALUES('{
               "displayMode": 1
             }
           ],
-          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the level of supported gems. Cannot support skills that don't come from gems.",
+          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the level of supported gems. Cannot support skills that don''t come from gems.",
           "explicitMods": [
             "This Gem gains 100% increased Experience",
             "+2 to Level of Supported Active Skill Gems"
@@ -2918,7 +2937,7 @@ VALUES('{
             "Base duration is 1.00 seconds",
             "20% increased Skill Effect Duration",
             "20% increased Buff Duration per Endurance Charge removed",
-            "This Skill's Cooldown does not recover during its effect",
+            "This Skill''s Cooldown does not recover during its effect",
             "34% less Elemental Damage taken",
             "35% less Physical Damage taken",
             "15.0% less Physical Damage taken per Endurance Charge removed"
@@ -2936,7 +2955,7 @@ VALUES('{
           "support": false,
           "id": "e63adf7d793a4943bfe943d470025adbef0123ec88ef124fb43e0090c191c006",
           "name": "",
-          "typeLine": "Sniper's Mark",
+          "typeLine": "Sniper''s Mark",
           "identified": true,
           "ilvl": 0,
           "properties": [
@@ -3120,7 +3139,7 @@ VALUES('{
       "league": "Heist",
       "id": "15aca2854c0f479b62501c2432e45fcd707c99da3442257ee6571f70aa25017a",
       "name": "",
-      "typeLine": "Experimenter's Diamond Flask of Heat",
+      "typeLine": "Experimenter''s Diamond Flask of Heat",
       "identified": true,
       "ilvl": 66,
       "properties": [
@@ -3514,7 +3533,7 @@ VALUES('{
               "type": 20
             }
           ],
-          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the quality of supported gems. Cannot support skills that don't come from gems.",
+          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the quality of supported gems. Cannot support skills that don''t come from gems.",
           "explicitMods": [
             "+8% to Quality of Supported Active Skill Gems"
           ],
@@ -3594,7 +3613,7 @@ VALUES('{
               "displayMode": 1
             }
           ],
-          "secDescrText": "Summons an Ancestor Totem which attacks enemies with melee strikes while you're near it. Being near it grants you more attack speed.",
+          "secDescrText": "Summons an Ancestor Totem which attacks enemies with melee strikes while you''re near it. Being near it grants you more attack speed.",
           "explicitMods": [
             "Totem lasts 12 seconds",
             "Deals 144% of Base Damage",
@@ -3951,7 +3970,7 @@ VALUES('{
         "+64 to maximum Life"
       ],
       "enchantMods": [
-        "10% reduced Mana Cost of Skills if you've been Hit Recently"
+        "10% reduced Mana Cost of Skills if you''ve been Hit Recently"
       ],
       "frameType": 2,
       "x": 0,
@@ -4934,7 +4953,7 @@ VALUES('{
               "displayMode": 1
             }
           ],
-          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will apply a mana multiplier to supported gems. Cannot support skills that don't come from gems.",
+          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will apply a mana multiplier to supported gems. Cannot support skills that don''t come from gems.",
           "explicitMods": [
             "This Gem gains 100% increased Experience"
           ],
@@ -5093,7 +5112,7 @@ VALUES('{
         "203% increased Physical Damage",
         "19% increased Attack Speed",
         "80% increased Evasion Rating while moving",
-        "Skills fire 2 additional Projectiles if you've used a Movement Skill Recently",
+        "Skills fire 2 additional Projectiles if you''ve used a Movement Skill Recently",
         "Far Shot"
       ],
       "flavourText": [
@@ -5179,7 +5198,7 @@ VALUES('{
               "displayMode": 1
             }
           ],
-          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the quality of supported gems. Cannot support skills that don't come from gems.",
+          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the quality of supported gems. Cannot support skills that don''t come from gems.",
           "explicitMods": [
             "This Gem gains 100% increased Experience",
             "+16% to Quality of Supported Active Skill Gems"
@@ -5436,7 +5455,7 @@ VALUES('{
           "sColour": "R"
         }
       ],
-      "name": "Lioneye's Vision",
+      "name": "Lioneye''s Vision",
       "typeLine": "Crusader Plate",
       "identified": true,
       "ilvl": 78,
@@ -6180,7 +6199,7 @@ VALUES('{
     "experience": 3447548753,
     "lastActive": true
   }
-}', 2, CURRENT_TIMESTAMP),
+}',1, CURRENT_TIMESTAMP),
 ('{
   "items": [
     {
@@ -6343,7 +6362,7 @@ VALUES('{
             "Deals 63.9% of Base Damage",
             "Base duration is 2.00 seconds",
             "60% of Physical Damage Converted to Chaos Damage",
-            "Modifiers to Projectile Damage apply to this Skill's Damage Over Time effect",
+            "Modifiers to Projectile Damage apply to this Skill''s Damage Over Time effect",
             "+6 to radius",
             "10% increased Area of Effect"
           ],
@@ -7345,7 +7364,7 @@ VALUES('{
           "sColour": "R"
         }
       ],
-      "name": "Greed's Embrace",
+      "name": "Greed''s Embrace",
       "typeLine": "Golden Plate",
       "identified": true,
       "ilvl": 70,
@@ -7524,7 +7543,7 @@ VALUES('{
             "Mine lasts 8 seconds",
             "Base duration is 4.00 seconds",
             "Base secondary duration is 4.00 seconds",
-            "Increases and Reductions to Mine Duration also apply to this Skill's Buff Duration",
+            "Increases and Reductions to Mine Duration also apply to this Skill''s Buff Duration",
             "32% increased Area of Effect",
             "Only one Mine of this type can Detonate in each Detonation Sequence",
             "Mines cannot be Re-armed",
@@ -8198,7 +8217,7 @@ VALUES('{
         "28% increased Damage over Time"
       ],
       "cosmeticMods": [
-        "Has Death's Harp Skin. You can reclaim this by shift-clicking this item."
+        "Has Death''s Harp Skin. You can reclaim this by shift-clicking this item."
       ],
       "frameType": 2,
       "x": 0,
@@ -8432,7 +8451,7 @@ VALUES('{
               "displayMode": 1
             }
           ],
-          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the level of supported gems. Cannot support skills that don't come from gems.",
+          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the level of supported gems. Cannot support skills that don''t come from gems.",
           "explicitMods": [
             "This Gem gains 115% increased Experience",
             "+2 to Level of Supported Active Skill Gems"
@@ -8712,7 +8731,7 @@ VALUES('{
             "Deals 63.9% of Base Damage",
             "Base duration is 2.00 seconds",
             "60% of Physical Damage Converted to Chaos Damage",
-            "Modifiers to Projectile Damage apply to this Skill's Damage Over Time effect",
+            "Modifiers to Projectile Damage apply to this Skill''s Damage Over Time effect",
             "+6 to radius",
             "10% increased Area of Effect"
           ],
@@ -9311,7 +9330,7 @@ VALUES('{
     "level": 100,
     "experience": 4250334444
   }
-}', 1, CURRENT_TIMESTAMP),
+}',1, CURRENT_TIMESTAMP),
 ('{
   "items": [
     {
@@ -9365,7 +9384,7 @@ VALUES('{
     "level": 100,
     "experience": 4250334444
   }
-}', 2, CURRENT_TIMESTAMP);
+}',2, CURRENT_TIMESTAMP);
 
 
 
