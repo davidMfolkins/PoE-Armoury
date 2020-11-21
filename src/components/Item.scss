@@ -18,14 +18,20 @@
 
 .implicit-mod {
   color: #354bad;
+  margin: 3px;
 }
 
 .explicit-mod {
   color: #a53535;
+  margin: 3px;
 }
 
 .item-pills {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.item-separator {
+  border-bottom: 2px solid rgb(224, 224, 224);
+  margin: 3px;
 }
