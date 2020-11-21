@@ -25,6 +25,10 @@ export default function Item(props) {
     "amulet": props.item.inventoryId === 'Amulet',
     "belt":props.item.inventoryId === 'Belt',
     "weapon":props.item.inventoryId === 'Weapon',
+    "unique": props.item.frameType === 3,
+    "rare": props.item.frameType === 2,
+    "magic": props.item.frameType === 1,
+    "normal": props.item.frameType === 0
   })
 
   const itemRarity = className({
@@ -35,21 +39,23 @@ export default function Item(props) {
   })
 
   let implicitMods;
-  let explicitMods;
-  let properties;
+  
 
   if (props.item.implicitMods) {
     implicitMods = props.item.implicitMods.map((mod) => {
       return <div className="implicit-mod">{mod}</div>
       })
     }
-
+    let explicitMods;
+   
     if (props.item.explicitMods) {
    explicitMods = props.item.explicitMods.map((mod) => {
     return <div className="explicit-mod">{mod}</div >
     })
     }
 
+    let properties;
+    
     if (props.item.properties) {
       
       properties = props.item.properties.map((property) => {
@@ -63,15 +69,29 @@ export default function Item(props) {
           "chaos": property.values[0][1] === 5
         })
         return <div className="property">{property.name}: <span className={textColor}>{property.values[0][0]}</span></div>
+      } else {
+        return <div className="property">{property.name}</div>
       }
         
       })
        }
+  let requirements;
+      
+  if (props.item.requirements) {
+    requirements = props.item.requirements.map((requirement) => {
+    return <span className="requirement">{requirement.name} <span className="simple">{requirement.values[0][0]}</span></span>
+    })
+  }
+
+  let flavourText;
+  if (props.item.flavourText) {
+  flavourText = <div className="requirement"><i>"{props.item.flavourText}"</i></div>
+  }
 
   
   const popover = (
-    <Popover id={itemRarity} style={{minWidth: '250px'}}>
-      <Popover.Title className="item-title"><b>{props.item.name || "No name"}</b></Popover.Title>
+    <Popover id={itemRarity} style={{minWidth: '300px'}}>
+      <Popover.Title className="item-title"><b>{props.item.name || "No name"}</b>{props.item.typeLine && <div><b>{props.item.typeLine}</b></div>}</Popover.Title>
       <Popover.Content style={{minHeight: '75px'}}>
         <div className="item-pills">
       <h6><Badge pill variant={pillType}>
@@ -81,12 +101,18 @@ export default function Item(props) {
         iLevel: {props.item.ilvl}
        </Badge>{' '}</h6>
         </div>
+        
         {properties && <div className="item-separator"/>}
       {properties}
+      {requirements && <div className="item-separator"/>}
+      {requirements && <span className="requirement">Requires</span>}
+      {requirements}
         {implicitMods && <div className="item-separator"/>}
       {implicitMods}
       {explicitMods && <div className="item-separator"/>}
       {explicitMods}
+      {flavourText && <div className="item-separator"/>}
+      {flavourText}
       </Popover.Content>
     </Popover>
   );
