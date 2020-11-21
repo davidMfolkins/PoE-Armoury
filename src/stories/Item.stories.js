@@ -26,6 +26,18 @@ const item7 =
 const item8 =
 {"verified":false,"w":1,"h":1,"icon":"https://web.poecdn.com/image/Art/2DItems/Amulets/Amulet7.png?v=ecac1e6f4574572eeef0379d955811cd&w=1&h=1&scale=1","league":"Hardcore","id":"6c82f1e998f9ec1aa4b2988a3236082a0ffc2bd8f9d47bb985fe4b70cbc067c0","name":"","typeLine":"Onyx Amulet","identified":true,"ilvl":37,"requirements":[{"name":"Level","values":[["20",0]],"displayMode":0}],"implicitMods":["+10 to all Attributes"],"frameType":0,"x":0,"y":0,"inventoryId":"Amulet"}
 
+const uniqueItem = 
+{"verified":false,"w":1,"h":1,"icon":"https://web.poecdn.com/image/Art/2DItems/Rings/DemigodsBand2.png?v=173f6bb13c211fc376a770b5d12c72e4&w=1&h=1&scale=1","league":"Hardcore","id":"4f8c5076263f5cbdc0a1bb087a9b52ef255673bbcbfbb454bd435f79e7b56cec","name":"Demigod's Eye","typeLine":"Golden Hoop","identified":true,"ilvl":100,"requirements":[{"name":"Level","values":[["12",0]],"displayMode":0}],"implicitMods":["+8 to all Attributes"],"explicitMods":["33% increased Mana Regeneration Rate","16% increased Rarity of Items found","3% increased Character Size"],"flavourText":["#5 Overall in One Month Hardcore Flashback Event"],"frameType":3,"x":0,"y":0,"inventoryId":"Ring"};
+
+const rareItem = 
+{"verified":false,"w":1,"h":1,"icon":"https://web.poecdn.com/image/Art/2DItems/Rings/DemigodsBand2.png?v=173f6bb13c211fc376a770b5d12c72e4&w=1&h=1&scale=1","league":"Hardcore","id":"4f8c5076263f5cbdc0a1bb087a9b52ef255673bbcbfbb454bd435f79e7b56cec","name":"Demigod's Eye","typeLine":"Golden Hoop","identified":true,"ilvl":100,"requirements":[{"name":"Level","values":[["12",0]],"displayMode":0}],"implicitMods":["+8 to all Attributes"],"explicitMods":["33% increased Mana Regeneration Rate","16% increased Rarity of Items found","3% increased Character Size"],"flavourText":["#5 Overall in One Month Hardcore Flashback Event"],"frameType":2,"x":0,"y":0,"inventoryId":"Ring"};
+
+const magicItem = 
+{"verified":false,"w":1,"h":1,"icon":"https://web.poecdn.com/image/Art/2DItems/Rings/DemigodsBand2.png?v=173f6bb13c211fc376a770b5d12c72e4&w=1&h=1&scale=1","league":"Hardcore","id":"4f8c5076263f5cbdc0a1bb087a9b52ef255673bbcbfbb454bd435f79e7b56cec","name":"Demigod's Eye","typeLine":"Golden Hoop","identified":true,"ilvl":100,"requirements":[{"name":"Level","values":[["12",0]],"displayMode":0}],"implicitMods":["+8 to all Attributes"],"explicitMods":["33% increased Mana Regeneration Rate","16% increased Rarity of Items found","3% increased Character Size"],"flavourText":["#5 Overall in One Month Hardcore Flashback Event"],"frameType":1,"x":0,"y":0,"inventoryId":"Ring"};
+
+const normalItem = 
+{"verified":false,"w":1,"h":1,"icon":"https://web.poecdn.com/image/Art/2DItems/Rings/DemigodsBand2.png?v=173f6bb13c211fc376a770b5d12c72e4&w=1&h=1&scale=1","league":"Hardcore","id":"4f8c5076263f5cbdc0a1bb087a9b52ef255673bbcbfbb454bd435f79e7b56cec","name":"Demigod's Eye","typeLine":"Golden Hoop","identified":true,"ilvl":100,"requirements":[{"name":"Level","values":[["12",0]],"displayMode":0}],"implicitMods":["+8 to all Attributes"],"explicitMods":["33% increased Mana Regeneration Rate","16% increased Rarity of Items found","3% increased Character Size"],"flavourText":["#5 Overall in One Month Hardcore Flashback Event"],"frameType":0,"x":0,"y":0,"inventoryId":"Ring"};
+
 const Template = (args) => <Item {...args} />;
 
 export default {
@@ -72,4 +84,25 @@ export const Amulet = Template.bind({});
 Amulet.args = {
   item: item8
 };
+
+export const Unique = Template.bind({});
+Unique.args = {
+  item: uniqueItem
+};
+
+export const Rare = Template.bind({});
+Rare.args = {
+  item: rareItem
+};
+
+export const Magic = Template.bind({});
+Magic.args = {
+  item: magicItem
+};
+
+export const Normal = Template.bind({});
+Normal.args = {
+  item: normalItem
+};
+
 
