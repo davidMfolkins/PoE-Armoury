@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './Searchbar.scss'
 
 function Searchbar() {
+
+  const [value, setValue] = useState("")
+
   return (
     <div>
-      <form>
-        <input type="text" placeholder="Search.." name="search"></input>
-        <button type="submit">Search</button>
+      <form onSubmit={event => event.preventDefault()}>
+        <input 
+        type="text" 
+        placeholder="Search Ladder..." 
+        name="search"
+        value={value}
+        onChange={event => setValue(event.target.value)}/>
     </form>
   </div>
   )
