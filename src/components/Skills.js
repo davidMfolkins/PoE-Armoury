@@ -2,7 +2,7 @@ import './Skills.scss'
 import Skill from './Skill'
 import className from 'classnames'
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Skills (props) {
 

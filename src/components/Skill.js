@@ -38,8 +38,9 @@ export default function Skill(props) {
         } else {
           isSupport = false;
         }
-        newGems = {[inventoryId]: {[gemNumber]: {isSupport, group: links[gemNumber]}}}
+        newGems = {[inventoryId]: {[gemNumber]: {isSupport, group: links[gemNumber], name: gem.typeLine}}}
         gemNumber++
+        console.log(newGems)
       })
     }
   }
