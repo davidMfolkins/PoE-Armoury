@@ -1,14 +1,13 @@
 @import "~bootstrap/scss/bootstrap";
 
-
 .icon {
   height: 100%;
   width: 100%;
 }
 
 .item {
-  border: 2px solid black;
-  border-radius: 5px;
+  position: absolute;
+  border: 2px solid #b78846;
   max-width: 100px;
 }
 
@@ -16,14 +15,90 @@
   text-align: center;
 }
 
-.implicit-mod {
-  color: #354bad;
-  margin: 3px;
+.helm {
+  @extend .item;
+  left: 40%;
+  top: 5%;
+  max-width: 100px;
 }
 
-.explicit-mod {
-  color: #a53535;
+.armour {
+  @extend .item; 
+  left: 40%;
+  top: 40%;
+  
+}
+
+.gloves {
+  @extend .item; 
+  left: 15%;
+  top: 75%;
+} 
+
+.ring {
+  @extend .item; 
+  max-width: 50px;
+  left: 25%;
+  top: 60%;
+  
+}
+.ring2 {
+  @extend .item; 
+  @extend .ring; 
+  left: 65%;
+}
+
+.boots {
+  @extend .item; 
+  left: 65%;
+  top: 75%;
+}
+
+.offhand2 {
+  @extend .item; 
+  left: 75%;
+  top: 25%;
+}
+
+.amulet {
+  @extend .item; 
+  left: 45%;
+  top: 27%;
+}
+
+.belt {
+  @extend .item; 
+  left: 40%;
+  top: 75%;
+}
+.weapon {
+  @extend .item; 
+  left: 5%;
+  top: 25%;
+}
+
+.prop-text {
   margin: 3px;
+}
+.implicit-mod {
+  @extend .prop-text;
+  color: #7c90df;
+  
+}
+.explicit-mod {
+  @extend .prop-text;
+  color: #ca6060;
+}
+
+.property {
+  @extend .prop-text;
+  color: #a5a5a5;
+  .simple {
+    color: white
+  }
+  .augmented {
+    color:rgb(127,127,238)
+  }
 }
 
 .item-pills {
@@ -35,3 +110,37 @@
   border-bottom: 2px solid rgb(224, 224, 224);
   margin: 3px;
 }
+
+#unique {
+ .popover-header {
+  background: rgb(12,12,14);
+  background: linear-gradient(0deg, rgba(12,12,14,1) 0%, rgba(250,108,51,1) 48%, rgba(0,0,0,1) 100%);
+  
+   border: 2px solid rgb(180, 72, 0);
+   color: #591111
+ }
+}
+
+#rare {
+  .popover-header {
+   background: rgb(12,12,14);
+   background: linear-gradient(0deg, rgb(88, 75, 45) 0%, rgb(255, 240, 105) 48%, rgb(88, 75, 45) 100%);
+   
+    border: 2px solid rgb(88, 75, 45);
+    color:rgb(88, 75, 45)
+  }
+ }
+
+ #magic {
+  .popover-header {
+   background: rgb(12,12,14);
+   background: linear-gradient(0deg, rgb(24, 32, 58) 0%, rgb(127,127,238) 48%, rgb(24, 32, 58) 100%);
+   
+    border: 2px solid rgb(88, 75, 45);
+    color:rgb(240, 240, 255)
+  }
+ }
+.popover-body {
+  background: rgba(0,0,0, .8)
+ }
+
