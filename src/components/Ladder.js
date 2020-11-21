@@ -3,6 +3,8 @@ import axios from "axios";
 
 import './Ladder.scss'
 
+import { Table } from 'react-bootstrap'
+
 
 function Ladder() {
   const [data, setData] = useState ({
@@ -18,32 +20,36 @@ function Ladder() {
     })
   }, []) 
 
-    const name = data.ladderChars.map( (entry) => {
-      return <div>{entry.character.name}</div>
-    })
+  const rows = data.ladderChars.map((entry) => {
+    const className = entry.character.class
+    return (
+      <tr className="d-flex">
+      <td className="col-4">{entry.character.name}</td>
+      <td className="col-4">{entry.character.level}</td>
+      <td className="col-4">{className}</td>
+    </tr>
+    )
+  })
 
-    const level = data.ladderChars.map( (entry) => {
-      return <div>{entry.character.level}</div>
-    })
 
-    const charClass = data.ladderChars.map( (entry) => {
-      return <div>{entry.character.class}</div>
-    })
  
   return (
     <div className="ladderContainer">
-      <table className="table">
-        <tr className="rows">
-          <th>Name</th>
-          <th>Level</th>
-          <th>Class</th>
-        </tr>
-        <tr className="rows">
-          <th>{name}</th>
-          <th>{level}</th>
-          <th>{charClass}</th>
-        </tr>
-      </table>
+      
+      <Table striped bordered hover variant="dark">
+  <thead>
+    <tr className="d-flex">
+
+      <th className="col-4">Name</th>
+      <th className="col-4">Level</th>
+      <th className="col-4">Class</th>
+    </tr>
+  </thead>
+  <tbody>
+    {rows}
+
+  </tbody>
+</Table>
     </div>
   );
 }
