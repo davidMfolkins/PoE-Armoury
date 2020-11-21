@@ -1,0 +1,31 @@
+@import "~bootstrap/scss/bootstrap";
+
+
+.icon {
+  height: 100%;
+  width: 100%;
+}
+
+.item {
+  border: 2px solid black;
+  border-radius: 5px;
+  max-width: 100px;
+}
+
+.item-title {
+  text-align: center;
+}
+
+.implicit-mod {
+  color: #354bad;
+}
+
+.explicit-mod {
+  color: #a53535;
+}
+
+.item-pills {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
