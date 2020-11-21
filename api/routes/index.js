@@ -34,6 +34,16 @@ module.exports = (db) => {
       res.status(500).json({ error: err.message });
     });
   });
+
+  router.get('/characters/:id', function(req, res, next) {
+    console.log('received')
+    db.query(`SELECT * FROM characters WHERE id = $1;`, [req.params.id]).then(data => {
+      res.send(data.rows)
+    }).catch(err => {
+      console.log(err)
+      res.status(500).json({ error: err.message });
+    });
+  });
   return router;
 };
 

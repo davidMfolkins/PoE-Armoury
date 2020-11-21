@@ -44,7 +44,7 @@ const account = [
 ]
 
 let charName = ""
-function Searchbar() {
+function Searchbar(props) {
 
   const [value, setValue] = useState("")
 
@@ -69,8 +69,11 @@ function Searchbar() {
         name="search"
         value={value}
         onChange={event => setValue(event.target.value)}/>
+        
     </form>
+    <button onClick={props.toggleView}>{props.view === 'ladder' && <span>Character</span>}{props.view === 'character' && <span>Ladder</span>}</button>
     <div>{charName}</div>
+  
   </div>
   )
 }

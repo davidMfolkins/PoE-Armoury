@@ -99,11 +99,13 @@
   top: 75%;
 }
 
-.offhand2 {
+.offhand {
   @extend .item; 
   left: 75%;
   top: 25%;
 }
+
+
 
 .amulet {
   @extend .item; 
@@ -120,6 +122,10 @@
   @extend .item; 
   left: 5%;
   top: 25%;
+}
+
+.hidden {
+  display: none;
 }
 
 .prop-text {
