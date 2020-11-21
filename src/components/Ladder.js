@@ -25,7 +25,7 @@ function Ladder() {
       })
   }, [hardcore])
 
-  const changeButton = function() {
+  const changeButton = function () {
     if (hardcore) {
       return "Hardcore Ladder"
     } else {
@@ -33,7 +33,7 @@ function Ladder() {
     }
   }
 
-  const tableName = function() {
+  const tableName = function () {
     if (!hardcore) {
       return "Hardcore Ladder"
     } else {
@@ -53,9 +53,8 @@ function Ladder() {
   })
 
 
-
   return (
-    <div><button onClick={ () => setHardcore(!hardcore)}>{changeButton()}</button>
+    <div><button onClick={() => setHardcore(!hardcore)}>{changeButton()}</button>
       <div className="ladderContainer">
         <Table striped bordered hover variant="dark">
           <thead>{tableName()}
@@ -67,7 +66,6 @@ function Ladder() {
           </thead>
           <tbody>
             {rows}
-
           </tbody>
         </Table>
       </div>
