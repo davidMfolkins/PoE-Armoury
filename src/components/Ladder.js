@@ -33,12 +33,12 @@ function Ladder() {
   return (
     <div className="ladderContainer">
       <table className="table">
-        <tr className="banana">
+        <tr className="rows">
           <th>Name</th>
           <th>Level</th>
           <th>Class</th>
         </tr>
-        <tr className="banana">
+        <tr className="rows">
           <th>{name}</th>
           <th>{level}</th>
           <th>{charClass}</th>
