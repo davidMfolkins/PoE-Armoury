@@ -8,32 +8,40 @@ export default function Skill(props) {
   
   let gem;
   let groups;
+  let links = [];
 
-  // if (props.item.socketedItems && props.item.socketedItems[0]) {
-  //   gem = props.item.socketedItems.typeLine
-  // }
+  if (props.item.inventoryId === "Offhand2" || props.item.inventoryId === "Weapon2") {
+    return null
+  } else {
 
-  if (props.item.sockets) {
-    groups = props.item.sockets.map((socket) => {
-      return <div>{socket.group}</div>
-    })
-  }
-
-  if (props.item.socketedItems) {
-    gem = props.item.socketedItems.map((gem) => {
-      if (gem.support) {
-        return <div className="support-gem">{gem.typeLine} <img src={gem.icon}/></div>
-      } else {
-        return <div className="active-gem">{gem.typeLine} <img src={gem.icon}/></div>
-      }
-    })
+    if (props.item.sockets) {
+      props.item.sockets.map((socket) => {
+        if (socket.group === links[links.length - 1]) {
+          links.push("-")
+        } else {
+          links.push(" ")
+        }
+        links.push(socket.group)
+        return <div>{links}</div>
+      })
+    }
+  
+    // if (props.item.socketedItems) {
+    //   gem = props.item.socketedItems.map((gem) => {
+    //     if (gem.support) {
+    //       return <div className="support-gem">{gem.typeLine} <img src={gem.icon}/></div>
+    //     } else {
+    //       return <div className="active-gem">{gem.typeLine} <img src={gem.icon}/></div>
+    //     }
+    //   })
+    // }
   }
 
 
 
   return (
     <div>
-      <p>{gem} {groups}</p>
+      <p>{gem} {links}</p>
     </div>
   )
 }
