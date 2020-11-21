@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
+import './Ladder.scss'
+
 
 function Ladder() {
   const [data, setData] = useState ({
@@ -16,25 +18,32 @@ function Ladder() {
     })
   }, []) 
 
-    const ladder = data.ladderChars.map( (entry) => {
-    
-      return <div>{entry.character.name} : {entry.character.level} : {entry.character.class}</div>
+    const name = data.ladderChars.map( (entry) => {
+      return <div>{entry.character.name}</div>
+    })
+
+    const level = data.ladderChars.map( (entry) => {
+      return <div>{entry.character.level}</div>
+    })
+
+    const charClass = data.ladderChars.map( (entry) => {
+      return <div>{entry.character.class}</div>
     })
  
   return (
-    <div>
-      <table>
-        <tr>
+    <div className="ladderContainer">
+      <table className="table">
+        <tr className="banana">
           <th>Name</th>
           <th>Level</th>
           <th>Class</th>
         </tr>
-          <th>{ladder}</th>
-          <th></th>
-          <th></th>
-      
+        <tr className="banana">
+          <th>{name}</th>
+          <th>{level}</th>
+          <th>{charClass}</th>
+        </tr>
       </table>
-      
     </div>
   );
 }
