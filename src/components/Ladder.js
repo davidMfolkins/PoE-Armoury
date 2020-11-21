@@ -16,9 +16,9 @@ function Ladder() {
       .then((result) => {
 
         setData({ ...data, ladderChars: result.data[0].rankings.entries })
-        console.log(result)
       })
   }, [])
+  
 
   const rows = data.ladderChars.map((entry) => {
     const className = entry.character.class
@@ -31,23 +31,33 @@ function Ladder() {
     )
   })
 
+  const changeLadder = function() {
+  
+    axios.get('http://localhost:3030/ladder')
+      .then((result) => {
+
+        setData({ ...data, ladderChars: result.data[1].rankings.entries })
+      })
+  }
 
 
   return (
-    <div className="ladderContainer">
-      <Table striped bordered hover variant="dark">
-        <thead>
-          <tr className="d-flex">
-            <th className="col-4">Name</th>
-            <th className="col-4">Level</th>
-            <th className="col-4">Class</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows}
+    <div><button onClick={changeLadder}>Hardcore Ladder</button>
+      <div className="ladderContainer">
+        <Table striped bordered hover variant="dark">
+          <thead>
+            <tr className="d-flex">
+              <th className="col-4">Name</th>
+              <th className="col-4">Level</th>
+              <th className="col-4">Class</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows}
 
-        </tbody>
-      </Table>
+          </tbody>
+        </Table>
+      </div>
     </div>
   );
 }
