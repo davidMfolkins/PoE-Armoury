@@ -1,17 +1,22 @@
 @import "~bootstrap/scss/bootstrap";
 
-.ladderContainer {
-  padding: 10px 0px;
-  display: flex;
-  justify-content: center;
+.ladderPage {
+  background-color: #5e5e5e
 }
-.table {
-  border: 1px solid black;
-  width: 75%;
+.ladderContainer {
+  padding: 10px 0;
+  width: 80%;
+  margin: auto;
+  font-size: 20px;
+  text-align: center;
 }
 
-.rows {
-  border-bottom: 1px solid black;
-  display: flex;
-  justify-content: space-around;
+.ladderTitle {
+  font-size: 50px;
+  text-align: center;
+}
+
+#ladderList:hover {
+  color: #940303;
+  
 }
