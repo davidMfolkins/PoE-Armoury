@@ -4,7 +4,7 @@ import className from 'classnames'
 
 
 export default function Items (props) {
-  
+  console.log(props)
   const items = props.items.map((item) => {  
       return <Item item={item}/>
   })

@@ -6,7 +6,7 @@ import './Ladder.scss'
 import { Table } from 'react-bootstrap'
 
 
-function Ladder() {
+function Ladder(props) {
   const [data, setData] = useState({
     ladderChars: []
   })
@@ -43,8 +43,10 @@ function Ladder() {
 
   const rows = data.ladderChars.map((entry) => {
     const className = entry.character.class
+    const num = Math.ceil(Math.random() * 5)
     return (
-      <tr id="ladderList" className="d-flex" >
+      <tr id="ladderList className="d-flex">
+        <td className="col-4" onClick={() => props.getCharacter(num)}>{entry.character.name} </td>
         <td className="col-4">{entry.character.name}</td>
         <td className="col-4">{entry.character.level}</td>
         <td className="col-4">{className}</td>
