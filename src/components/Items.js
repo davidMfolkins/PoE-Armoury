@@ -1,5 +1,6 @@
 import './Items.scss'
 import Item from './Item'
+import Skills from './Skills'
 import className from 'classnames'
 const items = 
 [ {"verified":false,"w":1,"h":1,"icon":"https://web.poecdn.com/image/Art/2DItems/Rings/DemigodsBand2.png?v=173f6bb13c211fc376a770b5d12c72e4&w=1&h=1&scale=1","league":"Hardcore","id":"4f8c5076263f5cbdc0a1bb087a9b52ef255673bbcbfbb454bd435f79e7b56cec","name":"Demigod's Eye","typeLine":"Golden Hoop","identified":true,"ilvl":100,"requirements":[{"name":"Level","values":[["12",0]],"displayMode":0}],"implicitMods":["+8 to all Attributes"],"explicitMods":["33% increased Mana Regeneration Rate","16% increased Rarity of Items found","3% increased Character Size"],"flavourText":["#5 Overall in One Month Hardcore Flashback Event"],"frameType":3,"x":0,"y":0,"inventoryId":"Ring"},
@@ -515,11 +516,18 @@ export default function Items (props) {
       "inventory-belt":item.inventoryId === 'Belt',
       "inventory-weapon":item.inventoryId === 'Weapon'
     })
-      return <div className={itemType}><Item item={item} /></div>
+      return (
+        <>
+          {/* <div className={itemType}><Item item={item} /></div> */}
+          <div ><Skills item={item} /></div>
+        </>
+        )
     
   })
  
-  return <div className="inventory">
+  return (
+    <div className="inventory">
       {items}
-  </div>
+    </div>
+  )
 }
