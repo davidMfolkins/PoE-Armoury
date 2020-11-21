@@ -8,3 +8,4 @@ ReactDOM.render(
     <Items />
   </React.StrictMode>,
   document.getElementById('root')
+)
