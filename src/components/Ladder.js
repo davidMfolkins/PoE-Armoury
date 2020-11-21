@@ -4,28 +4,37 @@ import axios from "axios";
 
 function Ladder() {
   const [data, setData] = useState ({
-    data: {entries: []}
+    ladderChars: []
   })
 
   useEffect(() => {
-    axios.get('https://www.pathofexile.com/api/ladders/Standard?limit=50&type=league')
+    axios.get('http://localhost:3030/ladder')
     .then( (result) => {
     
-      setData(result)
-      
+      setData({...data, ladderChars: result.data[0].rankings.entries})
+      console.log(result)
     })
-  }) 
+  }, []) 
 
-
-    const final = data.data.entries.map( (entry) => {
-      
+    const ladder = data.ladderChars.map( (entry) => {
+    
       return <div>{entry.character.name} : {entry.character.level} : {entry.character.class}</div>
     })
  
-  
   return (
-    <div className="Ladder">
-      {final}
+    <div>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Level</th>
+          <th>Class</th>
+        </tr>
+          <th>{ladder}</th>
+          <th></th>
+          <th></th>
+      
+      </table>
+      
     </div>
   );
 }
