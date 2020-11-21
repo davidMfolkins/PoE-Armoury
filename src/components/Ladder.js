@@ -10,15 +10,36 @@ function Ladder() {
   const [data, setData] = useState({
     ladderChars: []
   })
+  const [hardcore, setHardcore] = useState({
+    hardcore: false
+  })
 
   useEffect(() => {
     axios.get('http://localhost:3030/ladder')
       .then((result) => {
-
-        setData({ ...data, ladderChars: result.data[0].rankings.entries })
-        console.log(result)
+        if (hardcore) {
+          setData({ ...data, ladderChars: result.data[0].rankings.entries })
+        } else {
+          setData({ ...data, ladderChars: result.data[1].rankings.entries })
+        }
       })
-  }, [])
+  }, [hardcore])
+
+  const changeButton = function () {
+    if (hardcore) {
+      return "Hardcore Ladder"
+    } else {
+      return "Standard Ladder"
+    }
+  }
+
+  const tableName = function () {
+    if (!hardcore) {
+      return "Hardcore Ladder"
+    } else {
+      return "Standard Ladder"
+    }
+  }
 
   const rows = data.ladderChars.map((entry) => {
     const className = entry.character.class
@@ -32,22 +53,22 @@ function Ladder() {
   })
 
 
-
   return (
-    <div className="ladderContainer">
-      <Table striped bordered hover variant="dark">
-        <thead>
-          <tr className="d-flex">
-            <th className="col-4">Name</th>
-            <th className="col-4">Level</th>
-            <th className="col-4">Class</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows}
-
-        </tbody>
-      </Table>
+    <div><button onClick={() => setHardcore(!hardcore)}>{changeButton()}</button>
+      <div className="ladderContainer">
+        <Table striped bordered hover variant="dark">
+          <thead>{tableName()}
+            <tr className="d-flex">
+              <th className="col-4">Name</th>
+              <th className="col-4">Level</th>
+              <th className="col-4">Class</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows}
+          </tbody>
+        </Table>
+      </div>
     </div>
   );
 }
