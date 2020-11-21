@@ -21,7 +21,19 @@ module.exports = (db) => {
     router.get('/characters', function(req, res, next) {
       console.log('received')
   });
+
 });
+  
+  router.get('/ladder', function(req, res, next) {
+    console.log('received')
+    db.query(`SELECT rankings FROM ladders;`).then(data => {
+      console.log(data.rows)
+      res.send(data.rows);
+    }).catch(err => {
+      console.log(err)
+      res.status(500).json({ error: err.message });
+    });
+  });
   return router;
 };
 

@@ -1,31 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
+import './Ladder.scss'
+
 
 function Ladder() {
   const [data, setData] = useState ({
-    data: {entries: []}
+    ladderChars: []
   })
 
   useEffect(() => {
-    axios.get('https://www.pathofexile.com/api/ladders/Standard?limit=50&type=league')
+    axios.get('http://localhost:3030/ladder')
     .then( (result) => {
     
-      setData(result)
-      
+      setData({...data, ladderChars: result.data[0].rankings.entries})
+      console.log(result)
     })
-  }) 
+  }, []) 
 
+    const name = data.ladderChars.map( (entry) => {
+      return <div>{entry.character.name}</div>
+    })
 
-    const final = data.data.entries.map( (entry) => {
-      
-      return <div>{entry.character.name} : {entry.character.level} : {entry.character.class}</div>
+    const level = data.ladderChars.map( (entry) => {
+      return <div>{entry.character.level}</div>
+    })
+
+    const charClass = data.ladderChars.map( (entry) => {
+      return <div>{entry.character.class}</div>
     })
  
-  
   return (
-    <div className="Ladder">
-      {final}
+    <div className="ladderContainer">
+      <table className="table">
+        <tr className="rows">
+          <th>Name</th>
+          <th>Level</th>
+          <th>Class</th>
+        </tr>
+        <tr className="rows">
+          <th>{name}</th>
+          <th>{level}</th>
+          <th>{charClass}</th>
+        </tr>
+      </table>
     </div>
   );
 }

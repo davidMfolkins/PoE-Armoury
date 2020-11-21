@@ -1,0 +1,15 @@
+.ladderContainer {
+  padding: 10px 0px;
+  display: flex;
+  justify-content: center;
+}
+.table {
+  border: 1px solid black;
+  width: 75%;
+}
+
+.rows {
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-around;
+}
