@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Items from './components/Items';
+import Items from './Items';
 
 ReactDOM.render(
   <React.StrictMode>

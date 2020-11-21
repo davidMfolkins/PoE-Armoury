@@ -1,6 +1,5 @@
 import './Items.scss'
 import Item from './Item'
-import Skills from './Skills'
 import className from 'classnames'
 
 
@@ -20,10 +19,7 @@ export default function Items (props) {
       "inventory-weapon":item.inventoryId === 'Weapon'
     })
       return (
-        <>
-          {/* <div className={itemType}><Item item={item} /></div> */}
-          <div ><Skills item={item} /></div>
-        </>
+        <div className={itemType}><Item item={item} /></div>
       )
     
   })
