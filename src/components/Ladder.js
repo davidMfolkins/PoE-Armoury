@@ -19,6 +19,14 @@ function Ladder() {
       })
   }, [])
   
+  const changeLadder = function() {
+  
+    axios.get('http://localhost:3030/ladder')
+      .then((result) => {
+
+        setData({ ...data, ladderChars: result.data[1].rankings.entries })
+      })
+  }
 
   const rows = data.ladderChars.map((entry) => {
     const className = entry.character.class
@@ -31,14 +39,6 @@ function Ladder() {
     )
   })
 
-  const changeLadder = function() {
-  
-    axios.get('http://localhost:3030/ladder')
-      .then((result) => {
-
-        setData({ ...data, ladderChars: result.data[1].rankings.entries })
-      })
-  }
 
 
   return (
