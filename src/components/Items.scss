@@ -1,0 +1,71 @@
+.inventory {
+  position: relative;
+  height: 500px;
+  width: 500px;
+  border: 2px solid black
+}
+
+.inventory-helm {
+  position: absolute;
+  left: 40%;
+  top: 5%;
+  max-width: 100px;
+}
+
+.inventory-armour {
+  position: absolute;
+  left: 40%;
+  top: 40%;
+  
+}
+
+.inventory-gloves {
+  position: absolute;
+  left: 15%;
+  top: 75%;
+} 
+
+.inventory-ring {
+  position: absolute;
+  max-width: 50px;
+  left: 25%;
+  top: 60%;
+  
+}
+.inventory-ring2 {
+  position: absolute;
+  max-width: 50px;
+  left: 65%;
+  top: 60%;
+ 
+}
+
+.inventory-boots {
+  position: absolute;
+  left: 65%;
+  top: 75%;
+}
+
+.inventory-offhand2 {
+  position: absolute;
+  left: 75%;
+  top: 25%;
+}
+
+.inventory-amulet {
+  position: absolute;
+  left: 45%;
+  top: 27%;
+}
+
+.inventory-belt {
+  position: absolute;
+  left: 40%;
+  top: 75%;
+}
+.inventory-weapon {
+  position: absolute;
+  left: 5%;
+  top: 25%;
+}
+
