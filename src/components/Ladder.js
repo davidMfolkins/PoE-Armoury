@@ -56,9 +56,10 @@ function Ladder(props) {
 
 
   return (
-    <div class="ladderPage">
-      <div><button onClick={() => setHardcore(!hardcore)}>{changeButton()}</button></div>
-      <div class="ladderTitle">{tableName()}</div>
+    <div className="ladderPage">
+      
+      <div className="ladderTitle">{tableName()}</div>
+      <button className="ladderButton"onClick={() => setHardcore(!hardcore)}>{changeButton()}</button>
       <div className="ladderContainer">
         <Table striped bordered variant="dark">
           <thead>
