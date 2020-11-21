@@ -65,7 +65,7 @@ function Searchbar() {
       <form>
         <input onSubmit={search(value)}
         type="text" 
-        placeholder="Search Ladder..." 
+        placeholder="Search Account..." 
         name="search"
         value={value}
         onChange={event => setValue(event.target.value)}/>
