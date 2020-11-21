@@ -7,10 +7,17 @@ import className from 'classnames'
 export default function Skill(props) {
   
   let gem;
+  let groups;
 
   // if (props.item.socketedItems && props.item.socketedItems[0]) {
   //   gem = props.item.socketedItems.typeLine
   // }
+
+  if (props.item.sockets) {
+    groups = props.item.sockets.map((socket) => {
+      return <div>{socket.group}</div>
+    })
+  }
 
   if (props.item.socketedItems) {
     gem = props.item.socketedItems.map((gem) => {
@@ -22,12 +29,11 @@ export default function Skill(props) {
     })
   }
 
-{/* <div ><Skills item={item} /></div> */}
-  {/* <div className="skills"> </div> */}
+
 
   return (
     <div>
-      <p>{gem}</p>
+      <p>{gem} {groups}</p>
     </div>
   )
 }
