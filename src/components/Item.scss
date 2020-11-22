@@ -60,6 +60,12 @@
   text-align: center;
 }
 
+.flask {
+  @extend .item;
+  position: static;
+  margin: 1em;
+}
+
 .helm {
   @extend .item;
   left: 40%;

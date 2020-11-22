@@ -1,9 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+
 body {
   background-color: #5e5e5e;
+  font-family: 'Noto Sans KR', sans-serif;
   .container {
     color: white;
     min-height: 90vh;
     background-color: #1b1818;
   }
+}
+.char {
+  background-image: url('../images/char-bg.jpg');
+}
+
+.char-title {
+  border-bottom: 2px solid #b78846;
 }
 
