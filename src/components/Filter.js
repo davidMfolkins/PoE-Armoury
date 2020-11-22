@@ -14,13 +14,13 @@ function Filter(props) {
           Filters
       </Accordion.Toggle>
         <Accordion.Collapse eventKey="0">
-          <Card.Body>
+          <Card.Body id="cardBody">
             <div className="filterContainer">
               <Form className="my-2" autocomplete="off">
-                <div>Class: </div>
-                <FormControl type="text" placeholder="Class" name="search" value={value} />
-                <div>Range: </div>
-                <FormControl type="text" placeholder="Min Level" name="search" value={value} />
+                <div className="filterTitle">Class: </div>
+                <FormControl type="text" placeholder="Class" name="search" value={value} /><br></br>
+                <div className="filterTitle">Range: </div>
+                <FormControl type="text" placeholder="Min Level" name="search" value={value} /><br></br>
                 <FormControl type="text" placeholder="Max Level" name="search" value={value} />
               </Form>
             </div>

@@ -2,14 +2,13 @@
 
 .filterContainer {
   display: flex;
-  background-color: #ffffff7e;
+  background-color: #343a40;
+  color: #ffffffc5;
 }
 
 .accordianContainer {
   margin-left: 10%;
   width: 20%;
-  color: red;
-  background-color: #ffffff7e;
 }
 
 button {
@@ -17,3 +16,11 @@ button {
   color: #ffffffc5;
 }
 
+#cardBody {
+  background-color: #343a40;
+  padding: 1px 10px
+}
+
+.filterTitle {
+  margin-bottom: 5px;
+}
