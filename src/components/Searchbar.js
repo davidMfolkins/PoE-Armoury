@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import { Form, FormControl, Table} from 'react-bootstrap'
+import { Form, FormControl, Table } from 'react-bootstrap'
 
 import './Searchbar.scss'
 
@@ -45,35 +45,22 @@ const account = [
   }
 ]
 
-let charName = ""
 function Searchbar(props) {
 
   const [value, setValue] = useState("")
 
   const [searchResults, setSearchResults] = useState('');
 
-useEffect(() => {
+  useEffect(() => {
 
-}, [value])
+  }, [value])
 
-  const search = function(name){
-    account.map((entry) => {
-      if (name === entry.name) {
-        console.log(name)
-        charName = name
-        return charName
-      } else {
-        console.log("No name found")
-      }
-    })
-}
-
-  const quickSearch = function(e) {
+  const quickSearch = function (e) {
     setValue(e.target.value)
     const searchTerm = new RegExp(value)
     const newSearchResults = account.map((entry) => {
       if (searchTerm.exec(entry.name)) {
-      return <tr><td>{entry.name}</td></tr>
+        return <tr><td>{entry.name}</td></tr>
       }
     })
 
@@ -82,19 +69,19 @@ useEffect(() => {
 
   return (
     <div>
-       
+
 
       <Form className="my-2" autocomplete="off">
-        <FormControl type="text" placeholder="Search for player..." name="search" value={value} onChange={event => quickSearch(event)}/>
+        <FormControl type="text" placeholder="Search for player..." name="search" value={value} onChange={event => quickSearch(event)} />
       </Form>
-      <div style={{width: '200px'}} >
-   <Table striped hover className="search-results">
-     <tbody>
-       {searchResults}
-     </tbody>
-     </Table>
-     </div>
-  </div>
+      <div style={{ width: '200px' }} >
+        <Table striped hover className="search-results">
+          <tbody>
+            {searchResults}
+          </tbody>
+        </Table>
+      </div>
+    </div>
   )
 }
 

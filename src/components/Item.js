@@ -24,9 +24,9 @@ export default function Item(props) {
     "ring2": props.item.inventoryId === 'Ring2',
     "offhand": props.item.inventoryId === 'Offhand',
     "amulet": props.item.inventoryId === 'Amulet',
-    "belt":props.item.inventoryId === 'Belt',
-    "weapon":props.item.inventoryId === 'Weapon',
-    "hidden":props.item.inventoryId === 'Weapon2' || props.item.inventoryId === 'Offhand2',
+    "belt": props.item.inventoryId === 'Belt',
+    "weapon": props.item.inventoryId === 'Weapon',
+    "hidden": props.item.inventoryId === 'Weapon2' || props.item.inventoryId === 'Offhand2',
     "unique": props.item.frameType === 3,
     "rare": props.item.frameType === 2,
     "magic": props.item.frameType === 1,
@@ -41,27 +41,27 @@ export default function Item(props) {
   })
 
   let implicitMods;
-  
+
 
   if (props.item.implicitMods) {
     implicitMods = props.item.implicitMods.map((mod) => {
       return <div className="implicit-mod">{mod}</div>
-      })
-    }
-    let explicitMods;
-   
-    if (props.item.explicitMods) {
-   explicitMods = props.item.explicitMods.map((mod) => {
-    return <div className="explicit-mod">{mod}</div >
     })
-    }
+  }
+  let explicitMods;
 
-    let properties;
-    
-    if (props.item.properties) {
-      
-      properties = props.item.properties.map((property) => {
-        if (property.values[0]) {
+  if (props.item.explicitMods) {
+    explicitMods = props.item.explicitMods.map((mod) => {
+      return <div className="explicit-mod">{mod}</div >
+    })
+  }
+
+  let properties;
+
+  if (props.item.properties) {
+
+    properties = props.item.properties.map((property) => {
+      if (property.values[0]) {
         const textColor = className({
           "simple": property.values[0][1] === 0,
           "augmented": property.values[0][1] === 1,
@@ -74,47 +74,47 @@ export default function Item(props) {
       } else {
         return <div className="property">{property.name}</div>
       }
-        
-      })
-       }
+
+    })
+  }
   let requirements;
-      
+
   if (props.item.requirements) {
     requirements = props.item.requirements.map((requirement) => {
-    return <span className="requirement">{requirement.name} <span className="simple">{requirement.values[0][0]}</span></span>
+      return <span className="requirement">{requirement.name} <span className="simple">{requirement.values[0][0]}</span></span>
     })
   }
 
   let flavourText;
   if (props.item.flavourText) {
-  flavourText = <div className="requirement"><i>"{props.item.flavourText}"</i></div>
+    flavourText = <div className="requirement"><i>"{props.item.flavourText}"</i></div>
   }
 
-  
+
   const popover = (
-    <Popover id={itemRarity} style={{minWidth: '300px'}}>
+    <Popover id={itemRarity} style={{ minWidth: '300px' }}>
       <Popover.Title className="item-title"><b>{props.item.name || "No name"}</b>{props.item.typeLine && <div><b>{props.item.typeLine}</b></div>}</Popover.Title>
-      <Popover.Content style={{minHeight: '75px'}}>
+      <Popover.Content style={{ minHeight: '75px' }}>
         <div className="item-pills">
-      <h6><Badge pill variant={pillType}>
-        {props.item.inventoryId}  
-       </Badge>{' '}</h6>
-       <h6><Badge pill variant="dark">
-        iLevel: {props.item.ilvl}
-       </Badge>{' '}</h6>
+          <h6><Badge pill variant={pillType}>
+            {props.item.inventoryId}
+          </Badge>{' '}</h6>
+          <h6><Badge pill variant="dark">
+            iLevel: {props.item.ilvl}
+          </Badge>{' '}</h6>
         </div>
-        
-        {properties && <div className="item-separator"/>}
-      {properties}
-      {requirements && <div className="item-separator"/>}
-      {requirements && <span className="requirement">Requires</span>}
-      {requirements}
-        {implicitMods && <div className="item-separator"/>}
-      {implicitMods}
-      {explicitMods && <div className="item-separator"/>}
-      {explicitMods}
-      {flavourText && <div className="item-separator"/>}
-      {flavourText}
+
+        {properties && <div className="item-separator" />}
+        {properties}
+        {requirements && <div className="item-separator" />}
+        {requirements && <span className="requirement">Requires</span>}
+        {requirements}
+        {implicitMods && <div className="item-separator" />}
+        {implicitMods}
+        {explicitMods && <div className="item-separator" />}
+        {explicitMods}
+        {flavourText && <div className="item-separator" />}
+        {flavourText}
       </Popover.Content>
     </Popover>
   );
@@ -123,7 +123,7 @@ export default function Item(props) {
     <div className={itemType}>
 
       <OverlayTrigger trigger="hover" placement="right" overlay={popover}>
-      <img className="icon" src={props.item.icon} />
+        <img className="icon" src={props.item.icon} />
       </OverlayTrigger>
 
     </div>
