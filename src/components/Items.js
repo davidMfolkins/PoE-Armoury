@@ -13,9 +13,12 @@ export default function Items (props) {
      
   })
  
-  return <div className="inventory-container">
-    <span>
-      {items}
+  return (
+    <div className="inventory-container">
+      <span>
+        {items}
       </span>
-  </div>
+    </div>
+  )
+    
 }

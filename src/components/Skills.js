@@ -4,11 +4,13 @@ import className from 'classnames'
 
 
 export default function Skills (props) {
+  let gems;
+
   const items = props.items.map((item) => {
     if (item.socketedItems) {
-     const gems = item.socketedItems.map((gem) =>{
+     gems = item.socketedItems.map((gem) =>{
        if(gem.abyssJewel) {
-
+         
        } else {
          return <Skill gem={gem}/>
        }
@@ -17,10 +19,36 @@ export default function Skills (props) {
   })
  
   return (
-  <div className="inventory-container">
-    <span>
-      {gems}
-    </span>
+  <div className="skills-container">
+    <div>
+      <div>item name</div>
+      <div className="skill-group">
+        <div>active skill</div>
+        <div>support</div>
+        <div>support</div>
+        <div>support</div>
+      </div>
+      ---------------------
+    </div>
+    <div>
+      <div>item name</div>
+      <div className="skill-group">
+        <div>active skill</div>
+        <div>support</div>
+        <div>support</div>
+        <div>support</div>
+      </div>
+      ---------------------
+    </div>
+    <div>
+      <div>item name</div>
+      <div className="skill-group">
+        <div>active skill</div>
+        <div>support</div>
+        <div>support</div>
+        <div>support</div>
+      </div>
+    </div>
   </div>
   )
 }
