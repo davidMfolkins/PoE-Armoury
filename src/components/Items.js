@@ -1,5 +1,6 @@
 import './Items.scss'
 import Item from './Item'
+import Skills from './Skills'
 import className from 'classnames'
 
 
@@ -12,7 +13,7 @@ export default function Items (props) {
     }
      
   })
- 
+  
   return (
     <div className="inventory-container">
       <span>
