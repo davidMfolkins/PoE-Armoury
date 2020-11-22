@@ -4,9 +4,13 @@ import className from 'classnames'
 
 
 export default function Items (props) {
-  console.log(props)
   const items = props.items.map((item) => {  
+    if (item.inventoryId === 'Flask') {
+
+    } else {
       return <Item item={item}/>
+    }
+     
   })
  
   return <div className="inventory-container">

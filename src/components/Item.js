@@ -15,6 +15,7 @@ export default function Item(props) {
   const itemType = className({
     // inventory position
     'item': props.item.inventoryId,
+    'flask': props.item.inventoryId === 'Flask',
     'helm': props.item.inventoryId === 'Helm',
     "armour": props.item.inventoryId === 'BodyArmour',
     "gloves": props.item.inventoryId === 'Gloves',
