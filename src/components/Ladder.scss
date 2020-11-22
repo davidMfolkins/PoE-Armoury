@@ -21,10 +21,16 @@
   cursor: pointer;
 }
 
-.ladderButton {
+#ladderButton {
   margin-left: 10%;
   background-image: url('../images/rock.png');
   color: #ffffffc5;
+  border: 1px solid black!important;
+  border-radius: 3px;
+}
+#ladderButton:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 img {
