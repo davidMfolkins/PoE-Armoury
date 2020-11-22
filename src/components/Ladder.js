@@ -40,17 +40,20 @@ function Ladder(props) {
       return "Standard Ladder"
     }
   }
-
+ 
   const rows = data.ladderChars.map((entry) => {
+    console.log(entry.account.twitch)
     const className = entry.character.class
     const classIcon = `/icons/${className.toLowerCase()}_icon.png`
     const num = Math.ceil(Math.random() * 5)
     return (
       <tr id="ladderList" className="d-flex">
+        <td className="col-1">{entry.rank}</td>
         <td className="col-2"><img src={classIcon} /></td>
-        <td className="col-4" onClick={() => props.getCharacter(num)}>{entry.character.name} </td>
-        <td className="col-3">{entry.character.level}</td>
-        <td className="col-3">{className}</td>
+        <td className="col-3" onClick={() => props.getCharacter(num)}>{entry.character.name} </td>
+        <td className="col-2">{entry.character.level}</td>
+        <td className="col-2">{className}</td>
+        {entry.account.twitch && <td className="col-2">{entry.account.twitch.name}</td>}
       </tr>
     )
   })
@@ -65,10 +68,12 @@ function Ladder(props) {
         <Table striped bordered variant="dark">
           <thead>
             <tr className="d-flex">
+              <th className="col-1">Rank</th>
               <th className="col-2">Icon</th>
-              <th className="col-4">Name</th>
-              <th className="col-3">Level</th>
-              <th className="col-3">Class</th>
+              <th className="col-3">Name</th>
+              <th className="col-2">Level</th>
+              <th className="col-2">Class</th>
+              <th className="col-2">Twitch</th>
             </tr>
           </thead>
           <tbody>
