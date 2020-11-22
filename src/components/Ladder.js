@@ -53,7 +53,7 @@ function Ladder(props) {
         <td className="col-3" onClick={() => props.getCharacter(num)}>{entry.character.name} </td>
         <td className="col-2">{entry.character.level}</td>
         <td className="col-2">{className}</td>
-        {entry.account.twitch && <td className="col-2">{entry.account.twitch.name}</td>}
+        {entry.account.twitch && <td className="col-2"><a href={`https://twitch.tv/${entry.account.twitch.name}`}>{entry.account.twitch.name}</a></td>}
       </tr>
     )
   })
