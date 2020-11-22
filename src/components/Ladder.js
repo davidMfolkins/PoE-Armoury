@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
 import './Ladder.scss'
-
+import Filter from './Filter'
 import { Table } from 'react-bootstrap'
 
 
@@ -63,7 +63,8 @@ function Ladder(props) {
     <div className="ladderPage">
 
       <div className="ladderTitle">{tableName()}</div>
-      <button className="ladderButton" onClick={() => setHardcore(!hardcore)}>{changeButton()}</button>
+      <button type="button" id="ladderButton" onClick={() => setHardcore(!hardcore)}>{changeButton()}</button>
+      <Filter />
       <div className="ladderContainer">
         <Table striped bordered variant="dark">
           <thead>

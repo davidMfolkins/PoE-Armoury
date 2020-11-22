@@ -1,0 +1,38 @@
+@import "~bootstrap/scss/bootstrap";
+
+.filterContainer {
+  display: flex;
+  background-color: #343a40;
+  color: #ffffffc5;
+}
+
+.accordianContainer {
+  margin-left: 10%;
+  margin-top: 10px;
+  width: 200px;
+}
+
+button {
+  background-color: unset!important;
+  border: 0px!important;
+  background-image: url('../images/rock.png');
+  color: #ffffffc5;
+}
+
+button:focus {
+  outline: none!important;
+  box-shadow: none!important;
+}
+
+#cardBody {
+  background-color: #343a40;
+  padding: 1px 10px
+}
+
+.filterTitle {
+  margin-bottom: 5px;
+}
+
+.card {
+  background-color: black!important;
+}
