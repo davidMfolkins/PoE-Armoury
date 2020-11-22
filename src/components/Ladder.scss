@@ -18,10 +18,19 @@
 
 #ladderList:hover {
   color: #940303;
+  cursor: pointer;
 }
 
 .ladderButton {
   margin-left: 10%;
   background-image: url('../images/rock.png');
   color: #ffffffc5;
+}
+
+img {
+  height: 60px;
+}
+
+td {
+  padding-top: 50px;
 }
