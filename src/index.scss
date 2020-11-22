@@ -5,6 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #5e5e5e
+}
+
+.container-fluid {
+  padding: 0!important;
 }
 
 code {

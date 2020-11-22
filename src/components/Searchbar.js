@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+
+import { Form, FormControl, Table} from 'react-bootstrap'
 
 import './Searchbar.scss'
 
@@ -48,6 +50,12 @@ function Searchbar(props) {
 
   const [value, setValue] = useState("")
 
+  const [searchResults, setSearchResults] = useState('');
+
+useEffect(() => {
+
+}, [value])
+
   const search = function(name){
     account.map((entry) => {
       if (name === entry.name) {
@@ -60,19 +68,32 @@ function Searchbar(props) {
     })
 }
 
+  const quickSearch = function(e) {
+    setValue(e.target.value)
+    const searchTerm = new RegExp(value)
+    const newSearchResults = account.map((entry) => {
+      if (searchTerm.exec(entry.name)) {
+      return <tr><td>{entry.name}</td></tr>
+      }
+    })
+
+    setSearchResults(newSearchResults)
+  }
+
   return (
     <div>
-      <form>
-        <input onSubmit={search(value)}
-        type="text" 
-        placeholder="Search Account..." 
-        name="search"
-        value={value}
-        onChange={event => setValue(event.target.value)}/>
-        
-    </form>
-   
-    <div>{charName}</div>
+       
+
+      <Form className="my-2" autocomplete="off">
+        <FormControl type="text" placeholder="Search for player..." name="search" value={value} onChange={event => quickSearch(event)}/>
+      </Form>
+      <div style={{width: '200px'}} >
+   <Table striped hover className="search-results">
+     <tbody>
+       {searchResults}
+     </tbody>
+     </Table>
+     </div>
   </div>
   )
 }
