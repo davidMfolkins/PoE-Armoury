@@ -4,6 +4,7 @@ import Ladder from './Ladder'
 import Loading from './Loading'
 import Character from './Character'
 import Searchbar from './Searchbar'
+import Nav from './Nav'
 
 import { useState } from 'react'
 import axios from 'axios'
@@ -39,6 +40,7 @@ export default function Application() {
 
 return (
   <div id="root">
+    <Nav/>
     <Searchbar  />
     {state === 'ladder' &&<Ladder getCharacter={getCharacter}/>}
     {state === 'character' && <Character character={character.items} toggleView={toggleView} view={state}/>}
