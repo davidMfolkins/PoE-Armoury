@@ -47,7 +47,7 @@ function Ladder(props) {
     const num = Math.ceil(Math.random() * 5)
     return (
       <tr id="ladderList" className="d-flex">
-        <td className="col-2"><img src={classIcon}/></td>
+        <td className="col-2"><img src={classIcon} /></td>
         <td className="col-4" onClick={() => props.getCharacter(num)}>{entry.character.name} </td>
         <td className="col-3">{entry.character.level}</td>
         <td className="col-3">{className}</td>
@@ -58,9 +58,9 @@ function Ladder(props) {
 
   return (
     <div className="ladderPage">
-      
+
       <div className="ladderTitle">{tableName()}</div>
-      <button className="ladderButton"onClick={() => setHardcore(!hardcore)}>{changeButton()}</button>
+      <button className="ladderButton" onClick={() => setHardcore(!hardcore)}>{changeButton()}</button>
       <div className="ladderContainer">
         <Table striped bordered variant="dark">
           <thead>

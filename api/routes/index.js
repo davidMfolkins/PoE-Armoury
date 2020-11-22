@@ -5,11 +5,11 @@ var router = express.Router();
 
 
 module.exports = (db) => {
-  router.get('/', function(req, res, next) {
+  router.get('/', function (req, res, next) {
     console.log('aaaa')
     res.render('index', { title: 'Express' });
   });
-  router.get('/items', function(req, res, next) {
+  router.get('/items', function (req, res, next) {
     console.log('received')
     db.query(`SELECT * FROM characters;`).then(data => {
       console.log(data.rows)
@@ -18,13 +18,13 @@ module.exports = (db) => {
       console.log(err)
       res.status(500).json({ error: err.message });
     });
-    router.get('/characters', function(req, res, next) {
+    router.get('/characters', function (req, res, next) {
       console.log('received')
+    });
+
   });
 
-});
-  
-  router.get('/ladder', function(req, res, next) {
+  router.get('/ladder', function (req, res, next) {
     console.log('received')
     db.query(`SELECT rankings FROM ladders;`).then(data => {
       console.log(data.rows)
@@ -35,7 +35,7 @@ module.exports = (db) => {
     });
   });
 
-  router.get('/characters/:id', function(req, res, next) {
+  router.get('/characters/:id', function (req, res, next) {
     console.log('received')
     db.query(`SELECT * FROM characters WHERE id = $1;`, [req.params.id]).then(data => {
       res.send(data.rows)
