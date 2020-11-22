@@ -1,5 +1,19 @@
 @import "~bootstrap/scss/bootstrap";
 
 .filterContainer {
-
+  display: flex;
+  background-color: #ffffff7e;
 }
+
+.accordianContainer {
+  margin-left: 10%;
+  width: 20%;
+  color: red;
+  background-color: #ffffff7e;
+}
+
+button {
+  background-image: url('../images/rock.png');
+  color: #ffffffc5;
+}
+
