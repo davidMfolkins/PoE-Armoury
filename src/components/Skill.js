@@ -61,45 +61,40 @@ export default function Skill (props) {
   }
   let descrText = props.gem.descrText;
 
+  let corrupted = props.gem.corrupted ? "Corrupted" : null
 
-  // const popover = (
-  //   <Popover id={gemRarity} style={{minWidth: '300px'}}>
-  //     <Popover.Title className="item-title"><b>{props.item.name || "No name"}</b>{props.item.typeLine && <div><b>{props.item.typeLine}</b></div>}</Popover.Title>
-  //     <Popover.Content style={{minHeight: '75px'}}>
-  //       <div className="item-pills">
-  //     <h6><Badge pill variant={pillType}>
-  //       {props.item.inventoryId}  
-  //      </Badge>{' '}</h6>
-  //      <h6><Badge pill variant="dark">
-  //       iLevel: {props.item.ilvl}
-  //      </Badge>{' '}</h6>
-  //       </div>
-        
-  //       {properties && <div className="item-separator"/>}
-  //     {properties}
-  //     {requirements && <div className="item-separator"/>}
-  //     {requirements && <span className="requirement">Requires</span>}
-  //     {requirements}
-  //       {implicitMods && <div className="item-separator"/>}
-  //     {implicitMods}
-  //     {explicitMods && <div className="item-separator"/>}
-  //     {explicitMods}
-  //     {flavourText && <div className="item-separator"/>}
-  //     {flavourText}
-  //     </Popover.Content>
-  //   </Popover>
-  // );
+
+  const popover = (
+    <Popover style={{minWidth: '300px'}}>
+      <Popover.Title className="gem-title">{props.gem.typeLine && <div><b>{props.gem.typeLine}</b></div>}</Popover.Title>
+      <Popover.Content style={{minHeight: '75px'}}>
+      {properties}
+      {requirements && <div className="item-separator"/>}
+      {requirements && <span className="requirement">Requires</span>}
+      {requirements}
+      {additionalProperties && <div className="item-separator"/>}
+      {additionalProperties}
+      {/* {secDescrText && <div className="item-separator"/>}
+      {secDescrText} */}
+      {explicitMods && <div className="item-separator"/>}
+      {explicitMods}
+      {/* {descrText && <div className="item-separator"/>}
+      {descrText} */}
+      {corrupted && <div className="item-separator"/>}
+      {corrupted}
+      </Popover.Content>
+    </Popover>
+  );
 
 
   
   return (
-    <div>
-      <div>{properties}</div>
-      <div>{requirements}</div>
-      <div>{additionalProperties}</div>
-      <div>{secDescrText}</div>
-      <div>{explicitMods}</div>
-      <div>{descrText}</div>
-    </div>
+    <div className="gem">
+
+    <OverlayTrigger trigger="hover" placement="right" overlay={popover}>
+    <img className="icon" src={props.gem.icon} />
+    </OverlayTrigger>
+
+  </div>
   )
 }
