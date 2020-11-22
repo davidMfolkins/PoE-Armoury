@@ -1,7 +1,7 @@
 import items from './helpers/dummy_data/items_data'
 import '../index.scss';
 import Ladder from './Ladder'
-
+import Loading from './Loading'
 import Character from './Character'
 import Searchbar from './Searchbar'
 
@@ -15,31 +15,34 @@ export default function Application() {
   const [character, setCharacter ] = useState(null)
 
   const toggleView = function() {
-    if (state === 'ladder') {
-      setState('character')
-    } else {
+    if (state === 'character') {
       setState('ladder')
     }
   }
 
   const getCharacter= function(char) {
-    axios.get(`http://localhost:3030/characters/${char}`)
-    .then((res) => {
-      const character = res.data[0]
-      console.log(character.items.items)
-      setCharacter(character)
-      return true
-    }).then(() => {
-      setState('character')
-    })
+    setState('loading')
+    setTimeout(() => {
+      axios.get(`http://localhost:3030/characters/${char}`)
+      .then((res) => {
+        const character = res.data[0]
+        console.log(character.items.items)
+        setCharacter(character)
+        return true
+      }).then(() => {
+        setState('character')
+      })
+    }, 1000)
+    
   }
 
 
 return (
   <div id="root">
-    <Searchbar view={state} toggleView={() => toggleView()}/>
+    <Searchbar  />
     {state === 'ladder' &&<Ladder getCharacter={getCharacter}/>}
-    {state === 'character' && <Character character={character.items}/>}
+    {state === 'character' && <Character character={character.items} toggleView={toggleView} view={state}/>}
+    {state === 'loading' && <Loading />}
     
     </div>
 )

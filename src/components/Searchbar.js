@@ -71,9 +71,8 @@ function Searchbar(props) {
         onChange={event => setValue(event.target.value)}/>
         
     </form>
-    <button onClick={props.toggleView}>{props.view === 'ladder' && <span>Character</span>}{props.view === 'character' && <span>Ladder</span>}</button>
+   
     <div>{charName}</div>
-  
   </div>
   )
 }

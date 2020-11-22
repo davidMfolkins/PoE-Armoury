@@ -1,9 +1,10 @@
 body {
   background-color: #5e5e5e;
-  .container {
-    color: white;
+  #container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 90vh;
     background-color: #1b1818;
   }
 }
-
