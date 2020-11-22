@@ -33,4 +33,7 @@ img {
 
 td {
   padding-top: 50px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
