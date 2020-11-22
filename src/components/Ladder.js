@@ -43,12 +43,14 @@ function Ladder(props) {
 
   const rows = data.ladderChars.map((entry) => {
     const className = entry.character.class
+    const classIcon = `/icons/${className.toLowerCase()}_icon.png`
     const num = Math.ceil(Math.random() * 5)
     return (
       <tr id="ladderList" className="d-flex">
+        <td className="col-2"><img src={classIcon}/></td>
         <td className="col-4" onClick={() => props.getCharacter(num)}>{entry.character.name} </td>
-        <td className="col-4">{entry.character.level}</td>
-        <td className="col-4">{className}</td>
+        <td className="col-3">{entry.character.level}</td>
+        <td className="col-3">{className}</td>
       </tr>
     )
   })
@@ -63,9 +65,10 @@ function Ladder(props) {
         <Table striped bordered variant="dark">
           <thead>
             <tr className="d-flex">
+              <th className="col-2">Icon</th>
               <th className="col-4">Name</th>
-              <th className="col-4">Level</th>
-              <th className="col-4">Class</th>
+              <th className="col-3">Level</th>
+              <th className="col-3">Class</th>
             </tr>
           </thead>
           <tbody>
