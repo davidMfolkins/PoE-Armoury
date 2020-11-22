@@ -12,7 +12,15 @@
   max-width: 100px;
   background-color: rgba(0,0,0,0.5);
   transition: transform 0.2s;
-  
+}
+
+.active {
+  @extend .gem;
+  transform: rotate(45deg);
+}
+.support {
+  @extend .gem;
+  border-radius: 50%;
 }
 
 .item:hover {

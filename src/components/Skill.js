@@ -89,10 +89,12 @@ export default function Skill (props) {
 
   
   return (
-    <div className="gem">
+
+    <div className={gemType}>
 
     <OverlayTrigger trigger="hover" placement="right" overlay={popover}>
-    <img className="icon" src={props.gem.icon} />
+      <img className="icon" src={props.gem.icon} />
+
     </OverlayTrigger>
 
   </div>
