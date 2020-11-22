@@ -13,7 +13,7 @@ export default function Skills (props) {
 
     })
       return (
-        <div ><Skill item={item} setGems={setGems}/></div>
+        <div ><Skill item={item} setGems={setGems} gems={gems}/></div>
       )
     
   })

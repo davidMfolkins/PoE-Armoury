@@ -2,6 +2,9 @@ import './Skill.scss'
 
 import { Popover, OverlayTrigger, Badge } from 'react-bootstrap'
 
+
+import React, { useState, useEffect } from 'react';
+
 import className from 'classnames'
 
 export default function Skill(props) {
@@ -11,9 +14,11 @@ export default function Skill(props) {
   let newGems = {}
   let isSupport;
   let inventoryId = props.item.inventoryId;
-  let gemNumber = 0;
+  let gemNumber = -1;
+
 
   // props.setGems({...gems, newGems})
+  useEffect(() => {
 
   if (props.item.inventoryId === "Offhand2" || props.item.inventoryId === "Weapon2") {
     return null
@@ -30,21 +35,25 @@ export default function Skill(props) {
       })
     }
   
+
     if (props.item.socketedItems) {
       props.item.socketedItems.map((gem) => {
+        let someArray = []
+
         gems.push(gem.typeLine)
         if (gem.support) {
           isSupport = true;
         } else {
           isSupport = false;
         }
-        newGems = {[inventoryId]: {[gemNumber]: {isSupport, group: links[gemNumber], name: gem.typeLine}}}
         gemNumber++
-        console.log(newGems)
+        newGems = {[inventoryId]: {[gemNumber]: {isSupport, group: links[gemNumber], name: gem.typeLine}}}
+        console.log(props.gems)
+        props.setGems(prev => ({...prev, [inventoryId]: {[gemNumber]: {isSupport, group: links[gemNumber], name: gem.typeLine}}}))
       })
     }
   }
-
+}, [])
   // return <div className="active-gem">{gem.typeLine} <img src={gem.icon}/></div>
   // return <div className="support-gem">{gem.typeLine} <img src={gem.icon}/></div>
 
