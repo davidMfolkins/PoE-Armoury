@@ -6,21 +6,20 @@ import './Filter.scss'
 
 function Filter(props) {
 
-  const [hero, setHero] = useState("")
-  const [min, setMin] = useState("")
-  const [max, setMax] = useState("")
+  const [state, setState] = useState({
+    hero: "",
+    min: "",
+    max: ""
+  })
 
-  const classFilter = function (e) {
-    setHero(e.target.value)
+  function handleChange(evt) {
+    
+    setState({
+      ...state,
+      [evt.target.name]: evt.target.value
+    });
   }
 
-  const minFilter = function (e) {
-    setMin(e.target.value)
-  }
-
-  const maxFilter = function (e) {
-    setMax(e.target.value)
-  }
   return (
     <Accordion className="accordianContainer">
       <Card>
@@ -32,10 +31,10 @@ function Filter(props) {
             <div className="filterContainer">
               <Form className="my-2" autocomplete="off">
                 <div className="filterTitle">Class: </div>
-                <FormControl type="text" placeholder="Class" name="search" value={hero} onChange={event => classFilter(event)} /><br></br>
+                <FormControl type="text" placeholder="Class" name="hero" value={state.hero} onChange={handleChange}/><br></br>
                 <div className="filterTitle">Level: </div>
-                <FormControl type="text" placeholder="Min Level" name="search" value={min}  onChange={event => minFilter(event)}/><br></br>
-                <FormControl type="text" placeholder="Max Level" name="search" value={max} onChange={event => maxFilter(event)}/>
+                <FormControl type="text" placeholder="Min Level" name="min" value={state.min}  onChange={handleChange}/><br></br>
+                <FormControl type="text" placeholder="Max Level" name="max" value={state.max} onChange={handleChange}/>
               </Form>
             </div>
           </Card.Body>
