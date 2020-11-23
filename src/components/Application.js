@@ -6,6 +6,7 @@ import Navigation from "./Navigation";
 import fetchCharacter from "./helpers/getters";
 import Container from "react-bootstrap/Container";
 import { useState, useEffect } from "react";
+import ScrollUpButton from "react-scroll-up-button";
 
 export default function Application() {
   const [state, setState] = useState("ladder");
@@ -42,6 +43,7 @@ export default function Application() {
 
   return (
     <Container fluid>
+      <ScrollUpButton />
       <Navigation getCharacter={getCharacter} toggleView={toggleView} />
       <Container style={{ marginTop: "100px" }}>
         {state === "ladder" && <Ladder getCharacter={getCharacter} />}
