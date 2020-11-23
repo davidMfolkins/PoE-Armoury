@@ -16,6 +16,12 @@
   text-align: center;
 }
 
+.topButtons {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10%;
+}
+
 #ladderList:hover {
   color: #940303;
   cursor: pointer;
