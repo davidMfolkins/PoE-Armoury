@@ -1,7 +1,8 @@
 @import "~bootstrap/scss/bootstrap";
 
 .ladderPage {
-  background-color: #5e5e5e
+  background-color: rgba(0,0,0,0.5);
+  
 }
 .ladderContainer {
   padding: 10px 0;
@@ -14,6 +15,7 @@
 .ladderTitle {
   font-size: 50px;
   text-align: center;
+  color:  #ffffff;
 }
 
 #ladderList:hover {

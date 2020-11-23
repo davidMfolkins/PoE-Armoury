@@ -1,6 +1,9 @@
 DROP TABLE IF EXISTS users CASCADE;
-DROP TABLE IF EXISTS characters CASCADE;
 DROP TABLE IF EXISTS ladders CASCADE;
+DROP TABLE IF EXISTS accounts CASCADE;
+DROP TABLE IF EXISTS characters CASCADE;
+DROP TABLE IF EXISTS accounts CASCADE;
+DROP TABLE IF EXISTS items CASCADE;
 DROP TABLE IF EXISTS favourites CASCADE;
 
 CREATE TABLE users(
@@ -16,11 +19,25 @@ CREATE TABLE ladders(
   rankings JSON
 );
 
-CREATE TABLE characters(
+CREATE TABLE accounts(
   id SERIAL PRIMARY KEY NOT NULL, 
-  items JSON,
-  ladder_id INTEGER REFERENCES ladders(id) ON DELETE CASCADE,
+  name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE characters(
+  id SERIAL PRIMARY KEY NOT NULL,
+  account_id INTEGER REFERENCES accounts(id) ON DELETE CASCADE,
+  name VARCHAR(255),
+  level INTEGER,
+  class VARCHAR(255),
+  experience BIGINT,
   last_requested TIMESTAMP
+);
+
+CREATE TABLE items(
+  id SERIAL PRIMARY KEY NOT NULL, 
+  character_id INTEGER REFERENCES characters(id) ON DELETE CASCADE,
+  items JSON
 );
 
 CREATE TABLE favourites(
