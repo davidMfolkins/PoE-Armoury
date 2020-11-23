@@ -14,5 +14,4 @@ export default function Loading(props) {
 
     </div>
     </div>
-  </div>
 }
