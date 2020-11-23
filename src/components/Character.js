@@ -40,7 +40,7 @@ export default function Character(props) {
           </Row>
           <Row>
             <Col>
-              <Flasks items={props.character.items} />
+              <Flasks windowWidth={windowWidth} items={props.character.items} />
             </Col>
           </Row>
         </Col>

@@ -5,7 +5,7 @@ import './Flasks.scss'
 export default function Flasks(props) {
   const flasks = props.items.map((item) => {
     if (item.inventoryId === 'Flask') {
-      return <Item item={item} />
+      return <Item windowWidth={props.windowWidth} item={item} />
     }
   })
   return (
