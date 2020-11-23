@@ -49,7 +49,7 @@ export default function Application() {
           <Loading error={"No character found."} toggleView={toggleView} />
         )}
         {state === "loading" && <Loading />}
-        <Account account={account}/>
+        <Account account={account} />
       </Container>
     </Container>
   );

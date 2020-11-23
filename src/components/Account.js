@@ -1,40 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import jsonp from "jsonp";
-import fetch from 'fetch';
-import fetchJsonp from 'fetch-jsonp'
 
 import './Account.scss'
 import Filter from './Filter'
 import { Table } from 'react-bootstrap'
 
-// axios.get(`https://www.pathofexile.com/character-window/get-characters?accountName=${props.account}`)
-// .then((result) => {
-//   console.log("something")
-//   return 
-// })
-
-
 function Account(props) {
 
+  const [chars, setchars] = useState([])
+
   useEffect(() => {
-    axios.get(`http://localhost:3030/accounts/${props.account}`)
+    const accountName = props.account;
+    axios.get(`http://localhost:3030/accounts/${accountName}`)
       .then((result) => {
-        console.log("this is from account")
-        console.log(result)
-        return result
+        setchars(result.data)
       }).catch((err) => {
         if (err.message.includes('404')) {
-          axios.get(`/accounts/${props.account}`)
+          axios.get(`/accounts/${accountName}`)
           .then(result => {
-            console.log("it happened")
+            setchars(result.data)
           }).catch((err) => {
-            console.log("something")
-            throw err
+            console.log(err)
           })
         }
       })
   }, [props.account])
+
+  // const rows = data.accountChars.map((entry) => {
+  //   // console.log(entry.account.twitch)
+  //   const className = entry.character.class
+  //   const classIcon = `/icons/${className.toLowerCase()}_icon.png`
+  //   const num = Math.ceil(Math.random() * 5)
+  //   return (
+  //     <tr id="ladderList" className="d-flex" onClick={() => props.getCharacter(entry.account.name, entry.character.name)}>
+  //       <td className="col-1">{entry.rank}</td>
+  //       <td className="col-2"><img src={classIcon} /></td>
+  //       <td className="col-3">{entry.character.name} </td>
+  //       <td className="col-2">{entry.character.level}</td>
+  //       <td className="col-2">{className}</td>
+  //       {entry.account.twitch && <td className="col-2"><a href={`https://twitch.tv/${entry.account.twitch.name}`} target="_blank">{entry.account.twitch.name}</a></td>}
+  //     </tr>
+  //   )
+  // })
 
   return (
     <></>
