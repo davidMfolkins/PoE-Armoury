@@ -6,6 +6,14 @@ let charName = "";
 function Searchbar(props) {
   const [value, setValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+
+
+  function selectSearchItem (name) {
+    props.getCharacter('none', name);
+    setSearchResults(null)
+    setValue("")
+  }
+
   const quickSearch = async function (e) {
     setValue(e.target.value);
     const searchTerm = new RegExp(value);
@@ -16,7 +24,7 @@ function Searchbar(props) {
         if (entry.type === 'character') {
           return (
                   <tr>
-                    <td>{entry.name}  <Badge variant="primary">character</Badge>{' '}</td>
+                    <td onClick={() => selectSearchItem(entry.name)}>{entry.name}  <Badge variant="primary">character</Badge>{' '}</td>
                   </tr>
                 );
         } else {
