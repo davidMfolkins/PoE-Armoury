@@ -3,6 +3,7 @@ import Ladder from "./Ladder";
 import Loading from "./Loading";
 import Character from "./Character";
 import Navigation from "./Navigation";
+import Login from './Login';
 import fetchCharacter from "./helpers/getters";
 import Container from "react-bootstrap/Container";
 import { useState, useEffect } from "react";
@@ -11,12 +12,6 @@ export default function Application() {
   const [state, setState] = useState("ladder");
 
   const [character, setCharacter] = useState(null);
-
-  const toggleView = function () {
-    if (state === "character") {
-      setState("ladder");
-    }
-  };
 
   const randomInterval = function() {
     return Math.floor((Math.random() * 1000) + 750)
@@ -42,7 +37,7 @@ export default function Application() {
 
   return (
     <Container fluid>
-      <Navigation getCharacter={getCharacter} toggleView={toggleView} />
+      <Navigation getCharacter={getCharacter} setState={setState} />
       <Container style={{ marginTop: "100px" }}>
         {state === "ladder" && <Ladder getCharacter={getCharacter} />}
         {state === "character" && character && (
@@ -56,6 +51,7 @@ export default function Application() {
           <Loading error={"No character found."} toggleView={toggleView} />
         )}
         {state === "loading" && <Loading />}
+        {state === "login" && <Login/>}
       </Container>
     </Container>
   );
