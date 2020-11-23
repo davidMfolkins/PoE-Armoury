@@ -8,6 +8,7 @@ function Filter(props) {
 
   function handleChange(evt) {
     props.onChange(evt)
+    
   }
 
   function hasTwitch(event) {

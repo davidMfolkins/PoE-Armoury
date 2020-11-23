@@ -59,6 +59,8 @@ function Ladder(props) {
     const checkBox = event.target.value
     if (checkBox === "on") {
       console.log("ON!")
+      const newArray = data.ladderChars.filter(twitch => twitch.account.twitch) 
+      setFilteredData({ladderChars: newArray})
     } else {
       console.log("OFF!")
     }
