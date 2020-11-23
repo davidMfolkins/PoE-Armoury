@@ -51,7 +51,6 @@ async function saveAccount(db, accountName) {
   if (account_exists.length > 0) {
     account_id = account_exists[0].id
   } else {
-    console.log(accountName)
     account_id = await db.query(`INSERT INTO accounts(name) VALUES($1) RETURNING *;`, [accountName])
     .then((res) => {
       console.log(`account added`)

@@ -18,10 +18,9 @@ import { Table } from 'react-bootstrap'
 function Account(props) {
 
   useEffect(() => {
-    let notInDb = false;
-
     axios.get(`http://localhost:3030/accounts/${props.account}`)
       .then((result) => {
+        console.log("this is from account")
         console.log(result)
         return result
       }).catch((err) => {
@@ -34,30 +33,7 @@ function Account(props) {
             throw err
           })
         }
-        return notInDb
       })
-      // if (notInDb) {
-        
-      //   .then((result) => {
-      //     const rows = result.map((entry) => {
-      //       const className = entry.class
-      //       const classIcon = `/icons/${className.toLowerCase()}_icon.png`
-      //       // const num = Math.ceil(Math.random() * 5)
-      //       console.log("i did it")
-      //       return (
-      //         // <tr id="accountList" className="d-flex" onClick={() => props.getCharacter(entry.account.name, entry.character.name)}>
-      //         //   <td className="col-1"></td>
-      //         //   <td className="col-2"><img src={classIcon} /></td>
-      //         //   <td className="col-3">{entry.name} </td>
-      //         //   <td className="col-2">{entry.level}</td>
-      //         //   <td className="col-2">{className}</td>
-      //         //   {entry.account.twitch && <td className="col-2"><a href={`https://twitch.tv/${entry.account.twitch.name}`} target="_blank">{entry.account.twitch.name}</a></td>}
-      //         // </tr>
-      //         <></>
-      //       )
-      //     })
-      //   })
-      // }
   }, [props.account])
 
   return (

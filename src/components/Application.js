@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 export default function Application() {
   const [state, setState] = useState("ladder");
 
-  const [account, setAccount] = useState(null);
+  const [account, setAccount] = useState("");
 
   const [character, setCharacter] = useState(null);
 
