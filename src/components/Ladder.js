@@ -58,6 +58,7 @@ function Ladder(props) {
   const rows = filteredData.ladderChars.map((entry) => {
     const className = entry.character.class
     const classIcon = `/icons/${className.toLowerCase()}_icon.png`
+    console.log(className)
     return (
       <tr id="ladderList" className="d-flex" onClick={() => props.getCharacter(entry.account.name, entry.character.name)}>
         <td className="col-1">{entry.rank}</td>
