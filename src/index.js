@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Application from './components/Application'
 
+import { BrowserRouter } from "react-router-dom";
+
 ReactDOM.render(
-  <React.StrictMode>
+  <BrowserRouter>
     <Application />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </BrowserRouter>,
+  document.getElementById("root")
 );

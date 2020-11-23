@@ -7,6 +7,7 @@ import Login from './Login';
 import fetchCharacter from "./helpers/getters";
 import Container from "react-bootstrap/Container";
 import { useState, useEffect } from "react";
+import { Link, Route, Switch } from "react-router-dom";
 
 export default function Application() {
   const [state, setState] = useState("ladder");
@@ -38,21 +39,26 @@ export default function Application() {
   return (
     <Container fluid>
       <Navigation getCharacter={getCharacter} setState={setState} />
+      
+        
       <Container style={{ marginTop: "100px" }}>
+      <Route path="/home">
         {state === "ladder" && <Ladder getCharacter={getCharacter} />}
         {state === "character" && character && (
           <Character
             character={character.items}
-            toggleView={toggleView}
             view={state}
           />
         )}
         {state === "character" && !character && (
-          <Loading error={"No character found."} toggleView={toggleView} />
+          <Loading error={"No character found."} setState={setState} />
         )}
         {state === "loading" && <Loading />}
-        {state === "login" && <Login/>}
+        </Route>
+        <Route path="/test"><Login /></Route>
       </Container>
+    
+     
     </Container>
   );
 }

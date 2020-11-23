@@ -28,7 +28,7 @@ function Ladder(props) {
 
   useEffect(() => {
     const newArray = data
-      .filter(hero => hero.character.class.toLowerCase().includes(filter)) 
+      .filter(hero => hero.character.class.toLowerCase().includes(filter.toLowerCase())) 
       .filter(twitch => !hasTwitch || twitch.account.twitch) 
     setFilteredData(newArray)
 

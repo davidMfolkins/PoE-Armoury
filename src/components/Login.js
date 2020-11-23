@@ -1,14 +1,34 @@
 import { Container, Form, Button } from 'react-bootstrap'
+import axios from 'axios';
 
 import './Login.scss'
 
 export default function Login(props) {
+
+  function handleSubmit(event) {
+    const newUser = {
+      name: event.target[0].value,
+      email: event.target[1].value,
+      password: event.target[2].value
+    }
+    axios.post('http://localhost:3030/users/register', newUser).then((res) => {
+      console.log(res)
+    })
+  }
+
   return (
   <Container>
   <div className="login-container">
       <div className="container login-form-container">
 
-      <Form>
+      <Form onSubmit={handleSubmit}>
+      <Form.Group controlId="formBasicName">
+    <Form.Label>Username</Form.Label>
+    <Form.Control type="text" placeholder="Username" />
+    <Form.Text className="text-muted">
+      What should we call you? 
+    </Form.Text>
+  </Form.Group>
   <Form.Group controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
     <Form.Control type="email" placeholder="Enter email" />
@@ -22,7 +42,7 @@ export default function Login(props) {
     <Form.Control type="password" placeholder="Password" />
   </Form.Group>
   <Form.Group controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="Check me out" />
+    <Form.Check type="checkbox" label="I agree" />
   </Form.Group>
   <Button variant="primary" type="submit">
     Submit
