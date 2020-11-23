@@ -4,7 +4,7 @@ import Searchbar from './Searchbar'
 
 export default function Navigation(props) {
   return (
-  
+
     <Navbar fixed="top" variant="dark" bg="dark" expand="lg">
     <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />

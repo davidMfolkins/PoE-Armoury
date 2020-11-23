@@ -15,6 +15,7 @@ const { route } = require("../app");
 /* GET home page. */
 
 module.exports = (db) => {
+
   router.get("/", function (req, res, next) {
     res.render("index", { title: "Express" });
   });
@@ -56,13 +57,15 @@ module.exports = (db) => {
 
     if (characterInDB) {
       res.send(characterInDB);
-    }
+    } else {
 
     const characterFromAPI = await fetchCharacterAPI(
       req.params.account,
       req.params.character
     ).then((result) => {
       return result;
+
+
     });
 
     if (characterFromAPI && !characterInDB) {
@@ -82,6 +85,7 @@ module.exports = (db) => {
     } else {
       res.send(null);
     }
+  }
   });
   router.get('/search/:name', async (req, res, next) => {
     const searchQuery = req.params.name.toUpperCase()
