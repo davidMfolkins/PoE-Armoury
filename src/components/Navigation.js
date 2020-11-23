@@ -14,7 +14,7 @@ export default function Navigation(props) {
         <Searchbar getCharacter={props.getCharacter}/>
       </Nav>
       <Nav className="ml-auto">
-      <Nav.Link className="mx-3 my-2" onClick={() => props.setState('login')}>Login</Nav.Link>
+      <Nav.Link className="mx-3 my-2" href="/login" onClick={() => props.setState('login')}>Login</Nav.Link>
       <Nav.Link className="mx-3 my-2" href="/">Register</Nav.Link>
       </Nav>
     </Navbar.Collapse>

@@ -7,7 +7,7 @@ import Login from './Login';
 import fetchCharacter from "./helpers/getters";
 import Container from "react-bootstrap/Container";
 import { useState, useEffect } from "react";
-import { Link, Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 export default function Application() {
   const [state, setState] = useState("ladder");
@@ -42,7 +42,7 @@ export default function Application() {
       
         
       <Container style={{ marginTop: "100px" }}>
-      <Route path="/home">
+      <Route exact path="/">
         {state === "ladder" && <Ladder getCharacter={getCharacter} />}
         {state === "character" && character && (
           <Character
@@ -55,7 +55,7 @@ export default function Application() {
         )}
         {state === "loading" && <Loading />}
         </Route>
-        <Route path="/test"><Login /></Route>
+        <Route path="/login"><Login /></Route>
       </Container>
     
      

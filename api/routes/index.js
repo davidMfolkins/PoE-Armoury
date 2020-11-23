@@ -16,10 +16,6 @@ const { route } = require("../app");
 
 module.exports = (db) => {
 
-  router.get("/", function (req, res, next) {
-    res.redirect('http://localhost:3030/home')
-  });
-
   router.get("/items", function (req, res, next) {
     console.log("received");
     db.query(`SELECT * FROM characters;`)

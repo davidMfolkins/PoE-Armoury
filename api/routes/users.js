@@ -22,7 +22,7 @@ module.exports = (db, router) => {
       console.log(req.session)
       req.session.userId = user[0].id;
       console.log(req.session)
-      res.redirect('http://localhost:3030/')
+      res.redirect('/')
   }).catch((err) => {
     console.log(err)
   })
