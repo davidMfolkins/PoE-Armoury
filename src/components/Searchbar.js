@@ -16,24 +16,24 @@ function Searchbar(props) {
     setValue(e.target.value);
     const searchTerm = new RegExp(value);
     if (value.length > 0) {
-    const newSearchResults = await axios.get(`http://localhost:3030/search/${value}`).then((res) => {
-      console.log(res)
-      return res.data.map((entry) => {
+      const newSearchResults = await axios.get(`http://localhost:3030/search/${value}`).then((res) => {
+        console.log(res)
+        return res.data.map((entry) => {
           return (
             <tr>
               <td>{entry.name}</td>
             </tr>
           );
+        })
+
       })
 
-    })
-  
-    if (!e.target.value) {
-      setSearchResults([null]);
-    } else {
-      setSearchResults(newSearchResults);
+      if (!e.target.value) {
+        setSearchResults([null]);
+      } else {
+        setSearchResults(newSearchResults);
+      }
     }
-  }
   };
 
   return (
