@@ -3,6 +3,8 @@ var router = express.Router();
 
 const axios = require("axios");
 
+const fetch = require("node-fetch");
+
 const {
   findCharacterDB,
   getItems,
@@ -104,6 +106,17 @@ module.exports = (db) => {
       console.log(err)
     })
     res.send(searchResults)
+  })
+  
+  router.get('/account/:name', async (req, res, next) => {
+    console.log(req.params)
+    fetch(`https://www.pathofexile.com/character-window/get-characters?accountName=${req.params.name}`)
+    .then(result => {
+      return result.json()
+    }).then((data) => {
+      console.log(data)
+      res.send(data)
+    })
   })
   return router;
 };

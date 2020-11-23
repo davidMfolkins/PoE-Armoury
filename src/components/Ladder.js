@@ -44,7 +44,7 @@ function Ladder(props) {
   }
  
   const rows = data.ladderChars.map((entry) => {
-    console.log(entry.account.twitch)
+    // console.log(entry.account.twitch)
     const className = entry.character.class
     const classIcon = `/icons/${className.toLowerCase()}_icon.png`
     const num = Math.ceil(Math.random() * 5)
@@ -56,7 +56,6 @@ function Ladder(props) {
         <td className="col-2">{entry.character.level}</td>
         <td className="col-2">{className}</td>
         {entry.account.twitch && <td className="col-2"><a href={`https://twitch.tv/${entry.account.twitch.name}`} target="_blank">{entry.account.twitch.name}</a></td>}
-
       </tr>
     )
   })
