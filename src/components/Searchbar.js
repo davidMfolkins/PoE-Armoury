@@ -17,7 +17,7 @@ function Searchbar(props) {
     const searchTerm = new RegExp(value);
     if (value.length > 0) {
     const newSearchResults = await axios.get(`http://localhost:3030/search/${value}`).then((res) => {
-      console.log(res.data.searchItems)
+      // console.log(res.data.searchItems)
       return res.data.searchItems.map((entry) => {
         if (entry.type === 'character') {
           return (
