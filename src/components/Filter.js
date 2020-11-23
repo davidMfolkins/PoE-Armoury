@@ -6,13 +6,13 @@ import './Filter.scss'
 
 function Filter(props) {
 
-
   function handleChange(evt) {
-
     props.onChange(evt)
-    
   }
 
+  function hasTwitch(event) {
+    props.handleChange(event)
+  }
   return (
     <Accordion className="accordianContainer">
       <Card>
@@ -25,9 +25,8 @@ function Filter(props) {
               <Form className="my-2" autocomplete="off">
                 <div className="filterTitle">Class: </div>
                 <FormControl type="text" placeholder="Class" name="hero" onChange={handleChange} /><br></br>
-                <div className="filterTitle">Level: </div>
-                <FormControl type="text" placeholder="Min Level" name="min" onChange={handleChange} /><br></br>
-                <FormControl type="text" placeholder="Max Level" name="max" onChange={handleChange} />
+                <div className="filterTitle">has Twitch </div>
+                <input type="checkbox" aria-label="check box to check has twtich filter" onChange={hasTwitch}/>
               </Form>
             </div>
           </Card.Body>

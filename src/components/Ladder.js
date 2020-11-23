@@ -54,11 +54,18 @@ function Ladder(props) {
     const newArray = data.ladderChars.filter(hero => hero.character.class.toLowerCase().includes(query)) 
     setFilteredData({ladderChars: newArray})
   }
-
+  
+  const filterTwitch = function(event) {
+    const checkBox = event.target.value
+    if (checkBox === "on") {
+      console.log("ON!")
+    } else {
+      console.log("OFF!")
+    }
+  }
   const rows = filteredData.ladderChars.map((entry) => {
     const className = entry.character.class
     const classIcon = `/icons/${className.toLowerCase()}_icon.png`
-    console.log(className)
     return (
       <tr id="ladderList" className="d-flex" onClick={() => props.getCharacter(entry.account.name, entry.character.name)}>
         <td className="col-1">{entry.rank}</td>
@@ -80,7 +87,7 @@ function Ladder(props) {
       <div className="topButtons">
         <button type="button" id="ladderButton" onClick={() => setHardcore(!hardcore)}>{changeButton()}</button>
       </div>
-      <Filter onChange = {filterFunction}/>
+      <Filter onChange = {filterFunction} handleChange = {filterTwitch}/>
       <div className="ladderContainer">
         <Table striped bordered variant="dark">
           <thead>
