@@ -12,9 +12,9 @@ export default function Character(props) {
   const classIcon = `/icons/${className.toLowerCase()}_icon.png`
   return (
 
-    <div className="container character-container char" style={{borderRadius: '10px', overflow: 'hidden'}}>
+    <div className="container character-container char" style={{ borderRadius: '10px', overflow: 'hidden' }}>
       <Row className="p-5 char-title">
-        <Col lg="auto"><img src={classIcon} alt={props.character.class}/></Col>
+        <Col lg="auto"><img src={classIcon} alt={props.character.class} /></Col>
         <Col lg={5} className="my-auto">
           <h1 style={{ backgroundColor: "rgba(0,0,0,0.5)" }}>{props.character.character.name}</h1>
           <h5 style={{ backgroundColor: "rgba(0,0,0,0.5)" }}>{props.character.character.level} | {props.character.character.class}</h5>

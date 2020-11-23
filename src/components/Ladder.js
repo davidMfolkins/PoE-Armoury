@@ -42,20 +42,18 @@ function Ladder(props) {
       return "Standard Ladder"
     }
   }
- 
+
   const rows = data.ladderChars.map((entry) => {
-    console.log(entry.account.twitch)
     const className = entry.character.class
     const classIcon = `/icons/${className.toLowerCase()}_icon.png`
-    const num = Math.ceil(Math.random() * 5)
     return (
       <tr id="ladderList" className="d-flex" onClick={() => props.getCharacter(entry.account.name, entry.character.name)}>
         <td className="col-1">{entry.rank}</td>
-        <td className="col-2"><img src={classIcon} /></td>
+        <td className="col-2"><img src={classIcon} alt={entry.character.name} /></td>
         <td className="col-3">{entry.character.name} </td>
         <td className="col-2">{entry.character.level}</td>
         <td className="col-2">{className}</td>
-        {entry.account.twitch && <td className="col-2"><a href={`https://twitch.tv/${entry.account.twitch.name}`} target="_blank">{entry.account.twitch.name}</a></td>}
+        {entry.account.twitch && <td className="col-2"><a href={`https://twitch.tv/${entry.account.twitch.name}`} target="_blank" rel="noreferrer">{entry.account.twitch.name}</a></td>}
 
       </tr>
     )
@@ -68,8 +66,8 @@ function Ladder(props) {
       <div className="ladderTitle">{tableName()}</div>
       <div className="topButtons">
         <button type="button" id="ladderButton" onClick={() => setHardcore(!hardcore)}>{changeButton()}</button>
-        </div>
-        <Filter />
+      </div>
+      <Filter />
       <div className="ladderContainer">
         <Table striped bordered variant="dark">
           <thead>

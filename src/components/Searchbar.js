@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
 import { Form, FormControl, Table, Badge } from "react-bootstrap";
-
-
 import "./Searchbar.scss";
-
 let charName = "";
 function Searchbar(props) {
   const [value, setValue] = useState("");
-
   const [searchResults, setSearchResults] = useState([]);
+
 
   function selectSearchItem (name) {
     props.getCharacter('none', name);
@@ -39,9 +35,7 @@ function Searchbar(props) {
                 );
         }
       });
-
     })
-  
     if (!e.target.value) {
       setSearchResults([null]);
     } else {
@@ -49,7 +43,6 @@ function Searchbar(props) {
     }
   }
   };
-
   return (
     <div>
       <Form className="my-2" autocomplete="off">
@@ -69,5 +62,4 @@ function Searchbar(props) {
     </div>
   );
 }
-
 export default Searchbar;

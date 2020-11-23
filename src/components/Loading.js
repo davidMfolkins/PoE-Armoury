@@ -4,7 +4,7 @@ import Spinner from 'react-bootstrap/Spinner'
 
 export default function Loading(props) {
 
- 
+
   return <div className="container" id="container">
     <div style={{textAlign: 'center', height: '50px'}}>
     {!props.error && 
@@ -24,4 +24,5 @@ export default function Loading(props) {
 
   </div>
 </div>
+
 }
