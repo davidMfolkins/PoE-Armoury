@@ -21,7 +21,7 @@ function Ladder(props) {
   })
 
   useEffect(() => {
-    axios.get('http://localhost:3030/ladder')
+    axios.get('http://192.168.0.13:3030/ladder')
       .then((result) => {
         if (hardcore) {
           setData({ ...data, ladderChars: result.data[0].rankings.entries })
@@ -82,7 +82,7 @@ function Ladder(props) {
       </div>
       <Filter onChange = {filterFunction}/>
       <div className="ladderContainer">
-        <Table striped bordered variant="dark">
+        <Table responsive striped bordered variant="dark">
           <thead>
             <tr className="d-flex">
               <th className="col-1">Rank</th>

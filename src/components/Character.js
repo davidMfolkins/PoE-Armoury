@@ -24,9 +24,9 @@ export default function Character(props) {
 
     <div className="container character-container char" style={{ borderRadius: '10px', overflow: 'hidden' }}>
       <Row className="p-5 char-title">
-        <Col lg="auto"><img src={classIcon} alt={props.character.class} /></Col>
-        <Col lg={5} className="my-auto">
-          <h1 style={{ backgroundColor: "rgba(0,0,0,0.5)" }}>{props.character.character.name}</h1>
+        <Col lg="auto" ><img src={classIcon} alt={props.character.class} /></Col>
+        <Col lg={5}  className="my-auto">
+          <h1 style={{ backgroundColor: "rgba(0,0,0,0.5)"}}>{props.character.character.name}</h1>
           <h5 style={{ backgroundColor: "rgba(0,0,0,0.5)" }}>{props.character.character.level} | {props.character.character.class}</h5>
         </Col>
 
