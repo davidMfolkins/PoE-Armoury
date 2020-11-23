@@ -5,7 +5,7 @@ import Character from "./Character";
 import Navigation from "./Navigation";
 import fetchCharacter from "./helpers/getters";
 import Container from "react-bootstrap/Container";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Application() {
   const [state, setState] = useState("ladder");
@@ -32,7 +32,7 @@ export default function Application() {
 
   return (
     <Container fluid>
-      <Navigation toggleView={toggleView} />
+      <Navigation getCharacter={getCharacter} toggleView={toggleView} />
       <Container style={{ marginTop: "100px" }}>
         {state === "ladder" && <Ladder getCharacter={getCharacter} />}
         {state === "character" && character && (

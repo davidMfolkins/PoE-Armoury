@@ -11,7 +11,7 @@ export default function Navigation(props) {
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto"> 
         <Nav.Link className="mx-3 my-2"><span onClick={props.toggleView}>Home</span></Nav.Link>
-        <Searchbar />
+        <Searchbar getCharacter={props.getCharacter}/>
       </Nav>
       <Nav className="ml-auto">
       <Nav.Link className="mx-3 my-2" href="/">Login</Nav.Link>

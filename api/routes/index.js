@@ -85,7 +85,9 @@ module.exports = (db) => {
   });
 
   router.get('/search/:name', (req, res, next) => {
+    console.log(req.params.name)
     db.query(`SELECT name FROM characters WHERE name LIKE $1`, [`%${req.params.name}%`]).then((results) => {
+      console.log(results)
       res.send(results.rows)
     }).catch((err) => {
       console.log(err)

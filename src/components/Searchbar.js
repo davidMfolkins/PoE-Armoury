@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import { Form, FormControl, Table } from "react-bootstrap";
+import { Form, FormControl, Table, Badge } from "react-bootstrap";
+
 
 import "./Searchbar.scss";
 
@@ -11,19 +12,34 @@ function Searchbar(props) {
 
   const [searchResults, setSearchResults] = useState([]);
 
+  function selectSearchItem (name) {
+    props.getCharacter('none', name);
+    setSearchResults(null)
+    setValue("")
+  }
+
   const quickSearch = async function (e) {
     setValue(e.target.value);
     const searchTerm = new RegExp(value);
     if (value.length > 0) {
     const newSearchResults = await axios.get(`http://localhost:3030/search/${value}`).then((res) => {
-      console.log(res)
-      return res.data.map((entry) => {
+      console.log(res.data.searchItems)
+      return res.data.searchItems.map((entry) => {
+        if (entry.type === 'character') {
           return (
-            <tr>
-              <td>{entry.name}</td>
-            </tr>
-          );
-      })
+                  <tr>
+                    <td onClick={() => selectSearchItem(entry.name)}>{entry.name}  <Badge variant="primary">character</Badge>{' '}</td>
+                  </tr>
+                );
+        } else {
+          return (
+                  <tr>
+                    <td>{entry.name}  <Badge variant="secondary">account</Badge>{' '}</td>
+                  </tr>
+                );
+        }
+      });
+
     })
   
     if (!e.target.value) {
