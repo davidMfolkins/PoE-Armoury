@@ -6,6 +6,8 @@ import Filter from './Filter'
 import { Table } from 'react-bootstrap'
 
 
+
+
 function Ladder(props) {
   const [data, setData] = useState({
     ladderChars: []
@@ -54,6 +56,7 @@ function Ladder(props) {
         <td className="col-2">{entry.character.level}</td>
         <td className="col-2">{className}</td>
         {entry.account.twitch && <td className="col-2"><a href={`https://twitch.tv/${entry.account.twitch.name}`} target="_blank">{entry.account.twitch.name}</a></td>}
+
       </tr>
     )
   })

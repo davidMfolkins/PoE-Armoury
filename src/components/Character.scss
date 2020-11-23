@@ -2,7 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
 
 body {
-  background-color: #5e5e5e!important;
+  
+  background-image: url('../images/bg-red.jpg');
   font-family: 'Noto Sans KR', sans-serif;
   .character-container {
     color: white;
@@ -11,7 +12,7 @@ body {
   }
 }
 .char {
-  background-image: url('../images/char-bg.jpg');
+  background-color: rgba(0,0,0,0.5)!important;
 }
 
 .char-title {
