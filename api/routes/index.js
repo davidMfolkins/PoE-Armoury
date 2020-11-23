@@ -49,13 +49,13 @@ module.exports = (db) => {
   });
   
   router.get('/accounts/:name', async (req, res, next) => {
-    // console.log(req.params)
-    fetch(`https://www.pathofexile.com/character-window/get-characters?accountName=${req.params.name}`)
+    const accountName = req.params.name;
+    fetch(`https://www.pathofexile.com/character-window/get-characters?accountName=${accountName}`)
     .then(result => {
       return result.json()
     }).then((data) => {
-      console.log(data)
-      saveAccount(db, data[0].name)
+      // console.log(accountName)
+      saveAccount(db, accountName)
       res.send(data)
     })
   })
