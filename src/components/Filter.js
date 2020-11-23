@@ -6,18 +6,11 @@ import './Filter.scss'
 
 function Filter(props) {
 
-  const [state, setState] = useState({
-    hero: "",
-    min: "",
-    max: ""
-  })
 
   function handleChange(evt) {
 
-    setState({
-      ...state,
-      [evt.target.name]: evt.target.value
-    });
+    props.onChange(evt)
+    
   }
 
   return (
@@ -31,10 +24,10 @@ function Filter(props) {
             <div className="filterContainer">
               <Form className="my-2" autocomplete="off">
                 <div className="filterTitle">Class: </div>
-                <FormControl type="text" placeholder="Class" name="hero" value={state.hero} onChange={handleChange} /><br></br>
+                <FormControl type="text" placeholder="Class" name="hero" onChange={handleChange} /><br></br>
                 <div className="filterTitle">Level: </div>
-                <FormControl type="text" placeholder="Min Level" name="min" value={state.min} onChange={handleChange} /><br></br>
-                <FormControl type="text" placeholder="Max Level" name="max" value={state.max} onChange={handleChange} />
+                <FormControl type="text" placeholder="Min Level" name="min" onChange={handleChange} /><br></br>
+                <FormControl type="text" placeholder="Max Level" name="max" onChange={handleChange} />
               </Form>
             </div>
           </Card.Body>

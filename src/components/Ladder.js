@@ -12,6 +12,10 @@ function Ladder(props) {
   const [data, setData] = useState({
     ladderChars: []
   })
+  const [filteredData, setFilteredData] = useState({
+    ladderChars: []
+  })
+
   const [hardcore, setHardcore] = useState({
     hardcore: false
   })
@@ -21,8 +25,10 @@ function Ladder(props) {
       .then((result) => {
         if (hardcore) {
           setData({ ...data, ladderChars: result.data[0].rankings.entries })
+          setFilteredData({ ...data, ladderChars: result.data[0].rankings.entries })
         } else {
           setData({ ...data, ladderChars: result.data[1].rankings.entries })
+          setFilteredData({ ...data, ladderChars: result.data[1].rankings.entries })
         }
       })
   }, [hardcore])
@@ -43,7 +49,13 @@ function Ladder(props) {
     }
   }
 
-  const rows = data.ladderChars.map((entry) => {
+  const filterFunction = function(evt) {
+    const query = evt.target.value.toLowerCase()
+    const newArray = data.ladderChars.filter(hero => hero.character.class.toLowerCase().includes(query)) 
+    setFilteredData({ladderChars: newArray})
+  }
+
+  const rows = filteredData.ladderChars.map((entry) => {
     const className = entry.character.class
     const classIcon = `/icons/${className.toLowerCase()}_icon.png`
     return (
@@ -67,7 +79,7 @@ function Ladder(props) {
       <div className="topButtons">
         <button type="button" id="ladderButton" onClick={() => setHardcore(!hardcore)}>{changeButton()}</button>
       </div>
-      <Filter />
+      <Filter onChange = {filterFunction}/>
       <div className="ladderContainer">
         <Table striped bordered variant="dark">
           <thead>
