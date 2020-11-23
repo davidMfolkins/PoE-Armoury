@@ -2,13 +2,16 @@ import "../index.scss";
 import Ladder from "./Ladder";
 import Loading from "./Loading";
 import Character from "./Character";
+import Account from "./Account";
 import Navigation from "./Navigation";
 import fetchCharacter from "./helpers/getters";
 import Container from "react-bootstrap/Container";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Application() {
   const [state, setState] = useState("ladder");
+
+  const [account, setAccount] = useState(null);
 
   const [character, setCharacter] = useState(null);
 
@@ -32,7 +35,7 @@ export default function Application() {
 
   return (
     <Container fluid>
-      <Navigation toggleView={toggleView} />
+      <Navigation toggleView={toggleView} setAccount={setAccount}/>
       <Container style={{ marginTop: "100px" }}>
         {state === "ladder" && <Ladder getCharacter={getCharacter} />}
         {state === "character" && character && (
@@ -46,6 +49,7 @@ export default function Application() {
           <Loading error={"No character found."} toggleView={toggleView} />
         )}
         {state === "loading" && <Loading />}
+        <Account account={account}/>
       </Container>
     </Container>
   );
