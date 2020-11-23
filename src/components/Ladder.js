@@ -9,29 +9,30 @@ import { Table } from 'react-bootstrap'
 
 
 function Ladder(props) {
-  const [data, setData] = useState({
-    ladderChars: []
-  })
-  const [filteredData, setFilteredData] = useState({
-    ladderChars: []
-  })
-
-  const [hardcore, setHardcore] = useState({
-    hardcore: false
-  })
+  const [data, setData] = useState( [] )
+  const [filteredData, setFilteredData] = useState( [] )
+  const [filter, setFilter] = useState ( "" )
+  const [hasTwitch, sethasTwtich] = useState( false )
+  const [hardcore, setHardcore] = useState( false )
 
   useEffect(() => {
     axios.get('http://localhost:3030/ladder')
       .then((result) => {
         if (hardcore) {
-          setData({ ...data, ladderChars: result.data[0].rankings.entries })
-          setFilteredData({ ...data, ladderChars: result.data[0].rankings.entries })
+          setData(result.data[0].rankings.entries )
         } else {
-          setData({ ...data, ladderChars: result.data[1].rankings.entries })
-          setFilteredData({ ...data, ladderChars: result.data[1].rankings.entries })
+          setData(result.data[1].rankings.entries )
         }
       })
   }, [hardcore])
+
+  useEffect(() => {
+    const newArray = data
+      .filter(hero => hero.character.class.toLowerCase().includes(filter)) 
+      .filter(twitch => !hasTwitch || twitch.account.twitch) 
+    setFilteredData(newArray)
+
+  }, [data, filter, hasTwitch])
 
   const changeButton = function () {
     if (hardcore) {
@@ -49,16 +50,18 @@ function Ladder(props) {
     }
   }
 
-  const filterFunction = function(evt) {
-    const query = evt.target.value.toLowerCase()
-    const newArray = data.ladderChars.filter(hero => hero.character.class.toLowerCase().includes(query)) 
-    setFilteredData({ladderChars: newArray})
+
+  const handleFilterChange = function(evt) {
+    setFilter(evt.target.value)
   }
 
-  const rows = filteredData.ladderChars.map((entry) => {
+  const handleTwitchChange = function(evt) {
+    sethasTwtich(evt.target.checked)
+  }
+  
+  const rows = filteredData.map((entry) => {
     const className = entry.character.class
     const classIcon = `/icons/${className.toLowerCase()}_icon.png`
-    console.log(className)
     return (
       <tr id="ladderList" className="d-flex" onClick={() => props.getCharacter(entry.account.name, entry.character.name)}>
         <td className="col-1">{entry.rank}</td>
@@ -80,7 +83,7 @@ function Ladder(props) {
       <div className="topButtons">
         <button type="button" id="ladderButton" onClick={() => setHardcore(!hardcore)}>{changeButton()}</button>
       </div>
-      <Filter onChange = {filterFunction}/>
+      <Filter filter={filter} hasTwtich={hasTwitch} onFilterChange = {handleFilterChange} onTwitchChange = {handleTwitchChange}/>
       <div className="ladderContainer">
         <Table responsive striped bordered variant="dark">
           <thead>
