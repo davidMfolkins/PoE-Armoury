@@ -8,7 +8,7 @@ export default function Items(props) {
     if (item.inventoryId === 'Flask') {
 
     } else {
-      return <Item item={item} />
+      return <Item windowWidth={props.windowWidth} item={item} />
     }
 
   })

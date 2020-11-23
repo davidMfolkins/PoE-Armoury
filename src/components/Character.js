@@ -5,10 +5,20 @@ import './Character.scss'
 
 import { Row, Col } from 'react-bootstrap'
 
-export default function Character(props) {
-  console.log('character props:', props)
-  const className = props.character.character.class
+import { useState, useEffect } from 'react'
 
+export default function Character(props) {
+
+  const [ windowWidth, setWindowWidth ] = useState(window.innerWidth)
+
+  useEffect(() => {
+    function handleResize () {
+      setWindowWidth(window.innerWidth)
+    }
+    window.addEventListener("resize", handleResize)
+  })
+
+  const className = props.character.character.class
   const classIcon = `/icons/${className.toLowerCase()}_icon.png`
   return (
 
@@ -22,11 +32,11 @@ export default function Character(props) {
 
       </Row>
       <Row className="p-3" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
-        <Col>skills</Col>
+        <Col lg={6} xs={12}></Col>
 
         <Col>
           <Row>
-            <Items items={props.character.items} />
+            <Items windowWidth={windowWidth} items={props.character.items} />
           </Row>
           <Row>
             <Col>
