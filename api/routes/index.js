@@ -15,6 +15,7 @@ const { route } = require("../app");
 /* GET home page. */
 
 module.exports = (db) => {
+
   router.get("/", function (req, res, next) {
     res.render("index", { title: "Express" });
   });
@@ -63,6 +64,8 @@ module.exports = (db) => {
       req.params.character
     ).then((result) => {
       return result;
+
+
     });
 
     if (characterFromAPI && !characterInDB) {

@@ -3,6 +3,7 @@ import axios from "axios";
 
 import { Form, FormControl, Table } from "react-bootstrap";
 
+
 import "./Searchbar.scss";
 
 let charName = "";
@@ -24,6 +25,7 @@ function Searchbar(props) {
             </tr>
           );
       })
+
     })
   
     if (!e.target.value) {
