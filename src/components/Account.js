@@ -20,13 +20,13 @@ function Account(props) {
   useEffect(() => {
     let notInDb = false;
 
-    axios.get(`http://localhost:3030/account/${props.account}`)
+    axios.get(`http://localhost:3030/accounts/${props.account}`)
       .then((result) => {
         console.log(result)
         return result
       }).catch((err) => {
         if (err.message.includes('404')) {
-          axios.get(`/account/${props.account}`)
+          axios.get(`/accounts/${props.account}`)
           .then(result => {
             console.log("it happened")
           }).catch((err) => {

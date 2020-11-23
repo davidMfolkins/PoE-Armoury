@@ -11,42 +11,54 @@ const {
   fetchCharacterAPI,
 } = require("./helpers/getters");
 
-const saveCharacter = require("./helpers/setters");
+const { saveCharacter, saveAccount } = require("./helpers/setters");
 const { route } = require("../app");
 
 /* GET home page. */
 
 module.exports = (db) => {
-
+  
   router.get("/", function (req, res, next) {
     res.render("index", { title: "Express" });
   });
   router.get("/items", function (req, res, next) {
     console.log("received");
     db.query(`SELECT * FROM characters;`)
-      .then((data) => {
-        // console.log(data.rows)
-        res.send(data.rows);
-      })
-      .catch((err) => {
-        // console.log(err)
-        res.status(500).json({ error: err.message });
-      });
+    .then((data) => {
+      // console.log(data.rows)
+      res.send(data.rows);
+    })
+    .catch((err) => {
+      // console.log(err)
+      res.status(500).json({ error: err.message });
+    });
     router.get("/characters", function (req, res, next) {
       // console.log('received')
     });
   });
-
+  
   router.get("/ladder", function (req, res, next) {
     db.query(`SELECT rankings FROM ladders;`)
-      .then((data) => {
-        res.send(data.rows);
-      })
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json({ error: err.message });
-      });
+    .then((data) => {
+      res.send(data.rows);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ error: err.message });
+    });
   });
+  
+  router.get('/accounts/:name', async (req, res, next) => {
+    console.log(req.params)
+    fetch(`https://www.pathofexile.com/character-window/get-characters?accountName=${req.params.name}`)
+    .then(result => {
+      return result.json()
+    }).then((data) => {
+      console.log(db, data)
+      saveAccount(data.name)
+      res.send(data)
+    })
+  })
 
   router.get("/accounts/:account/characters/:character", async function (req,res,next) {
     console.log("Request for accounts and characters");
@@ -106,17 +118,6 @@ module.exports = (db) => {
       console.log(err)
     })
     res.send(searchResults)
-  })
-  
-  router.get('/account/:name', async (req, res, next) => {
-    console.log(req.params)
-    fetch(`https://www.pathofexile.com/character-window/get-characters?accountName=${req.params.name}`)
-    .then(result => {
-      return result.json()
-    }).then((data) => {
-      console.log(data)
-      res.send(data)
-    })
   })
   return router;
 };
