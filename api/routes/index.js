@@ -88,12 +88,22 @@ module.exports = (db) => {
   }
   });
 
-  router.get('/search/:name', (req, res, next) => {
-    db.query(`SELECT name FROM characters WHERE name LIKE $1`, [`%${req.params.name}%`]).then((results) => {
-      res.send(results.rows)
+  router.get('/search/:name', async (req, res, next) => {
+    const searchResults = {'searchItems': []};
+    await db.query(`SELECT name FROM characters WHERE name LIKE $1`, [`%${req.params.name}%`]).then((results) => {
+      console.log(results.rows[0])
+      const newEntry = {'name': results.rows[0].name, 'type': 'character'}
+      searchResults.searchItems = [...searchResults.searchItems, newEntry]
     }).catch((err) => {
       console.log(err)
     })
+    await db.query(`SELECT name FROM accounts WHERE name LIKE $1`, [`%${req.params.name}%`]).then((results) => {
+      const newEntry = {'name': results.rows[0].name, 'type': 'account'}
+      searchResults.searchItems = [...searchResults.searchItems, newEntry]
+    }).catch((err) => {
+      console.log(err)
+    })
+    res.send(searchResults)
   })
   return router;
 };
