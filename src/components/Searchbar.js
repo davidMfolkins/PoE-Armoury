@@ -26,6 +26,7 @@ function Searchbar(props) {
                   </tr>
                 );
         } else {
+          props.setState("account")
           return (
                   <tr>
                     <td onClick={() => props.setAccount(entry.name)}>{entry.name}  <Badge variant="secondary">account</Badge>{' '}</td>

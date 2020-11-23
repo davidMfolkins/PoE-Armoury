@@ -6,11 +6,12 @@ import Filter from './Filter'
 import { Table } from 'react-bootstrap'
 
 function Account(props) {
+  const accountName = props.account;
 
+  
   const [chars, setchars] = useState([])
-
+  
   useEffect(() => {
-    const accountName = props.account;
     axios.get(`http://localhost:3030/accounts/${accountName}`)
       .then((result) => {
         setchars(result.data)
@@ -26,25 +27,49 @@ function Account(props) {
       })
   }, [props.account])
 
-  // const rows = data.accountChars.map((entry) => {
-  //   // console.log(entry.account.twitch)
-  //   const className = entry.character.class
-  //   const classIcon = `/icons/${className.toLowerCase()}_icon.png`
-  //   const num = Math.ceil(Math.random() * 5)
-  //   return (
-  //     <tr id="ladderList" className="d-flex" onClick={() => props.getCharacter(entry.account.name, entry.character.name)}>
-  //       <td className="col-1">{entry.rank}</td>
-  //       <td className="col-2"><img src={classIcon} /></td>
-  //       <td className="col-3">{entry.character.name} </td>
-  //       <td className="col-2">{entry.character.level}</td>
-  //       <td className="col-2">{className}</td>
-  //       {entry.account.twitch && <td className="col-2"><a href={`https://twitch.tv/${entry.account.twitch.name}`} target="_blank">{entry.account.twitch.name}</a></td>}
-  //     </tr>
-  //   )
-  // })
+  const rows = chars.map((entry) => {
+    // console.log(entry.account.twitch)
+    const className = entry.class
+    const classIcon = `/icons/${className.toLowerCase()}_icon.png`
+    // const num = Math.ceil(Math.random() * 5)
+    return (
+      <tr id="ladderList" className="d-flex" onClick={() => props.getCharacter(entry.account.name, entry.character.name)}>
+        <td className="col-1"></td>
+        <td className="col-2"><img src={classIcon} /></td>
+        <td className="col-3">{entry.name} </td>
+        <td className="col-2">{entry.level}</td>
+        <td className="col-2">{className}</td>
+        {/* {entry.account.twitch && <td className="col-2"><a href={`https://twitch.tv/${entry.account.twitch.name}`} target="_blank">{entry.account.twitch.name}</a></td>} */}
+      </tr>
+    )
+  })
 
   return (
-    <></>
+    <div className="ladderPage">
+
+      <div className="ladderTitle"></div>
+      <div className="topButtons">
+        
+        </div>
+        <Filter />
+      <div className="ladderContainer">
+        <Table striped bordered variant="dark">
+          <thead>
+            <tr className="d-flex">
+              <th className="col-1">{accountName}</th>
+              <th className="col-2">Icon</th>
+              <th className="col-3">Name</th>
+              <th className="col-2">Level</th>
+              <th className="col-2">Class</th>
+              {/* <th className="col-2">Twitch</th> */}
+            </tr>
+          </thead>
+          <tbody>
+            {rows}
+          </tbody>
+        </Table>
+      </div>
+    </div>
   );
 }
 export default Account;

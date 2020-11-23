@@ -35,8 +35,9 @@ export default function Application() {
 
   return (
     <Container fluid>
-      <Navigation toggleView={toggleView} setAccount={setAccount}/>
+      <Navigation toggleView={toggleView} setAccount={setAccount} setState={setState}/>
       <Container style={{ marginTop: "100px" }}>
+        {state === "account" && <Account account={account} />}
         {state === "ladder" && <Ladder getCharacter={getCharacter} />}
         {state === "character" && character && (
           <Character
@@ -49,7 +50,6 @@ export default function Application() {
           <Loading error={"No character found."} toggleView={toggleView} />
         )}
         {state === "loading" && <Loading />}
-        <Account account={account} />
       </Container>
     </Container>
   );
