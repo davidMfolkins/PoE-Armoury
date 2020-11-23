@@ -57,7 +57,7 @@ module.exports = (db) => {
 
     if (characterInDB) {
       res.send(characterInDB);
-    }
+    } else {
 
     const characterFromAPI = await fetchCharacterAPI(
       req.params.account,
@@ -85,6 +85,7 @@ module.exports = (db) => {
     } else {
       res.send(null);
     }
+  }
   });
 
   router.get('/search/:name', (req, res, next) => {
