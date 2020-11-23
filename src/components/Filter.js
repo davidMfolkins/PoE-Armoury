@@ -13,7 +13,7 @@ function Filter(props) {
   })
 
   function handleChange(evt) {
-    
+
     setState({
       ...state,
       [evt.target.name]: evt.target.value
@@ -31,10 +31,10 @@ function Filter(props) {
             <div className="filterContainer">
               <Form className="my-2" autocomplete="off">
                 <div className="filterTitle">Class: </div>
-                <FormControl type="text" placeholder="Class" name="hero" value={state.hero} onChange={handleChange}/><br></br>
+                <FormControl type="text" placeholder="Class" name="hero" value={state.hero} onChange={handleChange} /><br></br>
                 <div className="filterTitle">Level: </div>
-                <FormControl type="text" placeholder="Min Level" name="min" value={state.min}  onChange={handleChange}/><br></br>
-                <FormControl type="text" placeholder="Max Level" name="max" value={state.max} onChange={handleChange}/>
+                <FormControl type="text" placeholder="Min Level" name="min" value={state.min} onChange={handleChange} /><br></br>
+                <FormControl type="text" placeholder="Max Level" name="max" value={state.max} onChange={handleChange} />
               </Form>
             </div>
           </Card.Body>

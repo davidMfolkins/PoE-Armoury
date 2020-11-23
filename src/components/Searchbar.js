@@ -16,6 +16,7 @@ function Searchbar(props) {
     setValue(e.target.value);
     const searchTerm = new RegExp(value);
     if (value.length > 0) {
+      
     const newSearchResults = await axios.get(`http://localhost:3030/search/${value}`).then((res) => {
       console.log(res.data.searchItems)
       return res.data.searchItems.map((entry) => {
@@ -34,14 +35,12 @@ function Searchbar(props) {
         }
       });
 
-    })
-  
-    if (!e.target.value) {
-      setSearchResults([null]);
-    } else {
-      setSearchResults(newSearchResults);
+      if (!e.target.value) {
+        setSearchResults([null]);
+      } else {
+        setSearchResults(newSearchResults);
+      }
     }
-  }
   };
 
   return (
