@@ -37,7 +37,7 @@ export default function Application() {
     <Container fluid>
       <Navigation toggleView={toggleView} setAccount={setAccount} setState={setState}/>
       <Container style={{ marginTop: "100px" }}>
-        {state === "account" && <Account account={account} />}
+        {state === "account" && <Account account={account} getCharacter={getCharacter} setState={setState}/>}
         {state === "ladder" && <Ladder getCharacter={getCharacter} />}
         {state === "character" && character && (
           <Character

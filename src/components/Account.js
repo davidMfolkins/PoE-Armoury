@@ -33,13 +33,13 @@ function Account(props) {
     const classIcon = `/icons/${className.toLowerCase()}_icon.png`
     // const num = Math.ceil(Math.random() * 5)
     return (
-      <tr id="ladderList" className="d-flex" onClick={() => props.getCharacter(entry.account.name, entry.character.name)}>
+      <tr id="ladderList" className="d-flex" onClick={() => props.getCharacter(accountName, entry.name)}>
         <td className="col-1"></td>
         <td className="col-2"><img src={classIcon} /></td>
         <td className="col-3">{entry.name} </td>
         <td className="col-2">{entry.level}</td>
         <td className="col-2">{className}</td>
-        {/* {entry.account.twitch && <td className="col-2"><a href={`https://twitch.tv/${entry.account.twitch.name}`} target="_blank">{entry.account.twitch.name}</a></td>} */}
+        <td className="col-2">{}</td>
       </tr>
     )
   })
@@ -49,7 +49,7 @@ function Account(props) {
 
       <div className="ladderTitle"></div>
       <div className="topButtons">
-        
+      <button type="button" id="ladderButton" onClick={() => props.setState("ladder")}>Back to Ladder</button>
         </div>
         <Filter />
       <div className="ladderContainer">
@@ -61,7 +61,7 @@ function Account(props) {
               <th className="col-3">Name</th>
               <th className="col-2">Level</th>
               <th className="col-2">Class</th>
-              {/* <th className="col-2">Twitch</th> */}
+              <th className="col-2">League</th>
             </tr>
           </thead>
           <tbody>
