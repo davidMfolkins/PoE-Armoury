@@ -38,18 +38,20 @@ router.post('/login', (req, res) => {
   const {email, password} = req.body;
   db.query('SELECT * FROM users WHERE email=$1', [email])
     .then(result => {
-      if (!result) {
-        res.send({error: "error"});
-        return;
-      }
-      console.log(password, result.rows[0])
-      if (bcrypt.compareSync(password, result.rows[0].password)) {
-        console.log('passwords match')
-        res.status(200).send(String(result.rows[0].id))
+      console.log(result)
+      if (result.rows.length === 0) {
+        res.status(403).send({error: "error"});
       } else {
-        console.log('passwords dont match')
-        res.status(403).send('nope')
+        console.log(password, result.rows[0])
+        if (bcrypt.compareSync(password, result.rows[0].password)) {
+          console.log('passwords match')
+          res.status(200).send(String(result.rows[0].id))
+        } else {
+          console.log('passwords dont match')
+          res.status(403).send('nope')
+        }
       }
+      
     })
     .catch(e => res.send(e));
 });

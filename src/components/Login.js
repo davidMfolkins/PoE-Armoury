@@ -1,8 +1,11 @@
 import './Register.scss';
-import { Container, Form, Button } from 'react-bootstrap';
+import { Container, Form, Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
+import { useState } from 'react'
 
 export default function Login(props) {
+
+  const [msg, setMsg] = useState(null)
 
   function handleSubmit(event) {
     event.preventDefault()
@@ -14,13 +17,16 @@ export default function Login(props) {
       if (res.status === 200) {
         console.log(res.data)
         props.handleCookie(res.data);
-      }
+      } 
+    }).catch(() => {
+      setMsg('Email or password incorrect')
     })
   }
 
   return (
     <Container>
       <div className="login-container">
+        {msg && <Alert variant="danger">{msg}</Alert>}
         <div className="container login-form-container">
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail">
