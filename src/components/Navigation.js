@@ -10,13 +10,18 @@ export default function Navigation(props) {
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto"> 
-        <Nav.Link className="mx-3 my-2"><span onClick={() => props.setState('ladder')}>Home</span></Nav.Link>
+        <Nav.Link className="mx-3 my-2" href="/">Home</Nav.Link>
         <Searchbar getCharacter={props.getCharacter}/>
       </Nav>
+      {props.cookies.user && 
       <Nav className="ml-auto">
-      <Nav.Link className="mx-3 my-2" href="/login" onClick={() => props.setState('login')}>Login</Nav.Link>
-      <Nav.Link className="mx-3 my-2" href="/">Register</Nav.Link>
-      </Nav>
+      <Nav.Link className="mx-3 my-2" href="/logout" onClick={() => props.removeCookie("user")}>Logout</Nav.Link>
+      </Nav>}
+      {!props.cookies.user && 
+      <Nav className="ml-auto">
+        <Nav.Link className="mx-3 my-2" href="/login">Login</Nav.Link>
+        <Nav.Link className="mx-3 my-2" href="/register" >Register</Nav.Link>
+      </Nav>}
     </Navbar.Collapse>
   </Navbar>
 

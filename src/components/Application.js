@@ -3,16 +3,39 @@ import Ladder from "./Ladder";
 import Loading from "./Loading";
 import Character from "./Character";
 import Navigation from "./Navigation";
-import Login from './Login';
+import Register from './Register';
+import Logout from './Logout';
+import Login from './Login'
 import fetchCharacter from "./helpers/getters";
 import Container from "react-bootstrap/Container";
 import { useState, useEffect } from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
+import { useCookies } from 'react-cookie';
 
 export default function Application() {
+  const [cookies, setCookie, removeCookie] = useCookies(null);
+  
+
+  function handleCookie(key) {
+    setCookie("user", key, {
+      path: "/"
+    });
+  }
+
+
   const [state, setState] = useState("ladder");
 
   const [character, setCharacter] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(false)
+
+  useEffect(() => {
+    if (cookies.user) {
+      setLoggedIn(true)
+    }
+  })
+
+
+
 
   const randomInterval = function() {
     return Math.floor((Math.random() * 1000) + 750)
@@ -38,10 +61,11 @@ export default function Application() {
 
   return (
     <Container fluid>
-      <Navigation getCharacter={getCharacter} setState={setState} />
+      <Navigation getCharacter={getCharacter} setState={setState} removeCookie={removeCookie} cookies={cookies}/>
       
         
       <Container style={{ marginTop: "100px" }}>
+        <Switch>
       <Route exact path="/">
         {state === "ladder" && <Ladder getCharacter={getCharacter} />}
         {state === "character" && character && (
@@ -55,7 +79,18 @@ export default function Application() {
         )}
         {state === "loading" && <Loading />}
         </Route>
-        <Route path="/login"><Login /></Route>
+        <Route path="/register">
+          {!loggedIn && <Register handleCookie={handleCookie} setState={setState} setLoggedIn={setLoggedIn}/>}
+          {loggedIn && <Redirect to="/"/>}
+          </Route>
+          <Route path="/logout">
+            {!loggedIn && <Logout/>}
+          </Route>
+          <Route path="/login">
+            {!loggedIn && <Login handleCookie={handleCookie} />}
+            {loggedIn && <Redirect to="/"/>}
+          </Route>
+        </Switch>
       </Container>
     
      
