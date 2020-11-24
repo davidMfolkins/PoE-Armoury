@@ -1,0 +1,28 @@
+@import "~bootstrap/scss/bootstrap";
+
+.skill-container {
+  display: flex;
+}
+
+.gemRow {
+  display: flex;
+  align-items: center;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+
+.gemGroup {
+  // justify-content: right;
+}
+
+.gemName {
+  font-size: large;
+}
+
+.gemStats {
+  font-size: small;
+}
+
+.line {
+  border-top: 1px solid gray;
+}
