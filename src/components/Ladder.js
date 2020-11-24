@@ -5,7 +5,7 @@ import './Ladder.scss'
 import Filter from './Filter'
 import { Table } from 'react-bootstrap'
 
-
+const counter = 15
 
 
 function Ladder(props) {
@@ -13,7 +13,8 @@ function Ladder(props) {
   const [filteredData, setFilteredData] = useState( [] )
   const [filter, setFilter] = useState ( "" )
   const [hasTwitch, sethasTwtich] = useState( false )
-  const [hardcore, setHardcore] = useState( false )
+  const [hardcore, setHardcore] = useState( true )
+  const [visible, setVisible] = useState( counter )
 
   useEffect(() => {
     axios.get('http://localhost:3030/ladder')
@@ -59,7 +60,7 @@ function Ladder(props) {
     sethasTwtich(evt.target.checked)
   }
   
-  const rows = filteredData.map((entry) => {
+  const rows = filteredData.slice(0, visible).map((entry) => {
     const className = entry.character.class
     const classIcon = `/icons/${className.toLowerCase()}_icon.png`
     return (
@@ -101,6 +102,7 @@ function Ladder(props) {
           </tbody>
         </Table>
       </div>
+      <button className="loadMore"type="button" onClick={() => setVisible(visible + counter)}>Load More</button>
     </div>
   );
 }
