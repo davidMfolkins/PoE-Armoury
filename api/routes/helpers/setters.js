@@ -40,4 +40,22 @@ async function saveCharacter(db, character, accountName) {
     });
 }
 
-module.exports = saveCharacter;
+function addUser (db, user) {
+  console.log('adding..')
+  const dataArray = [user.name, user.email, user.password];
+  return db.query(`
+  INSERT INTO users (name, email, password)
+  VALUES($1, $2, $3)
+  RETURNING *;
+`, dataArray).then((res) => {
+    return res.rows
+  }).catch((err) => {
+    console.log(err)
+  })
+
+}
+
+module.exports = {
+  saveCharacter,
+  addUser
+}

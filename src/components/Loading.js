@@ -18,7 +18,7 @@ export default function Loading(props) {
   <div style={{color: 'white'}}>
     {props.error}
     <div>
-      <a href="#" onClick={() => props.toggleView('ladder')}>Back</a>
+      <a href="#" onClick={() => props.setState('ladder')}>Back</a>
     </div>
   </div>}
 
