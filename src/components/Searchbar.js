@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
 import { Form, FormControl, Table, Badge } from "react-bootstrap";
-
-
 import "./Searchbar.scss";
-
 let charName = "";
 function Searchbar(props) {
   const [value, setValue] = useState("");
-
   const [searchResults, setSearchResults] = useState([]);
+
+
+  function selectSearchItem (name) {
+    props.getCharacter('none', name);
+    setSearchResults(null)
+    setValue("")
+  }
 
   const quickSearch = async function (e) {
     setValue(e.target.value);
@@ -22,7 +24,7 @@ function Searchbar(props) {
         if (entry.type === 'character') {
           return (
                   <tr>
-                    <td>{entry.name}  <Badge variant="primary">character</Badge>{' '}</td>
+                    <td onClick={() => selectSearchItem(entry.name)}>{entry.name}  <Badge variant="primary">character</Badge>{' '}</td>
                   </tr>
                 );
         } else {
@@ -34,9 +36,7 @@ function Searchbar(props) {
                 );
         }
       });
-
     })
-  
     if (!e.target.value) {
       setSearchResults([null]);
     } else {
@@ -44,7 +44,6 @@ function Searchbar(props) {
     }
   }
   };
-
   return (
     <div>
       <Form className="my-2" autocomplete="off">
@@ -64,5 +63,4 @@ function Searchbar(props) {
     </div>
   );
 }
-
 export default Searchbar;

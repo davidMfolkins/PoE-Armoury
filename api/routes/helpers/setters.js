@@ -40,6 +40,7 @@ async function saveCharacter(db, character, accountName) {
     });
 }
 
+
 async function saveAccount(db, accountName) {
   const account_exists = await db.query(`SELECT id, name FROM accounts WHERE name=$1;`, [accountName]).then((result) => {
     return result.rows
@@ -60,4 +61,25 @@ async function saveAccount(db, accountName) {
     })
   }
 }
-module.exports = { saveCharacter, saveAccount };
+
+function addUser (db, user) {
+  console.log('adding..')
+  const dataArray = [user.name, user.email, user.password];
+  return db.query(`
+  INSERT INTO users (name, email, password)
+  VALUES($1, $2, $3)
+  RETURNING *;
+`, dataArray).then((res) => {
+    return res.rows
+  }).catch((err) => {
+    console.log(err)
+  })
+
+}
+
+module.exports = {
+  saveCharacter,
+  addUser,
+  saveAccount
+}
+

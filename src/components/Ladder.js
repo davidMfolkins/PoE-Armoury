@@ -5,27 +5,35 @@ import './Ladder.scss'
 import Filter from './Filter'
 import { Table } from 'react-bootstrap'
 
-
+const counter = 15
 
 
 function Ladder(props) {
-  const [data, setData] = useState({
-    ladderChars: []
-  })
-  const [hardcore, setHardcore] = useState({
-    hardcore: false
-  })
+  const [data, setData] = useState( [] )
+  const [filteredData, setFilteredData] = useState( [] )
+  const [filter, setFilter] = useState ( "" )
+  const [hasTwitch, sethasTwtich] = useState( false )
+  const [hardcore, setHardcore] = useState( true )
+  const [visible, setVisible] = useState( counter )
 
   useEffect(() => {
     axios.get('http://localhost:3030/ladder')
       .then((result) => {
         if (hardcore) {
-          setData({ ...data, ladderChars: result.data[0].rankings.entries })
+          setData(result.data[0].rankings.entries )
         } else {
-          setData({ ...data, ladderChars: result.data[1].rankings.entries })
+          setData(result.data[1].rankings.entries )
         }
       })
   }, [hardcore])
+
+  useEffect(() => {
+    const newArray = data
+      .filter(hero => hero.character.class.toLowerCase().includes(filter.toLowerCase())) 
+      .filter(twitch => !hasTwitch || twitch.account.twitch) 
+    setFilteredData(newArray)
+
+  }, [data, filter, hasTwitch])
 
   const changeButton = function () {
     if (hardcore) {
@@ -42,20 +50,26 @@ function Ladder(props) {
       return "Standard Ladder"
     }
   }
- 
-  const rows = data.ladderChars.map((entry) => {
-    // console.log(entry.account.twitch)
+
+  const handleFilterChange = function(evt) {
+    setFilter(evt.target.value)
+  }
+
+  const handleTwitchChange = function(evt) {
+    sethasTwtich(evt.target.checked)
+  }
+  
+  const rows = filteredData.slice(0, visible).map((entry) => {
     const className = entry.character.class
     const classIcon = `/icons/${className.toLowerCase()}_icon.png`
-    const num = Math.ceil(Math.random() * 5)
     return (
       <tr id="ladderList" className="d-flex" onClick={() => props.getCharacter(entry.account.name, entry.character.name)}>
         <td className="col-1">{entry.rank}</td>
-        <td className="col-2"><img src={classIcon} /></td>
+        <td className="col-2"><img src={classIcon} alt={entry.character.name} /></td>
         <td className="col-3">{entry.character.name} </td>
         <td className="col-2">{entry.character.level}</td>
         <td className="col-2">{className}</td>
-        {entry.account.twitch && <td className="col-2"><a href={`https://twitch.tv/${entry.account.twitch.name}`} target="_blank">{entry.account.twitch.name}</a></td>}
+        {entry.account.twitch && <td className="col-2"><a href={`https://twitch.tv/${entry.account.twitch.name}`} target="_blank" rel="noreferrer">{entry.account.twitch.name}</a></td>}
       </tr>
     )
   })
@@ -67,10 +81,10 @@ function Ladder(props) {
       <div className="ladderTitle">{tableName()}</div>
       <div className="topButtons">
         <button type="button" id="ladderButton" onClick={() => setHardcore(!hardcore)}>{changeButton()}</button>
-        </div>
-        <Filter />
+      </div>
+      <Filter filter={filter} hasTwtich={hasTwitch} onFilterChange = {handleFilterChange} onTwitchChange = {handleTwitchChange}/>
       <div className="ladderContainer">
-        <Table striped bordered variant="dark">
+        <Table responsive striped bordered variant="dark">
           <thead>
             <tr className="d-flex">
               <th className="col-1">Rank</th>
@@ -86,6 +100,7 @@ function Ladder(props) {
           </tbody>
         </Table>
       </div>
+      <button className="loadMore"type="button" onClick={() => setVisible(visible + counter)}>Load More</button>
     </div>
   );
 }

@@ -17,10 +17,7 @@ const { route } = require("../app");
 /* GET home page. */
 
 module.exports = (db) => {
-  
-  router.get("/", function (req, res, next) {
-    res.render("index", { title: "Express" });
-  });
+
   router.get("/items", function (req, res, next) {
     console.log("received");
     db.query(`SELECT * FROM characters;`)
@@ -101,17 +98,17 @@ module.exports = (db) => {
     }
   }
   });
-
   router.get('/search/:name', async (req, res, next) => {
+    const searchQuery = req.params.name.toUpperCase()
     const searchResults = {'searchItems': []};
-    await db.query(`SELECT name FROM characters WHERE name LIKE $1`, [`%${req.params.name}%`]).then((results) => {
+    await db.query(`SELECT name FROM characters WHERE upper(name) LIKE $1`, [`%${searchQuery}%`]).then((results) => {
       console.log(results.rows[0])
       const newEntry = {'name': results.rows[0].name, 'type': 'character'}
       searchResults.searchItems = [...searchResults.searchItems, newEntry]
     }).catch((err) => {
       console.log(err)
     })
-    await db.query(`SELECT name FROM accounts WHERE name LIKE $1`, [`%${req.params.name}%`]).then((results) => {
+    await db.query(`SELECT name FROM accounts WHERE upper(name) LIKE $1`, [`%${searchQuery}%`]).then((results) => {
       const newEntry = {'name': results.rows[0].name, 'type': 'account'}
       searchResults.searchItems = [...searchResults.searchItems, newEntry]
     }).catch((err) => {

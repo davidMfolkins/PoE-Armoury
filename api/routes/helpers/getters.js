@@ -46,8 +46,17 @@ function fetchCharacterAPI(accountName, characterName) {
     });
 }
 
+function findAccount(db, email) {
+  return db.query('SELECT * FROM users WHERE email=$1', [email]).then((res) => {
+    return res.rows
+  }).catch((err) => {
+    console.log(err)
+  })
+}
+
 module.exports = {
   getItems,
   findCharacterDB,
   fetchCharacterAPI,
+  findAccount
 };

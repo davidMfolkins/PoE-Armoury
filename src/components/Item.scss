@@ -15,6 +15,15 @@
   
 }
 
+@media only screen and (max-width: 600px) {
+  .item {
+    max-width: 55px;
+  }
+  .amulet {
+    max-width: 30px;
+  }
+}
+
 .unique {
   box-shadow: 1px 5px 13px 7px rgba(0,0,0,0.3)
 }
@@ -70,7 +79,6 @@
   @extend .item;
   left: 40%;
   top: 5%;
-  max-width: 100px;
 }
 
 .armour {
