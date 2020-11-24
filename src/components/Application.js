@@ -16,7 +16,7 @@ import ScrollUpButton from "react-scroll-up-button";
 
 export default function Application() {
   const [cookies, setCookie, removeCookie] = useCookies(null);
-  
+
 
   function handleCookie(key) {
     setCookie("user", key, {
@@ -38,10 +38,7 @@ export default function Application() {
     }
   })
 
-
-
-
-  const randomInterval = function() {
+  const randomInterval = function () {
     return Math.floor((Math.random() * 1000) + 750)
   }
 
@@ -57,47 +54,47 @@ export default function Application() {
         setState("character");
       });
     }, randomInterval())
-    
 
-   
-    
+
+
+
   };
 
   return (
     <Container fluid>
-      <Navigation getCharacter={getCharacter} setState={setState} removeCookie={removeCookie} cookies={cookies} setAccount={setAccount}/>
+      <Navigation getCharacter={getCharacter} setState={setState} removeCookie={removeCookie} cookies={cookies} setAccount={setAccount} />
       <ScrollUpButton />
       <Container style={{ marginTop: "100px" }}>
         <Switch>
-      <Route exact path="/">
-        {state === "account" && <Account account={account} getCharacter={getCharacter} setState={setState}/>}
-        {state === "ladder" && <Ladder getCharacter={getCharacter} />}
-        {state === "character" && character && (
-          <Character
-            character={character.items}
-            view={state}
-          />
-        )}
-        {state === "character" && !character && (
-          <Loading error={"No character found."} setState={setState} />
-        )}
-        {state === "loading" && <Loading />}
-        </Route>
-        <Route path="/register">
-          {!loggedIn && <Register handleCookie={handleCookie} setState={setState} setLoggedIn={setLoggedIn}/>}
-          {loggedIn && <Redirect to="/"/>}
+          <Route exact path="/">
+            {state === "account" && <Account account={account} getCharacter={getCharacter} setState={setState} />}
+            {state === "ladder" && <Ladder getCharacter={getCharacter} />}
+            {state === "character" && character && (
+              <Character
+                character={character.items}
+                view={state}
+              />
+            )}
+            {state === "character" && !character && (
+              <Loading error={"No character found."} setState={setState} />
+            )}
+            {state === "loading" && <Loading />}
+          </Route>
+          <Route path="/register">
+            {!loggedIn && <Register handleCookie={handleCookie} setState={setState} setLoggedIn={setLoggedIn} />}
+            {loggedIn && <Redirect to="/" />}
           </Route>
           <Route path="/logout">
-            {!loggedIn && <Logout/>}
+            {!loggedIn && <Logout />}
           </Route>
           <Route path="/login">
             {!loggedIn && <Login handleCookie={handleCookie} />}
-            {loggedIn && <Redirect to="/"/>}
+            {loggedIn && <Redirect to="/" />}
           </Route>
         </Switch>
       </Container>
-    
-     
+
+
     </Container>
   );
 }
