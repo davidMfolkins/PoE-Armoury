@@ -70,7 +70,7 @@ export default function Application() {
     axios.delete(`http://localhost:3030/users/${cookies.user}/favourites/${character_id}`).then((result) => {
       console.log(result)
       console.log('character id: ', character_id)
-      const newFavourites = favourites.filter(fav => fav.id === result.data[0].id)
+      const newFavourites = favourites.filter(fav => fav.id !== result.data[0].id)
       console.log(newFavourites)
       setFavourites(newFavourites)
       console.log('favourites set')
