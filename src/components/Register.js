@@ -16,8 +16,8 @@ export default function Register(props) {
       password: event.target[2].value
     }
 
-    if (newUser.password.length < 7) {
-      setError('Password must be 7 characters or longer')
+    if (newUser.password.length < 1) {
+      setError('Password must be 1 characters or longer')
     } else if (newUser.name.length < 2) {
       setError('Name must be at least 2 characters long')
     } else {

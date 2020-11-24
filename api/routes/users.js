@@ -11,7 +11,7 @@ module.exports = (db, router) => {
   })
   router.post('/register', async (req, res, next) => {
     const user = req.body;
-    user.password = bcrypt.hashSync("B4c0/\/", salt);
+    user.password = bcrypt.hashSync(user.password, salt);
     const alreadyExists = await findAccount(db, user.email).then((users) => {
       return users
     })
@@ -42,6 +42,7 @@ router.post('/login', (req, res) => {
         res.send({error: "error"});
         return;
       }
+      console.log(password, result.rows[0])
       if (bcrypt.compareSync(password, result.rows[0].password)) {
         console.log('passwords match')
         res.status(200).send(String(result.rows[0].id))
