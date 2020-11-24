@@ -19,7 +19,7 @@ function Searchbar(props) {
     const searchTerm = new RegExp(value);
     if (value.length > 0) {
     const newSearchResults = await axios.get(`http://localhost:3030/search/${value}`).then((res) => {
-      console.log(res.data.searchItems)
+      // console.log(res.data.searchItems)
       return res.data.searchItems.map((entry) => {
         if (entry.type === 'character') {
           return (
@@ -28,9 +28,10 @@ function Searchbar(props) {
                   </tr>
                 );
         } else {
+          props.setState("account")
           return (
                   <tr>
-                    <td>{entry.name}  <Badge variant="secondary">account</Badge>{' '}</td>
+                    <td onClick={() => props.setAccount(entry.name)}>{entry.name}  <Badge variant="secondary">account</Badge>{' '}</td>
                   </tr>
                 );
         }

@@ -3,6 +3,7 @@ import './Navigation.scss'
 import Searchbar from './Searchbar'
 
 export default function Navigation(props) {
+
   return (
 
     <Navbar fixed="top" variant="dark" bg="dark" expand="lg">
@@ -11,7 +12,7 @@ export default function Navigation(props) {
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto"> 
         <Nav.Link className="mx-3 my-2" href="/">Home</Nav.Link>
-        <Searchbar getCharacter={props.getCharacter}/>
+        <Searchbar getCharacter={props.getCharacter} setAccount={props.setAccount} setState={props.setState}/>
       </Nav>
       {props.cookies.user && 
       <Nav className="ml-auto">

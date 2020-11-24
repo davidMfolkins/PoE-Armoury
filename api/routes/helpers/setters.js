@@ -40,6 +40,28 @@ async function saveCharacter(db, character, accountName) {
     });
 }
 
+
+async function saveAccount(db, accountName) {
+  const account_exists = await db.query(`SELECT id, name FROM accounts WHERE name=$1;`, [accountName]).then((result) => {
+    return result.rows
+  }).catch((err) => {
+    console.log(err)
+  })
+  let account_id;
+
+  if (account_exists.length > 0) {
+    account_id = account_exists[0].id
+  } else {
+    account_id = await db.query(`INSERT INTO accounts(name) VALUES($1) RETURNING *;`, [accountName])
+    .then((res) => {
+      console.log(`account added`)
+      return res.rows[0].id;
+    }).catch(err => {
+      console.log(err)
+    })
+  }
+}
+
 function addUser (db, user) {
   console.log('adding..')
   const dataArray = [user.name, user.email, user.password];
@@ -57,5 +79,7 @@ function addUser (db, user) {
 
 module.exports = {
   saveCharacter,
-  addUser
+  addUser,
+  saveAccount
 }
+

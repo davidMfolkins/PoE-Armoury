@@ -2,6 +2,7 @@ import "../index.scss";
 import Ladder from "./Ladder";
 import Loading from "./Loading";
 import Character from "./Character";
+import Account from "./Account";
 import Navigation from "./Navigation";
 import Register from './Register';
 import Logout from './Logout';
@@ -12,7 +13,6 @@ import { useState, useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { useCookies } from 'react-cookie';
 import ScrollUpButton from "react-scroll-up-button";
-
 
 export default function Application() {
   const [cookies, setCookie, removeCookie] = useCookies(null);
@@ -26,6 +26,8 @@ export default function Application() {
 
 
   const [state, setState] = useState("ladder");
+
+  const [account, setAccount] = useState("");
 
   const [character, setCharacter] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false)
@@ -63,11 +65,12 @@ export default function Application() {
 
   return (
     <Container fluid>
-      <Navigation getCharacter={getCharacter} setState={setState} removeCookie={removeCookie} cookies={cookies}/>
+      <Navigation getCharacter={getCharacter} setState={setState} removeCookie={removeCookie} cookies={cookies} setAccount={setAccount}/>
       <ScrollUpButton />
       <Container style={{ marginTop: "100px" }}>
         <Switch>
       <Route exact path="/">
+        {state === "account" && <Account account={account} getCharacter={getCharacter} setState={setState}/>}
         {state === "ladder" && <Ladder getCharacter={getCharacter} />}
         {state === "character" && character && (
           <Character
