@@ -8,7 +8,7 @@ function Filter(props) {
 
   function handleFilterChange(evt) {
     props.onFilterChange(evt)
-    
+
   }
 
   function handleTwitchChange(event) {
@@ -25,19 +25,19 @@ function Filter(props) {
             <div className="filterContainer">
               <Form className="my-2" autocomplete="off">
                 <div className="filterTitle">Class: </div>
-                <FormControl 
-                  type="text" 
-                  placeholder="Class" 
-                  name="hero" 
+                <FormControl
+                  type="text"
+                  placeholder="Class"
+                  name="hero"
                   value={props.filter}
-                  onChange={handleFilterChange} 
-                  />
+                  onChange={handleFilterChange}
+                />
                 <br></br>
                 <div className="filterTitle">has Twitch </div>
-                <input 
-                  type="checkbox" 
-                  aria-label="check box to check has twtich filter" 
-                  checked={props.hasTwitch} 
+                <input
+                  type="checkbox"
+                  aria-label="check box to check has twtich filter"
+                  checked={props.hasTwitch}
                   onClick={handleTwitchChange}
                 />
               </Form>
