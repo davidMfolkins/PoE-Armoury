@@ -14,6 +14,13 @@ function Searchbar(props) {
     setValue("")
   }
 
+  function handleSubmit (event) {
+    props.setAccount(value)
+    setValue("")
+    setSearchResults([])
+    event.preventDefault();
+  }
+
   const quickSearch = async function (e) {
     setValue(e.target.value);
     const searchTerm = new RegExp(value);
@@ -46,7 +53,7 @@ function Searchbar(props) {
   };
   return (
     <div>
-      <Form className="my-2" autocomplete="off">
+      <Form className="my-2" autocomplete="off" onSubmit={handleSubmit}>
         <FormControl
           type="text"
           placeholder="Search for player..."
