@@ -71,7 +71,9 @@ router.post(`/:user_id/favourites/:char_id`, async(req, res, next) => {
 
   if (alreadyExists.length === 0) {
     db.query('INSERT INTO favourites(user_id, character_id) VALUES($1, $2) RETURNING *', [req.params.user_id, req.params.char_id]).then((result) => {
-      res.send(result.rows)
+      db.query('SELECT * FROM characters JOIN favourites ON favourites.character_id = characters.id WHERE favourites.user_id=$1', [req.params.user_id]).then((response) => {
+        res.send(response.rows)
+      })
     }).catch(err => console.log(err))
   } else {
     res.status(403).send('already favorited')

@@ -38,10 +38,6 @@ export default function Application() {
       setLoggedIn(true)
     }
   })
-
-
-
-
   const randomInterval = function() {
     return Math.floor((Math.random() * 1000) + 750)
   }
@@ -67,20 +63,20 @@ export default function Application() {
   }, [])
 
   function removeFavourite(character_id) {
-    axios.delete(`http://localhost:3030/users/${cookies.user}/favourites/${character_id}`).then((result) => {
-      console.log(result)
-      console.log('character id: ', character_id)
+    console.log('removing fav')
+   axios.delete(`http://localhost:3030/users/${cookies.user}/favourites/${character_id}`).then((result) => {
       const newFavourites = favourites.filter(fav => fav.id !== result.data[0].id)
       console.log(newFavourites)
       setFavourites(newFavourites)
-      console.log('favourites set')
-      console.log(favourites)
+    }).catch((err) => {
+      console.log(err)
     })
   }
 
   function addFavourite(character_id) {
+    console.log('adding fav')
     axios.post(`http://localhost:3030/users/${cookies.user}/favourites/${character_id}`).then((result) => {
-      setFavourites([...favourites, character])
+      setFavourites([...favourites, result.data[0]])
     }).catch((err) => {
       console.log(err)
     })
