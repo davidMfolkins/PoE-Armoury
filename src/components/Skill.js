@@ -7,7 +7,6 @@ import className from 'classnames'
 
 export default function Skill (props) {
 
-
   const name = props.gem.typeLine
 
   let gemType;
@@ -89,7 +88,6 @@ export default function Skill (props) {
 
   
   return (
-
     <div className={gemType}>
       <OverlayTrigger trigger="hover" placement="right" overlay={popover}>
         <img className="icon" src={props.gem.icon} /> 

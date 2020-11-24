@@ -21,6 +21,16 @@ export default function Character(props) {
 
   const [ msg, setMsg ] = useState(null)
 
+  const gems = props.character.items.map(item => {
+    if (item.inventoryId === "Offhand2" || item.inventoryId === "Weapon2") {
+
+    } else {
+      if (item.socketedItems) {
+        return <Skills itemName={item.inventoryId} gems={item.socketedItems} />
+      }
+    }
+  })
+
   useEffect(() => {
     function handleResize () {
       setWindowWidth(window.innerWidth)
@@ -70,8 +80,7 @@ export default function Character(props) {
 
       </Row>
       <Row className="p-3" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
-        <Col lg={6} xs={12}></Col>
-        <Skills items= {props.character.items}/>
+        <Col lg={6} xs={12}> {gems}</Col>
         <Col>
           <Row>
             <Items windowWidth={windowWidth} items={props.character.items} />
