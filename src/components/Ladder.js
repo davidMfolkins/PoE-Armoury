@@ -5,7 +5,7 @@ import './Ladder.scss'
 import Filter from './Filter'
 import { Table } from 'react-bootstrap'
 
-const counter = 15
+const counter = 20
 
 
 function Ladder(props) {
@@ -61,6 +61,7 @@ function Ladder(props) {
   
   const rows = filteredData.slice(0, visible).map((entry) => {
     const className = entry.character.class
+    console.log(filteredData.length)
     const classIcon = `/icons/${className.toLowerCase()}_icon.png`
     return (
       <tr id="ladderList" className="d-flex" onClick={() => props.getCharacter(entry.account.name, entry.character.name)}>
@@ -100,7 +101,8 @@ function Ladder(props) {
           </tbody>
         </Table>
       </div>
-      <button className="loadMore"type="button" onClick={() => setVisible(visible + counter)}>Load More</button>
+      {visible < filteredData.length &&
+      <button className="loadMore"type="button" onClick={() => setVisible(visible + counter)}>Load More</button>} 
     </div>
   );
 }
