@@ -15,6 +15,7 @@ function Searchbar(props) {
   }
 
   function handleSubmit (event) {
+    console.log("enter")
     props.setAccount(value)
     setValue("")
     setSearchResults([])

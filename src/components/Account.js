@@ -12,6 +12,7 @@ function Account(props) {
   const [chars, setchars] = useState([])
   
   useEffect(() => {
+    console.log("from account.js")
     axios.get(`http://localhost:3030/accounts/${accountName}`)
       .then((result) => {
         setchars(result.data)
