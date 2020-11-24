@@ -11,7 +11,6 @@ import { Row, Col } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
 
 import { AiFillHeart } from 'react-icons/ai'
-import Skill from './Skill';
 
 const classNames = require('classnames')
 

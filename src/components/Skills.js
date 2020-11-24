@@ -11,44 +11,29 @@ export default function Skills (props) {
 
   const gem = props.gems.map(gem => {
     if (!gem.abyssJewel) {
-      return <tr><Skill gem={gem}/></tr>
+    const level = gem.properties.map(property => {
+      if (property.name === "Level") {
+        return property.values[0][0].slice(0,2)
+      }
+    })
+    let quality = null;
+    gem.properties.map(property => {
+      if (property.name === "Quality") {
+        return quality = property.values[0][0].slice(1,3)
+      }
+    })
+    console.log(quality)
+
+      return <div><Skill gem={gem}/> {gem.typeLine} Level: {level} / Quality: {quality || "0"}</div>
     }
   })
 
   return (
   <div className="skills-container">
-    <span>{props.itemName}</span>
-    {gem}
+    <div>
+      <span>{props.itemName}</span>
+      {gem}
+    </div>
   </div>
   )
 }
-
-{/* <div>
-      <div>item name</div>
-      <div className="skill-group">
-        <div>icon active skill</div>
-        <div>icon support</div>
-        <div>icon support</div>
-        <div>icon support</div>
-      </div>
-      ---------------------
-    </div>
-    <div>
-      <div>item name</div>
-      <div className="skill-group">
-        <div>icon active skill</div>
-        <div>icon support</div>
-        <div>icon support</div>
-        <div>icon support</div>
-      </div>
-      ---------------------
-    </div>
-    <div>
-      <div>item name</div>
-      <div className="skill-group">
-        <div>icon active skill</div>
-        <div>icon support</div>
-        <div>icon support</div>
-        <div>icon support</div>
-      </div>
-    </div> */}
