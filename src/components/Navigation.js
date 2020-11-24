@@ -11,7 +11,7 @@ export default function Navigation(props) {
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto"> 
         <Nav.Link className="mx-3 my-2" href="/">Home</Nav.Link>
-        <Searchbar getCharacter={props.getCharacter}/>
+        <Searchbar getCharacter={props.getCharacter} setState={props.setState} setAccount={props.setAccount}/>
       </Nav>
       {props.cookies.user && 
       <Nav className="ml-auto">
