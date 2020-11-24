@@ -11,6 +11,8 @@ import Container from "react-bootstrap/Container";
 import { useState, useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { useCookies } from 'react-cookie';
+import ScrollUpButton from "react-scroll-up-button";
+
 
 export default function Application() {
   const [cookies, setCookie, removeCookie] = useCookies(null);
@@ -62,8 +64,7 @@ export default function Application() {
   return (
     <Container fluid>
       <Navigation getCharacter={getCharacter} setState={setState} removeCookie={removeCookie} cookies={cookies}/>
-      
-        
+      <ScrollUpButton />
       <Container style={{ marginTop: "100px" }}>
         <Switch>
       <Route exact path="/">
