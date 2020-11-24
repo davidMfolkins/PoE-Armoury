@@ -53,5 +53,40 @@ router.post('/login', (req, res) => {
     })
     .catch(e => res.send(e));
 });
+
+router.get('/:id/favourites', (req, res, next) => {
+  db.query('SELECT * FROM characters JOIN favourites ON favourites.character_id = characters.id WHERE favourites.user_id=$1', [req.params.id]).then((result) => {
+    console.log(result.rows)
+    res.send(result.rows)
+  }).catch((err) => {
+    console.log(err)
+    console.log(err)
+  })
+})
+
+router.delete(`/:user_id/favourites/:char_id`, (req, res, next) => {
+  db.query('DELETE FROM favourites WHERE user_id=$1 AND character_id=$2 RETURNING *', [req.params.user_id, req.params.char_id]).then((result) => {
+    res.send(result.rows)
+  }).catch(err => console.log(err))
+})
+
+router.post(`/:user_id/favourites/:char_id`, async(req, res, next) => {
+
+  const alreadyExists = await db.query('SELECT * FROM favourites WHERE user_id=$1 AND character_id=$2', [req.params.user_id, req.params.char_id]).then((result) => {
+    console.log(result.rows)
+    return result.rows
+  }).catch((err) => {
+    return err
+  })
+
+  if (alreadyExists.length === 0) {
+    db.query('INSERT INTO favourites(user_id, character_id) VALUES($1, $2) RETURNING *', [req.params.user_id, req.params.char_id]).then((result) => {
+      res.send(result.rows)
+    }).catch(err => console.log(err))
+  } else {
+    res.status(403).send('already favorited')
+  }
+
+})
   return router;
 };

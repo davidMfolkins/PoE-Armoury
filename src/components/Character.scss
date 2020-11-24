@@ -19,3 +19,27 @@ body {
   border-bottom: 2px solid #b78846;
 }
 
+.like-button:hover {
+  color:rgb(252, 149, 149);
+}
+
+.liked {
+  color: red;
+  
+}
+
+.msg-animated {
+  color: white;
+  position: relative;
+  animation-name: like;
+  animation-duration: 2s;
+  opacity: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes like {
+  0% {top: 0px; opacity: 1}
+  50% {top: -40px; opacity: 1}
+  100% {top: -80px; opacity: 0}
+}
