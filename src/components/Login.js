@@ -1,9 +1,12 @@
 import './Register.scss';
-import { Container, Form, Button } from 'react-bootstrap';
+import { Container, Form, Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
+import { useState } from 'react'
 
 export default function Login(props) {
- 
+
+  const [msg, setMsg] = useState(null)
+
   function handleSubmit(event) {
     event.preventDefault()
     const newUser = {
@@ -11,36 +14,39 @@ export default function Login(props) {
       password: event.target[1].value
     }
     axios.post('http://localhost:3030/users/login', newUser).then((res) => {
-      if(res.status === 200) {
+      if (res.status === 200) {
         console.log(res.data)
         props.handleCookie(res.data);
-      }
+      } 
+    }).catch(() => {
+      setMsg('Email or password incorrect')
     })
   }
 
   return (
     <Container>
-  <div className="login-container">
-      <div className="container login-form-container">
-      <Form onSubmit={handleSubmit}>
-  <Form.Group controlId="formBasicEmail">
-    <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" />
-  </Form.Group>
+      <div className="login-container">
+        {msg && <Alert variant="danger">{msg}</Alert>}
+        <div className="container login-form-container">
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" placeholder="Enter email" />
+            </Form.Group>
 
-  <Form.Group controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" />
-  </Form.Group>
-  <Form.Group controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="I agree" />
-  </Form.Group>
-  <Button variant="primary" type="submit">
-    Submit
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Password" />
+            </Form.Group>
+            <Form.Group controlId="formBasicCheckbox">
+              <Form.Check type="checkbox" label="I agree" />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Submit
   </Button>
-</Form>
+          </Form>
+        </div>
       </div>
-  </div>
-  </Container>
+    </Container>
   )
 }

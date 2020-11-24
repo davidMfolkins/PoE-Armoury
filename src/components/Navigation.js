@@ -3,15 +3,15 @@ import './Navigation.scss'
 import Searchbar from './Searchbar'
 
 export default function Navigation(props) {
-  return (
 
+  return (
     <Navbar fixed="top" variant="dark" bg="dark" expand="lg">
     <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto"> 
         <Nav.Link className="mx-3 my-2" href="/">Home</Nav.Link>
-        <Searchbar getCharacter={props.getCharacter}/>
+        <Searchbar getCharacter={props.getCharacter} setState={props.setState} setAccount={props.setAccount}/>
       </Nav>
       {props.cookies.user && 
       <Nav className="ml-auto">
@@ -25,6 +25,5 @@ export default function Navigation(props) {
       </Nav>}
     </Navbar.Collapse>
   </Navbar>
-
   )
 }

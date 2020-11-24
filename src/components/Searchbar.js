@@ -8,44 +8,53 @@ function Searchbar(props) {
   const [searchResults, setSearchResults] = useState([]);
 
 
-  function selectSearchItem (name) {
+  function selectSearchItem(name) {
     props.getCharacter('none', name);
     setSearchResults(null)
     setValue("")
+  }
+
+  function handleSubmit (event) {
+    console.log("enter")
+    props.setAccount(value)
+    setValue("")
+    setSearchResults([])
+    event.preventDefault();
   }
 
   const quickSearch = async function (e) {
     setValue(e.target.value);
     const searchTerm = new RegExp(value);
     if (value.length > 0) {
-    const newSearchResults = await axios.get(`http://localhost:3030/search/${value}`).then((res) => {
-      console.log(res.data.searchItems)
-      return res.data.searchItems.map((entry) => {
-        if (entry.type === 'character') {
-          return (
-                  <tr>
-                    <td onClick={() => selectSearchItem(entry.name)}>{entry.name}  <Badge variant="primary">character</Badge>{' '}</td>
-                  </tr>
-                );
-        } else {
-          return (
-                  <tr>
-                    <td>{entry.name}  <Badge variant="secondary">account</Badge>{' '}</td>
-                  </tr>
-                );
-        }
-      });
-    })
-    if (!e.target.value) {
-      setSearchResults([null]);
-    } else {
-      setSearchResults(newSearchResults);
+      const newSearchResults = await axios.get(`http://localhost:3030/search/${value}`).then((res) => {
+        // console.log(res.data.searchItems)
+        return res.data.searchItems.map((entry) => {
+          if (entry.type === 'character') {
+            return (
+              <tr>
+                <td onClick={() => selectSearchItem(entry.name)}>{entry.name}  <Badge variant="primary">character</Badge>{' '}</td>
+              </tr>
+            );
+          } else {
+            props.setState("account")
+            return (
+              <tr>
+                <td onClick={() => props.setAccount(entry.name)}>{entry.name}  <Badge variant="secondary">account</Badge>{' '}</td>
+              </tr>
+            );
+          }
+        });
+      })
+      if (!e.target.value) {
+        setSearchResults([null]);
+      } else {
+        setSearchResults(newSearchResults);
+      }
     }
-  }
   };
   return (
     <div>
-      <Form className="my-2" autocomplete="off">
+      <Form className="my-2" autocomplete="off" onSubmit={handleSubmit}>
         <FormControl
           type="text"
           placeholder="Search for player..."

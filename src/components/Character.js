@@ -2,6 +2,9 @@ import React from 'react';
 import Items from './Items';
 import Flasks from './Flasks'
 import LikeButton from './LikeButton'
+
+import Skills from './Skills'
+
 import './Character.scss'
 
 
@@ -11,6 +14,7 @@ import { Row, Col } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
 
 import { AiFillHeart } from 'react-icons/ai'
+import Skill from './Skill';
 
 const classNames = require('classnames')
 
@@ -42,12 +46,12 @@ export default function Character(props) {
         <LikeButton character_id={props.character_id} favourites={props.favourites} addFavourite={props.addFavourite} removeFavourite={props.removeFavourite} setMsg={setMsg} size="4em"/>
         {msg && <div className="msg-animated">{msg}</div>}
         </Col>
-  
+      
 
       </Row>
       <Row className="p-3" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
         <Col lg={6} xs={12}></Col>
-
+        <Skills items= {props.character.items}/>
         <Col>
           <Row>
             <Items windowWidth={windowWidth} items={props.character.items} />
