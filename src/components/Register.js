@@ -1,10 +1,12 @@
-import { Container, Form, Button } from 'react-bootstrap'
+import { Container, Form, Button, Alert } from 'react-bootstrap'
 import axios from 'axios';
-import { Redirect } from 'react-router-dom'
+import { useState } from 'react'
 
 import './Register.scss'
 
 export default function Register(props) {
+
+  const [error, setError] = useState(null);
 
   function handleSubmit(event) {
     event.preventDefault()
@@ -13,16 +15,28 @@ export default function Register(props) {
       email: event.target[1].value,
       password: event.target[2].value
     }
-    axios.post('http://localhost:3030/users/register', newUser).then((res) => {
-      props.handleCookie(res.data)
-      props.setLoggedIn(true)
-    })
+
+    if (newUser.password.length < 7) {
+      setError('Password must be 7 characters or longer')
+    } else if (newUser.name.length < 2) {
+      setError('Name must be at least 2 characters long')
+    } else {
+      setError(null)
+      axios.post('http://localhost:3030/users/register', newUser).then((res) => {
+          props.handleCookie(res.data)
+          props.setLoggedIn(true)
+      }).catch((err) => {
+        setError('Email already taken')
+      })
+    }
+    
   }
 
   return (
   <Container>
   <div className="login-container">
       <div className="container login-form-container">
+        {error && <Alert variant="danger">{error}</Alert>}
 
       <Form onSubmit={handleSubmit}>
       <Form.Group controlId="formBasicName">
