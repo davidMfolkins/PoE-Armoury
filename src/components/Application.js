@@ -116,7 +116,7 @@ export default function Application() {
           {loggedIn && <Redirect to="/"/>}
           </Route>
           <Route path="/logout">
-            {!loggedIn && <Logout />}
+            <Logout />
           </Route>
           <Route path="/login">
             {!loggedIn && <Login handleCookie={handleCookie} />}
