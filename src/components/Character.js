@@ -1,7 +1,10 @@
 import React from 'react';
 import Items from './Items';
 import Flasks from './Flasks'
+import LikeButton from './LikeButton'
+
 import Skills from './Skills'
+
 import './Character.scss'
 
 
@@ -28,29 +31,6 @@ export default function Character(props) {
     window.addEventListener("resize", handleResize)
   })
 
-  async function likeButton() {
-    if (props.favourites.some(fav => fav.character_id === props.character_id)) {
-      await props.removeFavourite(props.character_id)
-      setMsg('Removed from favourites')
-      setTimeout(() => {
-        setMsg(null)
-      }, 2001)
-    } else {
-      await props.addFavourite(props.character_id)
-      setMsg('Added to favourites')
-      setTimeout(() => {
-        setMsg(null)
-      }, 2001)
-    }
-  }
-
-  const likeButtonStyle = classNames({
-    "like-button": props.favourites,
-    "liked": props.favourites.some(fav => fav.character_id === props.character_id)
-  })
-
-
-
   const charClass = props.character.character.class
   const classIcon = `/icons/${charClass.toLowerCase()}_icon.png`
   return (
@@ -63,7 +43,7 @@ export default function Character(props) {
           <h5 style={{ backgroundColor: "rgba(0,0,0,0.5)" }}>{props.character.character.level} | {props.character.character.class}</h5>
         </Col>
         <Col>
-        <AiFillHeart className={likeButtonStyle} onClick={likeButton} size="4em"/>
+        <LikeButton character_id={props.character_id} favourites={props.favourites} addFavourite={props.addFavourite} removeFavourite={props.removeFavourite} setMsg={setMsg} size="4em"/>
         {msg && <div className="msg-animated">{msg}</div>}
         </Col>
       

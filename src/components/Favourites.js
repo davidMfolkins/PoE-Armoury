@@ -21,6 +21,7 @@ export default function Favourites(props) {
  
 
   const favouritesTable = props.favourites.map((fav) => {
+    console.log(fav)
     const classIcon = `/icons/${fav.class.toLowerCase()}_icon.png`;
     return (
     <tr id="ladderList" className="d-flex">
