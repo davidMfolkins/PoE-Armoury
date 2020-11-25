@@ -42,7 +42,7 @@ export default function Favourites(props) {
   const favouritesTables = function () {
     if (props.favourites.length > 0) {
       return <div>
-              <div className="favourite-title">Favourites</div>
+              <div className="favourite-title">Favourited Builds</div>
               <Table responsive striped bordered variant="dark">
                 <thead>
                   <tr className="d-flex">
@@ -64,7 +64,7 @@ export default function Favourites(props) {
   }
 
   return <div className="favourites-container">
-          {msg && <Alert style={{ width: '400px' }} variant="info">{msg}</Alert>}
+          {msg && <div className="remove-alert"><Alert variant="info">{msg}</Alert></div>}
           {favouritesTables()}
         </div>
 }
