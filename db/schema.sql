@@ -22,7 +22,8 @@ CREATE TABLE ladders(
 
 CREATE TABLE accounts(
   id SERIAL PRIMARY KEY NOT NULL, 
-  name VARCHAR(255) NOT NULL
+  name VARCHAR(255) NOT NULL,
+  twitch VARCHAR(255)
 );
 
 CREATE TABLE characters(

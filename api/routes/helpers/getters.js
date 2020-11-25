@@ -33,7 +33,7 @@ function getItems(accountName, characterName) {
 function findCharacterDB(db, name) {
   return db
     .query(
-      `SELECT items.*, accounts.name AS accountname, characters.* FROM ITEMS JOIN CHARACTERS ON items.character_id = characters.id JOIN accounts ON accounts.id = characters.account_id WHERE characters.name = $1
+      `SELECT items.*, accounts.name AS accountname, accounts.twitch AS twitch, characters.* FROM ITEMS JOIN CHARACTERS ON items.character_id = characters.id JOIN accounts ON accounts.id = characters.account_id WHERE characters.name = $1
   `,
       [name]
     )
