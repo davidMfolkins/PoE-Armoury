@@ -23,7 +23,7 @@ export default function Skills (props) {
     }
   })
 
-  let connection = ""
+  let connection;
 
   let groups = [];
   for (const socket of props.item.sockets) {
@@ -50,42 +50,6 @@ export default function Skills (props) {
   // }
   // console.log(groups)
   console.log(props.item.inventoryId, linkedGroups)
-  
-  // for (const socket of linkedGroups) {
-  //   switch(socket){
-  //     case 1:
-  //       connection = <div>--</div>
-  //     break;
-  //     case 2:
-  //       connection = <div>--<br/>|<br/>--</div>
-  //     break;
-  //     case 3:
-
-  //     break;
-  //     case 4:
-
-  //     break;
-  //     case 5:
-
-  //     break;
-  //     case 6:
-
-  //     break;
-  //     case 7:
-
-  //     break;
-  //     case 8:
-
-  //     break;
-  //     case 9:
-
-  //     break;
-  //     case 10:
-  //     break;
-  //   }
-
-  // }
-
 
   return (
   <div className="skills-container">
