@@ -95,7 +95,7 @@ export default function Application() {
         <Switch>
       <Route exact path="/">
          {state === "account" && <Account account={account} getCharacter={getCharacter} setState={setState} />}
-            {state === "ladder" && <Ladder getCharacter={getCharacter} />}
+            {state === "ladder" && <Ladder getCharacter={getCharacter} setState={setState}/>}
 
           {state === 'character' && character && <Character
             character={character.items}

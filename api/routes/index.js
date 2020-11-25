@@ -61,7 +61,7 @@ module.exports = (db) => {
     .then( async (result) => {
       const ladder_id = await saveLadder(db, req.params.name, CircularStructureStringify(result.data))
 
-      return await saveCharacters(result.data.entries, ladder_id)
+      return await saveCharacters(db, result.data.entries, ladder_id)
 
     }).then( async (result) => {
 

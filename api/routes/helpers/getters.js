@@ -77,7 +77,7 @@ function fetchCharacterAPI(accountName, characterName) {
       return result
     })
     .catch((err) => {
-      console.log(err.response.status, err.response.statusText)
+      console.log(err.response.status, err.response.statusText, ': access to character blocked by DB.' )
       return null;
     });
 }

@@ -1,4 +1,4 @@
-const { fetchCharacterAPI } = require('./getters')
+const { fetchCharacterAPI, filterCharacters } = require('./getters')
 
 
 async function saveCharacter(db, character, accountName, ladder_id) {
@@ -7,14 +7,16 @@ async function saveCharacter(db, character, accountName, ladder_id) {
     console.log('account exists')
     return result.rows
   }).catch((err) => {
+    console.log('account does not exist')
     console.log(err)
+    return null
   })
   let account_id;
 
   if (account_exists.length > 0) {
     account_id = account_exists[0].id
   } else {
-    console.log('account does not yet existing. creating new account...')
+    console.log('creating new account...')
     account_id = await db.query(`INSERT INTO accounts(name) VALUES($1) RETURNING *;`, [accountName])
     .then((res) => {
       console.log('created account')
@@ -60,7 +62,7 @@ async function saveCharacter(db, character, accountName, ladder_id) {
     })
 }
 
-function saveCharacters(characters, ladder_id) {
+function saveCharacters(db, characters, ladder_id) {
   console.log('filtering and saving characters...')
   const savedCharacters = characters.reduce( (accumulator, entry) => {
 
@@ -71,6 +73,7 @@ function saveCharacters(characters, ladder_id) {
          saveCharacter(db, results.data, entry.account.name, ladder_id)
          return results
        } else {
+         console.log('character has no items. Did not save.')
          return false
        }
      })

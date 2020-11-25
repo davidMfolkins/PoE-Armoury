@@ -17,6 +17,7 @@ function Ladder(props) {
   const [visible, setVisible] = useState(counter)
 
   useEffect(() => {
+
     Promise.all([
     axios.get('http://localhost:3030/ladder/hardcore'),
     axios.get('http://localhost:3030/ladder/standard')
