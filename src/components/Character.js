@@ -7,8 +7,6 @@ import Skills from './Skills'
 
 import './Character.scss'
 
-
-
 import { Row, Col } from 'react-bootstrap'
 
 import { useState, useEffect } from 'react'
