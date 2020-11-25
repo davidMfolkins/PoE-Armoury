@@ -30,7 +30,7 @@ function Ladder(props) {
       })
     }
     
-  }, [])
+  }, [hardcore])
 
 let rows;
 
