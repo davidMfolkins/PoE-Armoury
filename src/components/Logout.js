@@ -1,11 +1,11 @@
-import './Register.scss';
+import './Logout.scss';
 import { Container } from 'react-bootstrap'
 
 export default function Logout(props) {
   return (
     <Container>
-      <div className="login-container">
-        <div className="container login-form-container">
+      <div className="logout-container">
+        <div className="container logout-form-container">
 
           You have been logged out successfully
       </div>
