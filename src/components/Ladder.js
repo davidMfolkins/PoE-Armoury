@@ -9,7 +9,7 @@ const counter = 5;
 
 
 function Ladder(props) {
-  const [data, setData] = useState({'standard' : null, 'hardcore': null})
+  const [data, setData] = useState(null)
   const [filteredData, setFilteredData] = useState(null)
   const [filter, setFilter] = useState("")
   const [hasTwitch, sethasTwtich] = useState(false)
@@ -18,28 +18,20 @@ function Ladder(props) {
 
   useEffect(() => {
 
-    Promise.all([
-    axios.get('http://localhost:3030/ladder/hardcore'),
-    axios.get('http://localhost:3030/ladder/standard')
-    ]).then((ladders) => {
-      console.log(ladders)
-      const newData = {
-        'hardcore': ladders[0].data,
-        'standard': ladders[1].data
-      }
-      setData(newData)
-      console.log('setting filteredData..')
-    })
-  }, [])
-
-  useEffect(() => {
     if (hardcore) {
-      setFilteredData(data.hardcore)
+      axios.get('http://localhost:3030/ladder/hardcore')
+      .then((result) => {
+        setData(result.data)
+      })
     } else {
-      setFilteredData(data.standard)
+      axios.get('http://localhost:3030/ladder/standard')
+      .then((result) => {
+        setData(result.data)
+      })
     }
     
-  }, [data, hardcore])
+  }, [])
+
 let rows;
 
   if (filteredData) {
@@ -58,13 +50,16 @@ let rows;
     })
   }
 
-  // useEffect(() => {
-  //   const newArray = data
-  //     .filter(hero => hero.character.class.toLowerCase().includes(filter.toLowerCase()))
-  //     .filter(twitch => !hasTwitch || twitch.account.twitch)
-  //   setFilteredData(newArray)
+  useEffect(() => {
+    if (data) {
+      const newArray = data
+      .filter(hero => hero.class.toLowerCase().includes(filter.toLowerCase()))
+      .filter(hero => !hasTwitch || hero.twitch)
+    setFilteredData(newArray)
+    }
+   
 
-  // }, [data, filter, hasTwitch])
+  }, [data, filter, hasTwitch])
 
   const changeButton = function () {
     if (!hardcore) {
