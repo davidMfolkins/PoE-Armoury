@@ -5,50 +5,13 @@ import { Table } from 'react-bootstrap'
 
 export default function Skills (props) {
 
-  // let groups = [];
-  // for (const socket of props.item.sockets) {
-  //   if (socket.attr !== "A")
-  //   groups.push(socket.group)
-  // }
-  
-  // let linkedGroups = [];
-  // let current = 0;
-  // let count = 0;
-  // for (const socket of groups) {
-  //   if (socket === current){
-  //     count++
-  //   } else {
-  //     linkedGroups.push(count)
-  //     current = socket
-  //     count = 1
-  //   }
-  // }
-  // linkedGroups.push(count)
-
-  const gem = props.gems.map(gem => {
-    if (!gem.abyssJewel) {
-      const level = gem.properties.map(property => {
-        if (property.name === "Level") {
-          return property.values[0][0].slice(0,2)
-        }
-      })
-
-      let quality = null;
-      gem.properties.map(property => {
-        if (property.name === "Quality") {
-          return quality = property.values[0][0].slice(1,3)
-        }
-      })
-
-      return <td className="gemRow"><Skill gem={gem}/> <div className="gemName">{gem.typeLine} <div className="gemStats">(Level: {level} / Quality: {quality || "0"})</div></div></td>
-    }
-  })
-
+  console.log(props.item.inventoryId)
   let groups = [];
   for (const socket of props.item.sockets) {
     if (socket.attr !== "A")
     groups.push(socket.group)
   }
+  // console.log("groups:" , groups)
   
   let linkedGroups = [];
   let current = 0;
@@ -64,6 +27,8 @@ export default function Skills (props) {
   }
   linkedGroups.push(count)
 
+  // console.log("linkedGroups:" , linkedGroups)
+
   let finalArray = []
   for (const link of linkedGroups) {
     let numberOfTimes = link
@@ -73,22 +38,42 @@ export default function Skills (props) {
       numberOfTimes--
     }
   }
-  console.log(finalArray)
+  // console.log("finalArray:", finalArray)
 
-  // console.log(props.item.inventoryId)
-  // if (props.item.inventoryId === "Weapon") {
-  //   console.log(props.item)
-  // }
-  // console.log(groups)
-  console.log(props.item.inventoryId, linkedGroups)
+  const gem = props.gems.map((gem, gemIndex) => {
+    if (!gem.abyssJewel) {
+      const level = gem.properties.map(property => {
+        if (property.name === "Level") {
+          return property.values[0][0].slice(0,2)
+        }
+      })
 
-  // const connection = linkedGroups.map(links => {
-  //   return <tr><td rowSpan={links}>{links}</td></tr>
-  // })
-  
-  // console.log(connection)
+      let quality = null;
+      gem.properties.map(property => {
+        if (property.name === "Quality") {
+          return quality = property.values[0][0].slice(1,3)
+        }
+      })
 
-  // each links in linkedGroups is a counter of gem rows until the next links
+      // console.log("from inside gems:", finalArray)
+      console.log("finalArray[gemIndex]", finalArray[gemIndex])
+
+      if (finalArray[gemIndex]) {
+        return (
+          <tr>
+            <td rowspan={finalArray[gemIndex]}>{finalArray[gemIndex]} links</td>
+            <td className="gemRow"><Skill gem={gem}/> <div className="gemName">{gem.typeLine} <div className="gemStats">(Level: {level} / Quality: {quality || "0"})</div></div></td>
+          </tr>
+        )
+      } else {
+        return (
+          <tr>
+            <td className="gemRow"><Skill gem={gem}/> <div className="gemName">{gem.typeLine} <div className="gemStats">(Level: {level} / Quality: {quality || "0"})</div></div></td>
+          </tr>
+        ) 
+      }
+    }
+  })
 
   // we have gems and connection
   // make a new fuction "groups"
@@ -102,7 +87,6 @@ export default function Skills (props) {
       <hr className="line"/> 
       <span classname="gemGroup">{props.item.inventoryId}</span>
     <Table>
-      {/* <td>{connection}</td> */}
       <td>{gem}</td>
     </Table>
   </div>
