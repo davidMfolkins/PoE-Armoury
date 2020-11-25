@@ -5,7 +5,7 @@ import './Ladder.scss'
 import Filter from './Filter'
 import { Table } from 'react-bootstrap'
 
-const counter = 20
+const counter = 5
 
 
 function Ladder(props) {
@@ -119,8 +119,9 @@ let rows;
           </tbody>
         </Table>
       </div>
-      {/* {visible < filteredData.length &&
-        <button className="loadMore" type="button" onClick={() => setVisible(visible + counter)}>Load More</button>} */}
+      {console.log("filterdata", filteredData)}
+      {filteredData && visible < filteredData.length &&
+        <button className="loadMore" type="button" onClick={() => setVisible(visible + counter)}>Load More</button>}
     </div>
   );
 }
