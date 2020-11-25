@@ -15,7 +15,8 @@ CREATE TABLE users(
 
 CREATE TABLE ladders(
   id SERIAL PRIMARY KEY NOT NULL,
-  last_requested TIMESTAMP,
+  name VARCHAR(255),
+  last_requested TIMESTAMPTZ,
   rankings JSON
 );
 
@@ -27,6 +28,7 @@ CREATE TABLE accounts(
 CREATE TABLE characters(
   id SERIAL PRIMARY KEY NOT NULL,
   account_id INTEGER REFERENCES accounts(id) ON DELETE CASCADE,
+  ladder_id INTEGER REFERENCES ladders(id) ON DELETE CASCADE,
   name VARCHAR(255),
   level INTEGER,
   class VARCHAR(255),
