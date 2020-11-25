@@ -57,7 +57,7 @@ module.exports = (db) => {
     if (!todaysLadder) {
       console.log('fetching fresh ladder...')
 
-    axios.get(`https://www.pathofexile.com/api/ladders/${ladderName}?limit=20&type=league`)
+    axios.get(`https://www.pathofexile.com/api/ladders/${ladderName}?limit=5&type=league`)
     .then( async (result) => {
       const ladder_id = await saveLadder(db, req.params.name, CircularStructureStringify(result.data))
 

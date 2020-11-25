@@ -13,8 +13,6 @@ import { Row, Col } from 'react-bootstrap'
 
 import { useState, useEffect } from 'react'
 
-import { AiFillHeart } from 'react-icons/ai'
-
 const classNames = require('classnames')
 
 export default function Character(props) {
@@ -59,8 +57,6 @@ export default function Character(props) {
 
       </Row>
       <Row className="p-3" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
-
-        <Col lg={6} xs={12}><Skills items= {props.character.items}/></Col>
        
         <Col lg={6} xs={12}> {gems}</Col>
 
