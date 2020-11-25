@@ -1,5 +1,22 @@
 const axios = require("axios");
 
+function getTodaysLadder(db, name) {
+  console.log('finding todaysLadder...')
+  return db.query(`SELECT * FROM ladders WHERE name=$1 ORDER BY last_requested DESC LIMIT 1;`, [name]).then((result) => {
+    const last_requested = new Date(String(result.rows[0].last_requested))
+    const today = new Date()
+    if (today - last_requested < 86400000) {
+      console.log('todays ladder found in DB')
+      return result.rows[0]
+    } else {
+      console.log('DB does not have todays ladder. Refresh required.')
+      return false
+    }
+  }).catch((err) => {
+    return false
+  })
+ }
+
 function getItems(accountName, characterName) {
   return axios
     .get(
@@ -16,13 +33,12 @@ function getItems(accountName, characterName) {
 function findCharacterDB(db, name) {
   return db
     .query(
-      `SELECT * FROM ITEMS JOIN CHARACTERS ON items.character_id = characters.id WHERE characters.name = $1
+      `SELECT items.*, accounts.name AS accountname, characters.* FROM ITEMS JOIN CHARACTERS ON items.character_id = characters.id JOIN accounts ON accounts.id = characters.account_id WHERE characters.name = $1
   `,
       [name]
     )
     .then((dbCharacter) => {
       if (dbCharacter.rows.length > 0) {
-        console.log("wow");
         return dbCharacter.rows[0];
       } else {
         return null;
@@ -33,17 +49,48 @@ function findCharacterDB(db, name) {
     });
 }
 
+function fetchLadderCharacters(db, ladder) {
+  console.log('fetching characters...')
+  const characters = ladder.rankings.entries.reduce( (accumulator, entry) => {
+
+    const character = findCharacterDB(db, entry.character.name).then((char) => {
+      return char
+    })
+
+     return [...accumulator, character]
+
+   }, [])
+
+   return Promise.all(characters).then((results) => {
+      const returnObj = results.filter(result => result !== null)
+      console.log('found ' + returnObj.length + ' characters')
+      return returnObj
+  })
+}
+
 function fetchCharacterAPI(accountName, characterName) {
   return axios
     .get(
       `https://www.pathofexile.com/character-window/get-items?accountName=${accountName}&character=${characterName}`
     )
     .then((result) => {
-      return result.data;
+      return result
     })
     .catch((err) => {
+      console.log(err.response.status, err.response.statusText, ': access to character blocked by DB.' )
       return null;
     });
+}
+
+function filterCharacters(entry) {
+  if (entry === null){
+  } else {
+    if (entry.data.items.length > 0) {
+      return true
+    } else {
+      return false
+    }
+  }
 }
 
 function findAccount(db, email) {
@@ -58,5 +105,8 @@ module.exports = {
   getItems,
   findCharacterDB,
   fetchCharacterAPI,
-  findAccount
+  findAccount,
+  filterCharacters,
+  getTodaysLadder,
+  fetchLadderCharacters
 };

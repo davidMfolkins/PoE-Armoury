@@ -66,20 +66,20 @@ export default function Application() {
   }, [])
 
   function removeFavourite(character_id) {
-    axios.delete(`http://localhost:3030/users/${cookies.user}/favourites/${character_id}`).then((result) => {
-      console.log(result)
-      console.log('character id: ', character_id)
-      const newFavourites = favourites.filter(fav => fav.id === result.data[0].id)
+    console.log('removing fav')
+   axios.delete(`http://localhost:3030/users/${cookies.user}/favourites/${character_id}`).then((result) => {
+      const newFavourites = favourites.filter(fav => fav.id !== result.data[0].id)
       console.log(newFavourites)
       setFavourites(newFavourites)
-      console.log('favourites set')
-      console.log(favourites)
+    }).catch((err) => {
+      console.log(err)
     })
   }
 
   function addFavourite(character_id) {
+    console.log('adding fav')
     axios.post(`http://localhost:3030/users/${cookies.user}/favourites/${character_id}`).then((result) => {
-      setFavourites([...favourites, character])
+      setFavourites([...favourites, result.data[0]])
     }).catch((err) => {
       console.log(err)
     })
@@ -95,17 +95,18 @@ export default function Application() {
         <Switch>
       <Route exact path="/">
          {state === "account" && <Account account={account} getCharacter={getCharacter} setState={setState} />}
-            {state === "ladder" && <Ladder getCharacter={getCharacter} />}
-        {state === "character" && character && (
-          <Character
+            {state === "ladder" && <Ladder getCharacter={getCharacter} setState={setState}/>}
+
+          {state === 'character' && character && <Character
             character={character.items}
             view={state}
             addFavourite={addFavourite}
             removeFavourite={removeFavourite}
             character_id={character.character_id}
             favourites={favourites}
-          />
-        )}
+            cookies={cookies}
+          />}
+
         {state === "character" && !character && (
           <Loading error={"No character found."} setState={setState} />
         )}
@@ -116,7 +117,7 @@ export default function Application() {
           {loggedIn && <Redirect to="/"/>}
           </Route>
           <Route path="/logout">
-            {!loggedIn && <Logout />}
+            <Logout />
           </Route>
           <Route path="/login">
             {!loggedIn && <Login handleCookie={handleCookie} />}

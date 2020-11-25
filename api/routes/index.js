@@ -1,3 +1,6 @@
+const CircularStructureStringify = require('circular-structure-stringify') 
+
+
 var express = require("express");
 var router = express.Router();
 
@@ -8,10 +11,16 @@ const fetch = require("node-fetch");
 const {
   findCharacterDB,
   getItems,
-  fetchCharacterAPI,
+  filterCharacters,
+  getTodaysLadder,
+  fetchLadderCharacters
 } = require("./helpers/getters");
 
-const { saveCharacter, saveAccount } = require("./helpers/setters");
+const { saveCharacter,
+        saveCharacters,
+        saveAccount, 
+        saveLadder,
+} = require("./helpers/setters");
 const { route } = require("../app");
 
 /* GET home page. */
@@ -34,15 +43,42 @@ module.exports = (db) => {
     });
   });
   
-  router.get("/ladder", function (req, res, next) {
-    db.query(`SELECT rankings FROM ladders;`)
-    .then((data) => {
-      res.send(data.rows);
+  router.get("/ladder/:name",  async function (req, res, next) {
+
+    let ladderName;
+    if (req.params.name === 'standard') {
+      ladderName = 'Heist'
+    } else if (req.params.name === 'hardcore') {
+      ladderName = 'Hardcore%20Heist'
+    }
+
+    let todaysLadder = await getTodaysLadder(db, req.params.name);
+
+    if (!todaysLadder) {
+      console.log('fetching fresh ladder...')
+
+    axios.get(`https://www.pathofexile.com/api/ladders/${ladderName}?limit=20&type=league`)
+    .then( async (result) => {
+      const ladder_id = await saveLadder(db, req.params.name, CircularStructureStringify(result.data))
+
+      return await saveCharacters(db, result.data.entries, ladder_id)
+
+    }).then( async (result) => {
+
+      todaysLadder = await getTodaysLadder(db, req.params.name)
+
+      const characters = await fetchLadderCharacters(db, todaysLadder)
+      res.send(CircularStructureStringify(characters))
     })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ error: err.message });
-    });
+    .catch((err) =>{
+      console.log(err)
+      res.status(403).send('something wrong with ur URL')
+    })
+    
+  } else {
+    const characters = await fetchLadderCharacters(db, todaysLadder)
+    res.send(CircularStructureStringify(characters))
+  }
   });
   
   router.get('/accounts/:name', async (req, res, next) => {

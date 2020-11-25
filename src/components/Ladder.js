@@ -5,38 +5,69 @@ import './Ladder.scss'
 import Filter from './Filter'
 import { Table } from 'react-bootstrap'
 
-const counter = 20
+const counter = 5
 
 
 function Ladder(props) {
-  const [data, setData] = useState([])
-  const [filteredData, setFilteredData] = useState([])
+  const [data, setData] = useState({'standard' : null, 'hardcore': null})
+  const [filteredData, setFilteredData] = useState(null)
   const [filter, setFilter] = useState("")
   const [hasTwitch, sethasTwtich] = useState(false)
-  const [hardcore, setHardcore] = useState(true)
+  const [hardcore, setHardcore] = useState(false)
   const [visible, setVisible] = useState(counter)
 
   useEffect(() => {
-    axios.get('http://localhost:3030/ladder')
-      .then((result) => {
-        if (hardcore) {
-          setData(result.data[0].rankings.entries)
-        } else {
-          setData(result.data[1].rankings.entries)
-        }
-      })
-  }, [hardcore])
+
+    Promise.all([
+    axios.get('http://localhost:3030/ladder/hardcore'),
+    axios.get('http://localhost:3030/ladder/standard')
+    ]).then((ladders) => {
+      console.log(ladders)
+      const newData = {
+        'hardcore': ladders[0].data,
+        'standard': ladders[1].data
+      }
+      setData(newData)
+      console.log('setting filteredData..')
+    })
+  }, [])
 
   useEffect(() => {
-    const newArray = data
-      .filter(hero => hero.character.class.toLowerCase().includes(filter.toLowerCase()))
-      .filter(twitch => !hasTwitch || twitch.account.twitch)
-    setFilteredData(newArray)
+    if (hardcore) {
+      setFilteredData(data.hardcore)
+    } else {
+      setFilteredData(data.standard)
+    }
+    
+  }, [data, hardcore])
+let rows;
 
-  }, [data, filter, hasTwitch])
+  if (filteredData) {
+    rows = filteredData.slice(0, visible).map((entry) => {
+      const className = entry.class
+      const classIcon = `/icons/${className.toLowerCase()}_icon.png`
+      return (
+        <tr id="ladderList" className="d-flex" onClick={() => handleCharacterChange(entry.accountname, entry.name)}>
+          <td className="col-2"><img src={classIcon} alt={entry.name} /></td>
+          <td className="col-3">{entry.name} </td>
+          <td className="col-2">{entry.level}</td>
+          <td className="col-2">{className}</td>
+          {entry.twitch && <td className="col-2"><a href={`https://twitch.tv/${entry.twitch.name}`} target="_blank" rel="noreferrer">{entry.twitch.name}</a></td>}
+        </tr>
+      )
+    })
+  }
+
+  // useEffect(() => {
+  //   const newArray = data
+  //     .filter(hero => hero.character.class.toLowerCase().includes(filter.toLowerCase()))
+  //     .filter(twitch => !hasTwitch || twitch.account.twitch)
+  //   setFilteredData(newArray)
+
+  // }, [data, filter, hasTwitch])
 
   const changeButton = function () {
-    if (hardcore) {
+    if (!hardcore) {
       return "Hardcore Ladder"
     } else {
       return "Standard Ladder"
@@ -44,7 +75,7 @@ function Ladder(props) {
   }
 
   const tableName = function () {
-    if (!hardcore) {
+    if (hardcore) {
       return "Hardcore Ladder"
     } else {
       return "Standard Ladder"
@@ -59,22 +90,10 @@ function Ladder(props) {
     sethasTwtich(evt.target.checked)
   }
 
-  const rows = filteredData.slice(0, visible).map((entry) => {
-    const className = entry.character.class
-    console.log(filteredData.length)
-    const classIcon = `/icons/${className.toLowerCase()}_icon.png`
-    return (
-      <tr id="ladderList" className="d-flex" onClick={() => props.getCharacter(entry.account.name, entry.character.name)}>
-        <td className="col-1">{entry.rank}</td>
-        <td className="col-2"><img src={classIcon} alt={entry.character.name} /></td>
-        <td className="col-3">{entry.character.name} </td>
-        <td className="col-2">{entry.character.level}</td>
-        <td className="col-2">{className}</td>
-        {entry.account.twitch && <td className="col-2"><a href={`https://twitch.tv/${entry.account.twitch.name}`} target="_blank" rel="noreferrer">{entry.account.twitch.name}</a></td>}
-      </tr>
-    )
-  })
-
+  const handleCharacterChange = function (account, character) {
+    props.getCharacter(account, character);
+    // window.location("/character/${}")
+  }
 
   return (
     <div className="ladderPage">
@@ -88,7 +107,6 @@ function Ladder(props) {
         <Table responsive striped bordered variant="dark">
           <thead>
             <tr className="d-flex">
-              <th className="col-1">Rank</th>
               <th className="col-2">Icon</th>
               <th className="col-3">Name</th>
               <th className="col-2">Level</th>
@@ -97,11 +115,12 @@ function Ladder(props) {
             </tr>
           </thead>
           <tbody>
-            {rows}
+            {filteredData && rows}
           </tbody>
         </Table>
       </div>
-      {visible < filteredData.length &&
+      {console.log("filterdata", filteredData)}
+      {filteredData && visible < filteredData.length &&
         <button className="loadMore" type="button" onClick={() => setVisible(visible + counter)}>Load More</button>}
     </div>
   );
