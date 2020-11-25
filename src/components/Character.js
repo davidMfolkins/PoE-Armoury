@@ -24,11 +24,10 @@ export default function Character(props) {
   const [ msg, setMsg ] = useState(null)
 
   const gems = props.character.items.map(item => {
-    if (item.inventoryId === "Offhand2" || item.inventoryId === "Weapon2") {
-
+    if (item.inventoryId === "Offhand2" || item.inventoryId === "Weapon2" || item.inventoryId === "Belt") {
     } else {
       if (item.socketedItems) {
-        return <Skills itemName={item.inventoryId} gems={item.socketedItems} />
+        return <Skills item={item} itemName={item.inventoryId} gems={item.socketedItems} />
       }
     }
   })
@@ -59,8 +58,6 @@ export default function Character(props) {
 
       </Row>
       <Row className="p-3" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
-
-        <Col lg={6} xs={12}><Skills items= {props.character.items}/></Col>
        
         <Col lg={6} xs={12}> {gems}</Col>
 
