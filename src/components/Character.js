@@ -52,14 +52,18 @@ export default function Character(props) {
           <h5 style={{ backgroundColor: "rgba(0,0,0,0.5)" }}>{props.character.character.level} | {props.character.character.class}</h5>
         </Col>
         <Col>
-        <LikeButton character_id={props.character_id} favourites={props.favourites} addFavourite={props.addFavourite} removeFavourite={props.removeFavourite} setMsg={setMsg} size="4em"/>
+        {props.cookies.user &&<LikeButton character_id={props.character_id} favourites={props.favourites} addFavourite={props.addFavourite} removeFavourite={props.removeFavourite} setMsg={setMsg} size="4em"/>}
         {msg && <div className="msg-animated">{msg}</div>}
         </Col>
       
 
       </Row>
       <Row className="p-3" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
+
+        <Col lg={6} xs={12}><Skills items= {props.character.items}/></Col>
+       
         <Col lg={6} xs={12}> {gems}</Col>
+
         <Col>
           <Row>
             <Items windowWidth={windowWidth} items={props.character.items} />

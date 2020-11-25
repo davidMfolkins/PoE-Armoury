@@ -95,17 +95,18 @@ export default function Application() {
         <Switch>
       <Route exact path="/">
          {state === "account" && <Account account={account} getCharacter={getCharacter} setState={setState} />}
-            {state === "ladder" && <Ladder getCharacter={getCharacter} />}
-        {state === "character" && character && (
-          <Character
+            {state === "ladder" && <Ladder getCharacter={getCharacter} setState={setState}/>}
+
+          {state === 'character' && character && <Character
             character={character.items}
             view={state}
             addFavourite={addFavourite}
             removeFavourite={removeFavourite}
             character_id={character.character_id}
             favourites={favourites}
-          />
-        )}
+            cookies={cookies}
+          />}
+
         {state === "character" && !character && (
           <Loading error={"No character found."} setState={setState} />
         )}
