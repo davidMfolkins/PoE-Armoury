@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300&display=swap');
 
 body {
   
@@ -17,6 +18,7 @@ body {
 
 .char-title {
   border-bottom: 2px solid #b78846;
+  font-family: 'Inknut Antiqua';
 }
 
 .like-button:hover {
@@ -29,7 +31,7 @@ body {
 }
 
 .msg-animated {
-  color: white;
+  color: #ffffffc5;
   position: relative;
   animation-name: like;
   animation-duration: 2s;
