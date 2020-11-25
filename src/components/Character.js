@@ -21,11 +21,11 @@ export default function Character(props) {
   const [ msg, setMsg ] = useState(null)
 
   const gems = props.character.items.map(item => {
-    if (item.inventoryId === "Offhand2" || item.inventoryId === "Weapon2") {
+    if (item.inventoryId === "Offhand2" || item.inventoryId === "Weapon2" || item.inventoryId === "Belt") {
 
     } else {
       if (item.socketedItems) {
-        return <Skills itemName={item.inventoryId} gems={item.socketedItems} />
+        return <Skills item={item} gems={item.socketedItems} />
       }
     }
   })
