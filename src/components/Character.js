@@ -14,7 +14,6 @@ import { Row, Col } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
 
 import { AiFillHeart } from 'react-icons/ai'
-import Skill from './Skill';
 
 const classNames = require('classnames')
 
@@ -23,6 +22,16 @@ export default function Character(props) {
   const [ windowWidth, setWindowWidth ] = useState(window.innerWidth)
 
   const [ msg, setMsg ] = useState(null)
+
+  const gems = props.character.items.map(item => {
+    if (item.inventoryId === "Offhand2" || item.inventoryId === "Weapon2") {
+
+    } else {
+      if (item.socketedItems) {
+        return <Skills itemName={item.inventoryId} gems={item.socketedItems} />
+      }
+    }
+  })
 
   useEffect(() => {
     function handleResize () {
@@ -50,8 +59,11 @@ export default function Character(props) {
 
       </Row>
       <Row className="p-3" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
+
         <Col lg={6} xs={12}><Skills items= {props.character.items}/></Col>
-        
+       
+        <Col lg={6} xs={12}> {gems}</Col>
+
         <Col>
           <Row>
             <Items windowWidth={windowWidth} items={props.character.items} />
