@@ -15,6 +15,10 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { useCookies } from 'react-cookie';
 import ScrollUpButton from "react-scroll-up-button";
 import axios from 'axios'
+const ladder_standard = require('../ladder_standard.json');
+const ladder_hardcore = require('../ladder_hardcore.json');
+
+
 
 export default function Application() {
   const [cookies, setCookie, removeCookie] = useCookies(null);
@@ -34,6 +38,15 @@ export default function Application() {
   const [character, setCharacter] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false)
   const [favourites, setFavourites] = useState([])
+
+  useEffect(() => {
+   
+    console.log(ladder_standard)
+    console.log(ladder_hardcore.entries[0])
+    const char = ladder_hardcore.entries[2]
+    // axios.get(`http://localhost:3030/accounts/${char.account.name}/characters/${char.character.name}`)
+
+  }, [])
 
   useEffect(() => {
     if (cookies.user) {

@@ -10,6 +10,7 @@ const cookieSession = require('cookie-session');
 const indexRouter = require('./routes/index');
 const userRoutes = require('./routes/users')
 
+
 var app = express();
 
 const { Pool } = require('pg');
@@ -17,7 +18,7 @@ const { Pool } = require('pg');
 const db = new Pool({
   user: 'vagrant',
   host: 'localhost',
-  database: 'poe',
+  database: process.argv[2],
   password: 'vagrant',
   port: 5432,
 })
