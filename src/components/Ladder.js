@@ -5,7 +5,7 @@ import './Ladder.scss'
 import Filter from './Filter'
 import { Table } from 'react-bootstrap'
 
-const counter = 5
+const counter = 5;
 
 
 function Ladder(props) {
@@ -49,10 +49,10 @@ let rows;
       return (
         <tr id="ladderList" className="d-flex" onClick={() => handleCharacterChange(entry.accountname, entry.name)}>
           <td className="col-2"><img src={classIcon} alt={entry.name} /></td>
-          <td className="col-3">{entry.name} </td>
+          <td className="col-4">{entry.name} </td>
           <td className="col-2">{entry.level}</td>
           <td className="col-2">{className}</td>
-          {entry.twitch && <td className="col-2"><a href={`https://twitch.tv/${entry.twitch.name}`} target="_blank" rel="noreferrer">{entry.twitch.name}</a></td>}
+          {entry.twitch && <td className="col-2"><a href={`https://twitch.tv/${entry.twitch}`} target="_blank" rel="noreferrer">{entry.twitch}</a></td>}
         </tr>
       )
     })
@@ -108,7 +108,7 @@ let rows;
           <thead>
             <tr className="d-flex">
               <th className="col-2">Icon</th>
-              <th className="col-3">Name</th>
+              <th className="col-4">Name</th>
               <th className="col-2">Level</th>
               <th className="col-2">Class</th>
               <th className="col-2">Twitch</th>
@@ -119,7 +119,6 @@ let rows;
           </tbody>
         </Table>
       </div>
-      {console.log("filterdata", filteredData)}
       {filteredData && visible < filteredData.length &&
         <button className="loadMore" type="button" onClick={() => setVisible(visible + counter)}>Load More</button>}
     </div>

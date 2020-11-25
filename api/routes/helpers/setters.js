@@ -1,9 +1,9 @@
 const { fetchCharacterAPI, filterCharacters } = require('./getters')
 
 
-async function saveCharacter(db, character, accountName, ladder_id) {
+async function saveCharacter(db, character, account, ladder_id) {
   console.log('checking for account...')
-  const account_exists = await db.query(`SELECT id, name FROM accounts WHERE name=$1;`, [accountName]).then((result) => {
+  const account_exists = await db.query(`SELECT id, name FROM accounts WHERE name=$1;`, [account.name]).then((result) => {
     console.log('account exists')
     return result.rows
   }).catch((err) => {
@@ -17,7 +17,13 @@ async function saveCharacter(db, character, accountName, ladder_id) {
     account_id = account_exists[0].id
   } else {
     console.log('creating new account...')
-    account_id = await db.query(`INSERT INTO accounts(name) VALUES($1) RETURNING *;`, [accountName])
+    let twitch;
+    if (account.twitch) {
+      twitch = account.twitch.name
+    } else {
+      twitch = null
+    }
+    account_id = await db.query(`INSERT INTO accounts(name, twitch) VALUES($1, $2) RETURNING *;`, [account.name, twitch])
     .then((res) => {
       console.log('created account')
       return res.rows[0].id;
@@ -65,12 +71,13 @@ async function saveCharacter(db, character, accountName, ladder_id) {
 function saveCharacters(db, characters, ladder_id) {
   console.log('filtering and saving characters...')
   const savedCharacters = characters.reduce( (accumulator, entry) => {
+    
 
     const character = fetchCharacterAPI(entry.account.name, entry.character.name)
      .then(results => {
        if (filterCharacters(results)) {
          console.log('character is valid. saving...')
-         saveCharacter(db, results.data, entry.account.name, ladder_id)
+         saveCharacter(db, results.data, entry.account, ladder_id)
          return results
        } else {
          console.log('character has no items. Did not save.')
