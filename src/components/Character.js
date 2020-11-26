@@ -7,6 +7,7 @@ import Skills from './Skills'
 
 import './Character.scss'
 
+
 import { Row, Col } from 'react-bootstrap'
 
 import { useState, useEffect } from 'react'
@@ -40,6 +41,9 @@ export default function Character(props) {
   return (
 
     <div className="container character-container char" style={{ borderRadius: '10px'}}>
+      <div style={{padding: '5px'}}>
+        <button type="button" id="ladderButton" onClick={() => props.setState("ladder")}>Back to Ladder</button>
+      </div>
       <Row className="p-5 char-title">
         <Col lg="auto" ><img src={classIcon} alt={props.character.class} /></Col>
         <Col lg={9}  className="my-auto">
