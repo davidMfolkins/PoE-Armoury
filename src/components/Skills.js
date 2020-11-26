@@ -55,39 +55,60 @@ export default function Skills (props) {
         }
       })
 
-      // console.log("from inside gems:", finalArray)
-      console.log("finalArray[gemIndex]", finalArray[gemIndex])
+      return gem;
 
-      if (finalArray[gemIndex]) {
+    }
+  })
+
+
+  const builder = finalArray.map((connections, index) => {
+
+    const gemSocket = gem.find(g => g.socket === index)
+
+    if (gem.some(g => g.socket === index)) {
+      console.log(connections, gemSocket.socket)
+      if (connections) {
         return (
           <tr>
-            <td rowspan={finalArray[gemIndex]}>{finalArray[gemIndex]} links</td>
-            <td className="gemRow"><Skill gem={gem}/> <div className="gemName">{gem.typeLine} <div className="gemStats">(Level: {level} / Quality: {quality || "0"})</div></div></td>
+            <td rowspan={connections}>{connections} links</td>
+            {/* <td className="gemRow"><Skill gem={gemSocket}/> <div className="gemName">{gemSocket.typeLine} <div className="gemStats">(Level: {level} / Quality: {quality || "0"})</div></div></td> */}
+            <td className="gemRow"><Skill gem={gemSocket}/> <div className="gemName">{gemSocket.typeLine}</div></td>
           </tr>
         )
       } else {
+        return <tr><td className="gemRow"><Skill gem={gemSocket}/> <div className="gemName">{gemSocket.typeLine}</div></td></tr>
+      }
+    } else {
+      console.log(connections, "x")
+      if (connections) {
         return (
           <tr>
-            <td className="gemRow"><Skill gem={gem}/> <div className="gemName">{gem.typeLine} <div className="gemStats">(Level: {level} / Quality: {quality || "0"})</div></div></td>
+            <td rowspan={connections}>{connections} links</td>
+            <td className="gemRow">Empty Socket</td>
           </tr>
-        ) 
+        )
+      } else {
+        return <tr><td className="gemRow">Empty Socket</td></tr>
       }
     }
   })
 
-  // we have gems and connection
-  // make a new fuction "groups"
-  // groups will take in gems and connection and output a table
-  // the first row of each table will always output both connection and gem
-  // the next rows may or may not have connection but will always have gem
-  // table construction function will return <tr>{connection} {gem} <tr>
+  // if (finalArray[gemIndex]) {
+
+  // } else {
+  //   return (
+  //     <tr>
+  //       <td className="gemRow"><Skill gem={gem}/> <div className="gemName">{gem.typeLine} <div className="gemStats">(Level: {level} / Quality: {quality || "0"})</div></div></td>
+  //     </tr>
+  //   ) 
+  // }
 
   return (
   <div className="skills-container">
       <hr className="line"/> 
       <span classname="gemGroup">{props.item.inventoryId}</span>
     <Table>
-      <td>{gem}</td>
+      <td>{builder}</td>
     </Table>
   </div>
   )
