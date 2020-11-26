@@ -25,7 +25,7 @@ export default function Favourites(props) {
   const favouritesTable = props.favourites.map((fav) => {
     const classIcon = `/icons/${fav.class.toLowerCase()}_icon.png`;
     return (
-      <tr className="d-flex">
+      <tr id="favouriteList" className="d-flex">
         <td className="col-3"><img src={classIcon} alt={fav.class} /></td>
         <td className="col-4">{fav.name} </td>
         <td className="col-1">{fav.level}</td>
@@ -43,14 +43,14 @@ export default function Favourites(props) {
     if (props.favourites.length > 0) {
       return <div>
               <div className="favourite-title">Favourited Builds</div>
-              <Table id="ladder-List" responsive striped bordered variant="dark">
+              <Table id="favouriteTable" responsive striped bordered variant="dark">
                 <thead>
                   <tr className="d-flex">
                     <th className="col-3">Icon</th>
                     <th className="col-4">Name</th>
                     <th className="col-1">Level</th>
                     <th className="col-3">Class</th>
-                    <th className="col-1"></th>
+                    <th className="col-1">Delete</th>
                   </tr>
                 </thead>
                 <tbody>
