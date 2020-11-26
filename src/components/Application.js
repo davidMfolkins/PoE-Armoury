@@ -77,7 +77,7 @@ export default function Application() {
   }).then(() => {
     setState('ladder')
   })
-}, 3000)
+}, 1000)
 }, []);
 
   useEffect(() => {
@@ -87,13 +87,14 @@ export default function Application() {
   })
 
   const randomInterval = function () {
-    return Math.floor((Math.random() * 1000) + 750)
+    return Math.floor((Math.random() * 500) + 100)
   }
 
   const getCharacter = function (accountName, characterName) {
     setState("loading");
     setTimeout(() => {
       fetchCharacter(accountName, characterName).then((res) => {
+        console.log('fetch char result: ', res)
         if (res.name === "Error") {
           setCharacter(null);
         } else {
@@ -140,6 +141,7 @@ export default function Application() {
       <Container style={{ marginTop: "100px" }}>
         <Switch>
       <Route exact path="/">
+        { state === 'loading' && <Loading />}
          {state === "account" && <Account account={account} getCharacter={getCharacter} setState={setState} />}
             {state === "ladder" && <Ladder getCharacter={getCharacter} setState={setState} standard={standardLadder} hardcore={hardcoreLadder}/>}
 
@@ -152,6 +154,8 @@ export default function Application() {
             favourites={favourites}
             cookies={cookies}
           />}
+
+        {state === 'favourites' && <Favourites favourites={favourites} removeFavourite={removeFavourite} getCharacter={getCharacter} setState={setState}/>}
 
         {state === "character" && !character && (
           <Loading error={loadingError} msg={loadingMsg} setState={setState} />
@@ -169,9 +173,9 @@ export default function Application() {
             {!loggedIn && <Login handleCookie={handleCookie} />}
             {loggedIn && <Redirect to="/" />}
           </Route>
-          <Route path="/users/:id/favourites">
-         <Favourites favourites={favourites} removeFavourite={removeFavourite}/>
-          </Route>
+
+      
+
         </Switch>
       </Container>
      

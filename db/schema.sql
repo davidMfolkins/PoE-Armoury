@@ -28,6 +28,8 @@ CREATE TABLE accounts(
 
 CREATE TABLE characters(
   id SERIAL PRIMARY KEY NOT NULL,
+  account_name VARCHAR(255),
+  account_twitch VARCHAR(255),
   account_id INTEGER REFERENCES accounts(id) ON DELETE CASCADE,
   ladder_id INTEGER REFERENCES ladders(id) ON DELETE CASCADE,
   name VARCHAR(255),

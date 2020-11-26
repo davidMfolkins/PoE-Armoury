@@ -5,6 +5,8 @@ const router = express.Router();
 const fs = require('fs');
 const axios = require("axios");
 
+const fetch = require("node-fetch");
+
 const {
   findCharacterDB,
   fetchCharacterAPI

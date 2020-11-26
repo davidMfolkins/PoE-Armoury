@@ -26,6 +26,8 @@ function Ladder(props) {
     
   }, [hardcore])
 
+
+
 let rows;
 
   if (filteredData) {
@@ -35,7 +37,7 @@ let rows;
       return (
         <tr id="ladderList" className="d-flex">
           <td className="col-2"><img src={classIcon} alt={entry.character.name} /></td>
-          <td className="col-4" onClick={() => handleCharacterChange(entry.account.name, entry.character.name)}>{entry.character.name} </td>
+          <td className="col-4" onClick={() => handleCharacterChange(entry.account.name, entry.character.name, entry.character.id)}>{entry.character.name} </td>
           <td className="col-2">{entry.character.level}</td>
           <td className="col-2">{className}</td>
           {entry.account.twitch && <td className="col-2"><a href={`https://twitch.tv/${entry.account.twitch.name}`} target="_blank" rel="noreferrer">{entry.account.twitch.name}</a></td>}
@@ -79,7 +81,7 @@ let rows;
     sethasTwtich(evt.target.checked)
   }
 
-  const handleCharacterChange = function (account, character) {
+  const handleCharacterChange = function (account, character, id) {
     props.getCharacter(account, character);
   }
 
