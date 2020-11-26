@@ -21,7 +21,6 @@ export default function Favourites(props) {
   }
   const handleCharacterChange = function (account, character, id) {
     props.getCharacter(account, character);
-    //this does not work here yet, clicking on charname will get error because favorites does not see account yet.
   }
 
 
