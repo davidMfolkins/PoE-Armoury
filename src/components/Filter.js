@@ -36,7 +36,7 @@ function Filter(props) {
                 <div className="filterTitle">has Twitch </div>
                 <input
                   type="checkbox"
-                  aria-label="check box to check has twtich filter"
+                  aria-label="check box to check has twitch filter"
                   checked={props.hasTwitch}
                   onClick={handleTwitchChange}
                 />

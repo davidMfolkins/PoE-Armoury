@@ -1,21 +1,18 @@
 @import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300&display=swap');
 
-.ladderPage {
+.accountPage {
   background-color: rgba(0,0,0,0.5);
+  padding-top: 10px;
   
 }
-.ladderContainer {
-  padding: 10px 0;
+.accountContainer {
   width: 80%;
   margin: auto;
   font-size: 20px;
   text-align: center;
-}
-
-.ladderTitle {
-  font-size: 50px;
-  text-align: center;
-  color:  #ffffffc5;
+  border: 2px solid #b78846;;
+  margin-top: 20px;
 }
 
 .topButtons {
@@ -24,36 +21,17 @@
   margin-right: 10%;
 }
 
-#ladderList:hover {
+.accountName {
+  color: #ffffffc5;
+  font-size: 50px;
+  font-family: 'Inknut Antiqua';
+  border-bottom: 2px solid #b78846;
+  text-align: center;
+}
+
+#accountList:hover {
   color: #940303;
   cursor: pointer;
 }
 
-#ladderButton {
-  margin-left: 10%;
-  background-image: url('../images/rock.png');
-  color: #ffffffc5;
-  border: 1px solid black!important;
-  border-radius: 3px;
-}
-#ladderButton:focus {
-  outline: none;
-  box-shadow: none;
-}
 
-img {
-  height: 60px;
-}
-
-td {
-  padding-top: 50px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.accountName {
-  margin-left: 10%;
-  color: #ffffffc5;
-  font-size: 30px;
-}

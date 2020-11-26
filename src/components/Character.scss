@@ -6,11 +6,12 @@ body {
   
   background-image: url('../images/bg-red.jpg');
   font-family: 'Noto Sans KR', sans-serif;
-  .character-container {
-    color: white;
-    min-height: 90vh;
-    background-color: #1b1818;
-  }
+}
+
+.character-container {
+  color: white;
+  min-height: 90vh;
+  background-color: #1b1818;
 }
 .char {
   background-color: rgba(0,0,0,0.5)!important;
