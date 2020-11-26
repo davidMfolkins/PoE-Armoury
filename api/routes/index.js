@@ -6,9 +6,6 @@ var router = express.Router();
 
 const axios = require("axios");
 
-const fetch = require("node-fetch");
-
-
 const {
   findCharacterDB,
   getItems,
