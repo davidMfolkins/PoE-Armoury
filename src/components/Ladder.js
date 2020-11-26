@@ -5,7 +5,7 @@ import './Ladder.scss'
 import Filter from './Filter'
 import { Table } from 'react-bootstrap'
 
-const counter = 5;
+const counter = 20;
 
 
 function Ladder(props) {
@@ -93,7 +93,7 @@ let rows;
       </div>
       <Filter filter={filter} hasTwtich={hasTwitch} onFilterChange={handleFilterChange} onTwitchChange={handleTwitchChange} />
       <div className="ladderContainer">
-        <Table responsive striped bordered variant="dark">
+        <Table id="ladderTable" responsive striped bordered variant="dark">
           <thead>
             <tr className="d-flex">
               <th className="col-2">Icon</th>

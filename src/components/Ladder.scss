@@ -17,6 +17,8 @@
   font-family: 'Inknut Antiqua';
   text-align: center;
   color:  #ffffffc5;
+  border-bottom: 2px solid #b78846;
+  margin-bottom: 10px;
 }
 
 .topButtons {
@@ -47,10 +49,13 @@ img {
 }
 
 td {
-  padding-top: 50px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  vertical-align: middle!important;
+}
+#ladderTable {
+  border: 2px solid #b78846;
 }
 
 .loadMore {
