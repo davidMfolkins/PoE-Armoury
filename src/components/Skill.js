@@ -14,7 +14,7 @@ export default function Skill (props) {
   if (props.gem.support) {
     gemType = "support"
   } else {
-    gemType = "active"
+    gemType = "activeGem"
   }
 
   let properties;
