@@ -146,14 +146,14 @@ export default function Application() {
             {state === "ladder" && <Ladder getCharacter={getCharacter} setState={setState} standard={standardLadder} hardcore={hardcoreLadder}/>}
 
           {state === 'character' && character && <Character
-            character={character.items}
+            character={character}
             view={state}
             addFavourite={addFavourite}
             removeFavourite={removeFavourite}
-            character_id={character.character_id}
             favourites={favourites}
             cookies={cookies}
             setState={setState}
+            setAccount={setAccount}
           />}
 
         {state === 'favourites' && <Favourites favourites={favourites} removeFavourite={removeFavourite} getCharacter={getCharacter} setState={setState}/>}
