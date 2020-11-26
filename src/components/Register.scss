@@ -1,8 +1,10 @@
 @import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300&display=swap');
 
 
 .login-container {
-  width: 1000px;
+  margin: auto;
+  width: 500px;
   background-color:rgba(0,0,0,0.5);
   color: #ffffffc5;
   padding: 30px;
@@ -11,3 +13,9 @@
   width: 75%;
   margin-top: 10px;
 }
+.registerTitle {
+  font-family: 'Inknut Antiqua';
+  text-align: center;
+  font-size: 40px;
+}
+
