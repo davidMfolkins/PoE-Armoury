@@ -8,7 +8,9 @@ const logger = require('morgan');
 const cors = require('cors');
 const cookieSession = require('cookie-session');
 const indexRouter = require('./routes/index');
-const userRoutes = require('./routes/users')
+const userRoutes = require('./routes/users');
+const seedRoutes = require('./routes/seeds')
+const accountRoutes = require('./routes/accounts')
 
 
 var app = express();
@@ -46,6 +48,8 @@ const userRouter = express.Router();
 
 app.use('/', indexRouter(db));
 app.use('/users', userRoutes(db, userRouter));
+app.use('/accounts', accountRoutes(db));
+app.use('/seeds', seedRoutes(db));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
