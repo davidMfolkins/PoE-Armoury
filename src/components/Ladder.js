@@ -81,7 +81,6 @@ let rows;
 
   const handleCharacterChange = function (account, character) {
     props.getCharacter(account, character);
-    // window.location("/character/${}")
   }
 
   return (
