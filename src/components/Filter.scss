@@ -1,9 +1,10 @@
 @import "~bootstrap/scss/bootstrap";
+@import'Helper';
 
 .filterContainer {
   display: flex;
   background-color: #343a40;
-  color: #ffffffc5;
+  color: $white;
 }
 
 .accordianContainer {
@@ -16,7 +17,7 @@ button {
   background-color: unset!important;
   border: 0px!important;
   background-image: url('../images/rock.png');
-  color: #ffffffc5;
+  color: $white;
 }
 
 button:focus {

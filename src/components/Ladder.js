@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from "axios";
 
 import './Ladder.scss'
 import Filter from './Filter'
