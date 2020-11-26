@@ -14,6 +14,7 @@ import Container from "react-bootstrap/Container";
 import { useState, useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { useCookies } from 'react-cookie';
+import { addFavourite } from './helpers/getters'
 import ScrollUpButton from "react-scroll-up-button";
 import axios from 'axios'
 
@@ -33,7 +34,6 @@ export default function Application() {
     });
   }
 
-
   const [state, setState] = useState("ladder");
   const [account, setAccount] = useState("");
   const [character, setCharacter] = useState(null);
@@ -45,16 +45,13 @@ export default function Application() {
   const [hardcoreLadder, setHardcoreLadder] = useState([])
   const[ grab, setGrab] = useState(false)
 
-
   useEffect(() => {
     setState('loading')
     setLoadingMsg('Grabbing characters...')
 
     setTimeout(() => {
 
-
-   
-    axios.get('http://localhost:3030/ladder_characters')
+    axios.get('http://localhost:3030/characters')
     .then((res) => {
       const ladder_hardcore_display = ladder_hardcore.entries.reduce((accumulator, currentValue) => {
         if (res.data.filter(element => element.name === currentValue.character.name).length > 0) {
@@ -76,7 +73,6 @@ export default function Application() {
 
     setStandardLadder(ladder_standard_display)
     setHardcoreLadder(ladder_hardcore_display)
-
 
   }).then(() => {
     setState('ladder')
@@ -117,6 +113,7 @@ export default function Application() {
   function removeFavourite(character_id) {
     console.log('removing fav')
    axios.delete(`http://localhost:3030/users/${cookies.user}/favourites/${character_id}`).then((result) => {
+     console.log(result)
       const newFavourites = favourites.filter(fav => fav.id !== result.data[0].id)
       console.log(newFavourites)
       setFavourites(newFavourites)
@@ -128,14 +125,13 @@ export default function Application() {
   function addFavourite(character_id) {
     console.log('adding fav')
     axios.post(`http://localhost:3030/users/${cookies.user}/favourites/${character_id}`).then((result) => {
-      setFavourites([...favourites, result.data[0]])
+      console.log(result)
+      setFavourites(result.data)
     }).catch((err) => {
       console.log(err)
     })
   }
 
-
- 
   return (
     <Container fluid>
       <Navigation setGrab={setGrab} grab={grab} getCharacter={getCharacter} setState={setState} removeCookie={removeCookie} cookies={cookies} setAccount={setAccount} />

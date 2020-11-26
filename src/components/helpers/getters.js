@@ -14,3 +14,4 @@ export default function fetchCharacter(accountName, characterName) {
       return err;
     });
 }
+
