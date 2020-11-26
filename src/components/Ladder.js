@@ -5,7 +5,7 @@ import './Ladder.scss'
 import Filter from './Filter'
 import { Table } from 'react-bootstrap'
 
-const counter = 5;
+const counter = 20;
 
 
 function Ladder(props) {
