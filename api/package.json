@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test:server": "NODE_ENV=test npm start"
+    "new": "NODE_ENV=test npm start"
   },
   "dependencies": {
     "axios": "^0.21.0",

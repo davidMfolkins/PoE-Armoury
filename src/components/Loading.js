@@ -13,7 +13,9 @@ export default function Loading(props) {
         <span className="sr-only">Loading...</span>
       </Spinner>
     </div>
+    
   }
+  {props.msg && <div style={{color: 'white'}}>{props.msg}</div>}
   {props.error && 
   <div style={{color: 'white'}}>
     {props.error}

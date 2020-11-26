@@ -74,7 +74,8 @@ function fetchCharacterAPI(accountName, characterName) {
       `https://www.pathofexile.com/character-window/get-items?accountName=${accountName}&character=${characterName}`
     )
     .then((result) => {
-      return result
+      console.log('fetchCharacterApi results: ', result.data)
+      return result.data
     })
     .catch((err) => {
       console.log(err.response.status, err.response.statusText, ': access to character blocked by DB.' )

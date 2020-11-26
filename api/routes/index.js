@@ -310,7 +310,7 @@ router.get('/hardcore', (req, res, next) => {
 
 
     });
-
+    
     if (characterFromAPI && !characterInDB) {
       console.log(characterFromAPI);
       await saveCharacter(db, characterFromAPI, req.params.account).then(() => {
@@ -320,7 +320,7 @@ router.get('/hardcore', (req, res, next) => {
 
       findCharacterDB(db, req.params.character)
         .then((result) => {
-          res.send(result);
+          res.send(result); 
         })
         .catch((err) => {
           res.send(err);
@@ -348,5 +348,12 @@ router.get('/hardcore', (req, res, next) => {
     })
     res.send(searchResults)
   })
+
+  router.get('/ladder_characters', (req, res, next) => {
+    db.query('SELECT name FROM characters;').then((result) => {
+      res.send(result.rows)
+    })
+  })
+
   return router;
 };
