@@ -6,7 +6,7 @@ import '../images/socket.png'
 
 export default function Skills (props) {
 
-  console.log(props.item.inventoryId)
+  // console.log(props.item.inventoryId)
   let groups = [];
   for (const socket of props.item.sockets) {
     if (socket.attr !== "A")
@@ -72,14 +72,14 @@ export default function Skills (props) {
       // console.log(connections, gemSocket.socket)
       if (connections) {
         return (
-          <tr>
-            <td rowspan={connections}>{connections} links</td>
+          <tr className="test">
+            <td className="connections" rowspan={connections}>{connections} links</td>
             <td className="gemRow"><Skill gem={gemSocket}/> <div className="gemName">{gemSocket.typeLine} <div className="gemStats">(Level: {level} / Quality: {quality || "0"})</div></div></td>
           </tr>
         )
       } else {
         return (
-          <tr>
+          <tr className="test">
             <td className="gemRow"><Skill gem={gemSocket}/> <div className="gemName">{gemSocket.typeLine} <div className="gemStats">(Level: {level} / Quality: {quality || "0"})</div></div></td>
           </tr>
         )
@@ -88,13 +88,13 @@ export default function Skills (props) {
       // console.log(connections, "x")
       if (connections) {
         return (
-          <tr>
-            <td rowspan={connections}>{connections} links</td>
+          <tr className="test">
+            <td className="connections" rowspan={connections}>{connections} links</td>
             <td className="gemRow">Empty Socket</td>
           </tr>
         )
       } else {
-        return <tr><td className="gemRow">Empty Socket</td></tr>
+        return <tr className="test"><td className="gemRow">Empty Socket</td></tr>
       }
     }
   })
@@ -104,7 +104,7 @@ export default function Skills (props) {
       <hr className="line"/> 
       <span classname="gemGroup">{props.item.inventoryId}</span>
     <Table>
-      <td>{builder}</td>
+      <td className="skill-group">{builder}</td>
     </Table>
   </div>
   )

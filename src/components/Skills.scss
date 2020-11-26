@@ -4,11 +4,33 @@
   display: flex;
 }
 
+// // .test {
+//   display: flex;
+//   flex: 1;
+// }
+
+.no-border {
+  border-top: none !important;
+}
+
+.connections {
+  @extend .no-border;
+  background-color: hotpink;
+}
+
+.skill-group {
+  @extend .no-border;
+  background-color: gray;
+}
+
 .gemRow {
+  @extend .no-border;
   display: flex;
+  flex: 1;
   align-items: center;
   margin-top: 0.3em;
   margin-bottom: 0.3em;
+  background-color: green;
 }
 
 .gemGroup {
