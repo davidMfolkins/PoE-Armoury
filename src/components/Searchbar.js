@@ -17,6 +17,7 @@ function Searchbar(props) {
   function handleSubmit (event) {
     console.log("enter")
     props.setAccount(value)
+    props.setState('account')
     setValue("")
     setSearchResults([])
     event.preventDefault();
@@ -36,10 +37,15 @@ function Searchbar(props) {
               </tr>
             );
           } else {
-            props.setState("account")
             return (
               <tr>
-                <td onClick={() => props.setAccount(entry.name)}>{entry.name}  <Badge variant="secondary">account</Badge>{' '}</td>
+                <td onClick={() => {
+                  props.setAccount(entry.name)
+                  props.setState('account')
+                  setValue('')
+                  setSearchResults([])
+                }
+                }>{entry.name}  <Badge variant="secondary">account</Badge>{' '}</td>
               </tr>
             );
           }

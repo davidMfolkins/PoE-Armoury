@@ -153,6 +153,7 @@ export default function Application() {
             character_id={character.character_id}
             favourites={favourites}
             cookies={cookies}
+            setState={setState}
           />}
 
         {state === 'favourites' && <Favourites favourites={favourites} removeFavourite={removeFavourite} getCharacter={getCharacter} setState={setState}/>}
