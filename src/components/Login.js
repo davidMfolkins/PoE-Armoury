@@ -17,7 +17,7 @@ export default function Login(props) {
       if (res.status === 200) {
         console.log(res.data)
         props.handleCookie(res.data);
-      } 
+      }
     }).catch(() => {
       setMsg('Email or password incorrect')
     })
@@ -27,6 +27,7 @@ export default function Login(props) {
     <Container>
       <div className="login-container">
         {msg && <Alert variant="danger">{msg}</Alert>}
+        <div className="registerTitle">Login</div>
         <div className="container login-form-container">
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail">
@@ -38,12 +39,9 @@ export default function Login(props) {
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="Password" />
             </Form.Group>
-            <Form.Group controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="I agree" />
-            </Form.Group>
             <Button variant="primary" type="submit">
               Submit
-  </Button>
+            </Button>
           </Form>
         </div>
       </div>
