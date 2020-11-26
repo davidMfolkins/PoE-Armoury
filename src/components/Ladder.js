@@ -9,26 +9,20 @@ const counter = 5;
 
 
 function Ladder(props) {
-  const [data, setData] = useState(null)
+  const [data, setData] = useState([])
   const [filteredData, setFilteredData] = useState(null)
   const [filter, setFilter] = useState("")
   const [hasTwitch, sethasTwtich] = useState(false)
-  const [hardcore, setHardcore] = useState(false)
+  const [hardcore, setHardcore] = useState(true)
   const [visible, setVisible] = useState(counter)
 
-  useEffect(() => {
 
+  useEffect(() => {
     if (hardcore) {
-      axios.get('http://localhost:3030/ladder/hardcore')
-      .then((result) => {
-        setData(result.data)
-      })
-    } else {
-      axios.get('http://localhost:3030/ladder/standard')
-      .then((result) => {
-        setData(result.data)
-      })
-    }
+      setData(props.hardcore)
+     } else {
+       setData(props.standard)
+     }
     
   }, [hardcore])
 
@@ -36,15 +30,15 @@ let rows;
 
   if (filteredData) {
     rows = filteredData.slice(0, visible).map((entry) => {
-      const className = entry.class
+      const className = entry.character.class
       const classIcon = `/icons/${className.toLowerCase()}_icon.png`
       return (
-        <tr id="ladderList" className="d-flex" onClick={() => handleCharacterChange(entry.accountname, entry.name)}>
-          <td className="col-2"><img src={classIcon} alt={entry.name} /></td>
-          <td className="col-4">{entry.name} </td>
-          <td className="col-2">{entry.level}</td>
+        <tr id="ladderList" className="d-flex" onClick={() => handleCharacterChange(entry.account.name, entry.character.name)}>
+          <td className="col-2"><img src={classIcon} alt={entry.character.name} /></td>
+          <td className="col-4">{entry.character.name} </td>
+          <td className="col-2">{entry.character.level}</td>
           <td className="col-2">{className}</td>
-          {entry.twitch && <td className="col-2"><a href={`https://twitch.tv/${entry.twitch}`} target="_blank" rel="noreferrer">{entry.twitch}</a></td>}
+          {entry.account.twitch && <td className="col-2"><a href={`https://twitch.tv/${entry.account.twitch.name}`} target="_blank" rel="noreferrer">{entry.account.twitch.name}</a></td>}
         </tr>
       )
     })
@@ -53,8 +47,8 @@ let rows;
   useEffect(() => {
     if (data) {
       const newArray = data
-      .filter(hero => hero.class.toLowerCase().includes(filter.toLowerCase()))
-      .filter(hero => !hasTwitch || hero.twitch)
+      .filter(hero => hero.character.class.toLowerCase().includes(filter.toLowerCase()))
+      .filter(hero => !hasTwitch || hero.account.twitch)
     setFilteredData(newArray)
     }
    

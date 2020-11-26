@@ -8,6 +8,7 @@ import Register from './Register';
 import Logout from './Logout';
 import Login from './Login'
 import Favourites from './Favourites';
+import Grabber from './Grabber'
 import fetchCharacter from "./helpers/getters";
 import Container from "react-bootstrap/Container";
 import { useState, useEffect } from "react";
@@ -15,8 +16,10 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { useCookies } from 'react-cookie';
 import ScrollUpButton from "react-scroll-up-button";
 import axios from 'axios'
+
 const ladder_standard = require('../ladder_standard.json');
 const ladder_hardcore = require('../ladder_hardcore.json');
+
 
 
 
@@ -32,21 +35,54 @@ export default function Application() {
 
 
   const [state, setState] = useState("ladder");
-
   const [account, setAccount] = useState("");
-
   const [character, setCharacter] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false)
   const [favourites, setFavourites] = useState([])
+  const [loadingMsg, setLoadingMsg] = useState(null)
+  const [loadingError, setLoadingError] = useState(null)
+  const [standardLadder, setStandardLadder] = useState([])
+  const [hardcoreLadder, setHardcoreLadder] = useState([])
+  const[ grab, setGrab] = useState(false)
+
 
   useEffect(() => {
-   
-    console.log(ladder_standard)
-    console.log(ladder_hardcore.entries[0])
-    const char = ladder_hardcore.entries[2]
-    // axios.get(`http://localhost:3030/accounts/${char.account.name}/characters/${char.character.name}`)
+    setState('loading')
+    setLoadingMsg('Grabbing characters...')
 
-  }, [])
+    setTimeout(() => {
+
+
+   
+    axios.get('http://localhost:3030/ladder_characters')
+    .then((res) => {
+      const ladder_hardcore_display = ladder_hardcore.entries.reduce((accumulator, currentValue) => {
+        if (res.data.filter(element => element.name === currentValue.character.name).length > 0) {
+          return [...accumulator, currentValue]
+        } else {
+          return [...accumulator]
+        }
+        
+    }, [])
+    const ladder_standard_display = ladder_standard.entries.reduce((accumulator, currentValue) => {
+      if (res.data.filter(element => element.name === currentValue.character.name).length > 0) {
+        return [...accumulator, currentValue]
+      } else {
+        return [...accumulator]
+      }
+    
+      
+    }, [])
+
+    setStandardLadder(ladder_standard_display)
+    setHardcoreLadder(ladder_hardcore_display)
+
+
+  }).then(() => {
+    setState('ladder')
+  })
+}, 3000)
+}, []);
 
   useEffect(() => {
     if (cookies.user) {
@@ -102,13 +138,14 @@ export default function Application() {
  
   return (
     <Container fluid>
-      <Navigation getCharacter={getCharacter} setState={setState} removeCookie={removeCookie} cookies={cookies} setAccount={setAccount} />
+      <Navigation setGrab={setGrab} grab={grab} getCharacter={getCharacter} setState={setState} removeCookie={removeCookie} cookies={cookies} setAccount={setAccount} />
+      <Grabber grab={grab}/>
       <ScrollUpButton />
       <Container style={{ marginTop: "100px" }}>
         <Switch>
       <Route exact path="/">
          {state === "account" && <Account account={account} getCharacter={getCharacter} setState={setState} />}
-            {state === "ladder" && <Ladder getCharacter={getCharacter} setState={setState}/>}
+            {state === "ladder" && <Ladder getCharacter={getCharacter} setState={setState} standard={standardLadder} hardcore={hardcoreLadder}/>}
 
           {state === 'character' && character && <Character
             character={character.items}
@@ -121,9 +158,9 @@ export default function Application() {
           />}
 
         {state === "character" && !character && (
-          <Loading error={"No character found."} setState={setState} />
+          <Loading error={loadingError} msg={loadingMsg} setState={setState} />
         )}
-        {state === "loading" && <Loading />}
+        {state === "loading" && <Loading error={loadingError} msg={loadingMsg} />}
         </Route>
         <Route path="/register">
           {!loggedIn && <Register handleCookie={handleCookie} setState={setState} setLoggedIn={setLoggedIn}/>}
@@ -141,6 +178,7 @@ export default function Application() {
           </Route>
         </Switch>
       </Container>
+     
 
 
     </Container>

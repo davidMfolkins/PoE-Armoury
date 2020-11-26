@@ -3,7 +3,7 @@ const { fetchCharacterAPI, filterCharacters } = require('./getters')
 
 async function saveCharacter(db, character, account, ladder_id) {
   console.log('checking for account...')
-  const account_exists = await db.query(`SELECT id, name FROM accounts WHERE name=$1;`, [account.name]).then((result) => {
+  const account_exists = await db.query(`SELECT id, name FROM accounts WHERE name=$1;`, [account]).then((result) => {
     console.log('account exists')
     return result.rows
   }).catch((err) => {
@@ -23,7 +23,7 @@ async function saveCharacter(db, character, account, ladder_id) {
     } else {
       twitch = null
     }
-    account_id = await db.query(`INSERT INTO accounts(name, twitch) VALUES($1, $2) RETURNING *;`, [account.name, twitch])
+    account_id = await db.query(`INSERT INTO accounts(name, twitch) VALUES($1, $2) RETURNING *;`, [account, twitch])
     .then((res) => {
       console.log('created account')
       return res.rows[0].id;
