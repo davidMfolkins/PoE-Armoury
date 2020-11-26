@@ -3,6 +3,7 @@ import './Navigation.scss'
 import Searchbar from './Searchbar'
 
 export default function Navigation(props) {
+  console.log(props.cookies)
 
   return (
     <Navbar fixed="top" variant="dark" bg="dark" expand="lg">
@@ -16,7 +17,7 @@ export default function Navigation(props) {
       </Nav>
       {props.cookies.user && 
       <Nav className="ml-auto">
-         <Nav.Link className="mx-3 my-2" href={"/users/" + props.cookies.user + "/favourites"}>Favourites</Nav.Link>
+         <Nav.Link className="mx-3 my-2" href={"/users/" + props.cookies.user + "/favourites"}>Your Favourites</Nav.Link>
       <Nav.Link className="mx-3 my-2" href="/logout" onClick={() => props.removeCookie("user")}>Logout</Nav.Link>
       </Nav>}
       {!props.cookies.user && 

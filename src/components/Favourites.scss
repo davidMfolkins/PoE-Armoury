@@ -7,6 +7,7 @@
   color: #ffffffc5;
   padding: 30px;
   text-align: center;
+  
 }
 
 .no-favourites {
@@ -14,12 +15,22 @@
   font-family: 'Inknut Antiqua';
 }
 .favourite-title {
-  font-size: 2.2em;
+  font-size: 50px;
   font-family: 'Inknut Antiqua';
   margin-bottom: 20px;
+  border-bottom: 2px solid #b78846;
 }
 
 .remove-alert {
   margin-left: 35%;
   width: 300px;
+}
+
+#ladder-List {
+  border: 2px solid #b78846;
+}
+
+#ladderList:hover {
+  color: #940303;
+  cursor: pointer;
 }
