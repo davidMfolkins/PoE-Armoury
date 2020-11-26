@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300&display=swap');
+@import'Helper';
 
 body {
   
@@ -9,7 +10,7 @@ body {
 }
 
 .character-container {
-  color: white;
+  color: $white;
   min-height: 90vh;
   background-color: #1b1818;
 }
@@ -18,7 +19,7 @@ body {
 }
 
 .char-title {
-  border-bottom: 2px solid #b78846;
+  border-bottom: 2px solid $yellow;
   font-family: 'Inknut Antiqua';
 }
 
@@ -32,7 +33,7 @@ body {
 }
 
 .msg-animated {
-  color: #ffffffc5;
+  color: $white;
   position: absolute;
   word-wrap: normal;
   width: 300px;

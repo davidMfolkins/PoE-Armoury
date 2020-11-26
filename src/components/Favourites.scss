@@ -3,7 +3,7 @@
 
 .favourites-container {
   background-color:rgba(0,0,0,0.5);
-  color: #ffffffc5;
+  color: $white;
   padding: 30px;
   text-align: center;
   font-size: 20px;
@@ -17,7 +17,7 @@
   font-size: 50px;
   font-family: 'Inknut Antiqua';
   margin-bottom: 20px;
-  border-bottom: 2px solid #b78846;
+  border-bottom: 2px solid $yellow;
 }
 
 .remove-alert {
@@ -25,10 +25,10 @@
   width: 300px;
 }
 #favouriteTable {
-  border: 2px solid #b78846;
+  border: 2px solid $yellow;
 }
 
 #favouriteList:hover {
-  color: #940303;
+  color: $red;
   cursor: pointer;
 }

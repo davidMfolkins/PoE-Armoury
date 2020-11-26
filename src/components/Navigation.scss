@@ -1,5 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300&display=swap');
+@import'Helper';
 #login-form {
   position: absolute;
 }
@@ -12,7 +13,7 @@
   font-family: 'Inknut Antiqua';
   font-size: 2.1em;
   text-transform: unset;
-  color: #ffffffc5;
+  color: $white;
 }
 
 .nav-link {

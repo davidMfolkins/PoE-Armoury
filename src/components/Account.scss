@@ -1,5 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300&display=swap');
+@import'Helper';
 
 .accountPage {
   background-color: rgba(0,0,0,0.5);
@@ -22,15 +23,15 @@
 }
 
 .accountName {
-  color: #ffffffc5;
+  color: $white;
   font-size: 50px;
   font-family: 'Inknut Antiqua';
-  border-bottom: 2px solid #b78846;
+  border-bottom: 2px solid $yellow;
   text-align: center;
 }
 
 #accountList:hover {
-  color: #940303;
+  color: $red;
   cursor: pointer;
 }
 

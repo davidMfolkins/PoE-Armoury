@@ -1,5 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300&display=swap');
+@import'Helper';
 
 .ladderPage {
   background-color: rgba(0,0,0,0.5);
@@ -18,8 +19,8 @@
   font-family: 'Inknut Antiqua';
   text-align: center;
   font-size: 50px;
-  color:  #ffffffc5;
-  border-bottom: 2px solid #b78846;
+  color:  $white;
+  border-bottom: 2px solid $yellow;
   margin-bottom: 10px;
 }
 
@@ -30,14 +31,14 @@
 }
 
 #ladderList:hover {
-  color: #940303;
+  color: $red;
   cursor: pointer;
 }
 
 #ladderButton {
   margin-left: 10%;
   background-image: url('../images/rock.png');
-  color: #ffffffc5;
+  color: $white;
   border: 1px solid black!important;
   border-radius: 3px;
 }
@@ -57,7 +58,8 @@ td {
   vertical-align: middle!important;
 }
 #ladderTable {
-  border: 2px solid #b78846;
+  border: 2px solid $yellow;
+  color: $white;
 }
 
 .loadMore {
