@@ -60,7 +60,8 @@ function Searchbar(props) {
   };
   return (
     <div>
-      <Form className="my-2" autocomplete="off" onSubmit={handleSubmit}>
+      <Form className="my-2" autocomplete="off" onSubmit={handleSubmit} id="search-bar">
+        <div className="container">
         <FormControl
           type="text"
           placeholder="Search for player..."
@@ -68,9 +69,11 @@ function Searchbar(props) {
           value={value}
           onChange={(event) => quickSearch(event)}
         />
+         </div>
       </Form>
+     
       <div style={{ width: "200px" }}>
-        <Table striped hover className="search-results">
+        <Table striped hover className="search-results" id="search-results">
           <tbody>{searchResults}</tbody>
         </Table>
       </div>

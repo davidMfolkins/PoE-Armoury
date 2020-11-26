@@ -11,9 +11,12 @@ export default function Navigation(props) {
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto"> 
         <Nav.Link activeClassName="" className="mx-3 my-2" href="/">Home</Nav.Link>
-        <Nav.Link className="mx-3 my-2" onClick={() => props.setGrab(!props.grab)}>Seed</Nav.Link>
-        <Searchbar getCharacter={props.getCharacter} setState={props.setState} setAccount={props.setAccount}/>
+        {/* <Nav.Link className="mx-3 my-2" onClick={() => props.setGrab(!props.grab)}>Seed</Nav.Link> */}
+       
       </Nav>
+      <Nav className="m-auto">
+      <Searchbar getCharacter={props.getCharacter} setState={props.setState} setAccount={props.setAccount}/>
+        </Nav>
       {props.cookies.user && 
       <Nav className="ml-auto">
          <Nav.Link className="mx-3 my-2" onClick={() => props.setState('favourites')}>Your Favourites</Nav.Link>
