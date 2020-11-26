@@ -1,8 +1,8 @@
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300&display=swap');
+@import'Helper';
 
 .favourites-container {
-  background-color:rgba(0,0,0,0.5);
   color: $white;
   padding: 30px;
   text-align: center;
@@ -27,6 +27,7 @@
 }
 #favouriteTable {
   border: 2px solid $yellow;
+  color: $white;
 }
 
 #favouriteList:hover {
