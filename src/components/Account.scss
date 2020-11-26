@@ -3,6 +3,7 @@
 
 .accountPage {
   background-color: rgba(0,0,0,0.5);
+  padding-top: 10px;
   
 }
 .accountContainer {
@@ -11,6 +12,7 @@
   margin: auto;
   font-size: 20px;
   text-align: center;
+  padding-top: 20px;
 }
 
 .topButtons {
@@ -20,10 +22,11 @@
 }
 
 .accountName {
-  margin-left: 10%;
   color: #ffffffc5;
   font-size: 30px;
   font-family: 'Inknut Antiqua';
+  border-bottom: 2px solid #b78846;
+  text-align: center;
 }
 
 #accountList:hover {
