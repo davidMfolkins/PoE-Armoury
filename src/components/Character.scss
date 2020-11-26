@@ -33,12 +33,16 @@ body {
 
 .msg-animated {
   color: #ffffffc5;
-  position: relative;
+  position: absolute;
+  word-wrap: normal;
+  width: 300px;
   animation-name: like;
   animation-duration: 2s;
   opacity: 1;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
+  z-index: 3000;
+  right: -200px;
 }
 
 @keyframes like {

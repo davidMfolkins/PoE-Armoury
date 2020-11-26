@@ -141,9 +141,10 @@ export default function Application() {
       <Container style={{ marginTop: "100px" }}>
         <Switch>
       <Route exact path="/">
+        { state === 'loading' && <Loading />}
          {state === "account" && <Account account={account} getCharacter={getCharacter} setState={setState} />}
             {state === "ladder" && <Ladder getCharacter={getCharacter} setState={setState} standard={standardLadder} hardcore={hardcoreLadder}/>}
-{/* 
+
           {state === 'character' && character && <Character
             character={character.items}
             view={state}
@@ -152,7 +153,9 @@ export default function Application() {
             character_id={character.character_id}
             favourites={favourites}
             cookies={cookies}
-          />} */}
+          />}
+
+        {state === 'favourites' && <Favourites favourites={favourites} removeFavourite={removeFavourite} getCharacter={getCharacter}/>}
 
         {state === "character" && !character && (
           <Loading error={loadingError} msg={loadingMsg} setState={setState} />
@@ -166,25 +169,13 @@ export default function Application() {
           <Route path="/logout">
             <Logout />
           </Route>
-          <Route path="/characters/:id">
-          {character && <Character
-            character={character.items}
-            view={state}
-            addFavourite={addFavourite}
-            removeFavourite={removeFavourite}
-            character_id={character.character_id}
-            favourites={favourites}
-            cookies={cookies}
-          />}
-          </Route>
           <Route path="/login">
             {!loggedIn && <Login handleCookie={handleCookie} />}
             {loggedIn && <Redirect to="/" />}
           </Route>
-          <Route path="/users/:id/favourites">
 
-        <Favourites favourites={favourites} removeFavourite={removeFavourite} getCharacter={getCharacter}/>
-          </Route>
+      
+
         </Switch>
       </Container>
      

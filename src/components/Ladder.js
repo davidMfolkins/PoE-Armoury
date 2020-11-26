@@ -4,7 +4,6 @@ import axios from "axios";
 import './Ladder.scss'
 import Filter from './Filter'
 import { Table } from 'react-bootstrap'
-import { useHistory } from "react-router-dom";
 
 const counter = 20;
 
@@ -81,10 +80,9 @@ let rows;
   const handleTwitchChange = function (evt) {
     sethasTwtich(evt.target.checked)
   }
-  const history = useHistory();
+
   const handleCharacterChange = function (account, character, id) {
     props.getCharacter(account, character);
-    history.push(`/characters/${id}`);
   }
 
   return (

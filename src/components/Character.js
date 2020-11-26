@@ -39,12 +39,12 @@ export default function Character(props) {
   const classIcon = `/icons/${charClass.toLowerCase()}_icon.png`
   return (
 
-    <div className="container character-container char" style={{ borderRadius: '10px', overflow: 'hidden' }}>
+    <div className="container character-container char" style={{ borderRadius: '10px'}}>
       <Row className="p-5 char-title">
         <Col lg="auto" ><img src={classIcon} alt={props.character.class} /></Col>
-        <Col lg={5}  className="my-auto">
-          <h1 style={{ backgroundColor: "rgba(0,0,0,0.5)"}}>{props.character.character.name}</h1>
-          <h5 style={{ backgroundColor: "rgba(0,0,0,0.5)" }}>{props.character.character.level} | {props.character.character.class}</h5>
+        <Col lg={9}  className="my-auto">
+          <h1 >{props.character.character.name}</h1>
+          <h5 >{props.character.character.level} | {props.character.character.class}</h5>
         </Col>
         <Col>
         {props.cookies.user &&<LikeButton character_id={props.character_id} favourites={props.favourites} addFavourite={props.addFavourite} removeFavourite={props.removeFavourite} setMsg={setMsg} size="4em"/>}
