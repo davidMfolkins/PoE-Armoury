@@ -20,7 +20,7 @@ export default function Character(props) {
 
   const [ msg, setMsg ] = useState(null)
 
-  const gems = props.character.items.map(item => {
+  const gems = props.character.items.items.map(item => {
     if (item.inventoryId === "Offhand2" || item.inventoryId === "Weapon2" || item.inventoryId === "Belt") {
     } else {
       if (item.socketedItems) {
@@ -36,7 +36,7 @@ export default function Character(props) {
     window.addEventListener("resize", handleResize)
   })
 
-  const charClass = props.character.character.class
+  const charClass = props.character.class
   const classIcon = `/icons/${charClass.toLowerCase()}_icon.png`
   return (
 
@@ -47,12 +47,17 @@ export default function Character(props) {
       <Row className="p-5 char-title">
         <Col lg="auto" ><img src={classIcon} alt={props.character.class} /></Col>
         <Col lg={9}  className="my-auto">
-          <h1 >{props.character.character.name}</h1>
-          <h5 >{props.character.character.level} | {props.character.character.class}</h5>
+          <h1 >{props.character.name}</h1>
+          <h5 >{props.character.level} | {props.character.class}</h5>
+          <h5><a href="/" onClick={(e) => {
+            e.preventDefault();
+            props.setAccount(props.character.account_name)
+            props.setState('account')
+          }}>{props.character.account_name}</a></h5>
         </Col>
         <Col>
-        {props.cookies.user &&<LikeButton character_id={props.character_id} favourites={props.favourites} addFavourite={props.addFavourite} removeFavourite={props.removeFavourite} setMsg={setMsg} size="4em"/>}
-        {msg && <div className="msg-animated">{msg}</div>}
+        {props.cookies.user &&<LikeButton character_id={props.character.character_id} favourites={props.favourites} addFavourite={props.addFavourite} removeFavourite={props.removeFavourite} setMsg={setMsg} size="4em"/>}
+        {msg && <div className="msg-animted">{msg}</div>}
         </Col>
       
 
@@ -63,11 +68,11 @@ export default function Character(props) {
 
         <Col>
           <Row>
-            <Items windowWidth={windowWidth} items={props.character.items} />
+            <Items windowWidth={windowWidth} items={props.character.items.items} />
           </Row>
           <Row>
             <Col>
-              <Flasks windowWidth={windowWidth} items={props.character.items} />
+              <Flasks windowWidth={windowWidth} items={props.character.items.items} />
             </Col>
           </Row>
         </Col>
