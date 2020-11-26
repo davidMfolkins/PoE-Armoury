@@ -19,10 +19,8 @@ export default function Favourites(props) {
     await props.removeFavourite(id)
     setMsg('Entry removed from favourites')
   }
-  const history = useHistory();
   const handleCharacterChange = function (account, character, id) {
     props.getCharacter(account, character);
-    history.push(`/characters/${id}`);
     //this does not work here yet, clicking on charname will get error because favorites does not see account yet.
   }
 

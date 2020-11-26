@@ -77,7 +77,7 @@ export default function Application() {
   }).then(() => {
     setState('ladder')
   })
-}, 3000)
+}, 1000)
 }, []);
 
   useEffect(() => {
@@ -87,7 +87,7 @@ export default function Application() {
   })
 
   const randomInterval = function () {
-    return Math.floor((Math.random() * 1000) + 750)
+    return Math.floor((Math.random() * 500) + 100)
   }
 
   const getCharacter = function (accountName, characterName) {
@@ -155,7 +155,7 @@ export default function Application() {
             cookies={cookies}
           />}
 
-        {state === 'favourites' && <Favourites favourites={favourites} removeFavourite={removeFavourite} getCharacter={getCharacter}/>}
+        {state === 'favourites' && <Favourites favourites={favourites} removeFavourite={removeFavourite} getCharacter={getCharacter} setState={setState}/>}
 
         {state === "character" && !character && (
           <Loading error={loadingError} msg={loadingMsg} setState={setState} />
