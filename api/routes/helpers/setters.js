@@ -2,6 +2,7 @@ const { fetchCharacterAPI, filterCharacters } = require('./getters')
 
 
 async function saveCharacter(db, character, account, ladder_id) {
+  console.log(account)
   console.log('checking for account...')
   const account_exists = await db.query(`SELECT id, name FROM accounts WHERE name=$1;`, [account]).then((result) => {
     console.log('account exists')
@@ -11,10 +12,10 @@ async function saveCharacter(db, character, account, ladder_id) {
     console.log(err)
     return null
   })
-  let account_id;
+  let account_db;
 
   if (account_exists.length > 0) {
-    account_id = account_exists[0].id
+    account_db = account_exists[0]
   } else {
     console.log('creating new account...')
     let twitch;
@@ -23,10 +24,11 @@ async function saveCharacter(db, character, account, ladder_id) {
     } else {
       twitch = null
     }
-    account_id = await db.query(`INSERT INTO accounts(name, twitch) VALUES($1, $2) RETURNING *;`, [account, twitch])
+    account_db = await db.query(`INSERT INTO accounts(name, twitch) VALUES($1, $2) RETURNING *;`, [account, twitch])
     .then((res) => {
       console.log('created account')
-      return res.rows[0].id;
+      console.log(res.rows[0])
+      return res.rows[0];
     }).catch((err) => {
       console.log('error making account:', err)
       return err
@@ -35,10 +37,12 @@ async function saveCharacter(db, character, account, ladder_id) {
   console.log('saving character...')
   const character_id = await db
     .query(
-      `INSERT INTO characters(account_id, ladder_id, name, level, class, experience, last_requested) 
-                  VALUES($1, $2, $3, $4, $5, $6, CURRENT_TIMESTAMP) RETURNING *`,
+      `INSERT INTO characters(account_id, account_name, account_twitch, ladder_id, name, level, class, experience, last_requested) 
+                  VALUES($1, $2, $3, $4, $5, $6, $7, $8, CURRENT_TIMESTAMP) RETURNING *`,
       [
-        account_id,
+        account_db.id,
+        account_db.name,
+        account_db.twitch,
         ladder_id,
         character.character.name,
         character.character.level,

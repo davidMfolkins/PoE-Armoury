@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Table, Button, Alert } from 'react-bootstrap'
 
 import { AiFillDelete } from 'react-icons/ai'
+import { useHistory } from "react-router-dom";
 
 import './Favourites.scss'
 
@@ -18,20 +19,19 @@ export default function Favourites(props) {
     await props.removeFavourite(id)
     setMsg('Entry removed from favourites')
   }
-
-  const handleCharacterChange = function (account, character) {
+  const handleCharacterChange = function (account, character, id) {
     props.getCharacter(account, character);
     //this does not work here yet, clicking on charname will get error because favorites does not see account yet.
   }
 
 
+
   const favouritesTable = props.favourites.map((fav) => {
     const classIcon = `/icons/${fav.class.toLowerCase()}_icon.png`;
-    console.log(fav)
     return (
       <tr id="favouriteList" className="d-flex">
         <td className="col-3"><img src={classIcon} alt={fav.class} /></td>
-        <td className="col-4" onClick={() => handleCharacterChange(fav.name)}>{fav.name}</td>
+        <td className="col-4" onClick={() => handleCharacterChange(fav.account_name, fav.name, fav.id)}>{fav.name}</td>
         <td className="col-1">{fav.level}</td>
         <td className="col-3">{fav.class}</td>
         <td className="col-1">
