@@ -14,7 +14,7 @@ export default function Navigation(props) {
         <Nav.Link className="mx-3 my-2" onClick={() => props.setGrab(!props.grab)}>Seed</Nav.Link>
        
       </Nav>
-      <Nav className="m-auto">
+      <Nav onClick={(e) => e.stopPropagation()} className="m-auto">
       <Searchbar getCharacter={props.getCharacter} setState={props.setState} setAccount={props.setAccount} state={props.state}/>
         </Nav>
       {props.cookies.user && 

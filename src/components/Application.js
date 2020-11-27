@@ -84,6 +84,7 @@ export default function Application() {
 }, []);
 
   useEffect(() => {
+    // document.addEventListener('mouseDown')
     if (cookies.user) {
       setLoggedIn(true)
     }
@@ -177,7 +178,7 @@ export default function Application() {
         {state === "character" && !character && (
           <Loading error={loadingError} msg={loadingMsg} setState={setState} />
         )}
-        {state === "loading" && <Loading error={loadingError} msg={loadingMsg} />}
+        {state === "loading" && <Loading error={loadingError} msg={loadingMsg} setState={setState}/>}
         </Route>
         <Route path="/register">
           {!loggedIn && <Register handleCookie={handleCookie} setState={setState} setLoggedIn={setLoggedIn}/>}

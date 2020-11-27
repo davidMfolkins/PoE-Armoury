@@ -24,8 +24,12 @@ module.exports = (db) => {
     .then(result => {
       return result.json()
     }).then((data) => {
-      // console.log(accountName)
-      saveAccount(db, accountName)
+      console.log(data)
+      if (!data.error) {
+        saveAccount(db, accountName)
+      } else {
+        console.log('theres an error')
+      }
       res.send(data)
     }).catch((err) => {
       res.status(404).send(err)

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Form, FormControl, Table, Badge } from "react-bootstrap";
 import "./Searchbar.scss";
@@ -6,10 +6,10 @@ import "./Searchbar.scss";
 const className = require('classnames')
 
 function Searchbar(props) {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState("", () => Promise.resolve(true));
   const [searchResults, setSearchResults] = useState([]);
   const [hidden, setHidden] = useState('hidden')
-  let [selected, setSelected] = useState(null)
+  const [selected, setSelected] = useState('hidden')
 
   useEffect(() => {
       setValue('')
@@ -17,6 +17,9 @@ function Searchbar(props) {
       setHidden('hidden')
 
   }, [props.state])
+
+ 
+  
 
 
   function selectSearchItem(name) {
@@ -26,15 +29,14 @@ function Searchbar(props) {
   }
 
   function handleSubmit (event, name) {
-    console.log(name)
+    console.log('searching for account...')
     props.setAccount(name)
     props.setState('account')
     setValue("")
     setSearchResults([])
     event.preventDefault();
   }
-let quickSearch = async function (e) {
-      setValue(e.target.value);
+let quickSearch = async function () { 
       const searchTerm = new RegExp(value);
       if (value.length > 0) {
         setHidden(null)
@@ -42,7 +44,9 @@ let quickSearch = async function (e) {
           // console.log(res.data.searchItems)
           return res.data.map((entry, index) => {
             let trClass;
-            if (index === selected) {
+            if (selected === null) {
+              trClass = null
+            } else if (index === selected)  { 
               console.log(selected)
               trClass = 'selected'
             } else {
@@ -73,44 +77,47 @@ let quickSearch = async function (e) {
             }
           });
         })
-        if (!e.target.value) {
-          setSearchResults([null]);
-        } else {
           setSearchResults(newSearchResults);
-        }
       } else {
         setHidden('hidden')
       }
   
       
     };
+
+    useEffect(() => {
+      console.log('quick searching...')
+      quickSearch()
+    }, [value, selected])
+
+   
   
 
   function searchSelection(e) {
+    console.log(e)
     console.log(e.target.value)
     console.log(e.code)
     console.log(selected)
     if (e.code === 'ArrowDown') {
       if (selected === null) {
-        quickSearch(e)
         setSelected(0)
       } else {
         const newVal = selected + 1
-        quickSearch(e)
         setSelected(newVal)
       }
     }
     if (e.code === 'ArrowUp') {
       if (selected === 0) {
-        quickSearch(e)
         setSelected(null)
+      } else if (selected === null) {
+
       } else {
         const newVal = selected - 1
-        quickSearch(e)
         setSelected(newVal)
       }
     } else if (e.code === 'Enter') {
       if (selected === null) {
+        handleSubmit(e, e.target.value)
       } else {
         const selectedRow = document.querySelector('#selected > td').innerText
         const rowValues = selectedRow.split(' ')
@@ -125,9 +132,12 @@ let quickSearch = async function (e) {
     } else if (e.code !== 'ArrowDown' && e.code !== 'ArrowUp' && e.code !== 'Enter') {
       console.log('not up, down, or enter')
       setSelected(null)
-      quickSearch(e)
+      setValue(e.target.value)
     }
   }
+
+  const searchRef = useRef(null);
+
 
   return (
     <div>
