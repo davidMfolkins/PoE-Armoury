@@ -110,7 +110,9 @@ let quickSearch = async function (e) {
         setSelected(newVal)
       }
     } else if (e.code === 'Enter') {
+      handleSubmit(e, e.target.value) 
       if (selected === null) {
+
       } else {
         const selectedRow = document.querySelector('#selected > td').innerText
         const rowValues = selectedRow.split(' ')
