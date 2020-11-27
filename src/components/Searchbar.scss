@@ -22,3 +22,9 @@
     width: 25vw;
   }
 }
+
+@media only screen and (max-width: 540px) {
+  #search-bar {
+    width: 100%;
+  }
+}
