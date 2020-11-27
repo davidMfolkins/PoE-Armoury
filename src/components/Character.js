@@ -55,7 +55,15 @@ export default function Character(props) {
 
   arrangedItems = [helm, gloves, boots, offhand, weapon, bodyarmour, ring, ring2, amulet]
 
-  const gems = arrangedItems.map(item => {
+  const filteredArrangedItems = arrangedItems.reduce(function(result, element) {
+    if (element) {
+      result.push(element)
+    }
+    return result
+  }, []);
+  
+
+  const gems = filteredArrangedItems.map(item => {
     if (item.inventoryId === "Offhand2" || item.inventoryId === "Weapon2" || item.inventoryId === "Belt") {
     } else {
       if (item.socketedItems) {
