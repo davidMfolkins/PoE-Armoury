@@ -108,6 +108,7 @@ function back() {
 }
 
   useEffect(() => {
+    // document.addEventListener('mouseDown')
     if (cookies.user) {
       setLoggedIn(true)
     }
@@ -202,7 +203,7 @@ function back() {
         {state === "character" && !character && (
           <Loading error={loadingError} msg={loadingMsg} setState={setState} />
         )}
-        {state === "loading" && <Loading error={loadingError} msg={loadingMsg} />}
+        {state === "loading" && <Loading error={loadingError} msg={loadingMsg} setState={setState}/>}
         </Route>
         <Route path="/register">
           {!loggedIn && <Register handleCookie={handleCookie} setState={setState} setLoggedIn={setLoggedIn}/>}

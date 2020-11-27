@@ -6,7 +6,7 @@ import { Table } from 'react-bootstrap'
 
 function Account(props) {
   const accountName = props.account;
-
+  console.log(props.account)
 
   const [chars, setchars] = useState([])
 
@@ -17,7 +17,12 @@ function Account(props) {
         if (result.data.error) {
           props.setState('loading')
           props.setLoadingMsg('')
-         props.setLoadingError('Account is private. Sorry about that!')
+          if (result.data.error.code === 1) {
+            props.setLoadingError('Account does not exist.')
+          } else {
+            props.setLoadingError('Looks like this account is private.')
+          }
+        
         } else {
           props.setState('account')
           setchars(result.data)

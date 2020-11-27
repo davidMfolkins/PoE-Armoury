@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Form, FormControl, Table, Badge } from "react-bootstrap";
 import "./Searchbar.scss";
@@ -6,10 +6,10 @@ import "./Searchbar.scss";
 const className = require('classnames')
 
 function Searchbar(props) {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState("", () => Promise.resolve(true));
   const [searchResults, setSearchResults] = useState([]);
   const [hidden, setHidden] = useState('hidden')
-  let [selected, setSelected] = useState(null)
+  const [selected, setSelected] = useState('hidden')
 
   useEffect(() => {
       setValue('')
@@ -17,6 +17,9 @@ function Searchbar(props) {
       setHidden('hidden')
 
   }, [props.state])
+
+ 
+  
 
 
   function selectSearchItem(name) {
@@ -26,13 +29,14 @@ function Searchbar(props) {
   }
 
   function handleSubmit (event, name) {
-    console.log(name)
+    console.log('searching for account...')
     props.setAccount(name)
     props.setState('account')
     setValue("")
     setSearchResults([])
     event.preventDefault();
   }
+
 let quickSearch = async function () {
       const searchTerm = new RegExp(value);
       if (value.length > 0) {
@@ -41,7 +45,9 @@ let quickSearch = async function () {
           // console.log(res.data.searchItems)
           return res.data.map((entry, index) => {
             let trClass;
-            if (index === selected) {
+            if (selected === null) {
+              trClass = null
+            } else if (index === selected)  { 
               console.log(selected)
               trClass = 'selected'
             } else {
@@ -72,9 +78,8 @@ let quickSearch = async function () {
             }
           });
         })
-      
-          setSearchResults(newSearchResults);
-      
+
+          setSearchResults(newSearchResults)
       } else {
         setHidden('hidden')
       }
@@ -83,11 +88,13 @@ let quickSearch = async function () {
     };
 
     useEffect(() => {
+      console.log('quick searching...')
       quickSearch()
     }, [value, selected])
-  
+
 
   function searchSelection(e) {
+    console.log(e)
     console.log(e.target.value)
     console.log(e.code)
     console.log(selected)
@@ -107,7 +114,9 @@ let quickSearch = async function () {
     if (e.code === 'ArrowUp') {
       if (selected === 0) {
         setSelected(null)
+
       } else if (selected === null){
+
       } else {
         const newVal = selected - 1
         setSelected(newVal)
@@ -115,7 +124,7 @@ let quickSearch = async function () {
     } else if (e.code === 'Enter') {
       handleSubmit(e, e.target.value) 
       if (selected === null) {
-
+        handleSubmit(e, e.target.value)
       } else {
         const selectedRow = document.querySelector('#selected > td').innerText
         const rowValues = selectedRow.split(' ')
@@ -130,9 +139,14 @@ let quickSearch = async function () {
     } else if (e.code !== 'ArrowDown' && e.code !== 'ArrowUp' && e.code !== 'Enter') {
       console.log('not up, down, or enter')
       setSelected(null)
+
      setValue(e.target.value)
+
     }
   }
+
+  const searchRef = useRef(null);
+
 
   return (
     <div>
