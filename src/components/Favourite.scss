@@ -1,5 +1,10 @@
 .trash {
   color: white;
+ 
+}
+
+.trash a {
+  color: white;
   &:hover {
     color: rgb(177, 58, 58);
   }
