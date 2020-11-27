@@ -49,7 +49,7 @@ function Account(props) {
       </div>
       <div className="accountName">{accountName}</div>
       <div className="accountContainer">
-        <Table striped bordered variant="dark">
+        <Table id="accountTable" striped bordered variant="dark">
           <thead>
             <tr className="d-flex">
               <th className="col-2">Icon</th>

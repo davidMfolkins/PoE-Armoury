@@ -23,10 +23,15 @@
   margin-bottom: 10px;
 }
 
+#accountTable {
+  border: 2px solid $yellow;
+  color: $white;
+}
 .topButtons {
   display: flex;
   justify-content: flex-end;
   margin-right: 10%;
+  padding-top: 1%;
 }
 
 #accountList:hover {
