@@ -88,7 +88,7 @@ let rows;
     <div className="ladderPage">
 
       <div className="ladderTitle">{tableName()}</div>
-      <div className="topButtons">
+      <div id="topButtons">
         <button type="button" id="ladderButton" onClick={() => setHardcore(!hardcore)}>{changeButton()}</button>
       </div>
       <Filter filter={filter} hasTwtich={hasTwitch} onFilterChange={handleFilterChange} onTwitchChange={handleTwitchChange} />
