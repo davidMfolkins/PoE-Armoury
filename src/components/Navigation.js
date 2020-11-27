@@ -10,7 +10,6 @@ export default function Navigation(props) {
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto"> 
-        <Nav.Link activeClassName="" className="mx-3 my-2" href="/">Home</Nav.Link>
         <Nav.Link className="mx-3 my-2" onClick={() => props.setGrab(!props.grab)}>Seed</Nav.Link>
        
       </Nav>
