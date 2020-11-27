@@ -112,6 +112,8 @@ export default function Application() {
       axios.get(`http://localhost:3030/users/${cookies.user}/favourites`).then((result) => {
         console.log('favs from server: ', result)
         setFavourites(result.data)
+      }).catch((err) => {
+        console.log(err)
       })
   }, [])
 
