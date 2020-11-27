@@ -27,20 +27,26 @@ module.exports = (db) => {
   
   router.get('/search/:name', async (req, res, next) => {
     const searchQuery = req.params.name.toUpperCase()
-    const searchResults = {'searchItems': []};
+    let searchResults = [];
     await db.query(`SELECT name FROM characters WHERE upper(name) LIKE $1`, [`%${searchQuery}%`]).then((results) => {
-      console.log(results.rows[0])
-      const newEntry = {'name': results.rows[0].name, 'type': 'character'}
-      searchResults.searchItems = [...searchResults.searchItems, newEntry]
+      results.rows.forEach((entry) => {
+        const newEntry = {'name': entry.name, 'type': 'character'}
+        searchResults = [...searchResults, newEntry]
+      })
     }).catch((err) => {
       console.log(err)
     })
     await db.query(`SELECT name FROM accounts WHERE upper(name) LIKE $1`, [`%${searchQuery}%`]).then((results) => {
-      const newEntry = {'name': results.rows[0].name, 'type': 'account'}
-      searchResults.searchItems = [...searchResults.searchItems, newEntry]
+      results.rows.forEach((entry) => {
+        const newEntry = {'name': entry.name, 'type': 'account'}
+        searchResults = [...searchResults, newEntry]
+      })
+     
+     
     }).catch((err) => {
       console.log(err)
     })
+    console.log(searchResults)
     res.send(searchResults)
   })
 

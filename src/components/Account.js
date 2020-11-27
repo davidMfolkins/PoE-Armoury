@@ -13,18 +13,18 @@ function Account(props) {
   useEffect(() => {
     axios.get(`http://localhost:3030/accounts/${accountName}`)
       .then((result) => {
-        setchars(result.data)
-      }).catch((err) => {
-        if (err.message.includes('404')) {
-          axios.get(`/accounts/${accountName}`)
-            .then(result => {
-              setchars(result.data)
-            }).catch((err) => {
-              console.log(err)
-            })
+        console.log(result)
+        if (result.data.error) {
+          props.setState('loading')
+          props.setLoadingMsg('')
+         props.setLoadingError('Account is private. Sorry about that!')
+        } else {
+          props.setState('account')
+          setchars(result.data)
         }
       })
-  }, [props.account])
+
+  }, [])
 
   const rows = chars.map((entry) => {
     const className = entry.class

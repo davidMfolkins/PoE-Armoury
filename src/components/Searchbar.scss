@@ -2,8 +2,17 @@
   position: absolute;
   background-color: white;
   width: 35vw;
+  max-height: 300px;
+  overflow-y: scroll;
+  .hidden {
+    display: none;
+  }
 }
 
 #search-bar {
   width: 35vw;
+}
+
+#selected {
+  background-color: blue;
 }

@@ -2,10 +2,21 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Form, FormControl, Table, Badge } from "react-bootstrap";
 import "./Searchbar.scss";
-let charName = "";
+
+const className = require('classnames')
+
 function Searchbar(props) {
   const [value, setValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [hidden, setHidden] = useState('hidden')
+  let [selected, setSelected] = useState(null)
+
+  useEffect(() => {
+      setValue('')
+      setSelected(null)
+      setHidden('hidden')
+
+  }, [props.state])
 
 
   function selectSearchItem(name) {
@@ -14,68 +25,129 @@ function Searchbar(props) {
     setValue("")
   }
 
-  function handleSubmit (event) {
-    console.log("enter")
-    props.setAccount(value)
+  function handleSubmit (event, name) {
+    console.log(name)
+    props.setAccount(name)
     props.setState('account')
     setValue("")
     setSearchResults([])
     event.preventDefault();
   }
-
-  const quickSearch = async function (e) {
-    setValue(e.target.value);
-    const searchTerm = new RegExp(value);
-    if (value.length > 0) {
-      const newSearchResults = await axios.get(`http://localhost:3030/search/${value}`).then((res) => {
-        // console.log(res.data.searchItems)
-        return res.data.searchItems.map((entry) => {
-          if (entry.type === 'character') {
-            return (
-              <tr>
-                <td onClick={() => selectSearchItem(entry.name)}>{entry.name}  <Badge variant="primary">character</Badge>{' '}</td>
-              </tr>
-            );
-          } else {
-            return (
-              <tr>
-                <td onClick={() => {
-                  props.setAccount(entry.name)
-                  props.setState('account')
-                  setValue('')
-                  setSearchResults([])
-                }
-                }>{entry.name}  <Badge variant="secondary">account</Badge>{' '}</td>
-              </tr>
-            );
-          }
-        });
-      })
-      if (!e.target.value) {
-        setSearchResults([null]);
+let quickSearch = async function (e) {
+      setValue(e.target.value);
+      const searchTerm = new RegExp(value);
+      if (value.length > 0) {
+        setHidden(null)
+        const newSearchResults = await axios.get(`http://localhost:3030/search/${value}`).then((res) => {
+          // console.log(res.data.searchItems)
+          return res.data.map((entry, index) => {
+            let trClass;
+            if (index === selected) {
+              console.log(selected)
+              trClass = 'selected'
+            } else {
+              trClass = null
+            }
+            if (entry.type === 'character') {
+              return (
+                <tr id={trClass}>
+                  <td onClick={() => {
+                    selectSearchItem(entry.name)
+                    setHidden('hidden')
+                  }
+                  }>{entry.name}  <Badge variant="primary">character</Badge>{' '}</td>
+                </tr>
+              );
+            } else {
+              return (
+                <tr id={trClass}>
+                  <td onClick={() => {
+                    props.setAccount(entry.name)
+                    setValue('')
+                    setSearchResults([])
+                    setHidden('hidden')
+                  }
+                  }>{entry.name}  <Badge variant="secondary">account</Badge>{' '}</td>
+                </tr>
+              );
+            }
+          });
+        })
+        if (!e.target.value) {
+          setSearchResults([null]);
+        } else {
+          setSearchResults(newSearchResults);
+        }
       } else {
-        setSearchResults(newSearchResults);
+        setHidden('hidden')
+      }
+  
+      
+    };
+  
+
+  function searchSelection(e) {
+    console.log(e.target.value)
+    console.log(e.code)
+    console.log(selected)
+    if (e.code === 'ArrowDown') {
+      if (selected === null) {
+        quickSearch(e)
+        setSelected(0)
+      } else {
+        const newVal = selected + 1
+        quickSearch(e)
+        setSelected(newVal)
       }
     }
-  };
+    if (e.code === 'ArrowUp') {
+      if (selected === 0) {
+        quickSearch(e)
+        setSelected(null)
+      } else {
+        const newVal = selected - 1
+        quickSearch(e)
+        setSelected(newVal)
+      }
+    } else if (e.code === 'Enter') {
+      if (selected === null) {
+      } else {
+        const selectedRow = document.querySelector('#selected > td').innerText
+        const rowValues = selectedRow.split(' ')
+        console.log(rowValues)
+        if (rowValues[1] === 'account') {
+          handleSubmit(e, rowValues[0])
+        }
+        else {
+          selectSearchItem(rowValues[0])
+        }
+      }
+    } else if (e.code !== 'ArrowDown' && e.code !== 'ArrowUp' && e.code !== 'Enter') {
+      console.log('not up, down, or enter')
+      setSelected(null)
+      quickSearch(e)
+    }
+  }
+
   return (
     <div>
-      <Form className="my-2" autocomplete="off" onSubmit={handleSubmit} id="search-bar">
+      <Form className="my-2" autocomplete="off" onSubmit={(e) => e.preventDefault() } id="search-bar">
         <div className="container">
         <FormControl
           type="text"
           placeholder="Search for player..."
           name="search"
-          value={value}
-          onChange={(event) => quickSearch(event)}
+          onKeyUp={(e) => searchSelection(e)}
         />
          </div>
       </Form>
      
-      <div style={{ width: "200px" }}>
-        <Table striped hover className="search-results" id="search-results">
+      <div style={{ width: "200px"}}>
+        <div className={hidden} id="search-results">
+        <Table striped hover>
           <tbody>{searchResults}</tbody>
         </Table>
+        </div>
       </div>
     </div>
   );
