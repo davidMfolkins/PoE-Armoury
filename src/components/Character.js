@@ -6,6 +6,7 @@ import LikeButton from './LikeButton'
 import Skills from './Skills'
 
 import './Character.scss'
+import './Skills.scss'
 
 
 import { Row, Col } from 'react-bootstrap'
