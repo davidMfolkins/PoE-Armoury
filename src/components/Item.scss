@@ -142,6 +142,29 @@
   display: none;
 }
 
+.elder {
+  color: #696969;
+}
+.shaper {
+  color: #c2c2c2;
+}
+
+.hunter {
+  color: #33b933;
+}
+
+.redeemer {
+  color: #5b99cc;
+}
+
+.crusader {
+  color: #e97474;
+}
+
+.warlord {
+  color: #ffce73;
+}
+
 .corrupted {
   color: #cc1a1a;
 }
@@ -158,6 +181,10 @@
 .explicit-mod {
   @extend .prop-text;
   color: #7c90df;
+}
+
+.fracturedMod {
+  color:  #bb9c5a;
 }
 
 .crafted-mod {
@@ -229,6 +256,7 @@
   }
  }
 .popover-body {
-  background: rgba(0,0,0, .8)
+  background: rgba(0,0,0, .8);
+  text-align: center;
  }
 
