@@ -95,8 +95,13 @@ let quickSearch = async function () {
       if (selected === null) {
         setSelected(0)
       } else {
-        const newVal = selected + 1
-        setSelected(newVal)
+        console.log('selected:', selected)
+        console.log('searchresults length: ', searchResults.length)
+        if (selected < searchResults.length - 1) {
+          const newVal = selected + 1
+          setSelected(newVal)
+        }
+      
       }
     }
     if (e.code === 'ArrowUp') {
