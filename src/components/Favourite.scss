@@ -1,0 +1,20 @@
+.trash {
+  color: white;
+  &:hover {
+    color: rgb(177, 58, 58);
+  }
+}
+
+#deleted {
+  animation-name: delete;
+  animation-duration: 2s;
+  opacity: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  background-color: rgb(177, 58, 58);
+}
+
+@keyframes delete {
+  0% {opacity: 1; background-color: rgb(177, 58, 58);}
+  100% {opacity: 0}
+}
