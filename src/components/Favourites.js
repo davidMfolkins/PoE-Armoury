@@ -36,6 +36,6 @@ export default function Favourites(props) {
       </div>
     )
   } else {
-    return <div className="no-favourites">You have no favourited builds</div>
+    return <div className="no-favourites" style={{textAlign: 'center'}}>You have no favourited builds</div>
   }
 }
