@@ -41,7 +41,7 @@ let rows;
           <td className="col-1">{entry.character.level}</td>
           <td className="col-2">{className}</td>
       <td className="col-2">{entry.account.twitch && <a href={`https://twitch.tv/${entry.account.twitch.name}`} target="_blank" rel="noreferrer">{entry.account.twitch.name}</a>}</td>
-      {/* <td className="col-1">{props.cookies.user && props.favourites.length > 0  && <LikeButton characterid={entry.character.id} favourites={props.favourites} character={entry.character} removeFavourite={props.removeFavourite} addFavourite={props.addFavourite} size="1.5em" setMsg={props.setMsg}/>}</td> */}
+      <td className="col-1">{props.cookies.user  && <LikeButton characterid={entry.character.id} favourites={props.favourites} character={entry.character} removeFavourite={props.removeFavourite} addFavourite={props.addFavourite} size="1.5em" setMsg={props.setMsg}/>}</td>
         </tr>
       )
     })
