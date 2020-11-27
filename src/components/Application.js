@@ -149,7 +149,7 @@ export default function Application() {
       <Route exact path="/">
         { state === 'loading' && <Loading />}
          {state === "account" && <Account account={account} getCharacter={getCharacter} setState={setState} />}
-            {state === "ladder" && <Ladder getCharacter={getCharacter} setState={setState} standard={standardLadder} hardcore={hardcoreLadder} favourites={favourites} addFavourite={addFavourite} removeFavourite={removeFavourite} setMsg={setMsg}/>}
+            {state === "ladder" && <Ladder getCharacter={getCharacter} setState={setState} standard={standardLadder} hardcore={hardcoreLadder} favourites={favourites} addFavourite={addFavourite} removeFavourite={removeFavourite} setMsg={setMsg} cookies={cookies}/>}
 
           {state === 'character' && character && <Character
             character={character}
