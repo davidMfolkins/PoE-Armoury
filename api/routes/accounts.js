@@ -27,6 +27,8 @@ module.exports = (db) => {
       // console.log(accountName)
       saveAccount(db, accountName)
       res.send(data)
+    }).catch((err) => {
+      res.status(404).send(err)
     })
   })
 

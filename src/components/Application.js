@@ -148,15 +148,15 @@ export default function Application() {
 
   return (
     <Container fluid>
-      <Navigation setGrab={setGrab} grab={grab} getCharacter={getCharacter} setState={setState} removeCookie={removeCookie} cookies={cookies} setAccount={setAccount} />
+      <Navigation state={state} setGrab={setGrab} grab={grab} getCharacter={getCharacter} setState={setState} removeCookie={removeCookie} cookies={cookies} setAccount={setAccount} />
       {msg && <Message msg={msg} setMsg={setMsg}/>}
       <Grabber grab={grab}/>
       <ScrollUpButton />
       <Container style={{ marginTop: "100px" }}>
         <Switch>
       <Route exact path="/">
-        { state === 'loading' && <Loading />}
-         {state === "account" && <Account account={account} getCharacter={getCharacter} setState={setState} />}
+
+         {state === "account" && <Account account={account} getCharacter={getCharacter} setState={setState} setLoadingMsg={setLoadingMsg} setLoadingError={setLoadingError}/>}
             {state === "ladder" && <Ladder getCharacter={getCharacter} setState={setState} standard={standardLadder} hardcore={hardcoreLadder} favourites={favourites} addFavourite={addFavourite} removeFavourite={removeFavourite} setMsg={setMsg} cookies={cookies}/>}
 
           {state === 'character' && character && <Character
