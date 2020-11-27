@@ -145,6 +145,7 @@
 .prop-text {
   margin: 3px;
 }
+
 .implicit-mod {
   @extend .prop-text;
   color: #7c90df;
@@ -152,7 +153,17 @@
 }
 .explicit-mod {
   @extend .prop-text;
-  color: #ca6060;
+  color: #7c90df;
+}
+
+.crafted-mod {
+  @extend .prop-text;
+  color: paleturquoise;
+}
+
+.flavour {
+  @extend .prop-text;
+  color: rgb(191, 112, 59);
 }
 
 .property {

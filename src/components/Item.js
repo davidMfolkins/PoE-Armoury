@@ -90,36 +90,36 @@ export default function Item(props) {
 
   let utilityMods;
   if (props.item.utilityMods) {
-    utilityMods = <div className="requirement"><i>"{props.item.utilityMods}"</i></div>
+    utilityMods = <div className="implicit-mod"><i>{props.item.utilityMods}</i></div>
   }
 
   let craftedMods;
   if (props.item.craftedMods) {
-    craftedMods = <div className="requirement"><i>"{props.item.craftedMods}"</i></div>
+    craftedMods = <div className="crafted-mod"><i>{props.item.craftedMods}</i></div>
   }
 
   let enchantMods;
   if (props.item.enchantMods) {
-    enchantMods = <div className="requirement"><i>"{props.item.enchantMods}"</i></div>
+    enchantMods = <div className="crafted-mod"><i>{props.item.enchantMods}</i></div>
   }
 
   let fracturedMods;
   if (props.item.fracturedMods) {
-    fracturedMods = <div className="requirement"><i>"{props.item.fracturedMods}"</i></div>
+    fracturedMods = <div className="crafted-mod"><i>{props.item.fracturedMods}</i></div>
   }
 
   let flavourText;
   if (props.item.flavourText) {
-    flavourText = <div className="requirement"><i>"{props.item.flavourText}"</i></div>
+    flavourText = <div className="flavour"><i>{props.item.flavourText}</i></div>
   }
 
-  const elder = props.item.elder ? "Elder" : null
+  const elder = props.item.elder ? <div className="corrupted"><i>Elder</i></div> : null
 
-  const shaper = props.item.shaper ? "Shaper" : null
+  const shaper = props.item.shaper ? <div className="corrupted"><i>Shaper</i></div> : null
 
-  const fractured = props.item.fractured ? "Fractured" : null
+  const fractured = props.item.fractured ? <div className="corrupted"><i>Fractured</i></div> : null
 
-  const corrupted = props.item.corrupted ? "Corrupted" : null
+  const corrupted = props.item.corrupted ? <div className="corrupted"><i>Corrupted</i></div> : null
 
 
   const popover = (

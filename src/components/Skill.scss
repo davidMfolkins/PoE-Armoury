@@ -46,7 +46,11 @@
 }
 .explicit-mod {
   @extend .prop-text;
-  color: #ca6060;
+  color: #7c90df;
+}
+
+.corrupted {
+  color: #cc1a1a;
 }
 
 .property {
