@@ -33,8 +33,7 @@ function Searchbar(props) {
     setSearchResults([])
     event.preventDefault();
   }
-let quickSearch = async function (e) {
-      setValue(e.target.value);
+let quickSearch = async function () {
       const searchTerm = new RegExp(value);
       if (value.length > 0) {
         setHidden(null)
@@ -73,17 +72,19 @@ let quickSearch = async function (e) {
             }
           });
         })
-        if (!e.target.value) {
-          setSearchResults([null]);
-        } else {
+      
           setSearchResults(newSearchResults);
-        }
+      
       } else {
         setHidden('hidden')
       }
   
       
     };
+
+    useEffect(() => {
+      quickSearch()
+    }, [value, selected])
   
 
   function searchSelection(e) {
@@ -92,21 +93,18 @@ let quickSearch = async function (e) {
     console.log(selected)
     if (e.code === 'ArrowDown') {
       if (selected === null) {
-        quickSearch(e)
         setSelected(0)
       } else {
         const newVal = selected + 1
-        quickSearch(e)
         setSelected(newVal)
       }
     }
     if (e.code === 'ArrowUp') {
       if (selected === 0) {
-        quickSearch(e)
         setSelected(null)
+      } else if (selected === null){
       } else {
         const newVal = selected - 1
-        quickSearch(e)
         setSelected(newVal)
       }
     } else if (e.code === 'Enter') {
@@ -127,7 +125,7 @@ let quickSearch = async function (e) {
     } else if (e.code !== 'ArrowDown' && e.code !== 'ArrowUp' && e.code !== 'Enter') {
       console.log('not up, down, or enter')
       setSelected(null)
-      quickSearch(e)
+     setValue(e.target.value)
     }
   }
 
