@@ -1,5 +1,5 @@
 @import "~bootstrap/scss/bootstrap";
-
+@import 'Helper';
 .icon {
   height: 100%;
   width: 100%;
@@ -7,10 +7,10 @@
 
 .item {
   position: absolute;
-  border: 1px solid rgba(0,0,0,0.7);
+  border: 1px solid $black-transparent;
   border-radius: 5px;
   max-width: 100px;
-  background-color: rgba(0,0,0,0.5);
+  background-color: $black-transparent;
   transition: transform 0.2s;
   
 }

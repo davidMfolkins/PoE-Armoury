@@ -9,7 +9,7 @@
 
 button {
   color: $white!important;
-  background-image: url('../images/rock.png')!important;
+  background-image: $rock-background!important;
   background-color: unset!important;
   border: 0px!important;
 }

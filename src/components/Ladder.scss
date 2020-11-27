@@ -1,9 +1,8 @@
 @import "~bootstrap/scss/bootstrap";
-@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300&display=swap');
 @import'Helper';
 
 .ladderPage {
-  background-color: rgba(0,0,0,0.5);
+  background-color: $black-transparent;
   overflow-anchor: none;
 }
 
@@ -16,7 +15,7 @@
 }
 
 .ladderTitle {
-  font-family: 'Inknut Antiqua';
+  font-family: $title-font;
   text-align: center;
   font-size: 50px;
   color:  $white;
@@ -37,7 +36,7 @@
 
 #ladderButton {
   margin-left: 10%;
-  background-image: url('../images/rock.png');
+  background-image: $rock-background;
   color: $white;
   border: 1px solid black!important;
   border-radius: 3px;
