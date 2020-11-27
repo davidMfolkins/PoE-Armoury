@@ -113,6 +113,14 @@ export default function Item(props) {
     flavourText = <div className="flavour"><i>{props.item.flavourText}</i></div>
   }
 
+  const cursader = props.item.infulences.cursader ? <div className="corrupted"><i>Cursader</i></div> : null
+
+  const redeemer = props.item.infulences.redeemer ? <div className="corrupted"><i>Redeemer</i></div> : null
+
+  const hunter = props.item.infulences.hunter ? <div className="corrupted"><i>Hunter</i></div> : null
+
+  const warlord = props.item.infulences.warlord ? <div className="corrupted"><i>Warlord</i></div> : null
+
   const elder = props.item.elder ? <div className="corrupted"><i>Elder</i></div> : null
 
   const shaper = props.item.shaper ? <div className="corrupted"><i>Shaper</i></div> : null
@@ -154,6 +162,14 @@ export default function Item(props) {
         {elder}
         {shaper && <div className="item-separator"/>}
         {shaper}
+        {cursader && <div className="item-separator"/>}
+        {cursader}
+        {hunter && <div className="item-separator"/>}
+        {hunter}
+        {redeemer && <div className="item-separator"/>}
+        {redeemer}
+        {warlord && <div className="item-separator"/>}
+        {warlord}
         {fractured && <div className="item-separator"/>}
         {fractured}
         {corrupted && <div className="item-separator"/>}
