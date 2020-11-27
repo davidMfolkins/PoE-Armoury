@@ -65,7 +65,7 @@ export default function Skill (props) {
 
   const popover = (
     <Popover style={{minWidth: '300px'}}>
-      <Popover.Title className="gem-title">{props.gem.typeLine && <div><b>{props.gem.typeLine}</b></div>}</Popover.Title>
+      <Popover.Title className="item-title">{props.gem.typeLine && <div><b>{props.gem.typeLine}</b></div>}</Popover.Title>
       <Popover.Content style={{minHeight: '75px'}}>
       {properties}
       {/* {requirements && <div className="item-separator"/>}
