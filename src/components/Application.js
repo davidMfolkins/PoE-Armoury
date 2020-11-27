@@ -19,6 +19,8 @@ import { addFavourite } from './helpers/getters'
 import ScrollUpButton from "react-scroll-up-button";
 import axios from 'axios'
 
+import { CgChevronDoubleLeft } from 'react-icons/cg'
+
 const ladder_standard = require('../ladder_standard.json');
 const ladder_hardcore = require('../ladder_hardcore.json');
 
@@ -46,6 +48,7 @@ export default function Application() {
   const [hardcoreLadder, setHardcoreLadder] = useState([])
   const[ grab, setGrab] = useState(false)
   const [msg, setMsg] = useState(null)
+  const [ history, setHistory ] = useState([])
 
   useEffect(() => {
     setState('loading')
@@ -82,6 +85,27 @@ export default function Application() {
   })
 }, 1000)
 }, []);
+
+useEffect(() => {
+  if (state !== 'loading' && history[history.length - 1] !== state) {
+      setHistory([...history, state])
+  }
+
+}, [state])
+
+function back() {
+  if (history.length >= 1) {
+    const previous = history[history.length -1];
+    const newHistory = history
+    newHistory.splice(-1)
+    console.log(history)
+    console.log(newHistory)
+    setHistory(newHistory)
+    setState(previous)
+  }
+ 
+
+}
 
   useEffect(() => {
     if (cookies.user) {
@@ -148,6 +172,7 @@ export default function Application() {
 
   return (
     <Container fluid>
+      {history.length > 1 && <div id="back-button" onClick={back}><CgChevronDoubleLeft onClick={back} size="6em" /></div>}
       <Navigation state={state} setGrab={setGrab} grab={grab} getCharacter={getCharacter} setState={setState} removeCookie={removeCookie} cookies={cookies} setAccount={setAccount} />
       {msg && <Message msg={msg} setMsg={setMsg}/>}
       <Grabber grab={grab}/>
