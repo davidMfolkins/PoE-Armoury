@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300&display=swap');
+
 @import'Helper';
 
 body {
@@ -15,12 +15,12 @@ body {
   background-color: #1b1818;
 }
 .char {
-  background-color: rgba(0,0,0,0.5)!important;
+  background-color: $black-transparent!important;
 }
 
 .char-title {
   border-bottom: 2px solid $yellow;
-  font-family: 'Inknut Antiqua';
+  font-family: $title-font;
 }
 
 .like-button:hover {

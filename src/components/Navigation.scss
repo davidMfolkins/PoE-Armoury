@@ -1,6 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
-@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300&display=swap');
 @import'Helper';
+
 #login-form {
   position: absolute;
 }
@@ -10,14 +10,14 @@
 }
 
 #nav-logo {
-  font-family: 'Inknut Antiqua';
+  font-family: $title-font;
   font-size: 2.1em;
   text-transform: unset;
   color: $white;
 }
 
 .nav-link {
-  font-family: 'Inknut Antiqua'!important;
+  font-family: $title-font!important;
 }
 
 a.mx-3.my-2.nav-link:active {
