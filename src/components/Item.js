@@ -128,19 +128,19 @@ export default function Item(props) {
     
     influenced = true;
 
-    crusader = props.item.influences.crusader ? <div className="crusader"><i>Crusader</i></div> : null
+    crusader = props.item.influences.crusader ? <div className="crusader"><i>Crusader Influenced</i></div> : null
   
-    redeemer = props.item.influences.redeemer ? <div className="redeemer"><i>Redeemer</i></div> : null
+    redeemer = props.item.influences.redeemer ? <div className="redeemer"><i>Redeemer Influenced</i></div> : null
 
-    hunter = props.item.influences.hunter ? <div className="hunter"><i>Hunter</i></div> : null
+    hunter = props.item.influences.hunter ? <div className="hunter"><i>Hunter Influenced</i></div> : null
 
-    warlord = props.item.influences.warlord ? <div className="warlord"><i>Warlord</i></div> : null
+    warlord = props.item.influences.warlord ? <div className="warlord"><i>Warlord Influenced</i></div> : null
   }
 
 
-  const elder = props.item.elder ? <div className="elder"><i>Elder</i></div> : null
+  const elder = props.item.elder ? <div className="elder"><i>Elder Influenced</i></div> : null
 
-  const shaper = props.item.shaper ? <div className="shaper"><i>Shaper</i></div> : null
+  const shaper = props.item.shaper ? <div className="shaper"><i>Shaper Influenced</i></div> : null
 
   const fractured = props.item.fractured ? <div className="corrupted"><i>Fractured</i></div> : null
 
