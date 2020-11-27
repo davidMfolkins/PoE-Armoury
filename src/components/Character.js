@@ -19,7 +19,43 @@ export default function Character(props) {
 
   const [ windowWidth, setWindowWidth ] = useState(window.innerWidth)
 
-  const gems = props.character.items.items.map(item => {
+  let arrangedItems = []
+  let helm;
+  let gloves;
+  let boots;
+  let offhand;
+  let weapon;
+  let bodyarmour;
+  let ring;
+  let ring2;
+  let amulet;
+  
+
+  for (const item of props.character.items.items) {
+    if (item.inventoryId === "Helm") {
+      helm = item
+    } else if (item.inventoryId === "Gloves") {
+      gloves = item
+    } else if (item.inventoryId === "Boots") {
+      boots = item
+    } else if (item.inventoryId === "Offhand") {
+      offhand = item
+    } else if (item.inventoryId === "Weapon") {
+      weapon = item
+    } else if (item.inventoryId === "BodyArmour") {
+      bodyarmour = item
+    } else if (item.inventoryId === "Ring") {
+      ring = item
+    } else if (item.inventoryId === "Ring2") {
+      ring2 = item
+    } else if (item.inventoryId === "Amulet") {
+      amulet = item
+    }
+  }
+
+  arrangedItems = [helm, gloves, boots, offhand, weapon, bodyarmour, ring, ring2, amulet]
+
+  const gems = arrangedItems.map(item => {
     if (item.inventoryId === "Offhand2" || item.inventoryId === "Weapon2" || item.inventoryId === "Belt") {
     } else {
       if (item.socketedItems) {
@@ -63,7 +99,7 @@ export default function Character(props) {
       <Row className="p-3" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
        
         <Col>
-          <Row>
+          <Row className="poe-container">
             <Items windowWidth={windowWidth} items={props.character.items.items} />
           </Row>
           <Row>
@@ -73,9 +109,9 @@ export default function Character(props) {
           </Row>
         </Col>
 
-        <Col lg={6} xs={12}>
+        <Row lg={5} xs={12}>
           {gems}
-        </Col>
+        </Row>
 
       </Row>
 
