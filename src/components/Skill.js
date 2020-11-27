@@ -60,7 +60,7 @@ export default function Skill (props) {
   }
   let descrText = props.gem.descrText;
 
-  let corrupted = props.gem.corrupted ? "Corrupted" : null
+  let corrupted = props.gem.corrupted ? <div className="corrupted"><i>Corrupted</i></div> : null
 
 
   const popover = (
@@ -68,9 +68,9 @@ export default function Skill (props) {
       <Popover.Title className="gem-title">{props.gem.typeLine && <div><b>{props.gem.typeLine}</b></div>}</Popover.Title>
       <Popover.Content style={{minHeight: '75px'}}>
       {properties}
-      {requirements && <div className="item-separator"/>}
+      {/* {requirements && <div className="item-separator"/>}
       {requirements && <span className="requirement">Requires</span>}
-      {requirements}
+      {requirements} */}
       {additionalProperties && <div className="item-separator"/>}
       {additionalProperties}
       {/* {secDescrText && <div className="item-separator"/>}
