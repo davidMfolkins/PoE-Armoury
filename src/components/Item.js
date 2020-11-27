@@ -46,15 +46,13 @@ export default function Item(props) {
   })
 
   let implicitMods;
-
-
   if (props.item.implicitMods) {
     implicitMods = props.item.implicitMods.map((mod) => {
       return <div className="implicit-mod">{mod}</div>
     })
   }
-  let explicitMods;
 
+  let explicitMods;
   if (props.item.explicitMods) {
     explicitMods = props.item.explicitMods.map((mod) => {
       return <div className="explicit-mod">{mod}</div >
@@ -90,15 +88,43 @@ export default function Item(props) {
     })
   }
 
+  let utilityMods;
+  if (props.item.utilityMods) {
+    utilityMods = <div className="requirement"><i>"{props.item.utilityMods}"</i></div>
+  }
+
+  let craftedMods;
+  if (props.item.craftedMods) {
+    craftedMods = <div className="requirement"><i>"{props.item.craftedMods}"</i></div>
+  }
+
+  let enchantMods;
+  if (props.item.enchantMods) {
+    enchantMods = <div className="requirement"><i>"{props.item.enchantMods}"</i></div>
+  }
+
+  let fracturedMods;
+  if (props.item.fracturedMods) {
+    fracturedMods = <div className="requirement"><i>"{props.item.fracturedMods}"</i></div>
+  }
+
   let flavourText;
   if (props.item.flavourText) {
     flavourText = <div className="requirement"><i>"{props.item.flavourText}"</i></div>
   }
 
+  const elder = props.item.elder ? "Elder" : null
+
+  const shaper = props.item.shaper ? "Shaper" : null
+
+  const fractured = props.item.fractured ? "Fractured" : null
+
+  const corrupted = props.item.corrupted ? "Corrupted" : null
+
 
   const popover = (
     <Popover id={itemRarity} style={{ minWidth: '300px' }}>
-      <Popover.Title className="item-title"><b>{props.item.name || "No name"}</b>{props.item.typeLine && <div><b>{props.item.typeLine}</b></div>}</Popover.Title>
+      <Popover.Title className="item-title"><b>{props.item.name || null}</b>{props.item.typeLine && <div><b>{props.item.typeLine}</b></div>}</Popover.Title>
       <Popover.Content style={{ minHeight: '75px' }}>
         <div className="item-pills">
           <h6><Badge pill variant={pillType}>
@@ -111,13 +137,27 @@ export default function Item(props) {
 
         {properties && <div className="item-separator" />}
         {properties}
-        {requirements && <div className="item-separator" />}
+        {/* {requirements && <div className="item-separator" />}
         {requirements && <span className="requirement">Requires</span>}
-        {requirements}
+        {requirements} */}
+        {utilityMods && <div className="item-separator" />}
+        {utilityMods}
+        {enchantMods && <div className="item-separator" />}
+        {enchantMods}
         {implicitMods && <div className="item-separator" />}
         {implicitMods}
         {explicitMods && <div className="item-separator" />}
         {explicitMods}
+        {craftedMods && <div className="item-separator" />}
+        {craftedMods}
+        {elder && <div className="item-separator"/>}
+        {elder}
+        {shaper && <div className="item-separator"/>}
+        {shaper}
+        {fractured && <div className="item-separator"/>}
+        {fractured}
+        {corrupted && <div className="item-separator"/>}
+        {corrupted}
         {flavourText && <div className="item-separator" />}
         {flavourText}
       </Popover.Content>
