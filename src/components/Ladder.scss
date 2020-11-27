@@ -50,7 +50,11 @@
 img {
   height: 60px;
 }
-
+th {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 td {
   white-space: nowrap;
   overflow: hidden;

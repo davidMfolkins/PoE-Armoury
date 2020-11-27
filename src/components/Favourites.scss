@@ -2,12 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300&display=swap');
 @import'Helper';
 
-.favourites-container {
+.favouritePage {
   background-color: rgba(0,0,0,0.5);
-  color: $white;
-  padding: 30px;
-  text-align: center;
+}
+.favourites-container {
+  padding: 10px 0;
+  width: 80%;
+  margin: auto;
   font-size: 20px;
+  text-align: center;
 }
 
 .no-favourites {
@@ -16,10 +19,12 @@
   color: $white;
 }
 .favourite-title {
-  font-size: 50px;
   font-family: 'Inknut Antiqua';
-  margin-bottom: 20px;
+  text-align: center;
+  font-size: 50px;
+  color:  $white;
   border-bottom: 2px solid $yellow;
+  margin-bottom: 10px;
 }
 
 .remove-alert {
@@ -34,4 +39,31 @@
 #favouriteList:hover {
   color: $red;
   cursor: pointer;
+}
+
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    max-width: 2000px!important;
+    padding: unset!important;
+  }
+
+  .favourites-container {
+    width: 100%;
+    font-size: 15px;
+  }
+  table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
 }

@@ -1,13 +1,20 @@
+@import'Helper';
+
 .trash {
-  color: white;
- 
+  color: $white;
 }
 
 .trash a {
-  color: white;
   &:hover {
     color: rgb(177, 58, 58);
   }
+}
+
+button {
+  color: $white!important;
+  background-image: url('../images/rock.png')!important;
+  background-color: unset!important;
+  border: 0px!important;
 }
 
 #deleted {
