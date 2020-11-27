@@ -95,7 +95,9 @@ export default function Item(props) {
 
   let craftedMods;
   if (props.item.craftedMods) {
-    craftedMods = <div className="crafted-mod"><i>{props.item.craftedMods}</i></div>
+    craftedMods = props.item.craftedMods.map((craftedMod) => {
+      return <div className="crafted-mod">{craftedMod}</div>
+    })
   }
 
   let enchantMods;
@@ -106,7 +108,7 @@ export default function Item(props) {
   let fracturedMods;
   if (props.item.fracturedMods) {
     fracturedMods = props.item.fracturedMods.map((fracturedMod) => {
-      return <span className="fracturedMod">{fracturedMod}</span>
+      return <div className="fracturedMod">{fracturedMod}</div>
     })
   }
 
