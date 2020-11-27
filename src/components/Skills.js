@@ -87,11 +87,11 @@ export default function Skills (props) {
         return (
           <>
             <div className={"links span" + connections}>{connections} links</div>
-            <div className="gemRow empty"><div className={"socketColour" + gemColour}/></div>
+            <div className="gemRow empty"><div className={"socketColour" + gemColour}/>Empty Socket</div>
           </>
         )
       } else {
-        return <div className="gemRow empty"><div className={"socketColour" + gemColour}/></div>
+        return <div className="gemRow empty"><div className={"socketColour" + gemColour}/>Empty Socket</div>
       }
     }
   })
