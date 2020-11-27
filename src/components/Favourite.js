@@ -11,13 +11,13 @@ export default function Favourite(props) {
 
   const [ deleted, setDeleted ] = useState(false)
 
-  async function handleRemoveFavourite(id) {
+  async function handleRemoveFavourite(name) {
   
     setDeleted(true)
     setTimeout( async() => {
       setDeleted(false)
       setMsg(null)
-      await props.removeFavourite(id)
+      await props.removeFavourite(name)
     }, 2000)
 
   }
@@ -62,7 +62,7 @@ export default function Favourite(props) {
       <tr id="favouriteList" className="d-flex">
       
       <td className="col-12 trash" style={{backgroundColor: 'rgba(249, 189, 189, 0.5', color: 'white'}}>
-        <a href="#" onClick={() => handleRemoveFavourite(props.fav.character_id)} variant="primary" size="lg">Click to permanently delete
+        <a href="#" onClick={() => handleRemoveFavourite(props.fav.character_name)} variant="primary" size="lg">Click to permanently delete
           <AiFillDelete size="3em" ></AiFillDelete>
         </a>{' '}
       </td>

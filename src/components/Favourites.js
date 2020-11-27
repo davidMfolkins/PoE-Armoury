@@ -9,8 +9,6 @@ import './Favourites.scss'
 
 export default function Favourites(props) {
 
-
-
   const favouritesTable = props.favourites.map((fav) => {
     return <Favourite fav={fav} removeFavourite={props.removeFavourite} getCharacter={props.getCharacter} />
   })
