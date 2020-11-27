@@ -105,7 +105,9 @@ export default function Item(props) {
 
   let fracturedMods;
   if (props.item.fracturedMods) {
-    fracturedMods = <div className="crafted-mod"><i>{props.item.fracturedMods}</i></div>
+    fracturedMods = props.item.fracturedMods.map((fracturedMod) => {
+      return <span className="fracturedMod">{fracturedMod}</span>
+    })
   }
 
   let flavourText;
@@ -113,25 +115,30 @@ export default function Item(props) {
     flavourText = <div className="flavour"><i>{props.item.flavourText}</i></div>
   }
 
+  let influenced;
+
   let crusader;
   let redeemer;
   let hunter;
   let warlord;
 
   if(props.item.influences) {
-    crusader = props.item.influences.crusader ? <div className="corrupted"><i>Crusader</i></div> : null
+    
+    influenced = true;
+
+    crusader = props.item.influences.crusader ? <div className="crusader"><i>Crusader</i></div> : null
   
-    redeemer = props.item.influences.redeemer ? <div className="corrupted"><i>Redeemer</i></div> : null
+    redeemer = props.item.influences.redeemer ? <div className="redeemer"><i>Redeemer</i></div> : null
 
-    hunter = props.item.influences.hunter ? <div className="corrupted"><i>Hunter</i></div> : null
+    hunter = props.item.influences.hunter ? <div className="hunter"><i>Hunter</i></div> : null
 
-    warlord = props.item.influences.warlord ? <div className="corrupted"><i>Warlord</i></div> : null
+    warlord = props.item.influences.warlord ? <div className="warlord"><i>Warlord</i></div> : null
   }
 
 
-  const elder = props.item.elder ? <div className="corrupted"><i>Elder</i></div> : null
+  const elder = props.item.elder ? <div className="elder"><i>Elder</i></div> : null
 
-  const shaper = props.item.shaper ? <div className="corrupted"><i>Shaper</i></div> : null
+  const shaper = props.item.shaper ? <div className="shaper"><i>Shaper</i></div> : null
 
   const fractured = props.item.fractured ? <div className="corrupted"><i>Fractured</i></div> : null
 
@@ -162,23 +169,18 @@ export default function Item(props) {
         {implicitMods && <div className="item-separator" />}
         {implicitMods}
         {explicitMods && <div className="item-separator" />}
+        {fracturedMods}
         {explicitMods}
-        {craftedMods && <div className="item-separator" />}
         {craftedMods}
-        {elder && <div className="item-separator"/>}
+        {influenced && <div className="item-separator" />}
         {elder}
-        {shaper && <div className="item-separator"/>}
         {shaper}
-        {crusader && <div className="item-separator"/>}
         {crusader}
-        {hunter && <div className="item-separator"/>}
         {hunter}
-        {redeemer && <div className="item-separator"/>}
         {redeemer}
-        {warlord && <div className="item-separator"/>}
         {warlord}
-        {fractured && <div className="item-separator"/>}
-        {fractured}
+        {/* {fractured && <div className="item-separator"/>}
+        {fractured} */}
         {corrupted && <div className="item-separator"/>}
         {corrupted}
         {flavourText && <div className="item-separator" />}
