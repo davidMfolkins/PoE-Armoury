@@ -48,5 +48,5 @@ CREATE TABLE items(
 CREATE TABLE favourites(
   id SERIAL PRIMARY KEY NOT NULL, 
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  character_id INTEGER REFERENCES characters(id) ON DELETE CASCADE
+  character_name VARCHAR(255) NOT NULL
 );

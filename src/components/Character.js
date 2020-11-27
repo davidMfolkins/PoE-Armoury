@@ -18,8 +18,6 @@ export default function Character(props) {
 
   const [ windowWidth, setWindowWidth ] = useState(window.innerWidth)
 
-  const [ msg, setMsg ] = useState(null)
-
   const gems = props.character.items.items.map(item => {
     if (item.inventoryId === "Offhand2" || item.inventoryId === "Weapon2" || item.inventoryId === "Belt") {
     } else {
@@ -56,8 +54,7 @@ export default function Character(props) {
           }}>{props.character.account_name}</a></h5>
         </Col>
         <Col>
-        {props.cookies.user &&<LikeButton character_id={props.character.character_id} favourites={props.favourites} addFavourite={props.addFavourite} removeFavourite={props.removeFavourite} setMsg={setMsg} size="4em"/>}
-        {msg && <div className="msg-animated">{msg}</div>}
+        {props.cookies.user &&<LikeButton character={props.character} favourites={props.favourites} addFavourite={props.addFavourite} removeFavourite={props.removeFavourite} size="4em"/>}
         </Col>
       
 

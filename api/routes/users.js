@@ -57,7 +57,7 @@ router.post('/login', (req, res) => {
 });
 
 router.get('/:id/favourites', (req, res, next) => {
-  db.query('SELECT * FROM characters JOIN favourites ON favourites.character_id = characters.id WHERE favourites.user_id=$1', [req.params.id]).then((result) => {
+  db.query('SELECT favourites.*, characters.* FROM favourites JOIN characters ON characters.name = favourites.character_name WHERE favourites.user_id=$1', [req.params.id]).then((result) => {
     console.log(result.rows)
     res.send(result.rows)
   }).catch((err) => {
@@ -66,24 +66,29 @@ router.get('/:id/favourites', (req, res, next) => {
   })
 })
 
-router.delete(`/:user_id/favourites/:char_id`, (req, res, next) => {
-  db.query('DELETE FROM favourites WHERE user_id=$1 AND character_id=$2 RETURNING *', [req.params.user_id, req.params.char_id]).then((result) => {
-    res.send(result.rows)
+router.delete(`/:user_id/favourites/:name`, (req, res, next) => {
+  db.query('DELETE FROM favourites WHERE user_id=$1 AND character_name=$2 RETURNING *', [req.params.user_id, req.params.name]).then((result) => {
+    db.query('SELECT favourites.*, characters.* FROM favourites JOIN characters ON characters.name = favourites.character_name WHERE favourites.user_id=$1', [req.params.user_id]).then((response) => {
+      res.send(response.rows)
+    })
   }).catch(err => console.log(err))
 })
 
-router.post(`/:user_id/favourites/:char_id`, async(req, res, next) => {
+router.post(`/:user_id/favourites/:name`, async(req, res, next) => {
 
-  const alreadyExists = await db.query('SELECT * FROM favourites WHERE user_id=$1 AND character_id=$2', [req.params.user_id, req.params.char_id]).then((result) => {
+  const alreadyExists = await db.query('SELECT * FROM favourites WHERE user_id=$1 AND character_name=$2', [req.params.user_id, req.params.name]).then((result) => {
+    console.log('already favorited')
     console.log(result.rows)
     return result.rows
   }).catch((err) => {
+    console.log(err)
     return err
   })
 
   if (alreadyExists.length === 0) {
-    db.query('INSERT INTO favourites(user_id, character_id) VALUES($1, $2) RETURNING *', [req.params.user_id, req.params.char_id]).then((result) => {
-      db.query('SELECT * FROM characters JOIN favourites ON favourites.character_id = characters.id WHERE favourites.user_id=$1', [req.params.user_id]).then((response) => {
+    db.query('INSERT INTO favourites(user_id, character_name) VALUES($1, $2) RETURNING *', [req.params.user_id, req.params.name]).then((result) => {
+      db.query('SELECT * FROM favourites WHERE user_id=$1 AND character_name=$2', [req.params.user_id, req.params.name]).then((response) => {
+        console.log(response.rows)
         res.send(response.rows)
       })
     }).catch(err => console.log(err))

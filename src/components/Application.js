@@ -53,6 +53,7 @@ export default function Application() {
 
     axios.get('http://localhost:3030/characters')
     .then((res) => {
+      console.log('characters from server: ',   res)
       const ladder_hardcore_display = ladder_hardcore.entries.reduce((accumulator, currentValue) => {
         if (res.data.filter(element => element.name === currentValue.character.name).length > 0) {
           return [...accumulator, currentValue]
@@ -111,21 +112,22 @@ export default function Application() {
       })
   }, [])
 
-  function removeFavourite(character_id) {
-    console.log('removing fav')
-   axios.delete(`http://localhost:3030/users/${cookies.user}/favourites/${character_id}`).then((result) => {
-     console.log(result)
-      const newFavourites = favourites.filter(fav => fav.id !== result.data[0].id)
-      console.log(newFavourites)
-      setFavourites(newFavourites)
+  function removeFavourite(name) {
+    console.log('removing fav:', cookies.user, name)
+   axios.delete(`http://localhost:3030/users/${cookies.user}/favourites/${name}`).then((result) => {
+    //  console.log(result)
+    //  console.log(favourites)
+    //   const newFavourites = favourites.filter(fav => fav.character_name !== result.data[0].character_name)
+    //   console.log(newFavourites)
+      setFavourites(result.data)
     }).catch((err) => {
       console.log(err)
     })
   }
 
-  function addFavourite(character_id) {
-    console.log('adding fav')
-    axios.post(`http://localhost:3030/users/${cookies.user}/favourites/${character_id}`).then((result) => {
+  function addFavourite(name) {
+    console.log('adding fav:', cookies.user, name)
+    axios.post(`http://localhost:3030/users/${cookies.user}/favourites/${name}`).then((result) => {
       console.log(result)
       setFavourites(result.data)
     }).catch((err) => {
@@ -143,7 +145,7 @@ export default function Application() {
       <Route exact path="/">
         { state === 'loading' && <Loading />}
          {state === "account" && <Account account={account} getCharacter={getCharacter} setState={setState} />}
-            {state === "ladder" && <Ladder getCharacter={getCharacter} setState={setState} standard={standardLadder} hardcore={hardcoreLadder}/>}
+            {state === "ladder" && <Ladder getCharacter={getCharacter} setState={setState} standard={standardLadder} hardcore={hardcoreLadder} favourites={favourites} addFavourite={addFavourite} removeFavourite={removeFavourite}/>}
 
           {state === 'character' && character && <Character
             character={character}

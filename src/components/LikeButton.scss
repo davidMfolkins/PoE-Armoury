@@ -1,3 +1,5 @@
+@import'Helper';
+
 .like-button:hover {
   color:rgb(252, 149, 149);
 }
@@ -5,4 +7,24 @@
 .liked {
   color: red;
   
+}
+
+.msg-animated {
+  color: $white;
+  position: absolute;
+  word-wrap: normal;
+  width: 300px;
+  animation-name: like;
+  animation-duration: 2s;
+  opacity: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  z-index: 3000;
+  right: -200px;
+}
+
+@keyframes like {
+  0% {top: 0px; opacity: 1}
+  50% {top: -40px; opacity: 1}
+  100% {top: -80px; opacity: 0}
 }
