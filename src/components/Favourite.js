@@ -61,9 +61,9 @@ export default function Favourite(props) {
     return (
       <tr id="favouriteList" className="d-flex">
       
-      <td className="col-12" style={{backgroundColor: 'rgba(249, 189, 189, 0.5', color: 'white'}}>Are you sure? 
-        <a href="#" onClick={() => handleRemoveFavourite(props.fav.character_id)} variant="primary" size="lg">
-          <AiFillDelete size="4em" className="trash"/>
+      <td className="col-12 trash" style={{backgroundColor: 'rgba(249, 189, 189, 0.5', color: 'white'}}>
+        <a href="#" onClick={() => handleRemoveFavourite(props.fav.character_id)} variant="primary" size="lg">Click to permanently delete
+          <AiFillDelete size="3em" ></AiFillDelete>
         </a>{' '}
       </td>
     </tr>
