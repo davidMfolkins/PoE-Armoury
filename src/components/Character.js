@@ -57,7 +57,7 @@ export default function Character(props) {
         </Col>
         <Col>
         {props.cookies.user &&<LikeButton character_id={props.character.character_id} favourites={props.favourites} addFavourite={props.addFavourite} removeFavourite={props.removeFavourite} setMsg={setMsg} size="4em"/>}
-        {msg && <div className="msg-animted">{msg}</div>}
+        {msg && <div className="msg-animated">{msg}</div>}
         </Col>
       
 

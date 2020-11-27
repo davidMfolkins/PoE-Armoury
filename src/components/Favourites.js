@@ -1,50 +1,24 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 
-import { Table, Button, Alert } from 'react-bootstrap'
+import { Table } from 'react-bootstrap'
 
-import { AiFillDelete } from 'react-icons/ai'
-import { useHistory } from "react-router-dom";
+
+import Favourite from './Favourite'
 
 import './Favourites.scss'
 
 export default function Favourites(props) {
 
-
-
-  const [msg, setMsg] = useState(null)
-
-
-  async function handleRemoveFavourite(id) {
-    await props.removeFavourite(id)
-    setMsg('Entry removed from favourites')
-  }
-  const handleCharacterChange = function (account, character, id) {
-    props.getCharacter(account, character);
-  }
-
-
+ 
 
   const favouritesTable = props.favourites.map((fav) => {
-    const classIcon = `/icons/${fav.class.toLowerCase()}_icon.png`;
-    return (
-      <tr id="favouriteList" className="d-flex">
-        <td className="col-3"><img src={classIcon} alt={fav.class} /></td>
-        <td className="col-4" onClick={() => handleCharacterChange(fav.account_name, fav.name, fav.id)}>{fav.name}</td>
-        <td className="col-1">{fav.level}</td>
-        <td className="col-3">{fav.class}</td>
-        <td className="col-1">
-          <Button onClick={() => handleRemoveFavourite(fav.character_id)} variant="primary" size="lg">
-            <AiFillDelete />
-          </Button>{' '}
-        </td>
-      </tr>
-    )
+    return <Favourite fav={fav} removeFavourite={props.removeFavourite} getCharacter={props.getCharacter}/>
   })
 
-  const favouritesTables = function () {
     if (props.favourites.length > 0) {
-      return <div>
+      return (
+      <div className="favourites-container">
+       <div>
               <div className="favourite-title">Favourited Builds</div>
               <Table id="favouriteTable" responsive striped bordered variant="dark">
                 <thead>
@@ -61,13 +35,9 @@ export default function Favourites(props) {
                 </tbody>
               </Table>
               </div>
+              </div>
+      )
     } else {
       return <div className="no-favourites">You have no favourited builds</div>
     }
-  }
-
-  return <div className="favourites-container">
-          {msg && <div className="remove-alert"><Alert variant="info">{msg}</Alert></div>}
-          {favouritesTables()}
-        </div>
 }
