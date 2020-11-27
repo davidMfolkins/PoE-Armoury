@@ -16,3 +16,9 @@
 #selected {
   background-color: blue;
 }
+
+@media only screen and (max-width: 1024px) {
+  #search-bar {
+    width: 25vw;
+  }
+}

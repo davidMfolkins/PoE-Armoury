@@ -15,7 +15,7 @@ export default function Navigation(props) {
        
       </Nav>
       <Nav className="m-auto">
-      <Searchbar getCharacter={props.getCharacter} setState={props.setState} setAccount={props.setAccount} state={props.state}/>
+      <Searchbar id="poe-search" getCharacter={props.getCharacter} setState={props.setState} setAccount={props.setAccount} state={props.state}/>
         </Nav>
       {props.cookies.user && 
       <Nav className="ml-auto">
