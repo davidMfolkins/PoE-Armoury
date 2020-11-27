@@ -1,0 +1,38 @@
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300&display=swap');
+@import'Helper';
+
+.accountPage {
+  background-color: rgba(0,0,0,0.5);
+  padding-top: 10px;
+  
+}
+.accountContainer {
+  width: 80%;
+  margin: auto;
+  font-size: 20px;
+  text-align: center;
+  border: 2px solid #b78846;;
+  margin-top: 20px;
+}
+
+.topButtons {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10%;
+}
+
+.accountName {
+  color: $white;
+  font-size: 50px;
+  font-family: 'Inknut Antiqua';
+  border-bottom: 2px solid $yellow;
+  text-align: center;
+}
+
+#accountList:hover {
+  color: $red;
+  cursor: pointer;
+}
+
+

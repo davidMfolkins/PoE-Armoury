@@ -1,0 +1,522 @@
+// LADDERS
+// https://www.pathofexile.com/api/ladders/Standard?limit=1&type=league
+
+{
+  "total": 15000,
+  "cached_since": "2020-11-25T19:42:03+00:00",
+  "entries": [
+    {
+      "rank": 1,
+      "dead": false,
+      "online": false,
+      "character": {
+        "id": "cc248e0d23c849d71b40379d82dfc19b200bdb7b8ac63322f06de6483aaca5ea",
+        "name": "PenDora",
+        "level": 100,
+        "class": "Scion",
+        "score": 63328,
+        "experience": 4250334444
+      },
+      "account": {
+        "name": "Jin_melike",
+        "realm": "pc",
+        "challenges": {
+          "total": 0
+        }
+      }
+    }
+  ]
+}
+
+// CHARACTERS FOR ACCOUNT
+// https://www.pathofexile.com/character-window/get-characters?accountName=Panini
+
+[
+  {
+    "name": "SoundsOfViolence",
+    "league": "Heist",
+    "classId": 4,
+    "ascendancyClass": 3,
+    "class": "Champion",
+    "level": 97,
+    "experience": 3447548753
+  },
+  {
+    "name": "pestoOnRice",
+    "league": "Heist",
+    "classId": 2,
+    "ascendancyClass": 3,
+    "class": "Pathfinder",
+    "level": 85,
+    "experience": 1329447985,
+    "lastActive": true
+  },
+  {
+    "name": "DeadlineWithMyMaker",
+    "league": "Heist",
+    "classId": 1,
+    "ascendancyClass": 3,
+    "class": "Chieftain",
+    "level": 42,
+    "experience": 23151450
+  },
+  {
+    "name": "TheSnowGoose",
+    "league": "Heist",
+    "classId": 3,
+    "ascendancyClass": 1,
+    "class": "Occultist",
+    "level": 89,
+    "experience": 1784977296
+  }
+]
+
+// ACCOUNT FOR CHARACTER
+// https://www.pathofexile.com/character-window/get-account-name-by-character?character=SoundsOfViolence
+
+{
+  "accountName": "Panini"
+}
+
+// ITEMS FOR CHARACTER
+// https://www.pathofexile.com/character-window/get-items?accountName=Panini&character=SoundsOfViolence
+
+{
+  "items": [
+    {
+      "verified": false,
+      "w": 1,
+      "h": 2,
+      "icon": "https://web.poecdn.com/gen/image/WzksMTQseyJmIjoiMkRJdGVtc1wvRmxhc2tzXC9Cb3R0bGVkUHVyaXR5IiwidyI6MSwiaCI6Miwic2NhbGUiOnRydWUsImxldmVsIjoxfV0/fb9e36a285/Item.png",
+      "league": "Heist",
+      "id": "3fc329a4e9176142ef44b3f83bdf0183d29629ee4ffcc7f8ee21a4bfd2febcc6",
+      "name": "Bottled Faith",
+      "typeLine": "Sulphur Flask",
+      "identified": true,
+      "ilvl": 85,
+      "properties": [
+        {
+          "name": "Quality",
+          "values": [
+            [
+              "+20%",
+              1
+            ]
+          ],
+          "displayMode": 0,
+          "type": 6
+        },
+        {
+          "name": "Lasts {0} Seconds",
+          "values": [
+            [
+              "6.10",
+              1
+            ]
+          ],
+          "displayMode": 3
+        },
+        {
+          "name": "Consumes {0} of {1} Charges on use",
+          "values": [
+            [
+              "20",
+              0
+            ],
+            [
+              "60",
+              0
+            ]
+          ],
+          "displayMode": 3
+        },
+        {
+          "name": "Currently has {0} Charges",
+          "values": [
+            [
+              "60",
+              0
+            ]
+          ],
+          "displayMode": 3
+        }
+      ],
+      "requirements": [
+        {
+          "name": "Level",
+          "values": [
+            [
+              "35",
+              0
+            ]
+          ],
+          "displayMode": 0
+        }
+      ],
+      "utilityMods": [
+        "40% increased Damage"
+      ],
+      "implicitMods": [
+        "Creates Consecrated Ground on Use"
+      ],
+      "explicitMods": [
+        "32% increased Duration",
+        "Consecrated Ground created by this Flask has Tripled Radius",
+        "+1.89% to Critical Strike Chance against Enemies on Consecrated Ground during Effect",
+        "Consecrated Ground created during Effect applies 9% increased Damage taken to Enemies"
+      ],
+      "descrText": "Right click to drink. Can only hold charges while in belt. Refills as you kill monsters.",
+      "flavourText": [
+        "A tourniquet for the soul, squeezing ethereal into physical."
+      ],
+      "frameType": 3,
+      "x": 1,
+      "y": 0,
+      "inventoryId": "Flask"
+    },
+    {
+      "verified": false,
+      "w": 1,
+      "h": 1,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Currency/Heist/LuckCharm1.png?v=d35ec19990550d083c3b8d460206e48a&w=1&h=1&scale=1",
+      "league": "Heist",
+      "id": "2d38873a2a3b01428a95bbc1c86e0b4637b4bacf41946600d64c38e383e259c4",
+      "name": "Fate Curio",
+      "typeLine": "Thief's Trinket",
+      "identified": true,
+      "ilvl": 86,
+      "corrupted": true,
+      "requirements": [
+        {
+          "name": "Level",
+          "values": [
+            [
+              "56",
+              0
+            ]
+          ],
+          "displayMode": 0
+        }
+      ],
+      "explicitMods": [
+        "6% chance to receive additional Divination Card items when opening a Reward Chest in a Heist",
+        "15% chance in Heists for Orbs of Alteration to drop as Chaos Orbs instead",
+        "9% chance in Heists for Orbs of Augmentation to drop as Orbs of Alchemy instead"
+      ],
+      "descrText": "You must find the sculpture The Catch in a Smuggler's Den or Underbelly Blueprint to be able to equip this",
+      "frameType": 2,
+      "x": 0,
+      "y": 0,
+      "inventoryId": "Trinket"
+    },
+    {
+      "verified": false,
+      "w": 2,
+      "h": 3,
+      "icon": "https://web.poecdn.com/image/Art/2DItems/Weapons/OneHandWeapons/Daggers/VerdantGuardianSword2.png?v=8093c692366f590bb1628316202a63fa&w=2&h=3&scale=1",
+      "league": "Heist",
+      "id": "907165e9fb571bab905cc10172574ebec004471b54789695dda0f50cb8178f16",
+      "sockets": [
+        {
+          "group": 0,
+          "attr": "D",
+          "sColour": "G"
+        },
+        {
+          "group": 1,
+          "attr": "I",
+          "sColour": "B"
+        },
+        {
+          "group": 2,
+          "attr": "S",
+          "sColour": "R"
+        }
+      ],
+      "name": "Beltimber Blade",
+      "typeLine": "Eternal Sword",
+      "identified": true,
+      "ilvl": 84,
+      "properties": [
+        {
+          "name": "One Handed Sword",
+          "values": [],
+          "displayMode": 0
+        },
+        {
+          "name": "Physical Damage",
+          "values": [
+            [
+              "120-199",
+              1
+            ]
+          ],
+          "displayMode": 0,
+          "type": 9
+        },
+        {
+          "name": "Critical Strike Chance",
+          "values": [
+            [
+              "5.00%",
+              0
+            ]
+          ],
+          "displayMode": 0,
+          "type": 12
+        },
+        {
+          "name": "Attacks per Second",
+          "values": [
+            [
+              "1.72",
+              1
+            ]
+          ],
+          "displayMode": 0,
+          "type": 13
+        },
+        {
+          "name": "Weapon Range",
+          "values": [
+            [
+              "11",
+              0
+            ]
+          ],
+          "displayMode": 0,
+          "type": 14
+        }
+      ],
+      "requirements": [
+        {
+          "name": "Level",
+          "values": [
+            [
+              "66",
+              0
+            ]
+          ],
+          "displayMode": 0
+        },
+        {
+          "name": "Str",
+          "values": [
+            [
+              "104",
+              0
+            ]
+          ],
+          "displayMode": 1
+        },
+        {
+          "name": "Dex",
+          "values": [
+            [
+              "122",
+              0
+            ]
+          ],
+          "displayMode": 1
+        }
+      ],
+      "implicitMods": [
+        "+475 to Accuracy Rating"
+      ],
+      "explicitMods": [
+        "193% increased Physical Damage",
+        "15% increased Attack Speed",
+        "80% increased Evasion Rating while moving",
+        "Skills fire 2 additional Projectiles if you've used a Movement Skill Recently",
+        "Far Shot"
+      ],
+      "flavourText": [
+        "By wind and wing they are carried,\r",
+        "Their fates not theirs to control,\r",
+        "Yet the fates of others dragged in their wake."
+      ],
+      "frameType": 3,
+      "x": 0,
+      "y": 0,
+      "inventoryId": "Weapon2",
+      "socketedItems": [
+        {
+          "verified": false,
+          "w": 1,
+          "h": 1,
+          "icon": "https://web.poecdn.com/image/Art/2DItems/Gems/Support/enhance.png?v=b73522896f57347070e142debec35be8&w=1&h=1&scale=1",
+          "support": true,
+          "id": "ba47736a2f129eb8d2cce5c9eb1ecd3b552ca74792c8ab3355a1e73cfed232ef",
+          "name": "",
+          "typeLine": "Enhance Support",
+          "identified": true,
+          "ilvl": 0,
+          "properties": [
+            {
+              "name": "Support",
+              "values": [],
+              "displayMode": 0
+            },
+            {
+              "name": "Level",
+              "values": [
+                [
+                  "2",
+                  0
+                ]
+              ],
+              "displayMode": 0,
+              "type": 5
+            },
+            {
+              "name": "Mana Multiplier",
+              "values": [
+                [
+                  "115%",
+                  0
+                ]
+              ],
+              "displayMode": 0
+            },
+            {
+              "name": "Quality",
+              "values": [
+                [
+                  "+20%",
+                  1
+                ]
+              ],
+              "displayMode": 0,
+              "type": 6
+            }
+          ],
+          "requirements": [
+            {
+              "name": "Level",
+              "values": [
+                [
+                  "10",
+                  0
+                ]
+              ],
+              "displayMode": 0
+            },
+            {
+              "name": "Dex",
+              "values": [
+                [
+                  "21",
+                  0
+                ]
+              ],
+              "displayMode": 1
+            }
+          ],
+          "additionalProperties": [
+            {
+              "name": "Experience",
+              "values": [
+                [
+                  "1308379683/1439190228",
+                  0
+                ]
+              ],
+              "displayMode": 2,
+              "progress": 0.9091081619262695,
+              "type": 20
+            }
+          ],
+          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the quality of supported gems. Cannot support skills that don't come from gems.",
+          "explicitMods": [
+            "This Gem gains 100% increased Experience",
+            "+8% to Quality of Supported Active Skill Gems"
+          ],
+          "descrText": "This is a Support Gem. It does not grant a bonus to your character, but to skills in sockets connected to it. Place into an item socket connected to a socket containing the Active Skill Gem you wish to augment. Right click to remove from a socket.",
+          "frameType": 4,
+          "socket": 0,
+          "colour": "D"
+        },
+        {
+          "verified": false,
+          "w": 1,
+          "h": 1,
+          "icon": "https://web.poecdn.com/image/Art/2DItems/Gems/Support/Empower.png?v=437c52ca684b8b50eda5fa0e09e669b7&w=1&h=1&scale=1",
+          "support": true,
+          "id": "3ec22c589db3b03c4ba1c67bb4222c7ff99e9d854ea344b99fb65b637db74d5c",
+          "name": "",
+          "typeLine": "Empower Support",
+          "identified": true,
+          "ilvl": 0,
+          "properties": [
+            {
+              "name": "Support",
+              "values": [],
+              "displayMode": 0
+            },
+            {
+              "name": "Level",
+              "values": [
+                [
+                  "3 (Max)",
+                  0
+                ]
+              ],
+              "displayMode": 0,
+              "type": 5
+            },
+            {
+              "name": "Mana Multiplier",
+              "values": [
+                [
+                  "125%",
+                  0
+                ]
+              ],
+              "displayMode": 0
+            },
+            {
+              "name": "Quality",
+              "values": [
+                [
+                  "+20%",
+                  1
+                ]
+              ],
+              "displayMode": 0,
+              "type": 6
+            }
+          ],
+          "requirements": [
+            {
+              "name": "Level",
+              "values": [
+                [
+                  "45",
+                  0
+                ]
+              ],
+              "displayMode": 0
+            },
+            {
+              "name": "Str",
+              "values": [
+                [
+                  "73",
+                  0
+                ]
+              ],
+              "displayMode": 1
+            }
+          ],
+          "secDescrText": "Supports any skill gem. Once this gem reaches level 2 or above, will raise the level of supported gems. Cannot support skills that don't come from gems.",
+          "explicitMods": [
+            "This Gem gains 100% increased Experience",
+            "+2 to Level of Supported Active Skill Gems"
+          ],
+          "descrText": "This is a Support Gem. It does not grant a bonus to your character, but to skills in sockets connected to it. Place into an item socket connected to a socket containing the Active Skill Gem you wish to augment. Right click to remove from a socket.",
+          "frameType": 4,
+          "socket": 2,
+          "colour": "S"
+        }
+      ]
+    }
