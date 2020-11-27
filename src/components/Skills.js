@@ -1,4 +1,3 @@
-import './Skills.scss'
 import Skill from './Skill'
 import className from 'classnames'
 import { Table } from 'react-bootstrap'
@@ -72,29 +71,27 @@ export default function Skills (props) {
       // console.log(connections, gemSocket.socket)
       if (connections) {
         return (
-          <tr className="test">
-            <td className="connections" rowspan={connections}>{connections} links</td>
-            <td className="gemRow"><Skill gem={gemSocket}/> <div className="gemName">{gemSocket.typeLine} <div className="gemStats">(Level: {level} / Quality: {quality || "0"})</div></div></td>
-          </tr>
+          <>
+            <div className={"links span" + connections}>{connections} links</div>
+            <div className="gemRow"><Skill gem={gemSocket}/> <div className="gemName">{gemSocket.typeLine} <div className="gemStats">(Level: {level} / Quality: {quality || "0"})</div></div></div>
+          </>
         )
       } else {
         return (
-          <tr className="test">
-            <td className="gemRow"><Skill gem={gemSocket}/> <div className="gemName">{gemSocket.typeLine} <div className="gemStats">(Level: {level} / Quality: {quality || "0"})</div></div></td>
-          </tr>
+          <div className="gemRow"><Skill gem={gemSocket}/> <div className="gemName">{gemSocket.typeLine} <div className="gemStats">(Level: {level} / Quality: {quality || "0"})</div></div></div>
         )
       }
     } else {
       // console.log(connections, "x")
       if (connections) {
         return (
-          <tr className="test">
-            <td className="connections" rowspan={connections}>{connections} links</td>
-            <td className="gemRow">Empty Socket</td>
-          </tr>
+          <>
+            <div className={"links span" + connections}>{connections} links</div>
+            <div className="gemRow empty">Empty Socket</div>
+          </>
         )
       } else {
-        return <tr className="test"><td className="gemRow">Empty Socket</td></tr>
+        return <div className="gemRow empty">Empty Socket</div>
       }
     }
   })
@@ -103,9 +100,7 @@ export default function Skills (props) {
   <div className="skills-container">
       <hr className="line"/> 
       <span classname="gemGroup">{props.item.inventoryId}</span>
-    <Table>
-      <td className="skill-group">{builder}</td>
-    </Table>
+      <div className="skill-group">{builder}</div>
   </div>
   )
 }
