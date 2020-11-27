@@ -36,7 +36,8 @@ function Searchbar(props) {
     setSearchResults([])
     event.preventDefault();
   }
-let quickSearch = async function () { 
+
+let quickSearch = async function () {
       const searchTerm = new RegExp(value);
       if (value.length > 0) {
         setHidden(null)
@@ -77,7 +78,8 @@ let quickSearch = async function () {
             }
           });
         })
-          setSearchResults(newSearchResults);
+
+          setSearchResults(newSearchResults)
       } else {
         setHidden('hidden')
       }
@@ -90,8 +92,6 @@ let quickSearch = async function () {
       quickSearch()
     }, [value, selected])
 
-   
-  
 
   function searchSelection(e) {
     console.log(e)
@@ -102,20 +102,27 @@ let quickSearch = async function () {
       if (selected === null) {
         setSelected(0)
       } else {
-        const newVal = selected + 1
-        setSelected(newVal)
+        console.log('selected:', selected)
+        console.log('searchresults length: ', searchResults.length)
+        if (selected < searchResults.length - 1) {
+          const newVal = selected + 1
+          setSelected(newVal)
+        }
+      
       }
     }
     if (e.code === 'ArrowUp') {
       if (selected === 0) {
         setSelected(null)
-      } else if (selected === null) {
+
+      } else if (selected === null){
 
       } else {
         const newVal = selected - 1
         setSelected(newVal)
       }
     } else if (e.code === 'Enter') {
+      handleSubmit(e, e.target.value) 
       if (selected === null) {
         handleSubmit(e, e.target.value)
       } else {
@@ -132,7 +139,9 @@ let quickSearch = async function () {
     } else if (e.code !== 'ArrowDown' && e.code !== 'ArrowUp' && e.code !== 'Enter') {
       console.log('not up, down, or enter')
       setSelected(null)
-      setValue(e.target.value)
+
+     setValue(e.target.value)
+
     }
   }
 
