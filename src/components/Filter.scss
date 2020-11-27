@@ -13,14 +13,14 @@
   width: 200px;
 }
 
-button {
+#bootstrap {
   background-color: unset!important;
   border: 0px!important;
   background-image: url('../images/rock.png');
   color: $white;
 }
 
-button:focus {
+#bootstrap:focus {
   outline: none!important;
   box-shadow: none!important;
 }
@@ -36,4 +36,10 @@ button:focus {
 
 .card {
   background-color: black!important;
+}
+
+@media only screen and (max-width: 1024px) {
+  .accordianContainer {
+    margin-left: 1%;
+  }
 }

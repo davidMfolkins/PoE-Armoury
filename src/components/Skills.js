@@ -1,11 +1,10 @@
-import './Skills.scss'
 import Skill from './Skill'
 import className from 'classnames'
 import { Table } from 'react-bootstrap'
 
 export default function Skills (props) {
 
-  console.log(props.item.inventoryId)
+  // console.log(props.item.inventoryId)
   let groups = [];
   for (const socket of props.item.sockets) {
     if (socket.attr !== "A")
@@ -40,55 +39,68 @@ export default function Skills (props) {
   }
   // console.log("finalArray:", finalArray)
 
-  const gem = props.gems.map((gem, gemIndex) => {
+  const gems = props.gems.map((gem, gemIndex) => {
     if (!gem.abyssJewel) {
-      const level = gem.properties.map(property => {
+      return gem;
+    }
+  })
+
+
+  const builder = finalArray.map((connections, index) => {
+
+    const gemColour = props.item.sockets[index].sColour
+    const gemSocket = gems.find(g => g.socket === index)
+
+    let level;
+    let quality = null;
+    if (gemSocket) {
+      gemSocket.properties.map(property => {
         if (property.name === "Level") {
-          return property.values[0][0].slice(0,2)
+          return level = property.values[0][0].slice(0,2)
         }
       })
-
-      let quality = null;
-      gem.properties.map(property => {
+      gemSocket.properties.map(property => {
         if (property.name === "Quality") {
           return quality = property.values[0][0].slice(1,3)
         }
       })
+    }
 
-      // console.log("from inside gems:", finalArray)
-      console.log("finalArray[gemIndex]", finalArray[gemIndex])
 
-      if (finalArray[gemIndex]) {
+    if (gems.some(g => g.socket === index)) {
+      // console.log(connections, gemSocket.socket)
+      if (connections) {
         return (
-          <tr>
-            <td rowspan={finalArray[gemIndex]}>{finalArray[gemIndex]} links</td>
-            <td className="gemRow"><Skill gem={gem}/> <div className="gemName">{gem.typeLine} <div className="gemStats">(Level: {level} / Quality: {quality || "0"})</div></div></td>
-          </tr>
+          <>
+            <div className={"links span" + connections}>{connections} links</div>
+            <div className="gemRow"><Skill gem={gemSocket}/> <div className="gemName">{gemSocket.typeLine} <div className="gemStats">(Level: {level} / Quality: {quality || "0"})</div></div></div>
+          </>
         )
       } else {
         return (
-          <tr>
-            <td className="gemRow"><Skill gem={gem}/> <div className="gemName">{gem.typeLine} <div className="gemStats">(Level: {level} / Quality: {quality || "0"})</div></div></td>
-          </tr>
-        ) 
+          <div className="gemRow"><Skill gem={gemSocket}/> <div className="gemName">{gemSocket.typeLine} <div className="gemStats">(Level: {level} / Quality: {quality || "0"})</div></div></div>
+        )
+      }
+    } else {
+      // console.log(connections, "x")
+      if (connections) {
+        return (
+          <>
+            <div className={"links span" + connections}>{connections} links</div>
+            <div className="gemRow empty"><div className={"socketColour" + gemColour}/>Empty Socket</div>
+          </>
+        )
+      } else {
+        return <div className="gemRow empty"><div className={"socketColour" + gemColour}/>Empty Socket</div>
       }
     }
   })
-
-  // we have gems and connection
-  // make a new fuction "groups"
-  // groups will take in gems and connection and output a table
-  // the first row of each table will always output both connection and gem
-  // the next rows may or may not have connection but will always have gem
-  // table construction function will return <tr>{connection} {gem} <tr>
 
   return (
   <div className="skills-container">
       <hr className="line"/> 
       <span classname="gemGroup">{props.item.inventoryId}</span>
-    <Table>
-      <td>{gem}</td>
-    </Table>
+      <div className="skill-group">{builder}</div>
   </div>
   )
 }

@@ -24,7 +24,7 @@
   margin-bottom: 10px;
 }
 
-.topButtons {
+#topButtons {
   display: flex;
   justify-content: flex-end;
   margin-right: 10%;
@@ -50,7 +50,11 @@
 img {
   height: 60px;
 }
-
+th {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 td {
   white-space: nowrap;
   overflow: hidden;
@@ -66,4 +70,33 @@ td {
   margin-bottom: 20px;
   margin-left: 43%;
   font-size: 25px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    max-width: 2000px!important;
+    padding: unset!important;
+  }
+
+  .ladderContainer {
+    width: 100%;
+  }
+  #topButtons {
+    margin-right: 1%;
+  }
+  table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+
 }
