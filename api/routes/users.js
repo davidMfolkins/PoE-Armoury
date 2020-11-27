@@ -1,9 +1,8 @@
 const bcrypt = require('bcryptjs')
 let salt = bcrypt.genSaltSync(10);
 const { addUser } = require('./helpers/setters')
-const { findAccount } = require('./helpers/getters');
+const { findAccount, getFavourites } = require('./helpers/getters');
 
-/* GET home page. */
 
 module.exports = (db, router) => {
   router.get('/test', (req, res, next) => {
@@ -56,21 +55,16 @@ router.post('/login', (req, res) => {
     .catch(e => res.send(e));
 });
 
-router.get('/:id/favourites', (req, res, next) => {
-  db.query('SELECT favourites.*, characters.* FROM favourites JOIN characters ON characters.name = favourites.character_name WHERE favourites.user_id=$1', [req.params.id]).then((result) => {
-    console.log(result.rows)
-    res.send(result.rows)
-  }).catch((err) => {
-    console.log(err)
-    console.log(err)
-  })
+router.get('/:id/favourites', async (req, res, next) => {
+  const userFavourites = await getFavourites(db, req.params.id)
+  console.log('favs for user: ', userFavourites)
+  res.send(userFavourites)
 })
 
 router.delete(`/:user_id/favourites/:name`, (req, res, next) => {
-  db.query('DELETE FROM favourites WHERE user_id=$1 AND character_name=$2 RETURNING *', [req.params.user_id, req.params.name]).then((result) => {
-    db.query('SELECT favourites.*, characters.* FROM favourites JOIN characters ON characters.name = favourites.character_name WHERE favourites.user_id=$1', [req.params.user_id]).then((response) => {
-      res.send(response.rows)
-    })
+  db.query('DELETE FROM favourites WHERE user_id=$1 AND character_name=$2 RETURNING *', [req.params.user_id, req.params.name]).then( async (result) => {
+    const userFavourites = await getFavourites(db, req.params.user_id)
+      res.send(userFavourites)
   }).catch(err => console.log(err))
 })
 
@@ -86,11 +80,9 @@ router.post(`/:user_id/favourites/:name`, async(req, res, next) => {
   })
 
   if (alreadyExists.length === 0) {
-    db.query('INSERT INTO favourites(user_id, character_name) VALUES($1, $2) RETURNING *', [req.params.user_id, req.params.name]).then((result) => {
-      db.query('SELECT * FROM favourites WHERE user_id=$1 AND character_name=$2', [req.params.user_id, req.params.name]).then((response) => {
-        console.log(response.rows)
-        res.send(response.rows)
-      })
+    db.query('INSERT INTO favourites(user_id, character_name) VALUES($1, $2) RETURNING *', [req.params.user_id, req.params.name]).then( async (result) => {
+      const userFavourites = await getFavourites(db, req.params.user_id)
+      res.send(userFavourites)
     }).catch(err => console.log(err))
   } else {
     res.status(403).send('already favorited')

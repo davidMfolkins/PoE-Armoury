@@ -1,0 +1,29 @@
+@import'Helper';
+
+.message {
+  background-color: $black-transparent;
+  color: $white;
+  position: absolute;
+padding: 5px;
+right: 2vw;
+bottom: 5vh;
+width: 400px;
+height: 50px;
+border-radius: 5px;
+border: 1px solid $red;
+animation-name: message;
+  animation-duration: 8s;
+  opacity: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  opacity: 1;
+  overflow: hidden;
+  white-space: nowrap
+}
+
+@keyframes message {
+  0% {width: 0; opacity: 1; background-color: rgb(177, 58, 58);}
+  2% {width: 400px; opacity: 1; background-color: rgb(177, 58, 58);}
+  75% {opacity: 1; background-color: rgb(177, 58, 58)}
+  100% {opacity: 0}
+}

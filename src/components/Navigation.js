@@ -19,7 +19,7 @@ export default function Navigation(props) {
         </Nav>
       {props.cookies.user && 
       <Nav className="ml-auto">
-         <Nav.Link className="mx-3 my-2" onClick={() => props.setState('favourites')}>Your Favourites</Nav.Link>
+         <Nav.Link className="mx-3 my-2" onClick={() => props.setState('favourites')}>Favourites</Nav.Link>
       <Nav.Link className="mx-3 my-2" onClick={(e) => {
         props.removeCookie("user")
         props.setState('favourites') 

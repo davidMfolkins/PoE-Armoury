@@ -102,6 +102,14 @@ function findAccount(db, email) {
   })
 }
 
+function getFavourites(db, user) {
+  return db.query('SELECT favourites.*, characters.* FROM favourites JOIN characters ON characters.name = favourites.character_name WHERE favourites.user_id=$1', [user]).then((response) => {
+    return response.rows;
+  }).catch((err) => {
+    return err
+  })
+}
+
 module.exports = {
   getItems,
   findCharacterDB,
@@ -109,5 +117,6 @@ module.exports = {
   findAccount,
   filterCharacters,
   getTodaysLadder,
-  fetchLadderCharacters
+  fetchLadderCharacters,
+  getFavourites
 };

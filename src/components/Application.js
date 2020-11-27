@@ -9,6 +9,7 @@ import Logout from './Logout';
 import Login from './Login'
 import Favourites from './Favourites';
 import Grabber from './Grabber'
+import Message from './Message'
 import fetchCharacter from "./helpers/getters";
 import Container from "react-bootstrap/Container";
 import { useState, useEffect } from "react";
@@ -44,6 +45,7 @@ export default function Application() {
   const [standardLadder, setStandardLadder] = useState([])
   const [hardcoreLadder, setHardcoreLadder] = useState([])
   const[ grab, setGrab] = useState(false)
+  const [msg, setMsg] = useState(null)
 
   useEffect(() => {
     setState('loading')
@@ -108,6 +110,7 @@ export default function Application() {
 
   useEffect(() => {
       axios.get(`http://localhost:3030/users/${cookies.user}/favourites`).then((result) => {
+        console.log('favs from server: ', result)
         setFavourites(result.data)
       })
   }, [])
@@ -138,6 +141,7 @@ export default function Application() {
   return (
     <Container fluid>
       <Navigation setGrab={setGrab} grab={grab} getCharacter={getCharacter} setState={setState} removeCookie={removeCookie} cookies={cookies} setAccount={setAccount} />
+      {msg && <Message msg={msg} setMsg={setMsg}/>}
       <Grabber grab={grab}/>
       <ScrollUpButton />
       <Container style={{ marginTop: "100px" }}>
@@ -145,7 +149,7 @@ export default function Application() {
       <Route exact path="/">
         { state === 'loading' && <Loading />}
          {state === "account" && <Account account={account} getCharacter={getCharacter} setState={setState} />}
-            {state === "ladder" && <Ladder getCharacter={getCharacter} setState={setState} standard={standardLadder} hardcore={hardcoreLadder} favourites={favourites} addFavourite={addFavourite} removeFavourite={removeFavourite}/>}
+            {state === "ladder" && <Ladder getCharacter={getCharacter} setState={setState} standard={standardLadder} hardcore={hardcoreLadder} favourites={favourites} addFavourite={addFavourite} removeFavourite={removeFavourite} setMsg={setMsg}/>}
 
           {state === 'character' && character && <Character
             character={character}
@@ -156,6 +160,8 @@ export default function Application() {
             cookies={cookies}
             setState={setState}
             setAccount={setAccount}
+            msg={msg}
+            setMsg={setMsg}
           />}
 
         {state === 'favourites' && <Favourites favourites={favourites} removeFavourite={removeFavourite} getCharacter={getCharacter} setState={setState}/>}

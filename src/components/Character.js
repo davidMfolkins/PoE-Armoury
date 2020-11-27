@@ -54,7 +54,7 @@ export default function Character(props) {
           }}>{props.character.account_name}</a></h5>
         </Col>
         <Col>
-        {props.cookies.user &&<LikeButton character={props.character} favourites={props.favourites} addFavourite={props.addFavourite} removeFavourite={props.removeFavourite} size="4em"/>}
+        {props.cookies.user &&<LikeButton character={props.character} favourites={props.favourites} addFavourite={props.addFavourite} removeFavourite={props.removeFavourite} size="4em" msg={props.msg} setMsg={props.setMsg}/>}
         </Col>
       
 
