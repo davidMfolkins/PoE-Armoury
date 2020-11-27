@@ -6,7 +6,7 @@ export default function Navigation(props) {
 
   return (
     <Navbar fixed="top" variant="dark" bg="dark" expand="lg">
-    <Navbar.Brand href="#home" id="nav-logo">PoE Armoury</Navbar.Brand>
+    <Navbar.Brand id="nav-logo" href="/">PoE Armoury</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto"> 
