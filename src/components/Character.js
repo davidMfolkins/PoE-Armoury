@@ -62,8 +62,6 @@ export default function Character(props) {
       </Row>
       <Row className="p-3" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
        
-        <Col lg={6} xs={12}> {gems}</Col>
-
         <Col>
           <Row>
             <Items windowWidth={windowWidth} items={props.character.items.items} />
@@ -73,6 +71,10 @@ export default function Character(props) {
               <Flasks windowWidth={windowWidth} items={props.character.items.items} />
             </Col>
           </Row>
+        </Col>
+
+        <Col lg={6} xs={12}>
+          {gems}
         </Col>
 
       </Row>

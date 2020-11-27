@@ -61,6 +61,27 @@ export default function Item(props) {
 
   let properties;
 
+  if (props.item.inventoryId === "Flask") {
+    if (props.item.properties) {
+      properties = props.item.properties.map((property) => {
+        if (property.values[0]) {
+          const textColor = className({
+            "simple": property.values[0][1] === 0,
+            "augmented": property.values[0][1] === 1,
+            "fire": property.values[0][1] === 2,
+            "cold": property.values[0][1] === 3,
+            "lightning": property.values[0][1] === 4,
+            "chaos": property.values[0][1] === 5
+          })
+          return <div className="property">{property.name}: <span className={textColor}>{property.values[0][0]}</span></div>
+        } else {
+          return <div className="property">{property.name}</div>
+        }
+  
+      })
+    }
+  }
+
   if (props.item.properties) {
 
     properties = props.item.properties.map((property) => {
@@ -73,6 +94,15 @@ export default function Item(props) {
           "lightning": property.values[0][1] === 4,
           "chaos": property.values[0][1] === 5
         })
+        let combindProperty;
+        if (property.name.includes("{0}")) {
+          combindProperty = property.name.replace("{0}", property.values[0][0])
+          if (property.name.includes("{1}")) {
+            combindProperty = combindProperty.replace("{1}", property.values[1][0])
+          }
+          return <div className="property">{combindProperty}</div>
+        }
+
         return <div className="property">{property.name}: <span className={textColor}>{property.values[0][0]}</span></div>
       } else {
         return <div className="property">{property.name}</div>
@@ -80,6 +110,7 @@ export default function Item(props) {
 
     })
   }
+
   let requirements;
 
   if (props.item.requirements) {
@@ -90,7 +121,9 @@ export default function Item(props) {
 
   let utilityMods;
   if (props.item.utilityMods) {
-    utilityMods = <div className="implicit-mod"><i>{props.item.utilityMods}</i></div>
+    utilityMods = props.item.utilityMods.map((utilityMod) => {
+      return <div className="implicit-mod">{utilityMod}</div>
+    })
   }
 
   let craftedMods;
