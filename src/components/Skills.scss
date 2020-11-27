@@ -32,7 +32,39 @@
 }
 
 .empty {
-  align-self: center;
+  
+}
+
+.socketColourR {
+  width: 35px;
+  height: 35px;
+  background-image: url('../images/socket.png');
+  background-repeat:no-repeat;
+  // background-size: 35px 35px;
+  background-position: 0px -105px;
+}
+
+.socketColourG {
+  width: 35px;
+  height: 35px;
+  background-image: url('../images/socket.png');
+  background-repeat:no-repeat;
+  background-position: -105px -72.5px;
+}
+
+.socketColourB {
+  width: 35px;
+  height: 35px;
+  background-image: url('../images/socket.png');
+  background-repeat:no-repeat;
+}
+
+.socketColourW {
+  width: 35px;
+  height: 35px;
+  background-image: url('../images/socket.png');
+  background-repeat:no-repeat;
+  background-position: -35px -105px;
 }
 
 
@@ -41,21 +73,8 @@
 }
 
 .gemRow {
-  min-height: 5em;
+  min-height: 6em;
 }
-
-// .gemRow {
-//   display: flex;
-//   flex: 1;
-//   align-items: center;
-//   margin-top: 0.3em;
-//   margin-bottom: 0.3em;
-//   background-color: green;
-// }
-
-// .gemGroup {
-//   // justify-content: right;
-// }
 
 .gemName {
   font-size: large;

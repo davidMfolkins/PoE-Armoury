@@ -1,7 +1,6 @@
 import Skill from './Skill'
 import className from 'classnames'
 import { Table } from 'react-bootstrap'
-import '../images/socket.png'
 
 export default function Skills (props) {
 
@@ -49,6 +48,7 @@ export default function Skills (props) {
 
   const builder = finalArray.map((connections, index) => {
 
+    const gemColour = props.item.sockets[index].sColour
     const gemSocket = gems.find(g => g.socket === index)
 
     let level;
@@ -87,11 +87,11 @@ export default function Skills (props) {
         return (
           <>
             <div className={"links span" + connections}>{connections} links</div>
-            <div className="gemRow empty">Empty Socket</div>
+            <div className="gemRow empty"><div className={"socketColour" + gemColour}/></div>
           </>
         )
       } else {
-        return <div className="gemRow empty">Empty Socket</div>
+        return <div className="gemRow empty"><div className={"socketColour" + gemColour}/></div>
       }
     }
   })
