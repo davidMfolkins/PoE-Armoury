@@ -113,13 +113,21 @@ export default function Item(props) {
     flavourText = <div className="flavour"><i>{props.item.flavourText}</i></div>
   }
 
-  const cursader = props.item.infulences.cursader ? <div className="corrupted"><i>Cursader</i></div> : null
+  let crusader;
+  let redeemer;
+  let hunter;
+  let warlord;
 
-  const redeemer = props.item.infulences.redeemer ? <div className="corrupted"><i>Redeemer</i></div> : null
+  if(props.item.influences) {
+    crusader = props.item.influences.crusader ? <div className="corrupted"><i>Crusader</i></div> : null
+  
+    redeemer = props.item.influences.redeemer ? <div className="corrupted"><i>Redeemer</i></div> : null
 
-  const hunter = props.item.infulences.hunter ? <div className="corrupted"><i>Hunter</i></div> : null
+    hunter = props.item.influences.hunter ? <div className="corrupted"><i>Hunter</i></div> : null
 
-  const warlord = props.item.infulences.warlord ? <div className="corrupted"><i>Warlord</i></div> : null
+    warlord = props.item.influences.warlord ? <div className="corrupted"><i>Warlord</i></div> : null
+  }
+
 
   const elder = props.item.elder ? <div className="corrupted"><i>Elder</i></div> : null
 
@@ -128,7 +136,6 @@ export default function Item(props) {
   const fractured = props.item.fractured ? <div className="corrupted"><i>Fractured</i></div> : null
 
   const corrupted = props.item.corrupted ? <div className="corrupted"><i>Corrupted</i></div> : null
-
 
   const popover = (
     <Popover id={itemRarity} style={{ minWidth: '300px' }}>
@@ -162,8 +169,8 @@ export default function Item(props) {
         {elder}
         {shaper && <div className="item-separator"/>}
         {shaper}
-        {cursader && <div className="item-separator"/>}
-        {cursader}
+        {crusader && <div className="item-separator"/>}
+        {crusader}
         {hunter && <div className="item-separator"/>}
         {hunter}
         {redeemer && <div className="item-separator"/>}
