@@ -109,14 +109,18 @@ export default function Application() {
   };
 
   useEffect(() => {
+    if (cookies.user) {
       axios.get(`http://localhost:3030/users/${cookies.user}/favourites`).then((result) => {
         console.log('favs from server: ', result)
         if (result) {
         setFavourites(result.data)
-        }
+        } 
       }).catch((err) => {
         console.log(err)
       })
+    } else {
+      setFavourites([])
+    }
   }, [])
 
   function removeFavourite(name) {

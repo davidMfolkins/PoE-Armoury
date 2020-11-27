@@ -1,6 +1,7 @@
 @import'Helper';
 
 .message {
+  z-index: 2000;
   background-color: $black-transparent;
   color: $white;
   position: absolute;
