@@ -16,3 +16,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#back-button {
+  position: fixed;
+  margin-top: 50vh;
+  margin-left: 2vw;
+  color: rgba(255,255,255,0.5);
+  animation-name: back;
+  animation-iteration-count: infinite;
+  animation-duration: 8s;
+  &:hover {
+    color: rgba(255,255,255,0.8);
+    // transform: scale(1.1)
+  }
+}
+
+@keyframes back {
+  0% {transform: translateX(0px)}
+  5% {transform: translateX(-10px)}
+  10% {transform: translateX(0px)}
+  15% {transform: translateX(-10px)}
+  20% {transform: translateX(0px)}
+  100% {transform: translateX(0px)}
+}
