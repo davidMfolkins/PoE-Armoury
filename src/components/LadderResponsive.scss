@@ -1,0 +1,13 @@
+#ladderTable {
+  & > .row {
+    margin: unset;
+  }
+  & > thead > .row {
+    margin: unset;
+  }
+  & tr > td {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

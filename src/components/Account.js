@@ -2,13 +2,29 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
 import './Account.scss'
-import { Table } from 'react-bootstrap'
+import LadderResponsive from "./LadderResponsive";
 
 function Account(props) {
   const accountName = props.account;
   console.log(props.account)
 
   const [chars, setchars] = useState([])
+  const [smallScreen, setSmallScreen] = useState(false);
+
+  window.addEventListener("resize", () => handleResize());
+
+  function handleResize() {
+    setSmallScreen(window.innerWidth < 480);
+  }
+  const handleCharacterChange = function (account, character, id) {
+    props.getCharacter(account, character);
+  };
+
+  useState(() => {
+    if (window.innerWidth < 480) {
+      setSmallScreen(true);
+    }
+  }, []);
 
   useEffect(() => {
     axios.get(`http://localhost:3030/accounts/${accountName}`)
@@ -25,25 +41,14 @@ function Account(props) {
         
         } else {
           props.setState('account')
-          setchars(result.data)
+          const characters = result.data.map((entry) => {
+            return {'character': entry, 'account': { 'name': props.account}}
+          })
+          setchars(characters)
         }
       })
 
   }, [])
-
-  const rows = chars.map((entry) => {
-    const className = entry.class
-    const classIcon = `/icons/${className.toLowerCase()}_icon.png`
-    return (
-      <tr id="accountList" className="d-flex" onClick={() => props.getCharacter(accountName, entry.name)}>
-        <td id="classCell" className="col-3"><img src={classIcon}/> {className}</td>
-        <td className="col-3">{entry.name}</td>
-        <td className="col-3">{entry.level}</td>
-        <td className="col-3">{entry.league}</td>
-      </tr>
-    )
-  })
-
   return (
     <div className="accountPage">
 
@@ -53,19 +58,17 @@ function Account(props) {
       </div>
       <div className="accountName">{accountName}</div>
       <div className="accountContainer">
-        <Table id="accountTable" striped bordered variant="dark">
-          <thead>
-            <tr className="d-flex">
-              <th className="col-3">Class</th>
-              <th className="col-3">Name</th>
-              <th className="col-3">Level</th>
-              <th className="col-3">League</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows}
-          </tbody>
-        </Table>
+
+      {chars && <LadderResponsive
+        characters={chars}
+        visible={chars.length}
+        smallScreen={smallScreen}
+        handleCharacterChange={handleCharacterChange}
+        cookies={{}}
+        favourites={props.favourites}
+        account={true}
+      />}
+
       </div>
     </div>
   );

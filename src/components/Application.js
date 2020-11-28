@@ -168,7 +168,7 @@ function back() {
         <Switch>
       <Route exact path="/">
 
-         {state === "account" && <Account account={account} getCharacter={getCharacter} setState={setState} setLoadingMsg={setLoadingMsg} setLoadingError={setLoadingError}/>}
+         {state === "account" && <Account account={account} getCharacter={getCharacter} setState={setState} setLoadingMsg={setLoadingMsg} setLoadingError={setLoadingError} cookies={cookies}/>}
             {state === "ladder" && <Ladder getCharacter={getCharacter} setState={setState} standard={standardLadder} hardcore={hardcoreLadder} favourites={favourites} addFavourite={addFavourite} removeFavourite={removeFavourite} setMsg={setMsg} cookies={cookies}/>}
 
           {state === 'character' && character && <Character
