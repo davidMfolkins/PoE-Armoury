@@ -15,6 +15,7 @@ function Ladder(props) {
   const [hasTwitch, sethasTwtich] = useState(false)
   const [hardcore, setHardcore] = useState(true)
   const [visible, setVisible] = useState(counter)
+  const [ favouriteFilter, setFavouriteFilter ] = useState(false)
 
 
   useEffect(() => {
@@ -52,11 +53,12 @@ let rows;
       const newArray = data
       .filter(hero => hero.character.class.toLowerCase().includes(filter.toLowerCase()))
       .filter(hero => !hasTwitch || hero.account.twitch)
+      .filter(hero => !favouriteFilter || props.favourites.some(fav => fav.character_name === hero.character.name))
     setFilteredData(newArray)
     }
    
 
-  }, [data, filter, hasTwitch])
+  }, [data, filter, hasTwitch, favouriteFilter])
 
   const changeButton = function () {
     if (!hardcore) {
@@ -86,6 +88,10 @@ let rows;
     props.getCharacter(account, character);
   }
 
+  const handleFavouriteFilter = function (evt) {
+    setFavouriteFilter(evt.target.checked)
+  }
+
   return (
     <div className="ladderPage">
 
@@ -93,7 +99,7 @@ let rows;
       <div id="topButtons">
         <button type="button" id="ladderButton" onClick={() => setHardcore(!hardcore)}>{changeButton()}</button>
       </div>
-      <Filter filter={filter} hasTwtich={hasTwitch} onFilterChange={handleFilterChange} onTwitchChange={handleTwitchChange} />
+      <Filter filter={filter} hasTwtich={hasTwitch} favourited={favouriteFilter} onFilterChange={handleFilterChange} onTwitchChange={handleTwitchChange} onFavouriteChange={handleFavouriteFilter}/>
       <div className="ladderContainer">
         <Table id="ladderTable" responsive striped bordered variant="dark">
           <thead>
