@@ -42,7 +42,7 @@ function Account(props) {
         } else {
           props.setState('account')
           const characters = result.data.map((entry) => {
-            return {'character': entry, 'account': {}}
+            return {'character': entry, 'account': { 'name': props.account}}
           })
           setchars(characters)
         }
