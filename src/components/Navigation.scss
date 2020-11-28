@@ -19,7 +19,9 @@
 .nav-link {
   font-family: $title-font!important;
 }
-
+.m-auto {
+  margin-right: 25%!important;
+}
 
 a.mx-3.my-2.nav-link:active {
   box-shadow: none;
@@ -34,4 +36,10 @@ a.mx-3.my-2.nav-link:active {
 
 #basic-nav-dropdown {
   color: $white;
+}
+
+@media only screen and (max-width: 1024px) {
+  .m-auto {
+    margin: auto!important;
+  }
 }
