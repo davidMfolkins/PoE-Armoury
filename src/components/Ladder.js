@@ -10,7 +10,6 @@ import { FaTwitch } from "react-icons/fa";
 const counter = 20;
 
 function Ladder(props) {
-
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState(null);
   const [filter, setFilter] = useState("");
@@ -30,7 +29,6 @@ function Ladder(props) {
     }
   }, [hardcore]);
 
-
   function handleResize() {
     setSmallScreen(window.innerWidth < 480);
   }
@@ -41,32 +39,38 @@ function Ladder(props) {
     }
   }, []);
 
+
   useEffect(() => {
     if (data) {
       const newArray = data
-        .filter(hero => hero.character.class.toLowerCase().includes(filter.toLowerCase()))
-        .filter(hero => !hasTwitch || hero.account.twitch)
-        .filter(hero => !favouriteFilter || props.favourites.some(fav => fav.character_name === hero.character.name))
-      setFilteredData(newArray)
+        .filter((hero) =>
+          hero.character.class.toLowerCase().includes(filter.toLowerCase())
+        )
+        .filter((hero) => !hasTwitch || hero.account.twitch)
+        .filter(
+          (hero) =>
+            !favouriteFilter ||
+            props.favourites.some(
+              (fav) => fav.character_name === hero.character.name
+            )
+        );
+      setFilteredData(newArray);
     }
-
-
-  }, [data, filter, hasTwitch, favouriteFilter])
+  }, [data, filter, hasTwitch, favouriteFilter]);
 
   const changeButton = function () {
     if (!hardcore) {
-      return "Heist Hardcore Ladder"
+      return "Hardcore Ladder";
     } else {
-      return "Heist Ladder"
-
+      return "Standard Ladder";
     }
   };
 
   const tableName = function () {
     if (hardcore) {
-      return "Heist Hardcore Ladder"
+      return "Hardcore Ladder";
     } else {
-      return "Heist Ladder"
+      return "Standard Ladder";
     }
   };
 
@@ -113,7 +117,8 @@ function Ladder(props) {
         handleCharacterChange={handleCharacterChange}
         cookies={props.cookies}
         favourites={props.favourites}
-        
+        setMsg={props.setMsg}
+        addFavourite={props.addFavourite}
       />}
       </div>
       {filteredData && visible < filteredData.length && (

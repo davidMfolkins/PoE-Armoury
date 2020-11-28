@@ -5,6 +5,8 @@
   background-color: $black-transparent;
   overflow-anchor: none;
   margin: 1em;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
 }
 
 .ladderContainer {
@@ -13,6 +15,7 @@
   margin: auto;
   font-size: 20px;
   text-align: center;
+
 }
 
 .ladderTitle {
@@ -22,6 +25,7 @@
   color:  $white;
   border-bottom: 2px solid $yellow;
   margin-bottom: 10px;
+  padding: 0.3em;
 }
 
 #topButtons {
