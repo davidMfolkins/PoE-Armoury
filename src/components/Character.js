@@ -117,7 +117,7 @@ export default function Character(props) {
           </Row>
         </Col>
 
-        <Row lg={5} xs={12}>
+        <Row lg={4} xs={12}>
           {gems}
         </Row>
 
