@@ -153,7 +153,7 @@ let quickSearch = async function () {
         <div className="container">
         <FormControl
           type="text"
-          placeholder="Search for player..."
+          placeholder="Search for account or player..."
           name="search"
           onKeyUp={(e) => searchSelection(e)}
         />
