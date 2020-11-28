@@ -108,3 +108,32 @@ td {
 		display: block; 
 	}
 }
+@media only screen and (max-width: 480px) { 
+.ladderPage {
+  margin: 0;
+}
+.ladder-entry-small {
+  display: flex;
+  flex-direction: row;
+  padding: 0.3em;
+}
+.ladder-entry-small-inner {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.5em;
+  & > div {
+    text-align: left;
+  }
+}
+
+.ladder-buttons-small {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+  & div {
+    padding-top: 0.2em;
+  }
+}
