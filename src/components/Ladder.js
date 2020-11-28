@@ -37,7 +37,7 @@ function Ladder(props) {
       const classIcon = `/icons/${className.toLowerCase()}_icon.png`
       return (
         <tr id="ladderList" className="d-flex">
-          <td id="classCell" className="col-3"><img src={classIcon} alt={entry.character.name} /> | {className}</td>
+          <td id="classCell" className="col-3"><img src={classIcon} alt={entry.character.name} /> {className}</td>
           <td className="col-3" onClick={() => handleCharacterChange(entry.account.name, entry.character.name, entry.character.id)}>{entry.character.name} </td>
           <td className="col-2">{entry.character.level}</td>
           <td className="col-3">{entry.account.twitch && <a href={`https://twitch.tv/${entry.account.twitch.name}`} target="_blank" rel="noreferrer">{entry.account.twitch.name}</a>}</td>
