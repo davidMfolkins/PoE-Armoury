@@ -65,6 +65,7 @@ let quickSearch = async function () {
                   <td onClick={() => {
                     props.setAccount(entry.name)
                     setValue('')
+                    props.setState('account')
                     setSearchResults([])
                     setHidden('hidden')
                   }
