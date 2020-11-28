@@ -67,6 +67,7 @@ function Account(props) {
         handleCharacterChange={handleCharacterChange}
         cookies={{}}
         favourites={props.favourites}
+        account={true}
         
       />}
       </div>
