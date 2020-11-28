@@ -14,6 +14,10 @@ function Filter(props) {
   function handleTwitchChange(event) {
     props.onTwitchChange(event)
   }
+
+  function handleFavouriteChange(event) {
+    props.onFavouriteChange(event)
+  }
   return (
     <Accordion className="accordianContainer">
       <Card>
@@ -39,6 +43,13 @@ function Filter(props) {
                   aria-label="check box to check has twitch filter"
                   checked={props.hasTwitch}
                   onClick={handleTwitchChange}
+                />
+                <div className="filterTitle">Favorites </div>
+                <input
+                  type="checkbox"
+                  aria-label="check box to only see favorites"
+                  checked={props.favourited}
+                  onClick={handleFavouriteChange}
                 />
               </Form>
             </div>
