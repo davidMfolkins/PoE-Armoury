@@ -9,10 +9,10 @@ export default function Navigation(props) {
       <Navbar.Brand id="nav-logo" style={{ cursor: 'pointer' }} href="/">PoE Armoury</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          {/* <Nav.Link className="mx-3 my-2" onClick={() => props.setGrab(!props.grab)}>Seed</Nav.Link> */}
+        {/* <Nav className="mr-auto">
+          <Nav.Link className="mx-3 my-2" onClick={() => props.setGrab(!props.grab)}>Seed</Nav.Link>
 
-        </Nav>
+        </Nav> */}
         <Nav className="m-auto">
           <Searchbar id="poe-search" getCharacter={props.getCharacter} setState={props.setState} setAccount={props.setAccount} state={props.state} />
         </Nav>
