@@ -106,7 +106,7 @@ export default function Character(props) {
       </Row>
       <Row className="p-3" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
        
-        <Col>
+        <Col lg={12}>
           <Row className="poe-container">
             <Items windowWidth={windowWidth} items={props.character.items.items} />
           </Row>
@@ -116,11 +116,9 @@ export default function Character(props) {
             </Col>
           </Row>
         </Col>
-
         <Row lg={4} xs={12}>
           {gems}
         </Row>
-
       </Row>
 
     </div>
