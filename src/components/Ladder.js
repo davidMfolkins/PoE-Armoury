@@ -64,7 +64,7 @@ let rows;
     if (!hardcore) {
       return "Heist Hardcore Ladder"
     } else {
-      return "Hesit Ladder"
+      return "Heist Ladder"
     }
   }
 
@@ -72,7 +72,7 @@ let rows;
     if (hardcore) {
       return "Heist Hardcore Ladder"
     } else {
-      return "Hesit Ladder"
+      return "Heist Ladder"
     }
   }
 
