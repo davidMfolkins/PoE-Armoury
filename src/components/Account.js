@@ -49,8 +49,6 @@ function Account(props) {
       })
 
   }, [])
-  
-
   return (
     <div className="accountPage">
 
@@ -60,6 +58,7 @@ function Account(props) {
       </div>
       <div className="accountName">{accountName}</div>
       <div className="accountContainer">
+
       {chars && <LadderResponsive
         characters={chars}
         visible={chars.length}
@@ -68,8 +67,8 @@ function Account(props) {
         cookies={{}}
         favourites={props.favourites}
         account={true}
-        
       />}
+
       </div>
     </div>
   );

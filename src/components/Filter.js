@@ -92,7 +92,7 @@ function Filter(props) {
                       checked={props.hasTwitch}
                       onClick={handleTwitchChange}
                     />
-                    <Form.Check.Label>has Twitch</Form.Check.Label>
+                    <Form.Check.Label>Has Twitch</Form.Check.Label>
                  
                   </Form.Check>
                 </div>
@@ -104,7 +104,7 @@ function Filter(props) {
                       checked={props.favourited}
                       onClick={handleFavouriteChange}
                     />
-                    <Form.Check.Label>favourited</Form.Check.Label>
+                    <Form.Check.Label>Favourited</Form.Check.Label>
                     {!props.cookies.user && <Form.Control.Feedback type="valid" id="login-for-favourites">Account required</Form.Control.Feedback>}
                   </Form.Check>
                 </div>

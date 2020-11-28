@@ -18,10 +18,6 @@ function Searchbar(props) {
 
   }, [props.state])
 
- 
-  
-
-
   function selectSearchItem(name) {
     props.getCharacter('none', name);
     setSearchResults(null)
@@ -153,7 +149,7 @@ let quickSearch = async function () {
         <div className="container">
         <FormControl
           type="text"
-          placeholder="Search for player..."
+          placeholder="Search for Character or PoE Account name..."
           name="search"
           onKeyUp={(e) => searchSelection(e)}
         />
