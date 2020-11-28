@@ -92,7 +92,7 @@ function Ladder(props) {
 
   return (
     <div className="ladderPage">
-      
+
       <div className="ladderTitle">{tableName()}</div>
       <div id="topButtons">
         <Filter
