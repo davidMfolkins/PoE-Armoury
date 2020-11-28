@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-export default function fetchCharacter(accountName, characterName) {
+function fetchCharacter(accountName, characterName) {
   return axios
     .get(
       `http://localhost:3030/accounts/${accountName}/characters/${characterName}`,
@@ -13,5 +13,28 @@ export default function fetchCharacter(accountName, characterName) {
     .catch((err) => {
       return err;
     });
+}
+
+
+function getCharacter(accountName, characterName) {
+
+  const randomInterval = function () {
+    return Math.floor((Math.random() * 500) + 100)
+  }
+  setState("loading");
+  setTimeout(() => {
+    fetchCharacter(accountName, characterName).then((res) => {
+      if (res.name === "Error") {
+        setCharacter(null);
+      } else {
+        setCharacter(res);
+      }
+      setState("character");
+    });
+  }, randomInterval())
+};
+
+export {
+  getCharacter
 }
 

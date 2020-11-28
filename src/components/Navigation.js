@@ -6,7 +6,7 @@ export default function Navigation(props) {
 
   return (
     <Navbar fixed="top" variant="dark" bg="dark" expand="lg">
-    <Navbar.Brand id="nav-logo" style={{cursor: 'pointer'}}onClick={() => props.setState('ladder')}>PoE Armoury</Navbar.Brand>
+    <Navbar.Brand id="nav-logo" style={{cursor: 'pointer'}} href="/">PoE Armoury</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto"> 
@@ -17,12 +17,14 @@ export default function Navigation(props) {
       <Searchbar id="poe-search" getCharacter={props.getCharacter} setState={props.setState} setAccount={props.setAccount} state={props.state}/>
         </Nav>
       {props.cookies.user && 
-      <Nav className="ml-auto">
-         <Nav.Link className="mx-3 my-2" onClick={() => props.setState('favourites')}>Favourites</Nav.Link>
-      <Nav.Link className="mx-3 my-2" href="/logout" onClick={(e) => {
-        props.removeCookie("user")
-      }}>Logout</Nav.Link>
-      </Nav>}
+      <NavDropdown title="Account" id="basic-nav-dropdown">
+      <NavDropdown.Item  onClick={() => props.setState('favourites')}>Favourites</NavDropdown.Item>
+      <NavDropdown.Item href="#action/3.2">My Account</NavDropdown.Item>
+      
+      <NavDropdown.Divider />
+      <NavDropdown.Item href="/logout" onClick={(e) => props.removeCookie("user")}>Logout</NavDropdown.Item>
+    </NavDropdown>
+      }
       {!props.cookies.user && 
       <Nav className="ml-auto">
         <Nav.Link className="mx-3 my-2" href="/login" onClick={(e) => {
