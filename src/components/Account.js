@@ -36,7 +36,7 @@ function Account(props) {
     const classIcon = `/icons/${className.toLowerCase()}_icon.png`
     return (
       <tr id="accountList" className="d-flex" onClick={() => props.getCharacter(accountName, entry.name)}>
-        <td className="col-3"><img src={classIcon}/> | {className}</td>
+        <td id="classCell" className="col-3"><img src={classIcon}/> | {className}</td>
         <td className="col-3">{entry.name}</td>
         <td className="col-3">{entry.level}</td>
         <td className="col-3">{entry.league}</td>
