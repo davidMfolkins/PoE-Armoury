@@ -1,32 +1,15 @@
 @import "~bootstrap/scss/bootstrap";
 @import'Helper';
 
-.filterContainer {
-  display: flex;
-  background-color: #343a40;
-  color: $white;
-}
+
 
 .accordianContainer {
-  margin-left: 10%;
-  margin-top: 10px;
-  width: 200px;
-}
-
-#bootstrap {
-  background-color: unset!important;
-  border: 0px!important;
-  background-image: $rock-background;
-  color: $white;
-}
-
-#bootstrap:focus {
-  outline: none!important;
-  box-shadow: none!important;
+  margin: auto;
+  min-width: 900px;
 }
 
 #cardBody {
-  background-color: #343a40;
+  background-color:$black-transparent;
   padding: 1px 10px
 }
 
@@ -34,12 +17,82 @@
   margin-bottom: 5px;
 }
 
-.card {
-  background-color: black!important;
+.filter-buttons-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: unset!important;
+    button {
+    background-image: $rock-background;
+    color: $white;
+    padding: 0.3em;
+    min-width: 200px;
+    border-radius: 7px;
+    border: 1px solid rgb(48, 48, 48);
+    z-index: 2000;
+    &:hover {
+      border: 1px solid $yellow;
+    }
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+    
+  }
 }
 
-@media only screen and (max-width: 1024px) {
+.filterContainer {
+  display: flex;
+  width: 100%;
+  color: $white;
+  #filter-form {
+    width: 100%;
+    display: flex;  
+    justify-content: space-evenly;
+    .filter-container:first-child {
+      // width: 40%;
+    }
+  }
+}
+
+#class-select {
+  width: 65%;
+}
+
+#login-for-favourites {
+  display: inline-block;
+  position: absolute;
+  top: 1.5vh;
+  left: 2vw;
+  color: $red
+}
+
+
+.card {
+  background-color: unset!important;
+  border: none!important;
+  width: 80%;
+  margin: auto;
+}
+
+@media only screen and (max-width: 768px) { 
   .accordianContainer {
-    margin-left: 1%;
+    min-width: 80%;
+  }
+  .card {
+    width: auto;
+    margin: 0!important;
+  }
+}
+
+@media only screen and (max-width: 480px) { 
+  .filter-buttons-container {
+    width: 250px;
+    flex-direction: column;
+    margin:auto;
+  }
+  .filterContainer {
+    display: flex;
+    max-width: 250px;
   }
 }
