@@ -97,9 +97,10 @@ let rows;
 
       <div className="ladderTitle">{tableName()}</div>
       <div id="topButtons">
-        <button type="button" id="ladderButton" onClick={() => setHardcore(!hardcore)}>{changeButton()}</button>
+   
+        <Filter cookies={props.cookies} hardcore={hardcore} changeButton={changeButton} setHardcore={setHardcore} filter={filter} hasTwtich={hasTwitch} favourited={favouriteFilter} onFilterChange={handleFilterChange} onTwitchChange={handleTwitchChange} onFavouriteChange={handleFavouriteFilter}/>
       </div>
-      <Filter filter={filter} hasTwtich={hasTwitch} favourited={favouriteFilter} onFilterChange={handleFilterChange} onTwitchChange={handleTwitchChange} onFavouriteChange={handleFavouriteFilter}/>
+     
       <div className="ladderContainer">
         <Table id="ladderTable" responsive striped bordered variant="dark">
           <thead>

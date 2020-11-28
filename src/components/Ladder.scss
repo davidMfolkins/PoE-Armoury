@@ -4,6 +4,7 @@
 .ladderPage {
   background-color: $black-transparent;
   overflow-anchor: none;
+  margin: 1em;
 }
 
 .ladderContainer {
@@ -25,8 +26,10 @@
 
 #topButtons {
   display: flex;
-  justify-content: flex-end;
-  margin-right: 10%;
+  justify-content: space-between;
+  margin: auto;
+  width: 80%;
+  min-height: 30px;
 }
 
 #ladderList:hover {
@@ -34,17 +37,7 @@
   cursor: pointer;
 }
 
-#ladderButton {
-  margin-left: 10%;
-  background-image: $rock-background;
-  color: $white;
-  border: 1px solid black!important;
-  border-radius: 3px;
-}
-#ladderButton:focus {
-  outline: none;
-  box-shadow: none;
-}
+
 
 img {
   height: 60px;
@@ -71,7 +64,7 @@ td {
   font-size: 25px;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1200px) {
   .container {
     max-width: 2000px!important;
     padding: unset!important;
@@ -81,7 +74,7 @@ td {
     width: 100%;
   }
   #topButtons {
-    margin-right: 1%;
+    width: 100%;
   }
   table, thead, tbody, th, td, tr { 
 		display: block; 
@@ -98,4 +91,20 @@ td {
 		padding-left: 50%; 
 	}
 
+}
+@media only screen and (max-width: 768px) { 
+  .container {
+    max-width: 2000px!important;
+    padding: unset!important;
+  }
+
+  .ladderContainer {
+    width: 100%;
+  }
+  #topButtons {
+    width: 100%;
+  }
+  table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
 }
