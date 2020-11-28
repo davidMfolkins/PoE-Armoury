@@ -8,7 +8,7 @@
 }
 
 .links {
-  background-color: hotpink;
+  // background-color: hotpink;
   grid-column: 1;
 }
 
@@ -20,6 +20,9 @@
 }
 .span3 {
   grid-row: span 3;
+  background-image: url(https://cdn.discordapp.com/attachments/346348529087676417/782052790913466399/kek1linkss.png);
+  background-repeat: no-repeat;
+  background-position-y: -30px;
 }
 .span4 {
   grid-row: span 4;

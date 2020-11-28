@@ -72,7 +72,7 @@ export default function Skills (props) {
       if (connections) {
         return (
           <>
-            <div className={"links span" + connections}>{connections} links</div>
+            <div className={"links span" + connections}></div>
             <div className="gemRow"><Skill gem={gemSocket}/> <div className="gemName">{gemSocket.typeLine} <div className="gemStats">(Level: {level} / Quality: {quality || "0"})</div></div></div>
           </>
         )
@@ -86,7 +86,7 @@ export default function Skills (props) {
       if (connections) {
         return (
           <>
-            <div className={"links span" + connections}>{connections} links</div>
+            <div className={"links span" + connections}></div>
             <div className="gemRow empty"><div className={"socketColour" + gemColour}/>Empty Socket</div>
           </>
         )
