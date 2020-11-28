@@ -84,8 +84,7 @@
 .armour {
   @extend .item; 
   left: 40%;
-  top: 40%;
-  
+  top: 30%;
 }
 
 .gloves {
@@ -98,7 +97,7 @@
   @extend .item; 
   max-width: 50px;
   left: 25%;
-  top: 60%;
+  top: 62%;
   
 }
 .ring2 {
@@ -119,11 +118,9 @@
   top: 25%;
 }
 
-
-
 .amulet {
   @extend .item; 
-  left: 45%;
+  left: 60%;
   top: 27%;
 }
 
@@ -136,6 +133,11 @@
   @extend .item; 
   left: 5%;
   top: 25%;
+}
+
+.trinket {
+  left: 4%;
+  top:75%;
 }
 
 .hidden {

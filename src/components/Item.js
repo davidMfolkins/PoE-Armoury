@@ -26,6 +26,7 @@ export default function Item(props) {
     "amulet": props.item.inventoryId === 'Amulet',
     "belt": props.item.inventoryId === 'Belt',
     "weapon": props.item.inventoryId === 'Weapon',
+    "trinket": props.item.inventoryId === 'Trinket',
     "hidden": props.item.inventoryId === 'Weapon2' || props.item.inventoryId === 'Offhand2',
     "unique": props.item.frameType === 3,
     "rare": props.item.frameType === 2,
