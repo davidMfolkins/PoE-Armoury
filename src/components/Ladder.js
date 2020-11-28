@@ -88,7 +88,7 @@ function Ladder(props) {
 
   return (
     <div className="ladderPage">
-      
+
       <div className="ladderTitle">{tableName()}</div>
       <div id="topButtons">
         <Filter
@@ -106,15 +106,15 @@ function Ladder(props) {
       </div>
 
       <div className="ladderContainer">
-      {filteredData && <LadderResponsive
-        characters={filteredData}
-        visible={visible}
-        smallScreen={smallScreen}
-        handleCharacterChange={handleCharacterChange}
-        cookies={props.cookies}
-        favourites={props.favourites}
-        
-      />}
+        {filteredData && <LadderResponsive
+          characters={filteredData}
+          visible={visible}
+          smallScreen={smallScreen}
+          handleCharacterChange={handleCharacterChange}
+          cookies={props.cookies}
+          favourites={props.favourites}
+
+        />}
       </div>
       {filteredData && visible < filteredData.length && (
         <button

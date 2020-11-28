@@ -17,7 +17,7 @@ const classNames = require('classnames')
 
 export default function Character(props) {
 
-  const [ windowWidth, setWindowWidth ] = useState(window.innerWidth)
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   let arrangedItems = []
   let helm;
@@ -29,7 +29,7 @@ export default function Character(props) {
   let ring;
   let ring2;
   let amulet;
-  
+
 
   for (const item of props.character.items.items) {
     if (item.inventoryId === "Helm") {
@@ -55,13 +55,13 @@ export default function Character(props) {
 
   arrangedItems = [helm, gloves, boots, offhand, weapon, bodyarmour, ring, ring2, amulet]
 
-  const filteredArrangedItems = arrangedItems.reduce(function(result, element) {
+  const filteredArrangedItems = arrangedItems.reduce(function (result, element) {
     if (element) {
       result.push(element)
     }
     return result
   }, []);
-  
+
 
   const gems = filteredArrangedItems.map(item => {
     if (item.inventoryId === "Offhand2" || item.inventoryId === "Weapon2" || item.inventoryId === "Belt") {
@@ -73,7 +73,7 @@ export default function Character(props) {
   })
 
   useEffect(() => {
-    function handleResize () {
+    function handleResize() {
       setWindowWidth(window.innerWidth)
     }
     window.addEventListener("resize", handleResize)
@@ -83,13 +83,10 @@ export default function Character(props) {
   const classIcon = `/icons/${charClass.toLowerCase()}_icon.png`
   return (
 
-    <div className="container character-container char" style={{ borderRadius: '10px'}}>
-      <div style={{padding: '5px'}}>
-        <button type="button" id="ladderButton" onClick={() => props.setState("ladder")}>Back to Ladder</button>
-      </div>
+    <div className="container character-container char" style={{ borderRadius: '10px' }}>
       <Row className="p-5 char-title">
         <Col lg="auto" ><img src={classIcon} alt={props.character.class} /></Col>
-        <Col lg={9}  className="my-auto">
+        <Col lg={9} className="my-auto">
           <h1 >{props.character.name}</h1>
           <h5 >{props.character.level} | {props.character.class}</h5>
           <h5><a href="/" onClick={(e) => {
@@ -99,13 +96,13 @@ export default function Character(props) {
           }}>{props.character.account_name}</a></h5>
         </Col>
         <Col>
-        {props.cookies.user &&<LikeButton character={props.character} favourites={props.favourites} addFavourite={props.addFavourite} removeFavourite={props.removeFavourite} size="4em" msg={props.msg} setMsg={props.setMsg}/>}
+          {props.cookies.user && <LikeButton character={props.character} favourites={props.favourites} addFavourite={props.addFavourite} removeFavourite={props.removeFavourite} size="4em" msg={props.msg} setMsg={props.setMsg} />}
         </Col>
-      
+
 
       </Row>
       <Row className="p-3" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
-       
+
         <Col lg={12}>
           <Row className="poe-container">
             <Items windowWidth={windowWidth} items={props.character.items.items} />
