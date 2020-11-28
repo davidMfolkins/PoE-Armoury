@@ -10,12 +10,11 @@ import Login from './Login'
 import Favourites from './Favourites';
 import Grabber from './Grabber'
 import Message from './Message'
-import fetchCharacter from "./helpers/getters";
+import { getCharacter  } from "./helpers/getters";
 import Container from "react-bootstrap/Container";
 import { useState, useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { useCookies } from 'react-cookie';
-import { addFavourite } from './helpers/getters'
 import ScrollUpButton from "react-scroll-up-button";
 import axios from 'axios'
 
@@ -87,74 +86,48 @@ export default function Application() {
 }, []);
 
 useEffect(() => {
+  if (cookies.user) {
+    axios.get(`http://localhost:3030/users/${cookies.user}/favourites`).then((result) => {
+      console.log('favs from server: ', result)
+      if (result) {
+      setFavourites(result.data)
+      } 
+    }).catch((err) => {
+      console.log(err)
+    })
+  } else {
+    setFavourites([])
+  }
+}, [])
+
+useEffect(() => {
   if (state !== 'loading' && history[history.length - 1] !== state) {
       setHistory([...history, state])
   }
 
 }, [state])
 
+useEffect(() => {
+  if (cookies.user) {
+    setLoggedIn(true)
+  }
+})
+
 function back() {
   if (history.length >= 1) {
     const previous = history[history.length -1];
     const newHistory = history
     newHistory.splice(-1)
-    console.log(history)
-    console.log(newHistory)
     setHistory(newHistory)
     setState(previous)
   }
- 
-
 }
 
-  useEffect(() => {
-    // document.addEventListener('mouseDown')
-    if (cookies.user) {
-      setLoggedIn(true)
-    }
-  })
 
-  const randomInterval = function () {
-    return Math.floor((Math.random() * 500) + 100)
-  }
-
-  const getCharacter = function (accountName, characterName) {
-    setState("loading");
-    setTimeout(() => {
-      fetchCharacter(accountName, characterName).then((res) => {
-        console.log('fetch char result: ', res)
-        if (res.name === "Error") {
-          setCharacter(null);
-        } else {
-          setCharacter(res);
-        }
-        setState("character");
-      });
-    }, randomInterval())
-  };
-
-  useEffect(() => {
-    if (cookies.user) {
-      axios.get(`http://localhost:3030/users/${cookies.user}/favourites`).then((result) => {
-        console.log('favs from server: ', result)
-        if (result) {
-        setFavourites(result.data)
-        } 
-      }).catch((err) => {
-        console.log(err)
-      })
-    } else {
-      setFavourites([])
-    }
-  }, [])
 
   function removeFavourite(name) {
     console.log('removing fav:', cookies.user, name)
    axios.delete(`http://localhost:3030/users/${cookies.user}/favourites/${name}`).then((result) => {
-    //  console.log(result)
-    //  console.log(favourites)
-    //   const newFavourites = favourites.filter(fav => fav.character_name !== result.data[0].character_name)
-    //   console.log(newFavourites)
       setFavourites(result.data)
     }).catch((err) => {
       console.log(err)
@@ -162,9 +135,7 @@ function back() {
   }
 
   function addFavourite(name) {
-    console.log('adding fav:', cookies.user, name)
     axios.post(`http://localhost:3030/users/${cookies.user}/favourites/${name}`).then((result) => {
-      console.log(result)
       setFavourites(result.data)
     }).catch((err) => {
       console.log(err)
