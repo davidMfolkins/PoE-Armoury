@@ -14,27 +14,51 @@
 
 .span1 {
   grid-row: span 1;
+  background-image: url(https://cdn.discordapp.com/attachments/346348529087676417/782291780900487209/LINK_1_F.png);
+  background-size: 35px 100px;
+  background-repeat: no-repeat;
+  background-position-y: -10px;
+  // background-position-x: 10px;
 }
 .span2 {
   grid-row: span 2;
+  background-image: url(https://cdn.discordapp.com/attachments/346348529087676417/782283965259317279/LINK_2_F.png);
+  background-size: 35px 400px;
+  background-repeat: no-repeat;
+  background-position-y: -115px;
+  background-position-x: 10px;
 }
 .span3 {
   grid-row: span 3;
-  background-image: url(https://cdn.discordapp.com/attachments/346348529087676417/782052790913466399/kek1linkss.png);
+  background-image: url(https://cdn.discordapp.com/attachments/346348529087676417/782290419286933534/LINK_3_F.png);
+  background-size: 35px 400px;
   background-repeat: no-repeat;
-  background-position-y: -30px;
+  background-position-y: -70px;
+  background-position-x: 10px;
 }
 .span4 {
   grid-row: span 4;
+  background-image: url(https://cdn.discordapp.com/attachments/346348529087676417/782287694830633022/LINK_4_F.png);
+  background-size: 35px 600px;
+  background-repeat: no-repeat;
+  background-position-y: -130px;
+  background-position-x: 10px;
 }
 .span5 {
   grid-row: span 5;
-  background-image: url(https://cdn.discordapp.com/attachments/346348529087676417/782272436993261618/LINK_5_NOMS.png);
+  background-image: url(https://cdn.discordapp.com/attachments/346348529087676417/782290931486556180/LINK_5_F.png);
+  background-size: 35px 740px;
   background-repeat: no-repeat;
-  background-position-y: -30px;
+  background-position-y: -98px;
+  background-position-x: 10px;
 }
 .span6 {
   grid-row: span 6;
+  background-image: url(https://cdn.discordapp.com/attachments/346348529087676417/782289927211057172/LINK_6_F.png);
+  background-size: 35px 700px;
+  background-repeat: no-repeat;
+  background-position-y: -75px;
+  background-position-x: 10px;
 }
 
 .empty {
