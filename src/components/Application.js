@@ -10,7 +10,7 @@ import Login from './Login'
 import Favourites from './Favourites';
 import Grabber from './Grabber'
 import Message from './Message'
-import { getCharacter  } from "./helpers/getters";
+import { fetchCharacter  } from "./helpers/getters";
 import Container from "react-bootstrap/Container";
 import { useState, useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
@@ -122,11 +122,8 @@ function back() {
     setState(previous)
   }
 }
-
-
-
+                                  
   function removeFavourite(name) {
-    console.log('removing fav:', cookies.user, name)
    axios.delete(`http://localhost:3030/users/${cookies.user}/favourites/${name}`).then((result) => {
       setFavourites(result.data)
     }).catch((err) => {
@@ -141,6 +138,24 @@ function back() {
       console.log(err)
     })
   }
+
+  function getCharacter(accountName, characterName) {
+
+    const randomInterval = function () {
+      return Math.floor((Math.random() * 500) + 100)
+    }
+    setState("loading");
+    setTimeout(() => {
+      fetchCharacter(accountName, characterName).then((res) => {
+        if (res.name === "Error") {
+          setCharacter(null);
+        } else {
+          setCharacter(res);
+        }
+        setState("character");
+      });
+    }, randomInterval())
+  };
 
   return (
     <Container fluid>
