@@ -101,7 +101,7 @@ function saveCharacters(db, characters, ladder_id) {
 
 
 async function saveAccount(db, accountName) {
-  const account_exists = await db.query(`SELECT id, name FROM accounts WHERE name=$1;`, [accountName]).then((result) => {
+  const account_exists = await db.query(`SELECT id, LOWER(name) FROM accounts WHERE LOWER(name)=$1;`, [accountName.toLowerCase()]).then((result) => {
     return result.rows
   }).catch((err) => {
     console.log(err)
@@ -111,10 +111,10 @@ async function saveAccount(db, accountName) {
   if (account_exists.length > 0) {
     account_id = account_exists[0].id
   } else {
-    account_id = await db.query(`INSERT INTO accounts(name) VALUES($1) RETURNING *;`, [accountName])
+    return await db.query(`INSERT INTO accounts(name) VALUES($1) RETURNING *;`, [accountName.toLowerCase()])
     .then((res) => {
-      console.log(`account added`)
-      return res.rows[0].id;
+      console.log(`account added`, res.rows)
+      return res.rows[0].name;
     }).catch(err => {
       console.log(err)
     })
