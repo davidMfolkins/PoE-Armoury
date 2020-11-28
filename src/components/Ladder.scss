@@ -37,7 +37,10 @@
   cursor: pointer;
 }
 
-
+#classCell {
+  text-align: left;
+  padding-right: unset;
+}
 
 img {
   height: 50px;
@@ -53,6 +56,7 @@ td {
   text-overflow: ellipsis;
   vertical-align: middle!important;
 }
+
 #ladderTable {
   border: 2px solid $yellow;
   color: $white;

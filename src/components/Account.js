@@ -36,11 +36,10 @@ function Account(props) {
     const classIcon = `/icons/${className.toLowerCase()}_icon.png`
     return (
       <tr id="accountList" className="d-flex" onClick={() => props.getCharacter(accountName, entry.name)}>
-        <td className="col-2"><img src={classIcon} /></td>
-        <td className="col-4">{entry.name}</td>
-        <td className="col-2">{entry.level}</td>
-        <td className="col-2">{className}</td>
-        <td className="col-2">{entry.league}</td>
+        <td className="col-3"><img src={classIcon}/> | {className}</td>
+        <td className="col-3">{entry.name}</td>
+        <td className="col-3">{entry.level}</td>
+        <td className="col-3">{entry.league}</td>
       </tr>
     )
   })
@@ -57,11 +56,10 @@ function Account(props) {
         <Table id="accountTable" striped bordered variant="dark">
           <thead>
             <tr className="d-flex">
-              <th className="col-2">Icon</th>
-              <th className="col-4">Name</th>
-              <th className="col-2">Level</th>
-              <th className="col-2">Class</th>
-              <th className="col-2">League</th>
+              <th className="col-3">Class</th>
+              <th className="col-3">Name</th>
+              <th className="col-3">Level</th>
+              <th className="col-3">League</th>
             </tr>
           </thead>
           <tbody>
