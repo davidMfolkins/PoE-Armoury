@@ -16,25 +16,9 @@ function fetchCharacter(accountName, characterName) {
 }
 
 
-function getCharacter(accountName, characterName) {
 
-  const randomInterval = function () {
-    return Math.floor((Math.random() * 500) + 100)
-  }
-  setState("loading");
-  setTimeout(() => {
-    fetchCharacter(accountName, characterName).then((res) => {
-      if (res.name === "Error") {
-        setCharacter(null);
-      } else {
-        setCharacter(res);
-      }
-      setState("character");
-    });
-  }, randomInterval())
-};
 
 export {
-  getCharacter
+  fetchCharacter
 }
 

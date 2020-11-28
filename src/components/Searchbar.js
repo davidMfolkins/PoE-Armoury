@@ -122,7 +122,6 @@ let quickSearch = async function () {
         setSelected(newVal)
       }
     } else if (e.code === 'Enter') {
-      handleSubmit(e, e.target.value) 
       if (selected === null) {
         handleSubmit(e, e.target.value)
       } else {
