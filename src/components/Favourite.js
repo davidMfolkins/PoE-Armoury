@@ -33,15 +33,14 @@ export default function Favourite(props) {
   if (!msg) {
   return (
     <tr id="favouriteList" className="d-flex">
-      <td className="col-3"><img src={classIcon} alt={props.fav.class} /></td>
+      <td id="classCell" className="col-3"><img src={classIcon} alt={props.fav.class} /> {props.fav.class}</td>
       <td className="col-3" onClick={(e) => {
         e.preventDefault()
         handleCharacterChange(props.fav.account_name, props.fav.name, props.fav.id)
       }
       }>{props.fav.name}</td>
-      <td className="col-2">{props.fav.level}</td>
-      <td className="col-2">{props.fav.class}</td>
-      <td className="col-2">
+      <td className="col-3">{props.fav.level}</td>
+      <td className="col-3">
         <Button onClick={() => removeCheck()} variant="primary" size="lg">
           <AiFillDelete />
         </Button>{' '}

@@ -21,11 +21,10 @@ export default function Favourites(props) {
           <Table id="favouriteTable" responsive striped bordered variant="dark">
             <thead>
               <tr className="d-flex">
-                <th className="col-3">Icon</th>
+                <th className="col-3">Class</th>
                 <th className="col-3">Name</th>
-                <th className="col-2">Level</th>
-                <th className="col-2">Class</th>
-                <th className="col-2">Delete</th>
+                <th className="col-3">Level</th>
+                <th className="col-3">Delete</th>
               </tr>
             </thead>
             <tbody>
