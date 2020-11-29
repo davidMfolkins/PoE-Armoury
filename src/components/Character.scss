@@ -4,8 +4,6 @@
 @import'Helper';
 
 body {
-  
- 
   font-family: 'Noto Sans KR', sans-serif;
 }
 
@@ -35,5 +33,13 @@ body {
   color: red;
   
 }
+
+.accountLink {
+  color: $lightyellow;
+}
+.accountLink:hover {
+  color: $lightyellow;
+}
+
 
   

@@ -93,7 +93,7 @@ export default function Character(props) {
             e.preventDefault();
             props.setAccount(props.character.account_name)
             props.setState('account')
-          }}>{props.character.account_name}</a></h5>
+          }}className="accountLink">{props.character.account_name}</a></h5>
         </Col>
         <Col>
           {props.cookies.user && <LikeButton character={props.character} favourites={props.favourites} addFavourite={props.addFavourite} removeFavourite={props.removeFavourite} size="4em" msg={props.msg} setMsg={props.setMsg} />}
