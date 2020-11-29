@@ -5,8 +5,6 @@
   background-color: $black-transparent;
   overflow-anchor: none;
   margin: 1em;
-  border-top-left-radius: 1em;
-  border-top-right-radius: 1em;
   button {
     background-color: #343a40;
     color: $white;
@@ -51,7 +49,7 @@
 }
 
 #ladderList:hover {
-  color: $red;
+  color: $lightyellow;
   cursor: pointer;
 }
 
@@ -73,6 +71,10 @@ td {
   overflow: hidden;
   text-overflow: ellipsis;
   vertical-align: middle!important;
+}
+
+#twitch{
+  color: lightyellow!important;
 }
 
 #ladderTable {

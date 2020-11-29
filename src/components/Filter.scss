@@ -49,9 +49,6 @@
     width: 100%;
     display: flex;  
     justify-content: space-evenly;
-    .filter-container:first-child {
-      // width: 40%;
-    }
   }
 }
 
@@ -64,7 +61,7 @@
   position: absolute;
   top: 1.5vh;
   left: 2vw;
-  color: $red
+  color: $lightyellow
 }
 
 

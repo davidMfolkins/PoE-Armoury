@@ -22,6 +22,13 @@
 
 .dropdown-menu  { 
   width: 400px; 
+  background-color: #2C3531!important;
+}
+.dropdown-item {
+  color: $white!important;
+}
+.dropdown-item:hover {
+  background-color: unset!important;
 }
 
 #nav-logo {

@@ -56,7 +56,7 @@ export default function LadderResponsive(props) {
           <Col as="td" xs={1} sm={1}>{entry.character.level}</Col>
 
           {props.account && <Col as="td">{entry.character.league}</Col>}
-          {!props.account && <Col as="td" className="d-none d-sm-flex" sm={2} md={2} lg={2}>{entry.account.twitch && <a href={`https://twitch.tv/${entry.account.twitch.name}`} target="_blank" rel="noreferrer">{entry.account.twitch.name}</a>}</Col>}
+          {!props.account && <Col as="td" className="d-none d-sm-flex" sm={2} md={2} lg={2}>{entry.account.twitch && <a href={`https://twitch.tv/${entry.account.twitch.name}`} target="_blank" id="twitch" rel="noreferrer">{entry.account.twitch.name}</a>}</Col>}
           {!props.account && <Col as="td" xs={1} sm={1} md={1} lg={1}>{props.cookies.user && <LikeButton characterid={entry.character.id} favourites={props.favourites} character={entry.character} removeFavourite={props.removeFavourite} addFavourite={props.addFavourite} size="1.5em" setMsg={props.setMsg} />}</Col>}
         </Row>
       )
