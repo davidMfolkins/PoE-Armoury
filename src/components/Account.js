@@ -56,10 +56,6 @@ function Account(props) {
   return (
     <div className="accountPage">
 
-      <div></div>
-      <div className="topButtons">
-        <button type="button" id="ladderButton" onClick={() => props.setState("ladder")}>Back to Ladder</button>
-      </div>
       <div className="accountName">{accountName}</div>
       <div className="accountContainer">
 
