@@ -33,9 +33,7 @@ export default function Navigation(props) {
           </Nav>}
         {!props.cookies.user &&
           <Nav className="ml-auto">
-            <Nav.Link className="mx-3 my-2" href="/login" onClick={(e) => {
-
-            }}>Login</Nav.Link>
+            <Nav.Link className="mx-3 my-2" href="/login" onClick={(e) => {}}>Login</Nav.Link>
             <Nav.Link className="mx-3 my-2" href="/register" >Register</Nav.Link>
           </Nav>}
       </Navbar.Collapse>
