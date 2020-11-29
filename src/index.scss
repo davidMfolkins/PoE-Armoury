@@ -6,9 +6,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #5e5e5e;
-  background-image: url('./images/bg-red.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  // background-image: url('./images/bg-red.jpg');
+  // background-repeat: no-repeat;
+  // background-attachment: fixed;
+  background: rgb(44,53,49);
+background: linear-gradient(90deg, rgba(44,53,49,1) 0%, rgba(20,115,117,1) 50%, rgba(44,53,49,1) 100%);
   a {
     // color:#3185FC!important;
   }
