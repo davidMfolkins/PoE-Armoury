@@ -27,6 +27,10 @@ const ladder_hardcore = require('../ladder_hardcore.json');
 
 
 export default function Application() {
+
+    
+ 
+
   const [cookies, setCookie, removeCookie] = useCookies(null);
 
 
