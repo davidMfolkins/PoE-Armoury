@@ -51,7 +51,7 @@
 }
 
 #ladderList:hover {
-  color: $red;
+  color: $lightyellow;
   cursor: pointer;
 }
 
@@ -73,6 +73,10 @@ td {
   overflow: hidden;
   text-overflow: ellipsis;
   vertical-align: middle!important;
+}
+
+#twitch{
+  color: lightyellow!important;
 }
 
 #ladderTable {
