@@ -52,7 +52,7 @@ function Account(props) {
         }
       })
 
-  }, [])
+  }, [props.account])
   return (
     <div className="accountPage">
 
