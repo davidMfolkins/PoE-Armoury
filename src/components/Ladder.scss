@@ -7,6 +7,20 @@
   margin: 1em;
   border-top-left-radius: 1em;
   border-top-right-radius: 1em;
+  button {
+    background-color: #343a40;
+    color: $white;
+    border: 1px solid rgb(78, 78, 78);
+    border-radius: 0.1em;
+    font-size: 1.3em;
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      border: 1px solid $yellow;
+    }
+  }
+
 }
 
 .ladderContainer {
@@ -23,7 +37,7 @@
   text-align: center;
   font-size: 50px;
   color:  $white;
-  border-bottom: 2px solid $yellow;
+  border-bottom: 4px solid $yellow;
   margin-bottom: 10px;
   padding: 0.3em;
 }
@@ -62,8 +76,17 @@ td {
 }
 
 #ladderTable {
-  border: 2px solid $yellow;
+  border: 3px solid $yellow;
   color: $white;
+  background-color: rgba(0,0,0,0.85);
+  td {
+    border: none;
+    border-bottom: 1px solid gray;
+  }
+  th {
+    border: none;
+    border-bottom: 1px solid $yellow;
+  }
 }
 
 .loadMore {
