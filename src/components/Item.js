@@ -228,7 +228,7 @@ export default function Item(props) {
   return (
     <div className={itemType}>
 
-      <OverlayTrigger trigger="hover" placement={popoverOrientation} overlay={popover}>
+      <OverlayTrigger trigger='hover' placement={popoverOrientation} overlay={popover}>
         <img className="icon" src={props.item.icon} />
       </OverlayTrigger>
 

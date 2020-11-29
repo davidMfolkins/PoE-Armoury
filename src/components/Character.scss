@@ -7,6 +7,12 @@ body {
   font-family: 'Noto Sans KR', sans-serif;
 }
 
+@media only screen and (max-width: 600px) { 
+
+  .character-name {
+    font-size: 21px;
+  }
+}
 .poe-container {
   justify-content: center;
 }
@@ -40,6 +46,3 @@ body {
 .accountLink:hover {
   color: $lightyellow;
 }
-
-
-  
