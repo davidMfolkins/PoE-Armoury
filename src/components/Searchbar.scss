@@ -3,7 +3,7 @@
 #search-results {
   position: absolute;
   background-color: white;
-  width: 35vw;
+  width: 95%;
   max-height: 300px;
   overflow-y: scroll;
   .hidden {
@@ -13,6 +13,7 @@
 
 #search-bar {
   width: 35vw;
+  margin: auto;
 }
 
 #selected {
@@ -21,7 +22,7 @@
 
 @media only screen and (max-width: 1024px) {
   #search-bar {
-    width: 25vw;
+    width: 90%;
   }
 }
 
@@ -29,5 +30,20 @@
   #search-bar {
     width: 90%;
     margin-left: 5%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #search-results-container {
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    #search-results {
+      position: unset;
+      background-color: white;
+      width: 35vw;
+      margin: auto;
+      
+    }
   }
 }
