@@ -60,17 +60,17 @@ function Ladder(props) {
 
   const changeButton = function () {
     if (!hardcore) {
-      return "Hardcore Ladder";
+      return "Heist Hardcore Ladder";
     } else {
-      return "Standard Ladder";
+      return "Heist Ladder";
     }
   };
 
   const tableName = function () {
     if (hardcore) {
-      return "Hardcore Ladder";
+      return "Heist Hardcore Ladder";
     } else {
-      return "Standard Ladder";
+      return "Heist Ladder";
     }
   };
 
