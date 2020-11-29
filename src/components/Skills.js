@@ -99,7 +99,7 @@ export default function Skills (props) {
   return (
   <div className="skills-container">
       <hr className="line"/> 
-      <span classname="gemGroup">{props.item.inventoryId}</span>
+      <div className="gemGroup">{props.item.inventoryId}</div>
       <div className="skill-group">{builder}</div>
   </div>
   )
