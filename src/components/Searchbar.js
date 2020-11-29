@@ -182,10 +182,12 @@ let quickSearch = async function () {
       </Form>
      
       <div style={{ width: "200px"}}>
+        <div id="search-results-container">
         <div className={hidden} id="search-results">
         <Table striped hover>
           <tbody>{searchResults}</tbody>
         </Table>
+        </div>
         </div>
       </div>
     </div>

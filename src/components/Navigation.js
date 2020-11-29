@@ -14,7 +14,9 @@ export default function Navigation(props) {
 
         </Nav> */}
         <Nav className="m-auto">
+          <div id="search-container">
           <Searchbar id="poe-search" getCharacter={props.getCharacter} setState={props.setState} setAccount={props.setAccount} state={props.state} />
+          </div>
         </Nav>
         {props.cookies.user &&
           <NavDropdown className="d-none d-lg-block" title="Account" id="basic-nav-dropdown">
