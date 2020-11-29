@@ -68,8 +68,9 @@ a.mx-3.my-2.nav-link:active {
 @media only screen and (min-width: 1024px) {
 #search-container {
   position: absolute;
-  width: 100%;
+  width: 50%;
+  margin-left: 25%;
   left: 0;
-  top: 0.8vh;
+  top: 1.5vh;
 }
 }
