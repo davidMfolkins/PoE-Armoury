@@ -113,7 +113,7 @@ export default function Character(props) {
             </Col>
           </Row>
         </Col>
-        <Row lg={4} xs={12} style={{ justifyContent: "center" }}>
+        <Row lg={12} xs={12} style={{ justifyContent: "center" }}>
           {gems}
         </Row>
       </Row>
