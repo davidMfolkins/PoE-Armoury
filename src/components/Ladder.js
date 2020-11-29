@@ -119,6 +119,7 @@ function Ladder(props) {
         favourites={props.favourites}
         setMsg={props.setMsg}
         addFavourite={props.addFavourite}
+        removeFavourite={props.removeFavourite}
       />}
       </div>
       {filteredData && visible < filteredData.length && (
