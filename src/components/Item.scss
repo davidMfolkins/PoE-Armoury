@@ -28,6 +28,11 @@
   .trinket {
     max-width: 30px;
   }
+  .weapon {
+    .icon {
+      max-height: 100px;
+    }
+  }
 }
 
 .unique {
@@ -101,7 +106,6 @@
 
 .ring {
   @extend .item; 
-  // max-width: 50px;
   left: 25%;
   top: 62%;
   
