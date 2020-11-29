@@ -9,7 +9,8 @@ function Searchbar(props) {
   const [value, setValue] = useState("", () => Promise.resolve(true));
   const [searchResults, setSearchResults] = useState([]);
   const [hidden, setHidden] = useState('hidden')
-  const [selected, setSelected] = useState('hidden')
+  const [selected, setSelected] = useState(null)
+  const [ searchValue, setSearchValue ] = useState(null)
 
   useEffect(() => {
       setValue('')
@@ -18,26 +19,51 @@ function Searchbar(props) {
 
   }, [props.state])
 
-  function selectSearchItem(name) {
+  useEffect(() => {
+    document.addEventListener('click', (e) => {
+      let searchElement = document.querySelector('#search-results')
+      let isClickInside = searchElement.contains(e.target)
+      if (!isClickInside) {
+        setSearchResults(null)
+        setHidden('hidden')
+      }
+    })
+  }, [])
+
+  useEffect(() => {
+    if (selected) {
+    const selectedTD = document.querySelector('#selected')
+    selectedTD.scrollIntoView({block: 'center', behavior: 'smooth'})
+    }
+  }, [selected])
+
+  function selectSearchItem(event, name) {
+
     props.getCharacter('none', name);
-    setSearchResults(null)
-    setValue("")
+
+    event.target.value = null;
+    const searchbar = document.querySelector('#search-bar > div > input')
+    searchbar.value = null;
+    setHidden('hidden')
   }
 
   function handleSubmit (event, name) {
+
     console.log('searching for account...')
     props.setAccount(name)
     props.setState('account')
-    setValue("")
-    setSearchResults([])
+    const searchbar = document.querySelector('#search-bar > div > input')
+    searchbar.value = null;
+
+    setHidden('hidden')
     event.preventDefault();
   }
 
 let quickSearch = async function () {
       const searchTerm = new RegExp(value);
       if (value.length > 0) {
-        // const searchValue = value.toLowerCase();
         setHidden(null)
+        // const searchValue = value.toLowerCase();
         const newSearchResults = await axios.get(`http://localhost:3030/search/${value}`).then((res) => {
           // console.log(res.data.searchItems)
           return res.data.map((entry, index) => {
@@ -53,9 +79,8 @@ let quickSearch = async function () {
             if (entry.type === 'character') {
               return (
                 <tr id={trClass}>
-                  <td onClick={() => {
-                    selectSearchItem(entry.name)
-                    setHidden('hidden')
+                  <td onClick={(e) => {
+                    selectSearchItem(e, entry.name)
                   }
                   }>{entry.name}  <Badge variant="primary">character</Badge>{' '}</td>
                 </tr>
@@ -65,10 +90,9 @@ let quickSearch = async function () {
                 <tr id={trClass}>
                   <td onClick={() => {
                     props.setAccount(entry.name)
-                    setValue('')
+                    const searchbar = document.querySelector('#search-bar > div > input')
+                    searchbar.value = null;
                     props.setState('account')
-                    setSearchResults([])
-                    setHidden('hidden')
                   }
                   }>{entry.name}  <Badge variant="secondary">account</Badge>{' '}</td>
                 </tr>
@@ -100,8 +124,6 @@ let quickSearch = async function () {
       if (selected === null) {
         setSelected(0)
       } else {
-        console.log('selected:', selected)
-        console.log('searchresults length: ', searchResults.length)
         if (selected < searchResults.length - 1) {
           const newVal = selected + 1
           setSelected(newVal)
@@ -130,13 +152,12 @@ let quickSearch = async function () {
           handleSubmit(e, rowValues[0])
         }
         else {
-          selectSearchItem(rowValues[0])
+          selectSearchItem(e, rowValues[0])
         }
       }
     } else if (e.code !== 'ArrowDown' && e.code !== 'ArrowUp' && e.code !== 'Enter') {
       console.log('not up, down, or enter')
       setSelected(null)
-
      setValue(e.target.value)
 
     }
@@ -152,7 +173,9 @@ let quickSearch = async function () {
         <FormControl
           type="text"
           placeholder="Search for Character or PoE Account name..."
+          // value={value}
           name="search"
+          id="search-bar"
           onKeyUp={(e) => searchSelection(e)}
         />
          </div>
