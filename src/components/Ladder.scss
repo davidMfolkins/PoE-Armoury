@@ -111,7 +111,7 @@ td {
   }
   table, thead, tbody, th, td, tr { 
 		display: block; 
-	}
+  }
 	
 	/* Hide table headers (but not display: none;, for accessibility) */
 
@@ -130,6 +130,10 @@ td {
   .container {
     max-width: 2000px!important;
     padding: unset!important;
+  }
+
+  .ladderTitle {
+    font-size: 32px;
   }
 
   .ladderContainer {
