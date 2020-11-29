@@ -87,7 +87,7 @@ export default function Character(props) {
       <Row className="p-5 char-title">
         <Col lg="auto" ><img src={classIcon} alt={props.character.class} /></Col>
         <Col lg={9} className="my-auto">
-          <h1 >{props.character.name}</h1>
+          <h1 className="character-name">{props.character.name}</h1>
           <h5 >{props.character.level} | {props.character.class}</h5>
           <h5><a href="/" onClick={(e) => {
             e.preventDefault();
