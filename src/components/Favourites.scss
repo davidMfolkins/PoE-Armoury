@@ -3,11 +3,13 @@
 
 .favouritePage {
   background-color: $black-transparent;
+  border-radius: 10px;
 }
 .noFavouritePage {
   background-color: $black-transparent;
   width: 80%;
   margin: auto;
+  border-radius: 10px;
 }
 .favourites-container {
   padding: 10px 0;
@@ -54,7 +56,6 @@
 }
 
 #favouriteList:hover {
-
   cursor: pointer;
 }
 

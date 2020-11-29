@@ -3,7 +3,8 @@
 
 .accountPage {
   background-color: $black-transparent;
-  
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 .accountContainer {
   padding: 10px 0;
@@ -11,6 +12,7 @@
   margin: auto;
   font-size: 20px;
   text-align: center;
+  
 }
 
 .accountName {
