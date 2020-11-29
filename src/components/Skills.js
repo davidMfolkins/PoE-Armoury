@@ -2,6 +2,8 @@ import Skill from './Skill'
 import className from 'classnames'
 import { Table } from 'react-bootstrap'
 
+import { Row, Col } from 'react-bootstrap'
+
 export default function Skills (props) {
 
   // console.log(props.item.inventoryId)
@@ -97,10 +99,10 @@ export default function Skills (props) {
   })
 
   return (
-  <div className="skills-container">
+  <Col lg={3} xs={6} className="skills-container">
       <hr className="line"/> 
-      <span classname="gemGroup">{props.item.inventoryId}</span>
+      <div className="gemGroup">{props.item.inventoryId}</div>
       <div className="skill-group">{builder}</div>
-  </div>
+  </Col>
   )
 }
