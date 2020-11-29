@@ -38,10 +38,21 @@
 #favouriteTable {
   border: 2px solid $yellow;
   color: $white;
+  & tbody > tr > td {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  & tbody > tr:hover {
+    color: $red;
+  }
+
+  
 }
 
 #favouriteList:hover {
-  color: $red;
+
   cursor: pointer;
 }
 

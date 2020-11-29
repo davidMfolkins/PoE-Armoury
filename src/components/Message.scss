@@ -28,3 +28,19 @@ animation-name: message;
   75% {opacity: 1; background-color: rgb(177, 58, 58)}
   100% {opacity: 0}
 }
+
+@media only screen and (max-width: 480px) { 
+  .message {
+    position: fixed;
+  bottom: 10vh;
+  max-height: unset;
+  white-space: wrap;
+  }
+  
+  @keyframes message {
+    0% {width: 0; opacity: 1; background-color: rgb(177, 58, 58);}
+    2% {width: 350px; opacity: 1; background-color: rgb(177, 58, 58);}
+    75% {width: 350px; opacity: 1; background-color: rgb(177, 58, 58)}
+    100% {width: 350px; opacity: 0}
+  }
+}
