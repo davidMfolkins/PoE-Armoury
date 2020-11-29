@@ -30,7 +30,9 @@
   border-bottom: 2px solid $yellow;
   margin-bottom: 10px;
 }
-
+#favouriteTable {
+  background-color: rgba(0, 0, 0, 0.85)!important;
+}
 .remove-alert {
   margin-left: 35%;
   width: 300px;

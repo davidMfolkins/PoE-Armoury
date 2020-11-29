@@ -18,7 +18,7 @@ export default function Favourites(props) {
       <div className="favouritePage">
         <div className="favourite-title">Favourited Builds</div>
         <div className="favourites-container">
-          <Table id="favouriteTable" responsive striped bordered variant="dark">
+          <Table id="favouriteTable" responsive bordered variant="dark">
             <thead>
               <tr className="d-flex">
                 <th className="col-3">Class</th>
