@@ -9,7 +9,7 @@ function Searchbar(props) {
   const [value, setValue] = useState("", () => Promise.resolve(true));
   const [searchResults, setSearchResults] = useState([]);
   const [hidden, setHidden] = useState('hidden')
-  const [selected, setSelected] = useState('hidden')
+  const [selected, setSelected] = useState(null)
 
   useEffect(() => {
       setValue('')
@@ -18,18 +18,29 @@ function Searchbar(props) {
 
   }, [props.state])
 
-  function selectSearchItem(name) {
+  useEffect(() => {
+    if (selected) {
+    const selectedTD = document.querySelector('#selected')
+    selectedTD.scrollIntoView()
+    }
+  }, [selected])
+
+  function selectSearchItem(event, name) {
+
     props.getCharacter('none', name);
     setSearchResults(null)
-    setValue("")
+    event.target.value = null;
+    setHidden('hidden')
   }
 
   function handleSubmit (event, name) {
+
     console.log('searching for account...')
     props.setAccount(name)
     props.setState('account')
-    setValue("")
+    event.target.value = null;
     setSearchResults([])
+    setHidden('hidden')
     event.preventDefault();
   }
 
@@ -53,8 +64,8 @@ let quickSearch = async function () {
             if (entry.type === 'character') {
               return (
                 <tr id={trClass}>
-                  <td onClick={() => {
-                    selectSearchItem(entry.name)
+                  <td onClick={(e) => {
+                    selectSearchItem(e, entry.name)
                     setHidden('hidden')
                   }
                   }>{entry.name}  <Badge variant="primary">character</Badge>{' '}</td>
@@ -100,8 +111,6 @@ let quickSearch = async function () {
       if (selected === null) {
         setSelected(0)
       } else {
-        console.log('selected:', selected)
-        console.log('searchresults length: ', searchResults.length)
         if (selected < searchResults.length - 1) {
           const newVal = selected + 1
           setSelected(newVal)
@@ -130,7 +139,7 @@ let quickSearch = async function () {
           handleSubmit(e, rowValues[0])
         }
         else {
-          selectSearchItem(rowValues[0])
+          selectSearchItem(e, rowValues[0])
         }
       }
     } else if (e.code !== 'ArrowDown' && e.code !== 'ArrowUp' && e.code !== 'Enter') {
@@ -152,6 +161,7 @@ let quickSearch = async function () {
         <FormControl
           type="text"
           placeholder="Search for Character or PoE Account name..."
+          // value={value}
           name="search"
           onKeyUp={(e) => searchSelection(e)}
         />
