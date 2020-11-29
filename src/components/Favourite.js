@@ -9,12 +9,12 @@ export default function Favourite(props) {
 
   const [msg, setMsg] = useState(null)
 
-  const [ deleted, setDeleted ] = useState(false)
+  const [deleted, setDeleted] = useState(false)
 
   async function handleRemoveFavourite(name) {
-  
+
     setDeleted(true)
-    setTimeout( async() => {
+    setTimeout(async () => {
       setDeleted(false)
       setMsg(null)
       await props.removeFavourite(name)
@@ -31,6 +31,7 @@ export default function Favourite(props) {
   }
   const classIcon = `/icons/${props.fav.class.toLowerCase()}_icon.png`;
   if (!msg) {
+
   return (
     <tr id="favouriteList" className="d-flex">
       <td id="classCell" className="col-3"><div><img src={classIcon} alt={props.fav.class} /> {props.fav.class}</div></td>
@@ -46,26 +47,25 @@ export default function Favourite(props) {
 
       </td>
     </tr>
-
-  )
+    )
   } else if (deleted) {
     return (
       <tr id="favouriteList" className="d-flex">
-      
-      <td className="col-12" style={{backgroundColor: 'rgba(249, 189, 189, 0.5', color: 'white'}} id="deleted">Deleted!
+
+        <td className="col-12" style={{ backgroundColor: 'rgba(249, 189, 189, 0.5', color: 'white' }} id="deleted">Deleted!
       </td>
-    </tr>
+      </tr>
     )
   } else {
     return (
       <tr id="favouriteList" className="d-flex">
-      
-      <td className="col-12 trash" style={{backgroundColor: 'rgba(249, 189, 189, 0.5', color: 'white'}}>
-        <a href="#" onClick={() => handleRemoveFavourite(props.fav.character_name)} variant="primary" size="lg">Click to launch nuclear warhead
+
+        <td className="col-12 trash" style={{ backgroundColor: 'rgba(249, 189, 189, 0.5', color: 'white' }}>
+          <a href="#" onClick={() => handleRemoveFavourite(props.fav.character_name)} variant="primary" size="lg">Click to launch nuclear warhead
           <AiFillDelete size="3em" ></AiFillDelete>
-        </a>{' '}
-      </td>
-    </tr>
+          </a>{' '}
+        </td>
+      </tr>
     )
   }
 }
