@@ -5,10 +5,11 @@ import './Account.scss'
 import LadderResponsive from "./LadderResponsive";
 
 function Account(props) {
-  const accountName = props.account;
+  // const accountName = props.account;
   console.log(props.account)
 
   const [chars, setchars] = useState([])
+  const [accountName, setAccountName] = useState(props.account)
   const [smallScreen, setSmallScreen] = useState(false);
 
   window.addEventListener("resize", () => handleResize());
@@ -27,11 +28,11 @@ function Account(props) {
   }, []);
 
   useEffect(() => {
-    axios.get(`http://localhost:3030/accounts/${accountName}`)
+    axios.get(`http://localhost:3030/accounts/${props.account}`)
       .then((result) => {
         console.log(result)
         if (result.data.error) {
-          props.setState('loading')
+          props.setState('loading').
           props.setLoadingMsg('')
           if (result.data.error.code === 1) {
             props.setLoadingError('Account does not exist.')
@@ -41,6 +42,8 @@ function Account(props) {
         
         } else {
           props.setState('account')
+          setchars(result.data.data)
+          setAccountName(result.data.accountName)
           const characters = result.data.map((entry) => {
             return {'character': entry, 'account': { 'name': props.account}}
           })

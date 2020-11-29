@@ -36,6 +36,7 @@ function Searchbar(props) {
 let quickSearch = async function () {
       const searchTerm = new RegExp(value);
       if (value.length > 0) {
+        // const searchValue = value.toLowerCase();
         setHidden(null)
         const newSearchResults = await axios.get(`http://localhost:3030/search/${value}`).then((res) => {
           // console.log(res.data.searchItems)
@@ -65,6 +66,7 @@ let quickSearch = async function () {
                   <td onClick={() => {
                     props.setAccount(entry.name)
                     setValue('')
+                    props.setState('account')
                     setSearchResults([])
                     setHidden('hidden')
                   }

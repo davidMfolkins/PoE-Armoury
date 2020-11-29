@@ -19,18 +19,24 @@ const { saveCharacter,
 module.exports = (db) => {
 
   router.get('/:name', async (req, res, next) => {
-    const accountName = req.params.name;
+    let accountName = req.params.name;
     fetch(`https://www.pathofexile.com/character-window/get-characters?accountName=${accountName}`)
     .then(result => {
       return result.json()
     }).then((data) => {
       console.log(data)
       if (!data.error) {
-        saveAccount(db, accountName)
+        axios.get(`https://www.pathofexile.com/character-window/get-account-name-by-character?character=${data[0].name}`)
+        .then(async result => {
+          await saveAccount(db, result.data.accountName)
+          return result.data
+        }).then(result => {
+          console.log("RETURN POE API GET: ", result)
+          res.send({data, 'accountName': result.accountName})
+        })
       } else {
         console.log('theres an error')
       }
-      res.send(data)
     }).catch((err) => {
       res.status(404).send(err)
     })
