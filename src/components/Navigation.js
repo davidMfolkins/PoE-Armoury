@@ -19,7 +19,6 @@ export default function Navigation(props) {
         {props.cookies.user &&
           <NavDropdown className="d-none d-lg-block" title="Account" id="basic-nav-dropdown">
             <NavDropdown.Item onClick={() => props.setState('favourites')}>Favourites</NavDropdown.Item>
-            <NavDropdown.Divider />
             <NavDropdown.Item href="/logout" onClick={(e) => props.removeCookie("user")}>Logout</NavDropdown.Item>
           </NavDropdown>
         }
