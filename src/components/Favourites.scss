@@ -1,5 +1,5 @@
 @import "~bootstrap/scss/bootstrap";
-@import'Helper';
+@import "Helper";
 
 .favouritePage {
   background-color: $black-transparent;
@@ -28,12 +28,12 @@
   font-family: $title-font;
   text-align: center;
   font-size: 50px;
-  color:  $white;
+  color: $white;
   border-bottom: 2px solid $yellow;
   margin-bottom: 10px;
 }
 #favouriteTable {
-  background-color: rgba(0, 0, 0, 0.85)!important;
+  background-color: rgba(0, 0, 0, 0.85) !important;
 }
 .remove-alert {
   margin-left: 35%;
@@ -51,37 +51,35 @@
   & tbody > tr:hover {
     color: $lightyellow;
   }
-
-  
 }
 
 #favouriteList:hover {
   cursor: pointer;
 }
 
-
 @media only screen and (max-width: 1024px) {
   .container {
-    max-width: 2000px!important;
-    padding: unset!important;
+    max-width: 2000px !important;
+    padding: unset !important;
   }
 
   .favourites-container {
     width: 100%;
     font-size: 15px;
   }
-  table, thead, tbody, th, td, tr { 
-		display: block; 
-	}
-	
-	/* Hide table headers (but not display: none;, for accessibility) */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
 
-	
-	td { 
-		/* Behave  like a "row" */
-		border: none;
-		border-bottom: 1px solid #eee; 
-		position: relative;
-		padding-left: 50%; 
-	}
+  td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
 }
