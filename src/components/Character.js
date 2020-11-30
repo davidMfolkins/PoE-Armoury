@@ -155,7 +155,7 @@ export default function Character(props) {
       </Row>
       <Row className="p-3" style={{ backgroundColor: "rgba(0,0,0,0.5)" }}>
         <Col lg={12}>
-          <Row className="poe-container">
+          <Row className="inventory-wrapper">
             <Items
               windowWidth={windowWidth}
               items={props.character.items.items}
