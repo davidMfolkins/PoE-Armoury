@@ -2,7 +2,6 @@ import Skill from "./Skill";
 import { Col } from "react-bootstrap";
 
 export default function Skills(props) {
-
   // looks in items for sockets and moves them to an array
   let groups = [];
   for (const socket of props.item.sockets) {
@@ -41,7 +40,7 @@ export default function Skills(props) {
     }
   });
 
-    // constructs the grid with links on the left and rows of gems on the right to hand to the render 
+  // constructs the grid with links on the left and rows of gems on the right to hand to the render
   const builder = finalArray.map((connections, index) => {
     const gemColour = props.item.sockets[index].sColour;
     const gemSocket = gems.find((g) => g.socket === index);

@@ -7,16 +7,12 @@ function fetchCharacter(accountName, characterName) {
       { timeout: 4000 }
     )
     .then((res) => {
-      console.log(res.data);
       return res.data;
     })
     .catch((err) => {
       return err;
     });
 }
-
-
-
 
 export {
   fetchCharacter
