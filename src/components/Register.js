@@ -56,9 +56,13 @@ export default function Register(props) {
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="Password" />
             </Form.Group>
+            <div className="button-container">
+              <div>
             <Button variant="primary" type="submit">
               Submit
             </Button>
+            </div>
+            </div>
           </Form>
         </div>
       </div>

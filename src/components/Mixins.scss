@@ -1,0 +1,15 @@
+@mixin button {
+  background-color: #343a40;
+    color: $white;
+    border: 1px solid rgb(78, 78, 78);
+    border-radius: 0.1em;
+    font-size: 1.3em;
+    padding: 0.2em;
+    min-width: 200px;
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      border: 1px solid $yellow;
+    }
+}

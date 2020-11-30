@@ -33,7 +33,7 @@ function Searchbar(props) {
   useEffect(() => {
     if (selected) {
     const selectedTD = document.querySelector('#selected')
-    selectedTD.scrollIntoView({block: 'center', behavior: 'smooth'})
+    selectedTD.scrollIntoView({block: 'center'})
     }
   }, [selected])
 
@@ -114,6 +114,15 @@ let quickSearch = async function () {
       quickSearch()
     }, [value, selected])
 
+    function searchText(e) {
+      if (e.code !== 'ArrowDown' && e.code !== 'ArrowUp' && e.code !== 'Enter') {
+        console.log('not up, down, or enter')
+        setSelected(null)
+       setValue(e.target.value)
+  
+      }
+    }
+
 
   function searchSelection(e) {
     console.log(e)
@@ -155,12 +164,7 @@ let quickSearch = async function () {
           selectSearchItem(e, rowValues[0])
         }
       }
-    } else if (e.code !== 'ArrowDown' && e.code !== 'ArrowUp' && e.code !== 'Enter') {
-      console.log('not up, down, or enter')
-      setSelected(null)
-     setValue(e.target.value)
-
-    }
+    } 
   }
 
   const searchRef = useRef(null);
@@ -176,7 +180,8 @@ let quickSearch = async function () {
           // value={value}
           name="search"
           id="search-bar"
-          onKeyUp={(e) => searchSelection(e)}
+          onKeyUp={(e) => searchText(e)}
+          onKeyDown={(e) => searchSelection(e)}
         />
          </div>
       </Form>

@@ -130,6 +130,7 @@ function Ladder(props) {
         >
           Load More
         </button>
+
       )}
     </div>
   );
