@@ -1,11 +1,10 @@
 @import "~bootstrap/scss/bootstrap";
-@import'Helper';
+@import "Helper";
 
 .accountPage {
   background-color: $black-transparent;
   border-radius: 10px;
   margin-bottom: 10px;
-  
 }
 
 .accountContainer {
@@ -14,38 +13,12 @@
   margin: auto;
   font-size: 20px;
   text-align: center;
-  
 }
 .accountName {
   font-family: $title-font;
   text-align: center;
   font-size: 50px;
-  color:  $white;
+  color: $white;
   border-bottom: 2px solid $yellow;
   margin-bottom: 10px;
 }
-
-// @media only screen and (max-width: 1024px) {
-//   .container {
-//     max-width: 2000px!important;
-//     padding: unset!important;
-//   }
-
-//   .accountContainer {
-//     width: 100%;
-//   }
-//   #topButtons {
-//     margin-right: 1%;
-//   }
-//   table, thead, tbody, th, td, tr { 
-// 		display: block; 
-// 	}
-
-// 	td { 
-// 		border: none;
-// 		border-bottom: 1px solid #eee; 
-// 		position: relative;
-// 		padding-left: 50%; 
-// 	}
-
-// }

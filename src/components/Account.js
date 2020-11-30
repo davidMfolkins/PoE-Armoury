@@ -12,13 +12,12 @@ import LadderResponsive from "./LadderResponsive";
 */
 
 function Account(props) {
-
-    // list of characters associated with account
+  // list of characters associated with account
   const [chars, setChars] = useState([]);
-    // initial state is the account name as searched by the user
-    // if account exists in PoE, accountName is assigned the account name, correctly formatted
+  // initial state is the account name as searched by the user
+  // if account exists in PoE, accountName is assigned the account name, correctly formatted
   const [accountName, setAccountName] = useState(props.account);
-    // true: width of screen is less than 480px
+  // true: width of screen is less than 480px
   const [smallScreen, setSmallScreen] = useState(false);
 
   window.addEventListener("resize", () => handleResize());
@@ -54,7 +53,7 @@ function Account(props) {
           props.setState("account");
           // assigning the correctly formatted account name to the state
           setAccountName(result.data.accountName);
-          
+
           const characters = result.data.data.map((entry) => {
             return { character: entry, account: { name: props.account } };
           });
