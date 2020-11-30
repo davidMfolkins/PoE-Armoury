@@ -8,6 +8,7 @@
   position: relative;
   &:after {
     @include inventory-corner;
+    margin: -3px;
     clip-path: polygon(
       0 0,
       100% 0,
@@ -21,6 +22,8 @@
   }
   &:before {
     @include inventory-corner;
+    right: 0;
+    margin: -3px;
     clip-path: polygon(
       0 0,
       100% 0,
@@ -36,10 +39,16 @@
   span {
     &:after {
       @include inventory-corner;
+      right: 0;
+      bottom: 0;
+      margin: -4px;
       clip-path: polygon(53% 56%, 48% 49%, 100% 0, 100% 100%, 0 100%, 40% 57%);
     }
     &:before {
       @include inventory-corner;
+      left: 0;
+      bottom: 0;
+      margin: -3px;
       clip-path: polygon(
         0 0,
         24% 25%,

@@ -1,7 +1,5 @@
 @import 'Helper';
 
-body {
-  background-color: #5e5e5e;
   #container {
     display: flex;
     justify-content: center;
@@ -10,4 +8,4 @@ body {
     background-color: $black-transparent;
     border-radius: 10px;
   }
-}
+
