@@ -1,8 +1,15 @@
-import './Message.scss'
+import { AiOutlineClose } from "react-icons/ai";
+import "./Message.scss";
 
-import { AiOutlineClose } from 'react-icons/ai'
-
+  // global message when liking/unliking a character
+  // props.msg is the message
 export default function Message(props) {
-  console.log(props.msg)
-return <div className="message">{props.msg} <span style={{cursor: 'pointer', position: 'absolute', right: '5px'}}><AiOutlineClose onClick={() => props.setMsg(null)}></AiOutlineClose></span></div>
+  return (
+    <div className="message">
+      {props.msg}{" "}
+      <span style={{ cursor: "pointer", position: "absolute", right: "5px" }}>
+        <AiOutlineClose onClick={() => props.setMsg(null)}></AiOutlineClose>
+      </span>
+    </div>
+  );
 }
