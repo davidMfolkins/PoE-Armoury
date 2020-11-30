@@ -1,5 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
 @import'Helper';
+@import 'Mixins';
 
 .ladderPage {
   background-color: $black-transparent;
@@ -7,17 +8,7 @@
   margin: 1em;
   border-radius: 10px;
   button {
-    background-color: #343a40;
-    color: $white;
-    border: 1px solid rgb(78, 78, 78);
-    border-radius: 0.1em;
-    font-size: 1.3em;
-    &:focus {
-      outline: none;
-    }
-    &:hover {
-      border: 1px solid $yellow;
-    }
+    @include button;
   }
 
 }
@@ -93,8 +84,10 @@ td {
 
 .loadMore {
   margin-bottom: 20px;
-  margin-left: 43%;
-  font-size: 1.3em;
+  margin-left: 40%;
+  font-size: 25px;
+  @include button;
+
 }
 
 @media only screen and (max-width: 1200px) {

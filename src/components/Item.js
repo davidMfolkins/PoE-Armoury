@@ -43,7 +43,7 @@ export default function Item(props) {
 
   const popoverOrientation = className({
     "top": props.windowWidth < 700,
-    "right": props.windowWidth >= 700
+    "left": props.windowWidth >= 700
   })
 
   let implicitMods;
@@ -228,7 +228,9 @@ export default function Item(props) {
   return (
     <div className={itemType}>
 
+
       <OverlayTrigger trigger='hover' placement={popoverOrientation} overlay={popover}>
+
         <img className="icon" src={props.item.icon} />
       </OverlayTrigger>
 

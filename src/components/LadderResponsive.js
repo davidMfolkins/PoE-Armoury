@@ -51,9 +51,9 @@ export default function LadderResponsive(props) {
     } else if (!props.smallScreen) {
       return (
         <Row as="tr" id="ladderList" className="d-flex">
-          <Col as="td"><img src={classIcon} alt={entry.character.name} /><span style={{ marginLeft: '0.5em' }}>{className}</span></Col>
+          <Col as="td"><img src={classIcon} alt={entry.character.name} /><span style={{ marginLeft: '0.5em' }} onClick={() => props.handleCharacterChange(entry.account.name, entry.character.name, entry.character.id)}>{className}</span></Col>
           <Col as="td" onClick={() => props.handleCharacterChange(entry.account.name, entry.character.name, entry.character.id)}>{entry.character.name} </Col>
-          <Col as="td" xs={1} sm={1}>{entry.character.level}</Col>
+          <Col as="td" xs={1} sm={1} onClick={() => props.handleCharacterChange(entry.account.name, entry.character.name, entry.character.id)}>{entry.character.level}</Col>
 
           {props.account && <Col as="td">{entry.character.league}</Col>}
           {!props.account && <Col as="td" className="d-none d-sm-flex" sm={2} md={2} lg={2}>{entry.account.twitch && <a href={`https://twitch.tv/${entry.account.twitch.name}`} target="_blank" id="twitch" rel="noreferrer">{entry.account.twitch.name}</a>}</Col>}
