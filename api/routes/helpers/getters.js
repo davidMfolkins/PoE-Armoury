@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-  // all items for a single character
+// all items for a single character
 function getItems(accountName, characterName) {
   return axios
     .get(
@@ -13,7 +13,7 @@ function getItems(accountName, characterName) {
       return err;
     });
 }
-  // queries DB for character, returns an object containing character info & items
+// queries DB for character, returns an object containing character info & items
 function findCharacterDB(db, name) {
   return db
     .query(
@@ -32,48 +32,61 @@ function findCharacterDB(db, name) {
       return null;
     });
 }
-  // queries PoE API for character and returns items
+// queries PoE API for character and returns items
 function fetchCharacterAPI(accountName, characterName) {
   return axios
     .get(
       `https://www.pathofexile.com/character-window/get-items?accountName=${accountName}&character=${characterName}`
     )
     .then((result) => {
-      return result.data
+      return result.data;
     })
     .catch((err) => {
-      console.log(err.response.status, err.response.statusText, ': access to character blocked by DB.' )
+      console.log(
+        err.response.status,
+        err.response.statusText,
+        ": access to character blocked by DB."
+      );
       return null;
     });
 }
 
 function filterCharacters(entry) {
-  if (entry === null){
+  if (entry === null) {
   } else {
     if (entry.data.items.length > 0) {
-      return true
+      return true;
     } else {
-      return false
+      return false;
     }
   }
 }
 
 function findAccount(db, email) {
-  return db.query('SELECT * FROM users WHERE email=$1', [email]).then((res) => {
-    return res.rows
-  }).catch((err) => {
-    console.log(err)
-  })
+  return db
+    .query("SELECT * FROM users WHERE email=$1", [email])
+    .then((res) => {
+      return res.rows;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 function getFavourites(db, user) {
-  return db.query('SELECT favourites.*, characters.* FROM favourites JOIN characters ON characters.name = favourites.character_name WHERE favourites.user_id=$1', [user]).then((response) => {
-    console.log('favorites found')
-    return response.rows;
-  }).catch((err) => {
-    console.log('no favorites found')
-    return null
-  })
+  return db
+    .query(
+      "SELECT favourites.*, characters.* FROM favourites JOIN characters ON characters.name = favourites.character_name WHERE favourites.user_id=$1",
+      [user]
+    )
+    .then((response) => {
+      console.log("favorites found");
+      return response.rows;
+    })
+    .catch((err) => {
+      console.log("no favorites found");
+      return null;
+    });
 }
 
 module.exports = {
@@ -82,5 +95,5 @@ module.exports = {
   fetchCharacterAPI,
   findAccount,
   filterCharacters,
-  getFavourites
+  getFavourites,
 };

@@ -1,7 +1,12 @@
+@import 'Helper';
 #ladderTable {
   background-color: rgba(0, 0, 0, 0.85);
   & > .row {
     margin: unset;
+    &:hover {
+      cursor: pointer;
+      color: $yellow;
+    }
   }
   & > thead > .row {
     margin: unset;
