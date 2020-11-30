@@ -1,6 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
-@import'Helper';
-@import 'Mixins';
+@import "Helper";
+@import "Mixins";
 
 .login-container {
   margin: auto;
@@ -13,7 +13,6 @@
   border-top-right-radius: 1em;
   button {
     @include button;
-   
   }
 }
 .button-container {
@@ -23,10 +22,8 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: auto!important;
-
+    margin: auto !important;
   }
-
 }
 .login-form-container {
   width: 75%;
