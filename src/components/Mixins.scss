@@ -14,3 +14,18 @@
       background-color: #343a40!important;
     }
 }
+
+@mixin inventory-corner {
+  content: "";
+    position: absolute;
+    margin: -3px;
+    width: 50px;
+    height: 50px;
+    line-height: 25px;
+    background-color: black;
+    text-align: center;
+    color: #b78846;
+    border: 2px solid #b78846;
+    background-image: url("../images/mtl_O_s.png");
+    background-size: contain;
+}
