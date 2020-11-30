@@ -1,11 +1,10 @@
-import { Container, Form, Button, Alert } from 'react-bootstrap'
-import axios from 'axios';
 import { useState } from 'react'
+import axios from 'axios';
 
+import { Container, Form, Button, Alert } from 'react-bootstrap'
 import './Register.scss'
 
 export default function Register(props) {
-
   const [error, setError] = useState(null);
 
   function handleSubmit(event) {
@@ -15,7 +14,7 @@ export default function Register(props) {
       email: event.target[1].value,
       password: event.target[2].value
     }
-
+    // *** security must be #1 priority ***
     if (newUser.password.length < 1) {
       setError('Password must be 1 characters or longer')
     } else if (newUser.name.length < 2) {

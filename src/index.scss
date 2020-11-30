@@ -1,49 +1,53 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #5e5e5e;
-  // background-image: url('./images/bg-red.jpg');
-  // background-repeat: no-repeat;
-  // background-attachment: fixed;
-  background: rgb(44,53,49);
-background: linear-gradient(90deg, rgba(44,53,49,1) 0%, rgba(20,115,117,1) 50%, rgba(44,53,49,1) 100%);
-  a {
-    // color:#3185FC!important;
-  }
+  background: rgb(44, 53, 49);
+  background: linear-gradient(
+    90deg,
+    rgba(44, 53, 49, 1) 0%,
+    rgba(20, 115, 117, 1) 50%,
+    rgba(44, 53, 49, 1) 100%
+  );
 }
 
 .container-fluid {
-  padding: 0!important;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  padding: 0 !important;
 }
 
 #back-button {
   position: fixed;
   margin-top: 50vh;
   margin-left: 2vw;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
   animation-name: back;
   animation-iteration-count: infinite;
   animation-duration: 8s;
   &:hover {
-    color: rgba(255,255,255,0.8);
-    // transform: scale(1.1)
+    color: rgba(255, 255, 255, 0.8);
   }
 }
 
 @keyframes back {
-  0% {transform: translateX(0px)}
-  5% {transform: translateX(-10px)}
-  10% {transform: translateX(0px)}
-  15% {transform: translateX(-10px)}
-  20% {transform: translateX(0px)}
-  100% {transform: translateX(0px)}
+  0% {
+    transform: translateX(0px);
+  }
+  5% {
+    transform: translateX(-10px);
+  }
+  10% {
+    transform: translateX(0px);
+  }
+  15% {
+    transform: translateX(-10px);
+  }
+  20% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }

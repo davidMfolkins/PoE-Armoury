@@ -1,26 +1,29 @@
-import './Register.scss';
-import { Container, Form, Button, Alert } from 'react-bootstrap';
-import axios from 'axios';
-import { useState } from 'react'
+import { useState } from "react";
+import axios from "axios";
+
+import { Container, Form, Button, Alert } from "react-bootstrap";
+import "./Register.scss";
 
 export default function Login(props) {
-
-  const [msg, setMsg] = useState(null)
+  // any issues with logging in
+  const [msg, setMsg] = useState(null);
 
   function handleSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
     const newUser = {
       email: event.target[0].value,
-      password: event.target[1].value
-    }
-    axios.post('http://localhost:3030/users/login', newUser).then((res) => {
-      if (res.status === 200) {
-        console.log(res.data)
-        props.handleCookie(res.data);
-      }
-    }).catch(() => {
-      setMsg('Email or password incorrect')
-    })
+      password: event.target[1].value,
+    };
+    axios
+      .post("http://localhost:3030/users/login", newUser)
+      .then((res) => {
+        if (res.status === 200) {
+          props.handleCookie(res.data);
+        }
+      })
+      .catch(() => {
+        setMsg("Email or password incorrect");
+      });
   }
 
   return (
@@ -41,14 +44,14 @@ export default function Login(props) {
             </Form.Group>
             <div className="button-container">
               <div>
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-            </div>
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+              </div>
             </div>
           </Form>
         </div>
       </div>
     </Container>
-  )
+  );
 }

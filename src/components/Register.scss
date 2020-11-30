@@ -1,6 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
-@import'Helper';
-@import 'Mixins';
+@import "Helper";
+@import "Mixins";
 
 .login-container {
   margin: auto;
@@ -13,7 +13,6 @@
   border-top-right-radius: 1em;
   button {
     @include button;
-   
   }
 }
 .button-container {
@@ -23,10 +22,8 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: auto!important;
-
+    margin: auto !important;
   }
-
 }
 .login-form-container {
   width: 75%;
@@ -36,32 +33,4 @@
   font-family: $title-font;
   text-align: center;
   font-size: 40px;
-}
-
-#loginButton {
-  background-color: #343a40;
-  color: $white;
-  border: 1px solid rgb(78, 78, 78);
-  border-radius: 0.1em;
-  font-size: 1em;
-  &:focus {
-    outline: none;
-  }
-  &:hover {
-    border: 1px solid $yellow;
-  }
-}
-
-#registerButton {
-  background-color: #343a40;
-  color: $white;
-  border: 1px solid rgb(78, 78, 78);
-  border-radius: 0.1em;
-  font-size: 1em;
-  &:focus {
-    outline: none;
-  }
-  &:hover {
-    border: 1px solid $yellow;
-  }
 }

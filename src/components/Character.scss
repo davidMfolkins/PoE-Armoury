@@ -3,17 +3,7 @@
 
 @import'Helper';
 
-body {
-  font-family: 'Noto Sans KR', sans-serif;
-}
-
-@media only screen and (max-width: 600px) { 
-
-  .character-name {
-    font-size: 21px;
-  }
-}
-.poe-container {
+.inventory-wrapper {
   justify-content: center;
 }
 
@@ -33,18 +23,15 @@ body {
   font-family: $title-font;
 }
 
-.like-button:hover {
-  color:rgb(252, 149, 149);
-}
-
-.liked {
-  color: red;
-  
-}
-
 .accountLink {
   color: $lightyellow;
 }
 .accountLink:hover {
   color: $lightyellow;
+}
+
+@media only screen and (max-width: 600px) { 
+  .character-name {
+    font-size: 21px;
+  }
 }

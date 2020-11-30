@@ -1,88 +1,17 @@
 @import "~bootstrap/scss/bootstrap";
-@import 'Helper';
-
-.icon {
-  height: 100%;
-  width: 100%;
-}
+@import "Helper";
 
 .gem {
-  // position: absolute;
-  border: 1px solid rgba(0,0,0,0.7);
+  border: 1px solid rgba(0, 0, 0, 0.7);
   border-radius: 5px;
   max-width: 50px;
   background-color: $black-transparent;
-  // transition: transform 0.2s;
 }
 
 .activeGem {
   @extend .gem;
-  // transform: rotate(45deg);
 }
 .support {
   @extend .gem;
   border-radius: 50%;
 }
-
-.item:hover {
-  transform: scale(1.1);
-  
-}
-
-.item-title {
-  text-align: center;
-}
-
-.hidden {
-  display: none;
-}
-
-.prop-text {
-  margin: 3px;
-}
-.implicit-mod {
-  @extend .prop-text;
-  color: #7c90df;
-  
-}
-.explicit-mod {
-  @extend .prop-text;
-  color: #7c90df;
-}
-
-.corrupted {
-  color: #cc1a1a;
-}
-
-.property {
-  @extend .prop-text;
-  color: #a5a5a5;
-  .simple {
-    color: white
-  }
-  .augmented {
-    color:rgb(127,127,238)
-  }
-}
-
-.requirement {
-  @extend .prop-text;
-  color: #a5a5a5;
-  .simple {
-    color: white
-  }
-}
-
-.item-pills {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.item-separator {
-  border-bottom: 1px solid rgb(97, 97, 97);
-  margin: 3px;
-}
-.popover-body {
-  background: rgba(0,0,0, .8)
- }
-

@@ -1,72 +1,24 @@
 @import "~bootstrap/scss/bootstrap";
-@import'Helper';
+@import "Helper";
 
 .accountPage {
   background-color: $black-transparent;
   border-radius: 10px;
   margin-bottom: 10px;
 }
+
 .accountContainer {
   padding: 10px 0;
   width: 80%;
   margin: auto;
   font-size: 20px;
   text-align: center;
-  
 }
-
 .accountName {
   font-family: $title-font;
   text-align: center;
   font-size: 50px;
-  color:  $white;
+  color: $white;
   border-bottom: 2px solid $yellow;
   margin-bottom: 10px;
 }
-
-#accountTable {
-  border: 2px solid $yellow;
-  color: $white;
-}
-.topButtons {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 10%;
-  padding-top: 1%;
-}
-
-#accountList:hover {
-  color: $lightyellow;
-  cursor: pointer;
-}
-
-@media only screen and (max-width: 1024px) {
-  .container {
-    max-width: 2000px!important;
-    padding: unset!important;
-  }
-
-  .accountContainer {
-    width: 100%;
-  }
-  #topButtons {
-    margin-right: 1%;
-  }
-  table, thead, tbody, th, td, tr { 
-		display: block; 
-	}
-	
-	/* Hide table headers (but not display: none;, for accessibility) */
-
-	
-	td { 
-		/* Behave  like a "row" */
-		border: none;
-		border-bottom: 1px solid #eee; 
-		position: relative;
-		padding-left: 50%; 
-	}
-
-}
-
-

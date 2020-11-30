@@ -1,26 +1,30 @@
+import Filter from "./Filter";
+import LadderResponsive from "./LadderResponsive";
+
 import React, { useState, useEffect } from "react";
 
 import "./Ladder.scss";
-import Filter from "./Filter";
-import LikeButton from "./LikeButton";
-import LadderResponsive from "./LadderResponsive";
-import { Table } from "react-bootstrap";
-import { FaTwitch } from "react-icons/fa";
 
+// number of entries in the ladder and amount it increases by in the load more
 const counter = 20;
 
 function Ladder(props) {
+    // the ladder json hardcoded
   const [data, setData] = useState([]);
+    // all the json entries that are saved to DB
   const [filteredData, setFilteredData] = useState(null);
+    // class filter
   const [filter, setFilter] = useState("");
-  const [hasTwitch, sethasTwtich] = useState(false);
+  const [hasTwitch, setHasTwitch] = useState(false);
   const [hardcore, setHardcore] = useState(true);
-  const [visible, setVisible] = useState(counter);
   const [favouriteFilter, setFavouriteFilter] = useState(false);
+    // the number of entries shown, used with Load More button
+  const [visible, setVisible] = useState(counter);
   const [smallScreen, setSmallScreen] = useState(false);
 
   window.addEventListener("resize", () => handleResize());
 
+    // whether the hardcore or softcore ladder is shown
   useEffect(() => {
     if (hardcore) {
       setData(props.hardcore);
@@ -39,7 +43,7 @@ function Ladder(props) {
     }
   }, []);
 
-
+    // filters data according to which filters are currently set
   useEffect(() => {
     if (data) {
       const newArray = data
@@ -79,7 +83,7 @@ function Ladder(props) {
   };
 
   const handleTwitchChange = function (evt) {
-    sethasTwtich(evt.target.checked);
+    setHasTwitch(evt.target.checked);
   };
 
   const handleCharacterChange = function (account, character, id) {

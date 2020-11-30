@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-
-import { Form, FormControl, Accordion, Card } from "react-bootstrap";
+import React from "react";
+import { Form, Accordion, Card } from "react-bootstrap";
 
 import "./Filter.scss";
 
@@ -93,7 +92,6 @@ function Filter(props) {
                       onClick={handleTwitchChange}
                     />
                     <Form.Check.Label>Has Twitch</Form.Check.Label>
-                 
                   </Form.Check>
                 </div>
                 <div className="filter-container">
@@ -105,7 +103,14 @@ function Filter(props) {
                       onClick={handleFavouriteChange}
                     />
                     <Form.Check.Label>Favourited</Form.Check.Label>
-                    {!props.cookies.user && <Form.Control.Feedback type="valid" id="login-for-favourites">Account required</Form.Control.Feedback>}
+                    {!props.cookies.user && (
+                      <Form.Control.Feedback
+                        type="valid"
+                        id="login-for-favourites"
+                      >
+                        Account required
+                      </Form.Control.Feedback>
+                    )}
                   </Form.Check>
                 </div>
               </Form>

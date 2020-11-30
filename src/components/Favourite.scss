@@ -1,4 +1,4 @@
-@import'Helper';
+@import "Helper";
 
 .trash a {
   color: $white;
@@ -6,8 +6,6 @@
     color: rgb(177, 58, 58);
   }
 }
-
-
 
 #deleted {
   animation-name: delete;
@@ -19,6 +17,11 @@
 }
 
 @keyframes delete {
-  0% {opacity: 1; background-color: rgb(177, 58, 58);}
-  100% {opacity: 0}
+  0% {
+    opacity: 1;
+    background-color: rgb(177, 58, 58);
+  }
+  100% {
+    opacity: 0;
+  }
 }

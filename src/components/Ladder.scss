@@ -38,30 +38,8 @@
   width: 80%;
   min-height: 30px;
 }
-
-#ladderList:hover {
-  color: $lightyellow;
-  cursor: pointer;
-}
-
-#classCell {
-  text-align: left;
-  padding-right: unset;
-}
-
 img {
   height: 50px;
-}
-th {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-td {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  vertical-align: middle!important;
 }
 
 #twitch{
@@ -105,13 +83,8 @@ td {
   table, thead, tbody, th, td, tr { 
 		display: block; 
   }
-	
-	/* Hide table headers (but not display: none;, for accessibility) */
-
-
-	
+  
 	td { 
-		/* Behave  like a "row" */
 		border: none;
 		border-bottom: 1px solid #eee; 
 		position: relative;
