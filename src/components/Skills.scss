@@ -1,5 +1,5 @@
 @import "~bootstrap/scss/bootstrap";
-@import'Helper';
+@import "Helper";
 
 .skill-group {
   display: grid;
@@ -25,41 +25,41 @@
 
 .span1 {
   grid-row: span 1;
-  background-image: url('../images/links/LINK_1_F.png');
+  background-image: url("../images/links/LINK_1_F.png");
   background-size: 100%;
   background-repeat: no-repeat;
 }
 .span2 {
   grid-row: span 2;
-  background-image: url('../images/links/LINK_2_F.png');
+  background-image: url("../images/links/LINK_2_F.png");
   background-size: 100% 220%;
   background-repeat: no-repeat;
   background-position-y: 55%;
 }
 .span3 {
   grid-row: span 3;
-  background-image: url('../images/links/LINK_3_F.png');
+  background-image: url("../images/links/LINK_3_F.png");
   background-size: 100% 145%;
   background-repeat: no-repeat;
   background-position-y: 60%;
 }
 .span4 {
   grid-row: span 4;
-  background-image: url('../images/links/LINK_4_F.png');
+  background-image: url("../images/links/LINK_4_F.png");
   background-size: 100% 170%;
   background-repeat: no-repeat;
   background-position-y: 55%;
 }
 .span5 {
   grid-row: span 5;
-  background-image: url('../images/links/LINK_5_F.png');
+  background-image: url("../images/links/LINK_5_F.png");
   background-size: 100% 120%;
   background-repeat: no-repeat;
   background-position-y: 70%;
 }
 .span6 {
   grid-row: span 6;
-  background-image: url('../images/links/LINK_6_F.png');
+  background-image: url("../images/links/LINK_6_F.png");
   background-size: 100% 125%;
   background-repeat: no-repeat;
   background-position-y: 60%;
@@ -69,46 +69,37 @@
   display: flex;
   align-items: center;
 }
-
+.socket {
+  background-image: url("../images/socket.png");
+  background-repeat: no-repeat;
+  background-size: 200px 200px;
+}
 .socketColourR {
+  @extend .socket;
   width: 45px;
   height: 45px;
-  background-image: url('../images/socket.png');
-  background-repeat:no-repeat;
   background-position: 0px -135px;
-  background-size: 200px 200px;
 }
 
 .socketColourG {
+  @extend .socket;
   width: 45px;
   height: 45px;
-  background-image: url('../images/socket.png');
-  background-repeat:no-repeat;
   background-position: -135px -93px;
-  background-size: 200px 200px;
 }
 
 .socketColourB {
+  @extend .socket;
   width: 50px;
   height: 50px;
-  background-image: url('../images/socket.png');
-  background-repeat:no-repeat;
-  background-size: 200px 200px;
 }
 
 .socketColourW {
+  @extend .socket;
   width: 45px;
   height: 45px;
-  background-image: url('../images/socket.png');
-  background-repeat:no-repeat;
   background-position: -45px -135px;
-  background-size: 200px 200px;
 }
-
-
-// .skill-container {
-  
-// }
 
 .gemRow {
   min-height: 6em;
