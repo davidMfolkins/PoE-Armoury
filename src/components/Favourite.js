@@ -32,7 +32,6 @@ export default function Favourite(props) {
     return (
       <tr id="favouriteList" className="d-flex">
         <td
-          id="classCell"
           className="col-3"
           onClick={(e) => {
             e.preventDefault();

@@ -1,4 +1,5 @@
 #ladderTable {
+  background-color: rgba(0, 0, 0, 0.85);
   & > .row {
     margin: unset;
   }
@@ -12,10 +13,10 @@
   }
 }
 
-@media only screen and (max-width: 570px) { 
- #ladderTable {
-   tr > td {
-    justify-content: flex-start;
-   }
- }
+@media only screen and (max-width: 570px) {
+  #ladderTable {
+    tr > td {
+      justify-content: flex-start;
+    }
+  }
 }
