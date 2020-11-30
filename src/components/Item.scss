@@ -1,5 +1,5 @@
 @import "~bootstrap/scss/bootstrap";
-@import 'Helper';
+@import "Helper";
 .icon {
   height: 100%;
   width: 100%;
@@ -12,68 +12,40 @@
   max-width: 100px;
   background-color: $black-transparent;
   transition: transform 0.2s;
-  
-}
-
-@media only screen and (max-width: 600px) {
-  .item {
-    max-width: 55px;
-  }
-  .amulet {
-    max-width: 30px;
-  }
-  .ring {
-    max-width: 30px;
-  }
-  .trinket {
-    max-width: 30px;
-  }
-  .weapon {
-    .icon {
-      max-height: 100px;
-    }
-  }
 }
 
 .unique {
-  box-shadow: 1px 5px 13px 7px rgba(0,0,0,0.3)
+  box-shadow: 1px 5px 13px 7px rgba(0, 0, 0, 0.3);
 }
 .unique:hover {
-  box-shadow: 0 1px 1px rgba(250,108,51,0.12), 
-            0 2px 2px rgba(250,108,51,0.12),
-            0 4px 4px rgba(250,108,51,0.12),
-            0 8px 8px rgba(250,108,51,0.12),
-            0 16px 16px rgba(250,108,51,0.40);
-            z-index: 100;
+  box-shadow: 0 1px 1px rgba(250, 108, 51, 0.12),
+    0 2px 2px rgba(250, 108, 51, 0.12), 0 4px 4px rgba(250, 108, 51, 0.12),
+    0 8px 8px rgba(250, 108, 51, 0.12), 0 16px 16px rgba(250, 108, 51, 0.4);
+  z-index: 100;
 }
 
 .rare {
-  box-shadow: 1px 5px 13px 7px rgba(0,0,0,0.3)
+  box-shadow: 1px 5px 13px 7px rgba(0, 0, 0, 0.3);
 }
 .rare:hover {
-  box-shadow: 0 1px 1px rgba(255, 240, 105,0.12),
-            0 2px 2px rgba(255, 240, 105,0.12),
-            0 4px 4px rgba(255, 240, 105,0.12),
-            0 8px 8px rgba(255, 240, 105,0.12),
-            0 16px 16px rgba(255, 240, 105,0.40);
-            z-index: 100;
+  box-shadow: 0 1px 1px rgba(255, 240, 105, 0.12),
+    0 2px 2px rgba(255, 240, 105, 0.12), 0 4px 4px rgba(255, 240, 105, 0.12),
+    0 8px 8px rgba(255, 240, 105, 0.12), 0 16px 16px rgba(255, 240, 105, 0.4);
+  z-index: 100;
 }
 
 .magic {
-  box-shadow: 1px 5px 13px 7px rgba(0,0,0,0.3)
+  box-shadow: 1px 5px 13px 7px rgba(0, 0, 0, 0.3);
 }
 .magic:hover {
-  box-shadow: 0 1px 1px rgba(127,127,238,0.12),
-            0 2px 2px rgba(127,127,238,0.12),
-            0 4px 4px rgba(127,127,238,0.12),
-            0 8px 8px rgba(127,127,238,0.12),
-            0 16px 16px rgba(127,127,238,0.40);
-            z-index: 100;
+  box-shadow: 0 1px 1px rgba(127, 127, 238, 0.12),
+    0 2px 2px rgba(127, 127, 238, 0.12), 0 4px 4px rgba(127, 127, 238, 0.12),
+    0 8px 8px rgba(127, 127, 238, 0.12), 0 16px 16px rgba(127, 127, 238, 0.4);
+  z-index: 100;
 }
 
 .item:hover {
   transform: scale(1.1);
-  
 }
 
 .item-title {
@@ -93,61 +65,60 @@
 }
 
 .armour {
-  @extend .item; 
+  @extend .item;
   left: 40%;
   top: 30%;
 }
 
 .gloves {
-  @extend .item; 
+  @extend .item;
   left: 15%;
   top: 75%;
-} 
+}
 
 .ring {
-  @extend .item; 
+  @extend .item;
   left: 25%;
   top: 62%;
-  
 }
 .ring2 {
-  @extend .item; 
-  @extend .ring; 
+  @extend .item;
+  @extend .ring;
   left: 65%;
 }
 
 .boots {
-  @extend .item; 
+  @extend .item;
   left: 65%;
   top: 75%;
 }
 
 .offhand {
-  @extend .item; 
+  @extend .item;
   left: 75%;
   top: 25%;
 }
 
 .amulet {
-  @extend .item; 
+  @extend .item;
   left: 62%;
   top: 25%;
 }
 
 .belt {
-  @extend .item; 
+  @extend .item;
   left: 40%;
   top: 75%;
 }
 .weapon {
-  @extend .item; 
+  @extend .item;
   left: 5%;
   top: 25%;
 }
 
 .trinket {
   left: 4%;
-  top:75%;
+  top: 75%;
 }
 
 .hidden {
@@ -188,7 +159,6 @@
 .implicit-mod {
   @extend .prop-text;
   color: #7c90df;
-  
 }
 .explicit-mod {
   @extend .prop-text;
@@ -196,7 +166,7 @@
 }
 
 .fracturedMod {
-  color:  #bb9c5a;
+  color: #bb9c5a;
 }
 
 .crafted-mod {
@@ -213,10 +183,10 @@
   @extend .prop-text;
   color: #a5a5a5;
   .simple {
-    color: white
+    color: white;
   }
   .augmented {
-    color:rgb(127,127,238)
+    color: rgb(127, 127, 238);
   }
 }
 
@@ -224,7 +194,7 @@
   @extend .prop-text;
   color: #a5a5a5;
   .simple {
-    color: white
+    color: white;
   }
 }
 
@@ -240,37 +210,71 @@
 }
 
 #unique {
- .popover-header {
-  background: rgb(12,12,14);
-  background: linear-gradient(0deg,  rgb(75, 27, 8)  0%, rgba(250,108,51,1) 48%, rgb(75, 27, 8) 100%);
-  
-   border: 2px solid rgb(180, 72, 0);
-   color: #591111
- }
+  .popover-header {
+    background: rgb(12, 12, 14);
+    background: linear-gradient(
+      0deg,
+      rgb(75, 27, 8) 0%,
+      rgba(250, 108, 51, 1) 48%,
+      rgb(75, 27, 8) 100%
+    );
+
+    border: 2px solid rgb(180, 72, 0);
+    color: #591111;
+  }
 }
 
 #rare {
   .popover-header {
-   background: rgb(12,12,14);
-   background: linear-gradient(0deg, rgb(88, 75, 45) 0%, rgb(255, 240, 105) 48%, rgb(88, 75, 45) 100%);
-   
-    border: 2px solid rgb(88, 75, 45);
-    color:rgb(88, 75, 45)
-  }
- }
+    background: rgb(12, 12, 14);
+    background: linear-gradient(
+      0deg,
+      rgb(88, 75, 45) 0%,
+      rgb(255, 240, 105) 48%,
+      rgb(88, 75, 45) 100%
+    );
 
- #magic {
+    border: 2px solid rgb(88, 75, 45);
+    color: rgb(88, 75, 45);
+  }
+}
+
+#magic {
   .popover-header {
-   background: rgb(12,12,14);
-   background: linear-gradient(0deg, rgb(24, 32, 58) 0%, rgb(127,127,238) 48%, rgb(24, 32, 58) 100%);
-   
-    border: 2px solid rgb(88, 75, 45);
-    color:rgb(240, 240, 255)
-  }
- }
- 
-.popover-body {
-  background: rgba(0,0,0, .8);
-  text-align: center;
- }
+    background: rgb(12, 12, 14);
+    background: linear-gradient(
+      0deg,
+      rgb(24, 32, 58) 0%,
+      rgb(127, 127, 238) 48%,
+      rgb(24, 32, 58) 100%
+    );
 
+    border: 2px solid rgb(88, 75, 45);
+    color: rgb(240, 240, 255);
+  }
+}
+
+.popover-body {
+  background: rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .item {
+    max-width: 55px;
+  }
+  .amulet {
+    max-width: 30px;
+  }
+  .ring {
+    max-width: 30px;
+  }
+  .trinket {
+    max-width: 30px;
+  }
+  .weapon {
+    .icon {
+      max-height: 100px;
+    }
+  }
+}
