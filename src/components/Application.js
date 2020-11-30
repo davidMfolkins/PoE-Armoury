@@ -215,6 +215,7 @@ export default function Application() {
       <ScrollUpButton />
       <Container style={{ marginTop: "100px" }}>
         <Switch>
+          {/* switches between the different pages of the app */}
           <Route exact path="/">
             {state === "account" && (
               <Account
