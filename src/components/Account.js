@@ -4,12 +4,21 @@ import axios from "axios";
 import "./Account.scss";
 import LadderResponsive from "./LadderResponsive";
 
-function Account(props) {
-  // const accountName = props.account;
-  console.log(props.account);
+/* The Account component recieves the x props and outputs the accounts page
+  - props.account: the name of the account that's being searched, i.e. 'Panini'
+  - props.favourites: an array of favourited characters (from Application)
+  - 
 
-  const [chars, setchars] = useState([]);
+*/
+
+function Account(props) {
+
+    // list of characters associated with account
+  const [chars, setChars] = useState([]);
+    // initial state is the account name as searched by the user
+    // if account exists in PoE, accountName is assigned the account name, correctly formatted
   const [accountName, setAccountName] = useState(props.account);
+    // true: width of screen is less than 480px
   const [smallScreen, setSmallScreen] = useState(false);
 
   window.addEventListener("resize", () => handleResize());
@@ -27,11 +36,12 @@ function Account(props) {
     }
   }, []);
 
+  // get all characters for an account from db
+  // if account is not in DB, our DB will query the PoE servers and search for the account there
   useEffect(() => {
     axios
       .get(`http://localhost:3030/accounts/${props.account}`)
       .then((result) => {
-        console.log(result);
         if (result.data.error) {
           props.setState("loading").props.setLoadingMsg("");
           if (result.data.error.code === 1) {
@@ -40,14 +50,16 @@ function Account(props) {
             props.setLoadingError("Looks like this account is private.");
           }
         } else {
+          // changes the webpage to to the account page
           props.setState("account");
-          // setchars(result.data.data)
+          // assigning the correctly formatted account name to the state
           setAccountName(result.data.accountName);
+          
           const characters = result.data.data.map((entry) => {
             return { character: entry, account: { name: props.account } };
           });
 
-          setchars(characters);
+          setChars(characters);
         }
       });
   }, [props.account]);

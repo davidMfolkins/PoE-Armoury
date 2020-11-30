@@ -5,7 +5,9 @@
   background-color: $black-transparent;
   border-radius: 10px;
   margin-bottom: 10px;
+  
 }
+
 .accountContainer {
   padding: 10px 0;
   width: 80%;
@@ -14,7 +16,6 @@
   text-align: center;
   
 }
-
 .accountName {
   font-family: $title-font;
   text-align: center;
@@ -24,49 +25,27 @@
   margin-bottom: 10px;
 }
 
-#accountTable {
-  border: 2px solid $yellow;
-  color: $white;
-}
-.topButtons {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 10%;
-  padding-top: 1%;
-}
+// @media only screen and (max-width: 1024px) {
+//   .container {
+//     max-width: 2000px!important;
+//     padding: unset!important;
+//   }
 
-#accountList:hover {
-  color: $lightyellow;
-  cursor: pointer;
-}
+//   .accountContainer {
+//     width: 100%;
+//   }
+//   #topButtons {
+//     margin-right: 1%;
+//   }
+//   table, thead, tbody, th, td, tr { 
+// 		display: block; 
+// 	}
 
-@media only screen and (max-width: 1024px) {
-  .container {
-    max-width: 2000px!important;
-    padding: unset!important;
-  }
+// 	td { 
+// 		border: none;
+// 		border-bottom: 1px solid #eee; 
+// 		position: relative;
+// 		padding-left: 50%; 
+// 	}
 
-  .accountContainer {
-    width: 100%;
-  }
-  #topButtons {
-    margin-right: 1%;
-  }
-  table, thead, tbody, th, td, tr { 
-		display: block; 
-	}
-	
-	/* Hide table headers (but not display: none;, for accessibility) */
-
-	
-	td { 
-		/* Behave  like a "row" */
-		border: none;
-		border-bottom: 1px solid #eee; 
-		position: relative;
-		padding-left: 50%; 
-	}
-
-}
-
-
+// }
