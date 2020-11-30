@@ -126,8 +126,7 @@ function Ladder(props) {
         <button
           className="loadMore"
           type="button"
-          onClick={() => setVisible(visible + counter)}
-        >
+          onClick={() => setVisible(visible + counter)}>
           Load More
         </button>
 

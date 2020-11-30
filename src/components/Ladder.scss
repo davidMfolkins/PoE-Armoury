@@ -6,6 +6,7 @@
   background-color: $black-transparent;
   overflow-anchor: none;
   margin: 1em;
+  border-radius: 10px;
   button {
     @include button;
   }
@@ -18,7 +19,6 @@
   margin: auto;
   font-size: 20px;
   text-align: center;
-
 }
 
 .ladderTitle {
@@ -87,6 +87,7 @@ td {
   margin-left: 40%;
   font-size: 25px;
   @include button;
+
 }
 
 @media only screen and (max-width: 1200px) {

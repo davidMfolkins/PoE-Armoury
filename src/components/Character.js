@@ -83,11 +83,11 @@ export default function Character(props) {
   const classIcon = `/icons/${charClass.toLowerCase()}_icon.png`
   return (
 
-    <div className="container character-container char" style={{ borderRadius: '10px' }}>
+    <div className="container character-container char">
       <Row className="p-5 char-title">
         <Col lg="auto" ><img src={classIcon} alt={props.character.class} /></Col>
         <Col lg={9} className="my-auto">
-          <h1 >{props.character.name}</h1>
+          <h1 className="character-name">{props.character.name}</h1>
           <h5 >{props.character.level} | {props.character.class}</h5>
           <h5><a href="/" onClick={(e) => {
             e.preventDefault();
