@@ -1,22 +1,41 @@
-import React from "react";
 import Items from "./Items";
 import Flasks from "./Flasks";
 import LikeButton from "./LikeButton";
-
 import Skills from "./Skills";
+
+import React from "react";
+import { Row, Col } from "react-bootstrap";
+import { useState, useEffect } from "react";
 
 import "./Character.scss";
 import "./Skills.scss";
 
-import { Row, Col } from "react-bootstrap";
-
-import { useState, useEffect } from "react";
-
 const classNames = require("classnames");
 
+/* props:
+  - props.character -- an object containing all character and account data
+  - props.setAccount -- for setting the currently viewed account
+  - props.setState -- for setting current view
+  - props.cookies -- for detecting if user is logged in (cookies.user)
+  - props.favourites -- an array of user's favourites (if logged in)
+  - props.addFavourite -- for adding favourite
+  - props.removeFavourite -- removing favourite
+  - props.setMsg -- sets the message to display for favourting and unfavourting characters
+  - props.msg -- the message to display for favourting and unfavourting characters
+*/
+
 export default function Character(props) {
+  // windowWidth is passed as a prop to Items and Flasks for responsive css
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
+    window.addEventListener("resize", handleResize);
+  });
+
+  // allows us to control the order in which items are served from the JSON to Items.js
   let arrangedItems = [];
   let helm;
   let gloves;
@@ -49,7 +68,7 @@ export default function Character(props) {
       amulet = item;
     }
   }
-
+  // this is the order of items when we give it to Items.js
   arrangedItems = [
     helm,
     gloves,
@@ -73,6 +92,7 @@ export default function Character(props) {
   },
   []);
 
+  // removes the items that Skills.js doesnt need to output
   const gems = filteredArrangedItems.map((item) => {
     if (
       item.inventoryId === "Offhand2" ||
@@ -90,13 +110,6 @@ export default function Character(props) {
         );
       }
     }
-  });
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowWidth(window.innerWidth);
-    }
-    window.addEventListener("resize", handleResize);
   });
 
   const charClass = props.character.class;
