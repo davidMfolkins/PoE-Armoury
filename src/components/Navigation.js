@@ -1,6 +1,6 @@
-import { Navbar, NavDropdown, Nav, Form, FormControl, Button, Container } from 'react-bootstrap'
-import './Navigation.scss'
+import { Navbar, NavDropdown, Nav } from 'react-bootstrap'
 import Searchbar from './Searchbar'
+import './Navigation.scss'
 
 export default function Navigation(props) {
 
@@ -9,10 +9,13 @@ export default function Navigation(props) {
       <Navbar.Brand id="nav-logo" style={{ cursor: 'pointer' }} href="/">PoE Armoury</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        {/* <Nav className="mr-auto">
+
+        {/* //    UNCOMMENT THIS TO SEED DB AS PER README
+        <Nav className="mr-auto">
           <Nav.Link className="mx-3 my-2" onClick={() => props.setGrab(!props.grab)}>Seed</Nav.Link>
 
         </Nav> */}
+
         <Nav className="m-auto">
           <div id="search-container">
           <Searchbar id="poe-search" getCharacter={props.getCharacter} setState={props.setState} setAccount={props.setAccount} state={props.state} />
