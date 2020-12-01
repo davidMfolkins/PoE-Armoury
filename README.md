@@ -44,6 +44,6 @@ A character database for the video game Path of Exile. Users can search characte
 - React Router
 - React Cookie
 - Axios
-- CORS
+- [CORS](https://expressjs.com/en/resources/middleware/cors.html)
 - Bcrypt
-- Circular Structure Stringify
+- [Circular Structure Stringify](https://www.npmjs.com/package/circular-structure-stringify)
