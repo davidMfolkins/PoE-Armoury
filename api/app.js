@@ -1,10 +1,8 @@
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
-const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const cors = require("cors");
-const cookieSession = require("cookie-session");
 const indexRouter = require("./routes/index");
 const userRoutes = require("./routes/users");
 const seedRoutes = require("./routes/seeds");
@@ -31,16 +29,10 @@ app.set("view engine", "jade");
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 
-app.use(
-  cookieSession({
-    name: "session",
-    keys: ["key1"],
-  })
-);
+
 
 const userRouter = express.Router();
 
